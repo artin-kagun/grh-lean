@@ -9,8 +9,9 @@ Levent Alpöge と Claude による形式証明を、Luke Sernau らが整理し
 PDF は主定理、証明の概説、詳細な証明、底本との対応表の順に読めます。
 同じ構成の [英語PDF](grh-en.pdf) も収録しています。
 
-局所テータ核、二次モーメントの局所密度、合同による射影の分母などは、
-必要な仮定と結論を本文に示して底本の結果を引用しています。
+補助素数の存在、テータ微分の整除性と付値を達成する係数、ポアンカレ級数の局所二次モーメント、
+補助捻りと射影分母の評価については、可読版の証明の途中の式も本文で追えます。
+Weil 表現の構成や局所軌道の Fourier 評価など、証明で用いる補助定理は適用箇所に出典を示しました。
 本文の L で始まる参照番号から、巻末の対応表と Lean の該当行を開けます。
 読解のための注記は青字で「補足」と表示しています。
 
@@ -27,5 +28,10 @@ LuaLaTeX と latexmk を使います。日本語版には LuaTeX-ja と Harano A
 ~~~sh
 output="$PWD/.tmp/build"
 mkdir -p "$output"
-TMPDIR="$output" latexmk -lualatex -outdir="$output" -halt-on-error -interaction=nonstopmode grh-ja.tex grh-en.tex
+cp grh-ja.tex grh-en.tex lean-links.tex lean-correspondence.tex overview-sources.tex "$output/"
+cp -R sections sections-en "$output/"
+(
+  cd "$output"
+  TMPDIR="$output" latexmk -lualatex -halt-on-error -interaction=nonstopmode grh-ja.tex grh-en.tex
+)
 ~~~

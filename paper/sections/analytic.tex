@@ -234,6 +234,91 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 
 \subsection{固定法に対する素数定理}
 
+\begin{lemma}[対数微分の一様評価]\label{lem:uniform-log-derivative}
+\(\chi\) を法 \(Q\) のディリクレ指標、\(\mathcal L\ge10^{10}\)、\(Q\le e^{\mathcal L}\) とする。
+\(\delta_\chi\) を主指標の場合は \(1\)、それ以外では \(0\) とし、
+\(f_\chi(s)=L^\circ(s,\chi)/s^{\delta_\chi}\) とおく。
+\(\chi^2\) が主指標の場合には、\(|z-1|\le1/\mathcal L\) で
+\(|f_\chi(z)|\ge1/\mathcal L\) と仮定する。
+このとき \(\RePart s\ge1-\mathcal L^{-25}\)、\(|s|\le e^{\mathcal L}\) で
+\begin{equation}\label{eq:uniform-log-derivative}
+  L^\circ(s,\chi)\ne0,\qquad
+  \left|\frac{(L^\circ)'(s,\chi)}{L^\circ(s,\chi)}\right|\le2\mathcal L^{25}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\(\kappa_\chi=Q^{-1}\sum_{v\bmod Q}\chi(v)\) とし、
+\(r_\chi(t)=\sum_{1\le n\le t}\chi(n)-\kappa_\chi t\) とおく。
+指標の周期ごとの寄与を差し引くと、長さ \(Q\) 未満の端数の和だけが残る。
+各項の絶対値は \(2\) 以下で、\(t-\lfloor t\rfloor\) に対応する誤差は \(1\) 以下なので、
+\(|r_\chi(t)|\le2Q\) となる。部分和公式と正則接続により
+\[
+ f_\chi(s)=\kappa_\chi+(s-\delta_\chi)
+            \int_1^\infty r_\chi(t)t^{-s-1}\,dt
+ \qquad(\RePart s>0).
+\]
+実際、\(\RePart s>1\) では \(L(s,\chi)\) は積分の \(s\) 倍と
+\(s\kappa_\chi/(s-1)\) の和である。非主指標では \(\kappa_\chi=0\) であり、
+主指標では \((s-1)/s\) を掛けて極を除く。
+\(\RePart s\ge1/2\) ならば \(|s-\delta_\chi|\le|s|\) なので
+\(|f_\chi(s)|\le 1+4Q|s|\) が従う。
+
+\(\RePart s\ge1-1/\mathcal L\)、\(|s|\le3e^{\mathcal L}\) とし、
+右境界が \(\RePart s+2/\mathcal L\)、幅が \(1/3\) の縦帯で
+\(g(z)=f_\chi(z)/(z-s+2)\) を考える。帯の左端でも
+\(|z-s+2|\ge1\) であり、\(|z|\le4e^{\mathcal L}|z-s+2|\) となる。
+したがって上の部分和評価から帯全体で \(|g(z)|\le e^{3\mathcal L}\) を得る。
+右境界は \(\RePart z\ge1+1/\mathcal L\) にあり、
+ディリクレ級数を \(\zeta(\RePart z)\) で抑えると \(|g(z)|\le1+\mathcal L\)。
+三線定理で左境界の重みは \(6/\mathcal L\) なので
+\[
+ |f_\chi(s)|=2|g(s)|\le2e^{18}(1+\mathcal L)\le\mathcal L^2.
+\]
+\(\RePart z\ge 1-1/(2\mathcal L)\)、\(|z|\le2e^\mathcal L\) では、
+半径 \(1/(2\mathcal L)\) の円にこの評価を使うと
+\(|f_\chi'(z)|\le2\mathcal L^3\) である。
+\leansrc{Lib/Analytic/PrimeNumberTheorem/LFunctionGrowth}{部分和、三線定理および導関数の評価}。
+
+次に \(\eta=\mathcal L^{-25}\) とし、\(v=\sigma+it\) で
+\(\sigma\ge1+\eta\)、\(|v|\le3e^\mathcal L/2\) とする。
+Euler 積の対数を展開すると、\(p\nmid Q\) の各素数冪の係数に
+\(3+4\cos\theta+\cos(2\theta)=2(1+\cos\theta)^2\ge0\) が掛かる。
+ここで \(\theta\) は \(\chi(p)^j p^{-ijt}\) の偏角である。従って
+\[
+ 1\le |L(\sigma,1_Q)|^3 |L(v,\chi)|^4 |L(\sigma+2it,\chi^2)| .
+\]
+\(|L(\sigma,1_Q)|\le2/\eta\) は絶対収束域でのゼータ関数による上界である。
+\(\chi^2\ne1_Q\) の場合、または \(|v-1|\ge1/\mathcal L\) の場合には、
+後二つをそれぞれ \(2\mathcal L|f_\chi(v)|\)、\(2\mathcal L^3\) で抑えられる。
+主指標のときに戻す因子は \(|v|/|v-1|\le1+\mathcal L\) であり、
+\(|\sigma+2it-1|\ge|v-1|\)、\(|\sigma+2it|\le3e^\mathcal L\) なので
+二番目の点にも同じ評価が使える。この結果
+\(\eta^3\le256\mathcal L^7|f_\chi(v)|^4\) となり、
+\(256\cdot12^4\le\mathcal L^6\) から
+\(|f_\chi(v)|\ge12/\mathcal L^{22}\) を得る。
+\(\chi^2=1_Q\) で \(|v-1|<1/\mathcal L\) の場合も、
+仮定による下界 \(1/\mathcal L\) は \(12/\mathcal L^{22}\) 以上である。
+
+補題の領域内の \(s\) について \(v=s+2\eta\) とすると、上の下界が \(v\) で成り立つ。
+線分 \([s,v]\) 上では導関数が \(2\mathcal L^3\) 以下なので、
+\[
+ |f_\chi(v)-f_\chi(s)|\le4/\mathcal L^{22},
+ \qquad |f_\chi(s)|\ge8/\mathcal L^{22}.
+\]
+よって \(|f_\chi'(s)/f_\chi(s)|\le\mathcal L^{25}/4\) となる。
+\(L^\circ(s,\chi)=s^{\delta_\chi}f_\chi(s)\) に戻したとき、
+対数微分に加わる \(\delta_\chi/s\) の絶対値は \(2\) 以下であるから
+\eqref{eq:uniform-log-derivative} が従う。
+\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{零点のない領域の証明}。
+\end{proof}
+
+法 \(Q\) が固定されていれば、すべての指標について \(f_\chi(1)\ne0\) であり、
+連続性から、十分大きな \(\mathcal L\) で補題の \(1\) の近くでの仮定が満たされる。
+主指標では \(f_\chi(1)\) は極の留数であり、非主指標では
+Dirichlet の \(L(1,\chi)\ne0\) を使う。固定法の零点のない領域については
+\cite[第11章]{mv} も参照されたい。\leanref{eventually_norm_logDeriv_entireL_le}
+
 \begin{lemma}\label{lem:fixed-modulus-pnt}
 固定した奇素数 \(d\) と \((d,q)=1\) なる正整数 \(q\) について、
 任意の整数 \(B\ge0\) に対し十分大きな \(y\) で
@@ -255,14 +340,14 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 区間を長さ \(1\) 以下に分割すれば \(U(v)=R_q(e^v)\) は
 \(v\ge0\) で Lipschitz 定数 \(26\) を持つ。
 
-固定法の零点のない領域については \cite[第11章]{mv} も参照されたい。
-ここでは底本の零点のない領域と対数微分の評価を
-\(\psi\) と \(\psi\chi_d\) の有限族に同時に適用する。
-\(F(s)=G_q(s)/s\) は、十分大きい \(\mathcal L\) について
-\(\RePart s\ge1-\mathcal L^{-26},\ |s|\le e^{\mathcal L}\)
-で正則で \(|F(s)|\le\mathcal L^{26}\) である。
-これは各対数微分の評価に現れる指数 \(25\) を一つ増やして、
-指標の個数と \(1/|s|\le2\) を吸収したものである。\leanref{eventually_norm_logDeriv_entireL_le}\leanref{eventually_norm_logDerivMean_div_le}
+補題 \ref{lem:uniform-log-derivative} を、固定した法 \(q,qd\) の指標
+\(\psi,\psi\chi_d\) の有限族に同時に適用する。
+\eqref{eq:log-derivative} の平均では各差の絶対値が \(4\mathcal L^{25}\) 以下であり、
+\(1/|s|\le2\) である。従って、十分大きな \(\mathcal L\) について
+\(F(s)=G_q(s)/s\) は
+\(\RePart s\ge1-\mathcal L^{-26}\)、\(|s|\le e^{\mathcal L}\) で正則で、
+\(|F(s)|\le 2(4\mathcal L^{25}+1)\le\mathcal L^{26}\) を満たす。
+\leanref{eventually_norm_logDerivMean_div_le}
 
 \(u\) を大きく取り、
 \(k=\lfloor u^{2B+4}\rfloor,\ H=(k+1)/u,\ \mathcal L=(2B+5)\log u\)、

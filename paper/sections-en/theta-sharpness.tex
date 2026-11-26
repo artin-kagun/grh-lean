@@ -1,0 +1,215 @@
+\paragraph{A theta coefficient attaining the valuation bound}
+Write \(v_\ell\) for the valuation at \(\iota\) normalized by \(v_\ell(\ell)=1\).
+The degrees \(l_\tau=c(\tau)-u\) satisfy
+\(\kappa(\tau)\le l_\tau\le\kappa(\tau)+x^{42}\). Write \(l!=\prod_\tau l_\tau!\).
+We first produce a coefficient of a theta kernel of rank \(12\) with valuation at
+most \(F(\ell)+v_\ell(t)\). The coefficient includes \(l!\) and the integral
+vacuum normalization. The scalar \(t\ne0\) is independent of the finite place
+and all its conjugates have absolute value at most \(\exp(fmb/k)\).
+
+Let \(\alpha_{\rm W}\) be the idele in the Weil representation and
+\(\mathfrak a_0=E\cap\alpha_{\rm W}\widehat{\mathcal O}_E\) the associated lattice.
+Take vectors \(w_i\) in \(\mathfrak a_0\) with multiplicities \(c_i\ge6fb\)
+so that \(\sum_i c_i\tau(w_i)\overline{\sigma(w_i)}=M\delta_{\tau\sigma}\)
+at all embeddings \(\tau,\sigma\).
+We use the \leansrc{New/Derivatives/Vacuum/ShortVectors}{construction of the frame in the lattice},
+which also gives, at each \(\ell\), a linear form whose coefficients are all units.
+Denote by \(\mu_i\) the linear form with coefficients the conjugate embeddings
+of \(w_i\) multiplied by the period normalization, and put
+\(\Theta=\prod_i\theta(\mu_i z)^{c_i}\). Let \(H\) range over integral series in
+the \(y(\mu_i z)\) of Section~\ref{sec:upper-bound}.
+Write \(V_j(\nu)\le r\) to mean that in a product
+\(\prod_{c=1}^j(H_c\Theta)(z_c)\) in \(j\) independent copies of the variables,
+one can choose a coefficient of valuation at most \(r\) with combined multidegree \(\nu\).
+
+First choose six \(\delta_c\in\mathbb Z_\ell\) with
+\(\delta_0=1\) and \(\sum_c\delta_c^2=0\). Extend the four-square theorem to
+\(\mathbb Z_\ell\) by compactness and write \(-1\) as a sum of four squares.
+These four entries together with \(1,0\) give the required six.
+With \(g=-\log\theta\), the expression \(\exp(\delta^2g(z)-g(\delta z))\)
+is an integral series in \(y(z)\). This follows from the quotient identity
+for the theta function under integer multiplication by taking coefficientwise
+limits for \(\delta\in\mathbb Z_\ell\). Thus \(\prod_c\Theta(\delta_c z)\)
+is a unit in the ring of \(H\)'s. Its constant term is \(1\), so its inverse
+expands in the same ring.
+\leansrc{New/Derivatives/Sharpness/LeastValuation}{The unit from the six theta factors}.
+
+At every order \(N\), there is an integral series in \(y\) with
+\(N\)-th derivative at zero of absolute value at least \(\ell^{-\gamma_\ell N}\).
+Here \(\gamma_\ell=1/(\ell-1)-\rho_\ell\) at nonsplit primes and
+\(\gamma_\ell=0\) at split primes. Indeed, let \(D_N\) be the largest absolute
+value of the \(N\)-th derivatives of the \(y^j\). Since \(y(0)=0\), only
+\(j\le N\) need be considered. The formal group law writes \(y(z_1+z_2)^j\)
+as an integral series in \(y(z_1),y(z_2)\). Taking \(m_1,m_2\) derivatives
+in the respective variables gives \(D_{m_1+m_2}\le D_{m_1}D_{m_2}\).
+Let \(q_\ell\) be the norm of a prime of \(K\) above \(\ell\).
+At \(N=q_\ell^e\), the \(N\)-th coefficient of the scaled formal parameter
+is \(1\) in the residue field. Section~\ref{sec:upper-bound} gives the scaling
+for nonsplit primes. For a split prime the same congruence holds with
+\(q_\ell=\ell\), \(\rho_\ell=1/(\ell-1)\).
+\leansrc{Lib/CM/FormalGroup/FormalParameter}{The formal parameter congruence at every prime}.
+Undoing the scaling and multiplying by \(N!\), with
+\(v_\ell(N!)\le(N-1)/(\ell-1)\), gives \(D_N\ge\ell^{-\gamma_\ell(N-1)}\).
+Repeated first differentiation using the formal group law gives \(D_j\le1\).
+For a fixed \(n\), write \(N=n\lfloor N/n\rfloor+(N\bmod n)\) and let
+\(N=q_\ell^e\) tend to infinity. Submultiplicativity then yields
+\(D_n\ge\ell^{-\gamma_\ell n}\).
+\leansrc{New/Derivatives/Sharpness/OneCurve}{Derivative bound in one variable}.
+
+Substitute the form \(\mu_i\) with unit coefficients in a series realizing
+the bound for order \(|\nu|\). The multinomial expansion gives a coefficient
+at \(\nu\) of valuation at most \(\gamma_\ell|\nu|-v_\ell(\nu!)\).
+Multiply the first of the six factors by this series and by
+\((\prod_c\Theta(\delta_c z))^{-1}\). After \(z_c=\delta_c z\), the product
+equals the chosen series. The substitution is integral, so there is a
+coefficient of at least this absolute value before substitution. Hence
+\(V_6(\nu)\le\gamma_\ell|\nu|-v_\ell(\nu!)\).
+At an inert prime the frame divided by \(\bar\pi_M\) resolves the identity.
+It expresses a unit times each \(z_\tau\) as an integral linear combination
+of the \(\mu_i(z)\). Replace the \(\mu_i(z)\) by \(y(\mu_i z)\). Each resulting
+series has lowest term a unit times \(z_\tau\), so products give unit
+coefficients in arbitrary multidegrees. With \(\Theta(0)=1\), this gives
+\(V_6(\nu)\le0\) at inert primes.
+
+\paragraph{Selection of couplings and factorials}
+At a nonsplit prime write \(\tau_e=(-\ell^e)\tau\), with \(I_\ell\) as in
+Section~\ref{sec:upper-bound}. First consider an inert prime. Select couplings
+\(z_\tau^{\ell^{e_\tau}}z_{\tau_{e_\tau}}\) with \(e_\tau\) odd, using each
+\(j_\tau\) times. Let \(\nu',\nu''\) be the multidegrees of the first and second
+factors. In the choices below, a coupling from a selected starting place to
+a selected endpoint with exponent \(e\le e_\tau\) must be the chosen coupling
+for that endpoint. Use the normal form \(\Theta(\varpi z)=W\exp(C\Xi)\)
+from Section~\ref{sec:upper-bound}, where \(C=\varpi^{\ell+1}/\ell\) has
+\(v_\ell(C)=1/(\ell-1)-1<0\). Insert \(z'+z''\) in the first factor and
+\(\delta_c z'\) in the other five and call the product \(G\).
+At \(z''=0\) it is the integral unit above. Differentiate \(|j|=\sum j_\tau\)
+times in the endpoint variables of \(z''\) and divide by \(C^{|j|}\).
+Modulo the maximal ideal the result at \(z''=0\) is
+\(\prod_\tau(\partial_{\tau_{e_\tau}}\Xi)^{j_\tau}\) times the unit.
+Each differentiation on the exponential contributes \(C\); the terms
+with fewer such factors have a factor \(1/C\) after division and vanish
+in the residue field. In characteristic \(\ell\) the derivative of an
+\(\ell\)-th power vanishes. Setting the \(z'\) at unselected starts to zero,
+the lowest term of each \(\partial_{\tau_{e_\tau}}\Xi\) is a unit times
+\(z_\tau'{}^{\ell^{e_\tau}}\). The coefficient at \((z')^{\nu'}\)
+is therefore nonzero after reduction. Dividing by \(\nu''!\) and
+undoing the scaling by \(\varpi\) gives
+\begin{equation}\label{eq:attain-coupling}
+ V_6(\nu'+\nu'')
+ \le \left(\frac1{\ell-1}-1\right)|j|
+      -\rho_\ell|\nu'+\nu''|-v_\ell(\nu''!).
+\end{equation}
+The right side is at most \(-|j|\) since
+\((\ell+1)|j|\le|\nu'+\nu''|\). Also
+\(v_\ell(\nu'!)\le|\nu'|/(\ell-1)\) and \(|\nu''|=|j|\), so
+\(v_\ell(\nu'!\nu''!)+V_6(\nu'+\nu'')\le\gamma_\ell|\nu'+\nu''|-|j|\).
+\leansrc{New/Derivatives/Sharpness/Couplings}{Differentiation at endpoints and the lowest term}.
+
+Put \(L=\lceil6b/k\rceil\), \(l_\tau^-=\max(l_\tau-L,0)\), and
+\(B_\tau=(l_\tau^-+1)\cdots(l_\tau^-+L)\).
+Then \(L!\mid B_\tau\) and
+\(v_\ell(l_\tau!)\le v_\ell(l_\tau^-!)+v_\ell(B_\tau)\).
+The bound we need is
+\begin{equation}\label{eq:attain-twelve}
+ v_\ell(l!)+V_{12}(l)\le F(\ell)+2\sum_\tau v_\ell(B_\tau).
+\end{equation}
+At split primes \(F(\ell)=0\), and the bound follows from
+\(V_6(l)\le-v_\ell(l!)\) by adjoining six factors of degree \(0\).
+
+A nonsplit \(\ell>k\) is inert since \(\ell\ne d\).
+Use \(e_\tau=1\) for all \(\tau\), and set
+\(i_\tau=\lfloor l_\tau^-/\ell\rfloor\) and \(j_\tau=\min(i_\tau,l_{\tau_1})\).
+The map \(\tau\mapsto\tau_1\) is bijective. At each coordinate the
+starting degree is at most \(l_\tau^-\) and the incoming degree is at most
+\(\min(L,l_\tau)\); their sum is at most \(l_\tau\).
+Use the first six factors for the couplings and the remaining six for
+the remaining degree at valuation at most \(0\). Then \(V_{12}(l)\le-\sum j_\tau\).
+Since \(i_\tau\le L\), the factorial recursion gives
+\(v_\ell(l_\tau!)\le i_\tau+2v_\ell(B_\tau)\).
+Moreover \(L\ge x^{42}\), so \(i_\tau\le\kappa(\tau)/\ell\) and
+\[
+ i_\tau-j_\tau\le
+   \bigl(\kappa(\tau)/\ell-\kappa(\tau_1)\bigr)_+ .
+\]
+The right side is the term of \(F(\ell)\) at \(\tau,e=1\).
+
+At nonsplit \(\ell\le k\), use pairs with \(e\in I_\ell\), \(2e<l_0\), and both
+\(\tau,\tau_e\) in \(\Phi_b\). If \(\ell=d\), then \(d\equiv q_0/2-1\pmod{q_0}\) and
+\(d^2\equiv1\pmod{q_0}\). Thus \(-d^e\) is never \(1\) modulo \(q_0\),
+and there are no such pairs. In the inert case sparsity makes the endpoints and starting places of
+distinct pairs disjoint. Two outgoing pairs would give exponents \(0,e,e'\)
+in the forbidden relation. Two incoming pairs give \(0,e-e',e\)
+from the start of the pair with larger exponent \(e\).
+For the end of one pair that starts another, use \(0,e,e+e'\).
+A nontrivial return to the same place is ruled out by the order bound in
+Section~\ref{sec:data}. We can therefore take
+\(j_\tau=\lfloor l_\tau/\ell^{e_\tau}\rfloor\).
+The starting degrees are at most \(l_\tau\), and the incoming degree
+is at most \(2b/2\le l_{\tau_e}\). Put \(\eta=l-\nu'-\nu''\).
+Apply \eqref{eq:attain-coupling} and
+\(V_6(\eta)\le\gamma_\ell|\eta|-v_\ell(\eta!)\).
+By Legendre's formula, the valuation of the multinomial coefficient
+for the three parts is at most \(3f(\log b+2)\). Hence
+\[
+ v_\ell(l!)+V_{12}(l)\le
+   \gamma_\ell |l|-\sum_\tau j_\tau+3f(\log b+2).
+\]
+
+In subtracting \(F(\ell)\), the difference between
+\(\gamma_\ell\kappa(\tau)\) and the term of \(F(\ell)\) at \(\tau\) is
+given by
+\[
+ v_\ell(\pi_\ell)\sum_{e\in I_\ell}\min\!\left(\frac{\kappa(\tau)}{\ell^e},\kappa(\tau_e)\right) .
+\]
+The chosen pair contributes at most \(j_\tau+1\).
+For other \(2e<l_0\), one weight is \(a/x_1\), so the term is at most \(a/x_1\).
+For \(2e\ge l_0\), summing the geometric series with
+\(\lceil l_0/2\rceil-1\ge s\) and \(k\le2^s\) gives at most \(2b/(k\ell)\).
+The errors per place after subtracting \(j_\tau\) are therefore bounded by
+\[
+ 3(\log b+2)+x^{42}+1+l_0 a/x_1+2b/(k\ell)
+ \le 3b/(k\ell)\le L/\ell-1\le v_\ell(B_\tau).
+\]
+For the first inequality the scales in Section~\ref{sec:data} give
+\(3(\log b+2)+x^{42}+1\le a/x_1\) and
+\((l_0+1)a/x_1\le b/(k\ell)\). The last counts multiples of \(\ell\)
+in \(L\) consecutive integers. This proves \eqref{eq:attain-twelve}
+at every prime.
+\leansrc{New/Derivatives/Sharpness/Cases}{The factorial comparison in the three cases}.
+
+\paragraph{Transfer to a coefficient of the theta kernel}
+To extract the coefficient in \eqref{eq:attain-twelve}, the ultrametric
+inequality lets us take each \(H_c\) to be a monomial in the \(y(\mu_i z)\)
+of total degree at most \(|l|\). Each exponent \(e_{ci}\) satisfies
+\(3e_{ci}\le3|l|\le6fb\le c_i\), so
+\(y^{e_{ci}}\theta^{c_i}=(y\theta^3)^{e_{ci}}\theta^{c_i-3e_{ci}}\)
+is a product of theta sections. The frame identity makes the twelvefold
+product the theta series of a vector \(U\) in the Heisenberg model on
+adelic \(12\times1\) matrices. Its finite values are integral, and it
+is invariant under signed translations by \(\pi_M\mathfrak a_0^{12}\).
+\leansrc{New/Derivatives/Sharpness/BoundAttained}{Transfer from theta sections to the Heisenberg model}.
+
+Let \(I_{y_0}\) be the vacuum with indicator of the residue class \(y_0\)
+modulo \((\pi_M)\) in its finite part.
+Fourier inversion on the finite group expresses \(M^{12f}U\) as a sum
+of translates of the vacuum. The coefficients \(a_j\) come from finite
+sums of values of \(U\) weighted by roots of unity. More precisely,
+for any finite value \(v_0\) of the vacuum, \(a_jv_0\) is integral.
+Each translate is a sum of the \(I_{y_0}\) with roots of unity as
+coefficients. For the linear map \(\Lambda\) taking a coefficient,
+the ultrametric inequality thus gives some \(y_0\) for which
+\(|\Lambda(I_{y_0})|_\iota\ge|M^{12f}v_0\Lambda(U)|_\iota\).
+Include the integral vacuum normalization in \(\Lambda\), and fix a nonzero
+value \(v_{\rm int}\) of the integral vacuum. By \eqref{eq:attain-twelve},
+with
+\[
+ t=M^{12f}v_{\rm int}\prod_\tau B_\tau^2 ,
+\]
+some normalized coefficient of \(I_{y_0}\), multiplied by \(l!\), has
+valuation at most \(F(\ell)+v_\ell(t)\).
+Since \(B_\tau\le(2b+L)^L\) and all conjugates of \(v_{\rm int}\) have
+modulus at most \(\exp(12C_{q_0,d}q_1^2)\), the bound
+\(12f\log M+2fL\log(2b+L)+12C_{q_0,d}q_1^2\le fmb/k\) gives the
+required bound on the conjugates of \(t\). The choice is independent
+of \(\iota\).
+\leansrc{New/Derivatives/Sharpness/BoundAttained}{Indicator coefficients and the bounds for conjugates}.

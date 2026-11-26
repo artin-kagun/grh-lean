@@ -63,6 +63,107 @@
 
 \subsection{許容データの選択}
 
+\begin{lemma}[対数区間の素数]\label{lem:log-window-prime}
+\(J\) を \(4\) の正の倍数、\(A\) を固定した正整数とする。
+十分大きな \(W\) に対し、整数 \(j\ge2\) と実数 \(U\) が
+\(J^j\le W^A\)、\(W\le U\le W^A\) を満たすならば、
+\[
+ p\equiv1\pmod{J^j},\qquad U\le\log p\le U+W
+\]
+を満たす素数 \(p\) が存在する。
+\end{lemma}
+
+\begin{proof}
+\(X=\sqrt W\)、\(Q=J^j\) とおく。
+まず、法 \(Q\) の指標 \(\chi\) の二乗が主指標なら、
+\(\chi\) は法 \(J^2\) の指標から誘導されることを示す。
+法 \(Q\) の単元 \(u\) が法 \(J^2\) で \(1\) に合同なら、
+\(J=4J'\) として \(u=1-J^2v\) と書ける。
+環 \(\mathbb Z/Q\mathbb Z\) で \(JJ'v\) は冪零である。
+多項式 \(P(C)=C^2+C+JJ'v\) に対し、\(C=0\) から Newton の反復を行う。
+\(C\) がイデアル \((J)\) に属していれば \(1+2C\) は単元であり、
+次の近似 \(C_1=C-P(C)/(1+2C)\) の誤差は
+\(P(C_1)=(P(C)/(1+2C))^2\) となる。
+誤差が属する \((J)\) の冪の指数は反復ごとに倍になる。
+\((J)^j=0\) なので、有限回で \(P(C)=0\) となる。
+すると \((1+2C)^2=1+4(C+C^2)=u\) であり、\(\chi(u)=1\) が従う。
+従って \(\chi\) は法 \(J^2\) に下りる。
+二つの法が同じ素因数を持つことから、誘導で Euler 因子は増減せず、
+\(f_\chi\) は法 \(J^2\) の対応する指標の関数と一致する。
+
+\(\mathcal L=(2A+1)\log X\) と取ると \(Q\le X^{2A}\le e^\mathcal L\) である。
+上で得た法 \(J^2\) の有限個の指標に \(f_\chi(1)\ne0\) と連続性を使えば、
+補題 \ref{lem:uniform-log-derivative} の \(1\) の近くの仮定が、
+十分大きな \(X\) で法 \(Q\) に一様に満たされる。
+さらに \(2\mathcal L^{25}\le X\) なので、
+\(|z|\le1/X\) ではすべての法 \(Q\) の指標について
+\[
+ L^\circ(1+z,\chi)\ne0,\qquad
+ \left|\frac{(L^\circ)'(1+z,\chi)}{L^\circ(1+z,\chi)}\right|\le X.
+\]
+この円板で正則な関数
+\[
+ F(z)=\frac{1-z\displaystyle\sum_{\chi\bmod Q}
+                   \frac{(L^\circ)'(1+z,\chi)}{L^\circ(1+z,\chi)}}{\varphi(Q)}
+\]
+は \(|F(z)|\le2\)、\(F(0)=1/\varphi(Q)\) を満たす。
+\(a_n=\Lambda(n)\mathbf 1_{n\equiv1\bmod Q}\) とすると、指標の直交性と
+主指標の極の項から \(F(z)/z=\sum_{n\ge1}a_n n^{-1-z}\) となる
+（\(\RePart z>0\)）。
+
+区間に求める素数がないと仮定する。
+\(\beta_n\) を素数 \(n\) で \(0\)、それ以外で \(\Lambda(n)\) と定める。
+\(\sum_{n\le t}\beta_n=\psi(t)-\vartheta(t)=O(\sqrt t)\) なので、
+部分和公式から \(C_\beta=\sum_{n\ge1}\beta_n n^{-3/4}<\infty\) である。
+区間内では \(a_n\le\beta_n\) であり、以下 \(X\ge\max(200,C_\beta)\) とする。
+\(P_U(z)=\sum_{n<e^U}a_n n^{-1-z}\) とおき、円周 \(|z|=1/X\) で
+\[
+ \Delta(z)=\RePart\!\left(2-Uz-\frac X4(1+Xz)^2\right)
+        =2-(U+t_z)\sigma,\qquad
+ \sigma=\RePart z,\quad t_z=\frac{X^2}{2}(1+X\sigma)
+\]
+と書く。等式には \(X^2(\ImPart z)^2=1-(X\sigma)^2\) を使った。
+従って \(0\le t_z\le X^2=W\le U\) である。
+
+\(\sigma\le1/U\) ならば \(\Delta(z)\ge0\) であり、\(n<e^U\) について
+\[
+ (1/U-\sigma)\log n\le U(1/U-\sigma)\le\Delta(z).
+\]
+\(a_n\ge0\) なので \(\sum_n a_n n^{-1-1/U}=UF(1/U)\le2U\) である。
+各項の絶対値をこの級数の項と比較して
+\(|P_U(z)|\le2Ue^{\Delta(z)}\) を得る。
+\(|F|\le2\)、\(|z|=1/X\) を合わせると
+\(|F(z)-zP_U(z)|\le3Ue^{\Delta(z)}\) となる。
+
+\(\sigma>1/U\) では \(F(z)/z-P_U(z)\) は \(n\ge e^U\) の和である。
+\(U\le\log n\le U+W\) の項は \(\beta_n n^{-3/4}\) と比べる。
+\(\sigma\le1/X\)、\(t_z\le U\) より
+\[
+ (-1/4-\sigma)\log n\le -U/4-U\sigma\le\Delta(z),
+\]
+なので掛かる係数は \(e^{\Delta(z)}\) 以下である。
+\(\log n>U+W\) の項は \(a_n n^{-1-1/U}\) と比べると、
+\[
+ (1/U-\sigma)\log n
+   \le(1/U-\sigma)(U+t_z)\le\Delta(z)
+\]
+である。和を取れば剰余の絶対値は
+\(e^{\Delta(z)}(C_\beta+2U)\le3Ue^{\Delta(z)}\)。
+\(|z|\le1\) を使うと、この場合も
+\(|F(z)-zP_U(z)|\le3Ue^{\Delta(z)}\) である。
+
+そこで円板内で正則な関数
+\[
+ \bigl(F(z)-zP_U(z)\bigr)\exp\!\left(-2+Uz+\frac X4(1+Xz)^2\right)
+\]
+に最大絶対値の原理を適用する。
+円周上の絶対値は \(3U\) 以下であるのに、中心では
+\(e^{X/4-2}/\varphi(Q)>3U\) となる。最後の不等式は
+\(U,Q\le X^{2A}\) と、十分大きな \(X\) で
+\(e^{X/4-2}>3X^{4A}\) であることによる。この矛盾で証明が終わる。
+\leansrc{Lib/Analytic/Primes}{法の冪に関する指標と Newman の積分路の議論}。
+\end{proof}
+
 \begin{proposition}\label{prop:admissible-data}
 \(q_0,d\) を上のとおり固定し、\(0<\varepsilon<1/100\) とする。
 十分大きな任意の整数 \(x\) に対して上の許容データが存在する。
@@ -77,13 +178,36 @@
 \end{proposition}
 
 \begin{proof}
-\(W=x^{\varepsilon/6}\) とおく。階数 \(m,r\) は主張どおりに選ぶ。
-\(x_1=\lfloor e^W\rfloor\) について \(W-1\le\log x_1\le W\) である。
-また \(q_1x_1\le e^{W^6}\) が十分大きな \(x\) で成り立つので、
-指定の倍数 \(b\) は \(e^{W^6}<b\le2e^{W^6}\) を満たす。
-これから \(\log b\le W^6+1\) を得る。
-\(s=O(\log x)\)、\(W\) は \(x\) の正の冪であることにより、
-許容データの対数スケールの条件が従う。
+\(y=\log x\)、\(W=x^{\varepsilon/6}\) とおき、
+\((\varepsilon/6)n>99q_0d\) となる正整数 \(n\) を固定する。
+\(m,r\) の最小性により \(\sqrt{x}\le m\le2\sqrt x\)、
+\(x^5\le r\le3x^5\) である。また \(2^s=m^{22}\) から \(s\le32y\) となる。
+\(y\ge100\) として
+\[
+ \log q_2^2=2(s+6)\log(q_0d)\le99q_0d\,y\le n\log W.
+\]
+\(q_1d\mid q_2^2\)、\(2^s\mid q_1\) なので \(q_1d,2^s\le W^n\) である。
+また \(W\le\sqrt x\le m\le 2^s\) である。
+\(W\) は \(x\) の正の冪なので、十分大きな \(x\) では
+\[
+ 2\cdot10^6 y\le W,\qquad
+ (5184y)^n\le W,\qquad 7776y\,n2^n\le W,\qquad
+ n+1\le W,\qquad 2h_K+2\le W
+\]
+を同時に満たす。ここで \(h_K\) は \(K\) の類数である。
+
+\(x_1=\lfloor e^W\rfloor\) について \(W-1\le\log x_1\le W\) であり、
+\[
+ q_1x_1\le W^n e^W\le e^{(n+1)W}\le e^{W^6}.
+\]
+従って \(e^{W^6}\) を超える最小の倍数 \(b\) は
+\(e^{W^6}<b\le2e^{W^6}\) を満たし、
+\(L=\log b\in[W^6,W^6+1]\)、\(\log L\in[6\log W,6\log W+1]\) となる。
+\(100(6\log W+1)\le y\) は \(\varepsilon<1/100\) から十分大きな \(x\) で成り立つ。
+よって \((\log b)^{100}\le x\) である。
+さらに \(W-1\ge10^6 y\)、\(W^6\ge10^6W\) から
+\(x^{10^6}\le x_1\) と \(x_1^{10^6}\le b\) が従う。
+\((\log x_1)^6\le L\) と \(\log L\ge10^{12}C_{q_0,d}\) も成立する。
 
 疎集合には Behrend の構成を使う。\leanref{exists_three_term_free}
 座標を \(0,\ldots,H-1\) とする \(n\) 次元の箱の中で、二乗長の同じ
@@ -102,6 +226,13 @@
 \(2^v\) を \(q_0\) を割る最大の \(2\) の冪とすれば、
 \(g\) は法 \(2^{s+v}\) で位数 \(2^s\) を持つ。よって選んだ指数に対応する素点は
 相異なり、すべて法 \(q_0\) で \(-1\) に合同である。
+位数の計算は \(g=1+2^v u\)（\(u\) は奇数）から始める。
+\(g^{2^h}+1\equiv2\bmod4\) なので
+\(v_2(g^{2^{h+1}}-1)=v_2(g^{2^h}-1)+1\) となる。
+従って \(v_2(g^{2^h}-1)=v+h\) である。
+同様に \(4=1+3\) から三乗を繰り返すと \(v_3(4^{3^h}-1)=1+h\) となり、
+法 \(3l_0\) での位数が \(l_0\) であることも分かる。
+
 \(\ell=2\) の場合は比が法 \(3l_0\) で \(1\) になるが、
 \(4\) の同じ法での位数は \(l_0\) なので禁じられた比は生じない。
 奇素数 \(\ell\) については二つの比をそれぞれ \(2j,2i\) 乗して
@@ -111,34 +242,71 @@
 \(\ell^{2i}\equiv1\pmod{2^{s+1}}\) となり、底本の位数評価
 \(2^s\le(\ell+1)2i\) に反する。実際、ここでは
 \(2l_0(kt+1)<2^s\) を満たす。
-整数 \(n\) を \(\varepsilon\) に応じて固定し、\(H\) は
+位数評価には、\(o=2i\)、\(\epsilon=\pm1\) を \(\ell\equiv\epsilon\bmod4\)
+となるように取って \(z=\epsilon\ell\) とおく。
+\(v_2(z^{2o}-1)=v_2(z-1)+v_2(o)+1\) なので
+\(2^{s+1}\mid\ell^{2o}-1=z^{2o}-1\) から \(2^s\mid(\ell-\epsilon)o\)
+が従う。この非零整数の絶対値は \((\ell+1)o\) 以下である。
+また \(l_0\le2592y\)、\(kt+1\le46x^{10}\) なので
+\[
+ 2l_0(kt+1)\le2\cdot2592y\cdot46x^{10}
+   <10^6yx^{10}\le x^{11}\le2^s.
+\]
+先に固定した \(n\) に対し、\(H\) は
 \(H^n\le 2^s/W<(2H)^n\) を満たす \(2\) の冪に選ぶ。
 底本の数値条件
 \[
  W\le 2^s\le W^n,\qquad (2l_0)^n\le W,\qquad
  3l_0 n2^n\le W^3
 \]
-の下で \(H\le W\) であり、上の箱は収まる。選んだ素点の個数は
-\(3l_0 2^s/W^6\) 以上である。
+の下で \(H^n\le2^s/W\le W^n\)、\((2l_0H)^n\le2^s\) である。
+従って \(H\le W\) であり、箱の符号化は法 \(2^s\) に収まる。
+素点の個数は指数の個数に等しいので
+\[
+ |\Phi_b|\ \ge \ \frac{H^n}{nH^2} \ >\
+ \frac{2^s}{2^n n W H^2}\ \ge\
+ \frac{2^s}{2^n n W^3}\ \ge\ \frac{3l_0\,2^s}{W^6}.
+\]
 \(3l_0 2^s=|\Phi_a|\) および \(W^6\le\log b\) より必要な個数を確保できる。\leanref{Parameters.exists_isSparse}
 
-レベルの素数は、Siegel--Walfisz 型の評価から得る
-\(\log p\) の幅 \(W\) の窓に取る。
-\(q_0,d\) は固定され、\(s=O(\log x)\) であるから、\(q_2^2\le W^{n+7}\) となるように
-\(n\) を固定できる。\(W\le U\le W^{n+7}\) に対し
-\([U,U+W]\) に \(\log p\) が入る素数を法 \(q_2^2\) の剰余類 \(1\) に取る。
-使用する範囲は \([\log b,24m\log b]\) に含まれる。
-\(h_K\) を \(K\) の類数とすると、
-\([10\log b,11\log b]\) に \(h_K+1\) 個の互いに交わらない窓を並べられる。
-そこから取った各素数 \(p\) は \(K\) で分裂し、上の二つの素イデアルを
-\(I_p,J_p\) とすれば \([I_p][J_p]=1\) である。
-同じ類にある \(I_{p_0},I_{p_1}\) を取ると \(I_{p_0}J_{p_1}\) が主イデアルになり、
-生成元を \(\overline{\pi_M}\) と取る。
-\(N\) については始点を \(\log N_-\) に取る。
-\(W\le\sqrt{\log b}\) なのでこの窓は \eqref{eq:level-window} の範囲に収まる。
-\(N\equiv1\pmod4\) から \(N=u^2+v^2\) と書け、
-\(E\) には \(\sqrt{-1}\) が入るので \(\pi_N=u+v\sqrt{-1}\) とできる。
-窓の存在とスケールの不等式の確認は、底本の許容データの構成を用いる。\leanref{eventually_exists_data}
+補題 \ref{lem:log-window-prime} に \(J=q_0d\)、\(j=2(s+6)\)、\(A=n+7\) を取る。
+\(4\mid q_0d\)、\(q_2^2\le W^n\) であり、\(m\le2^s\le W^n\) と
+\(24L\le W^7\) から \([L,24mL]\subseteq[W,W^{n+7}]\) となる。
+従って、この範囲のどの \(U\) にも幅 \(W\) の窓を使える。
+\((2h_K+2)W\le W^2\le L\) なので、
+\(i=0,\ldots,h_K\) に対し \([10L+2iW,10L+(2i+1)W]\) は
+互いに交わらず、\([10L,11L]\) に含まれる。
+各窓に素数 \(p\equiv1\pmod{q_2^2}\) を一つ取り、\(p\) は \(K\) で分裂する。
+実際 \(d\mid q_2^2\) なので \(\chi_K(p)=1\) である。
+上の二つの素イデアルを \(I_p,J_p\) とすると \(I_pJ_p=(p)\) であり、
+類群で \([J_p]=[I_p]^{-1}\) が成り立つ。
+\(h_K+1\) 個の \(I_p\) から同じ類の \(I_{p_0},I_{p_1}\) を選ぶ。
+すると \(I_{p_0}J_{p_1}\) は主イデアルで、その生成元
+\(\overline{\pi_M}\) のノルムは \(p_0p_1=M\) である。
+
+\(N\) については、\(\log N_-\) が窓を使える範囲に入ることを示す。
+\(x\le x_1\le b\) と \(x_1\mid b\) により \(1\le\kappa(\tau)\le b\) である。
+\(E/K\) の不同イデアルは、\(\zeta_{q_1}\) で評価した円分多項式の
+導関数で生成される。
+\(X^{q_1}-1\) を円分多項式で割った恒等式を微分し、
+\(\zeta_{q_1}\) を代入すると、この生成元が \(q_1\) を割ることが分かる。
+\(K/\mathbb Q\) の不同イデアルの生成元 \(\sqrt{-d}\) は \(d\) を割るので、
+不同イデアルの推移律から \(q_1d\) は \(E/\mathbb Q\) の不同イデアルに属する。
+このイデアルのノルムが \(|\operatorname{disc} E|\) であり、
+\((q_1d)\) のノルムを割るので \(1\le\mathrm{rd}_E\le q_1d\le b\) となる。
+\leansrc{New/Derivatives/Field/PrimeDecomposition}{不同イデアルに対する導手の評価}。
+\(b^{20}\le M\le b^{22}\)、\(2\pi\le b\) から
+\[
+ 0\le\log\bar\kappa\le L,\qquad
+ 19L\le\log\frac{M\mathrm{rd}_E}{2\pi}\le23L .
+\]
+これらを \eqref{eq:level-window} の式に代入し、\(m\ge2\) を使うと
+\(mL\le\log N_-\le24mL\) である。
+従って \(U=\log N_-\) で補題を適用でき、
+\(W\le\sqrt L\) より選んだ \(N\) は \eqref{eq:level-window} を満たす。
+\(N\equiv1\pmod4\) から \(N=u^2+v^2\) と書ける。
+\(E\) は \(\sqrt{-1}\) を含むので \(\pi_N=u+v\sqrt{-1}\) とすればよい。
+以上で \(D\) のデータが全てそろう。\leanref{eventually_exists_data}
 \end{proof}
 
 \subsection{持ち上げの始域と目標空間}
@@ -196,11 +364,26 @@
  \qquad H_0=mkA_0,\qquad E_j=fa(\log b)^j .
 \end{align*}
 \(\gamma\) は Euler 定数、\(c_1=G_1(1)\) は \eqref{eq:prime-remainder} の定数である。
-使う量の非負性 \(H_0\ge0\) は、
-各 \(\tau\) について
-\(s_\infty(\kappa(\tau))-s_{\mathrm{fin}}(\kappa(\tau),\tau)\ge\kappa(\tau)\log b\)
-であることから従う。後者は底本のスケールと
-\(s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\) を用いる。\leanref{primeSum_le}
+\(H_0\) の非負性を確認する。\(0\le y\le a\) のとき、重さが
+\(a/x_1\) 以上であるため、\(s_{\mathrm{fin}}(y,\tau)\) には
+\(\nu\le x_1\) の項だけが寄与する。
+\(0\le\lambda_1(\nu)\le2\Lambda(\nu)\) なので、
+\(s_{\mathrm{fin}}(y,\tau)\le2y\sum_{\nu\le x_1}\Lambda(\nu)/\nu\) である。
+整数 \(T\ge1\) について、\(T/\nu\le2\lfloor T/\nu\rfloor\) と
+\(\sum_{\nu\mid n}\Lambda(\nu)=\log n\) を使うと
+\[
+ T\sum_{1\le\nu\le T}\frac{\Lambda(\nu)}{\nu}
+ \le2\sum_{1\le\nu\le T}\Lambda(\nu)\lfloor T/\nu\rfloor
+ =2\log(T!)\le2T\log T .
+\]
+従って \(0\le s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\le y\log b\) である。
+一方、\(b^{20}\le M\le b^{22}\)、\(1/\Omega\le x^{13}\le b\)、
+\(\Omega\le1\) から \(20\log b\le\log(M/\Omega)\le23\log b\) を得る。
+\leansrc{New/Reduction/Data/Sizes}{無限素点側の定数 \(\Omega\) の評価}。
+\(y=\kappa(\tau)\le a\le b^2\) では \(0\le\log(y!)\le2y\log b\) なので
+\(20y\log b\le s_\infty(y)\le25y\log b\)。
+差を取れば \(s_\infty(y)-s_{\mathrm{fin}}(y,\tau)\ge y\log b\) となり、
+\(A_0\ge0\)、\(H_0=mkA_0\ge0\) が従う。\leanref{primeSum_le}
 
 \begin{proposition}\label{prop:total-remainder}
 許容データについて

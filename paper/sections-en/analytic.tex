@@ -244,6 +244,97 @@ of vanishing, so every summand is zero. Since \(\rho\ne1\), nonvanishing of
 
 \subsection{The prime number theorem for a fixed modulus}
 
+\begin{lemma}[Uniform logarithmic derivative bound]\label{lem:uniform-log-derivative}
+Let \(\chi\) be a Dirichlet character modulo \(Q\), with \(\mathcal L\ge10^{10}\)
+and \(Q\le e^{\mathcal L}\). Write \(\delta_\chi=1\) for the principal character and
+\(\delta_\chi=0\) otherwise, and put \(f_\chi(s)=L^\circ(s,\chi)/s^{\delta_\chi}\).
+If \(\chi^2\) is principal, assume that \(|f_\chi(z)|\ge1/\mathcal L\) for
+\(|z-1|\le1/\mathcal L\). Then for \(\RePart s\ge1-\mathcal L^{-25}\) and
+\(|s|\le e^{\mathcal L}\) one has
+\begin{equation}\label{eq:uniform-log-derivative}
+  L^\circ(s,\chi)\ne0,\qquad
+  \left|\frac{(L^\circ)'(s,\chi)}{L^\circ(s,\chi)}\right|\le2\mathcal L^{25}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put \(\kappa_\chi=Q^{-1}\sum_{v\bmod Q}\chi(v)\) and
+\(r_\chi(t)=\sum_{1\le n\le t}\chi(n)-\kappa_\chi t\).
+Subtracting the contribution of each complete period leaves fewer than \(Q\)
+terms, each of absolute value at most \(2\), and a contribution of at most \(1\)
+from \(t-\lfloor t\rfloor\). Thus \(|r_\chi(t)|\le2Q\).
+Partial summation and analytic continuation give
+\[
+ f_\chi(s)=\kappa_\chi+(s-\delta_\chi)
+            \int_1^\infty r_\chi(t)t^{-s-1}\,dt
+ \qquad(\RePart s>0).
+\]
+Indeed, in \(\RePart s>1\) the \(L\)-function is \(s\) times the integral
+plus \(s\kappa_\chi/(s-1)\). For a nonprincipal character \(\kappa_\chi=0\).
+For the principal character the factor \((s-1)/s\) removes the pole.
+Since \(|s-\delta_\chi|\le|s|\) in \(\RePart s\ge1/2\), the integral gives
+\(|f_\chi(s)|\le1+4Q|s|\) there.
+
+Fix \(s\) with \(\RePart s\ge1-1/\mathcal L\) and \(|s|\le3e^{\mathcal L}\).
+On the vertical strip of width \(1/3\) with right edge
+\(\RePart s+2/\mathcal L\), consider \(g(z)=f_\chi(z)/(z-s+2)\).
+Throughout the strip \(|z-s+2|\ge1\) and \(|z|\le4e^{\mathcal L}|z-s+2|\),
+so the partial summation bound gives \(|g(z)|\le e^{3\mathcal L}\).
+The right edge is in \(\RePart z\ge1+1/\mathcal L\), where bounding the
+Dirichlet series by \(\zeta(\RePart z)\) gives \(|g(z)|\le1+\mathcal L\).
+The weight of the left edge in the three-lines theorem is \(6/\mathcal L\).
+Consequently
+\[
+ |f_\chi(s)|=2|g(s)|\le2e^{18}(1+\mathcal L)\le\mathcal L^2.
+\]
+For \(\RePart z\ge 1-1/(2\mathcal L)\) and \(|z|\le2e^\mathcal L\), applying
+this bound on the circle of radius \(1/(2\mathcal L)\) gives
+\(|f_\chi'(z)|\le2\mathcal L^3\) by Cauchy's estimate.
+\leansrc{Lib/Analytic/PrimeNumberTheorem/LFunctionGrowth}{Partial summation, three lines, and the derivative bound}.
+
+Now set \(\eta=\mathcal L^{-25}\) and take \(v=\sigma+it\) with
+\(\sigma\ge1+\eta\) and \(|v|\le3e^\mathcal L/2\).
+In the logarithms of the Euler products, the coefficient at each prime
+power with \(p\nmid Q\) is multiplied by
+\(3+4\cos\theta+\cos(2\theta)=2(1+\cos\theta)^2\ge0\), where \(\theta\) is
+the argument of \(\chi(p)^j p^{-ijt}\). Hence
+\[
+ 1\le |L(\sigma,1_Q)|^3 |L(v,\chi)|^4 |L(\sigma+2it,\chi^2)| .
+\]
+The first \(L\)-value is bounded by \(2/\eta\) using the zeta function in
+the region of absolute convergence. If \(\chi^2\ne1_Q\) or
+\(|v-1|\ge1/\mathcal L\), the other two \(L\)-values are bounded by
+\(2\mathcal L|f_\chi(v)|\) and \(2\mathcal L^3\), respectively.
+For a principal character the factor that is restored has modulus
+\(|v|/|v-1|\le1+\mathcal L\).
+The same estimate applies at the second point since
+\(|\sigma+2it-1|\ge|v-1|\) and \(|\sigma+2it|\le3e^\mathcal L\).
+Thus \(\eta^3\le256\mathcal L^7|f_\chi(v)|^4\). From
+\(256\cdot12^4\le\mathcal L^6\) we obtain \(|f_\chi(v)|\ge12/\mathcal L^{22}\).
+When \(\chi^2=1_Q\) and \(|v-1|<1/\mathcal L\), the hypothesis yields
+the same bound since \(1/\mathcal L\ge12/\mathcal L^{22}\).
+
+For \(s\) in the region of the lemma, the lower bound applies at \(v=s+2\eta\).
+The derivative is bounded by \(2\mathcal L^3\) along the segment \([s,v]\).
+It follows that
+\[
+ |f_\chi(v)-f_\chi(s)|\le4/\mathcal L^{22},
+ \qquad |f_\chi(s)|\ge8/\mathcal L^{22}.
+\]
+Therefore \(|f_\chi'(s)/f_\chi(s)|\le\mathcal L^{25}/4\).
+On passing back to \(L^\circ(s,\chi)=s^{\delta_\chi}f_\chi(s)\), the added
+term in the logarithmic derivative is \(\delta_\chi/s\), of modulus at
+most \(2\). This proves \eqref{eq:uniform-log-derivative}.
+\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{Proof of the zero-free region}.
+\end{proof}
+
+For a fixed modulus \(Q\), one has \(f_\chi(1)\ne0\) for every character.
+By continuity the hypothesis near \(1\) holds for all sufficiently large
+\(\mathcal L\). For the principal character \(f_\chi(1)\) is the residue at
+the pole, and for a nonprincipal character the assertion is Dirichlet's
+nonvanishing at \(1\). See also \cite[Chapter 11]{mv} for the fixed-modulus
+zero-free region. \leanref{eventually_norm_logDeriv_entireL_le}
+
 \begin{lemma}\label{lem:fixed-modulus-pnt}
 Fix an odd prime \(d\) and a positive integer \(q\) with \((d,q)=1\).
 For every integer \(B\ge0\) and all sufficiently large \(y\), one has
@@ -265,15 +356,14 @@ The bound for differences follows. For \(0\le u\le v\le u+1\), it gives
 of length at most \(1\) shows that \(U(v)=R_q(e^v)\) is Lipschitz on \(v\ge0\)
 with constant \(26\).
 
-For zero-free regions with a fixed modulus, see also \cite[Chapter 11]{mv}.
-Apply the zero-free region and logarithmic derivative bounds from the
-formal proof simultaneously to the finite families \(\psi\) and \(\psi\chi_d\).
-For all sufficiently large \(\mathcal L\), the function \(F(s)=G_q(s)/s\) is
-holomorphic on \(\RePart s\ge1-\mathcal L^{-26},\ |s|\le e^{\mathcal L}\)
-and satisfies \(|F(s)|\le\mathcal L^{26}\) there. The logarithmic derivative
-bounds have exponent \(25\). Increasing that exponent by one absorbs the number
-of characters and \(1/|s|\le2\).
-\leanref{eventually_norm_logDeriv_entireL_le}\leanref{eventually_norm_logDerivMean_div_le}
+Apply Lemma \ref{lem:uniform-log-derivative} simultaneously to the finite
+families \(\psi,\psi\chi_d\) of fixed moduli \(q,qd\). Each difference in the
+average in \eqref{eq:log-derivative} has modulus at most \(4\mathcal L^{25}\),
+and \(1/|s|\le2\). Thus, for all sufficiently large \(\mathcal L\),
+\(F(s)=G_q(s)/s\) is holomorphic on \(\RePart s\ge1-\mathcal L^{-26}\),
+\(|s|\le e^\mathcal L\), with
+\(|F(s)|\le2(4\mathcal L^{25}+1)\le\mathcal L^{26}\).
+\leanref{eventually_norm_logDerivMean_div_le}
 
 Take \(u\) large and put \(k=\lfloor u^{2B+4}\rfloor\), \(H=(k+1)/u\),
 \(\mathcal L=(2B+5)\log u\), and \(\eta=\mathcal L^{-26}\).

@@ -30,35 +30,176 @@
 \(Y_0\to\cdots\to Y_m\) を \(L_\xi\) と書くと、\(\Theta_\xi\) はその
 \(V\) への制限である。
 
-\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{シーソー恒等式}では、
-\(Y_m\) 上の試験形式との内積に \(\mathcal P\phi\) のベッセル周期を展開する。
-下側の各段階の展開で、無限素点の積分と有限側の重み付き類和が分離する。
-最終段階では \(Y_m\subset X_m\) であり、\(U(X_m)\) 上の行列係数を
-\(U(Y_m)\) 上で積分した式は、\(Y_m\) への制限と試験形式の内積に等しい
-（測度による定数を含む）。有限側の重み付き和は、上側の
-\(X_0\to\cdots\to X_m\) の二段ずつ接合したシュワルツデータを与える。
+\emph{下側の積分を開く。}
+\(F=E^+\) とし、ここでのアデールは \(F\) のアデールとする。
+\(G_j=U(Y_j)\) とし、\([G_j]=G_j(F)\backslash G_j(\mathbb A)\) と書く。
+\(J^\circ_j\) を有限側の標準格子の固定群、\(J_{\xi,j}\subset J^\circ_j\) を
+捻り \(\xi\) におけるレベルとする。
+下側のテータ核 \(K_{\xi,j}(g,h)\) は、シュワルツ・データを
+\((g,h)\in G_j(\mathbb A)\times G_{j+1}(\mathbb A)\) で Weil 作用させた
+テータ値である。下側の持ち上げ \(L_{\xi,j}\) は、
+\(K_{\xi,j}(g,h)f(g)\) の \([G_j]\) 上の積分に
+\(d_{\xi,j}=[J^\circ_j:J_{\xi,j}]\) を掛けたものとする。
+共役型の形式 \(z\) に対して
+\[
+ L_{\xi,j}^{\mathrm t}z(g)=d_{\xi,j}
+          \int_{[G_{j+1}]}K_{\xi,j}(g,h)z(h)\,dh
+\]
+と置くと、二重積分の順序を交換して
+\[
+  \int_{[G_{j+1}]} z\,L_{\xi,j} f
+      = \int_{[G_j]}(L_{\xi,j}^{\mathrm t}z)f
+\]
+となる。これを \(j=m-1\) から \(0\) まで適用すると、
+試験形式 \(x_m\) とのペアリングは、ポアンカレ級数
+\(\mathcal P\phi\) と、\(\overline{x_m}\) を逆順に下ろして得た形式との積分に移る。
+ここで積分の絶対収束には各段の急減少性を用いる。
+\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{持ち上げの転置と絶対収束}。
 
-この展開が与える使用形を明記する。\(c_{\mathrm{ss}}\in\mathbb C^\times\)
-は \(\xi,\phi\) によらず、各 \(\xi\) に対して有限支持係数 \(\Psi_\xi\) があり、
-上側の合成持ち上げを \(B_{\xi,\Psi_\xi}\) とすれば
+各 \(Y_j\) の次数付き分解から得るベッセル部分群を \(R_j\) とする。
+\([R_j]\) 上の最初の関数 \(\mathcal W_0\) は、\(X_0\) 上での
+\(\phi\) の行列係数を指定された指標でユニポテント部分に延ばしたものである。
+先行する外側変数を固定して、\(j\) 段開いた関数を \(\mathcal W_j\) とする。
+次の外側変数を \(g_j=(a_j,y_j)\)（無限側、有限側）に固定する。
+\(j>0\) では \(W_{j,g_j}(r)=\mathcal W_j(rg_j)\)、
+初段では \(W_{0,g_0}(r)=\mathcal W_0(r)\) と置き、
+この関数と核の積を \([R_j]\) の \(r\) について積分する。
+テータ和を開くと、次数を上げる写像に沿う定数項が残り、
+これが次の関数 \(\mathcal W_{j+1}\) を与える。従って
+\[
+ \begin{aligned}
+ \int_{[R_j]}W_{j,g_j}(r)(L_{\xi,j}^{\mathrm t}z)(rg_j)\,dr
+   &=d_{\xi,j}\,\Xi_{j+1}(z),\\
+ \Xi_{j+1}(z)
+   &=\int_{R_{j+1}(F)\backslash G_{j+1}(\mathbb A)}
+                   \mathcal W_{j+1}(h)z(h)\,dh .
+ \end{aligned}
+\]
+\leansrc{New/UpperBound/Seesaw/UnfoldingStages}{ベッセル周期の一段の展開}。
+
+初段では構成時の主レベル \(J_M\) の有限側の台を、
+\(J_{\xi,0}\) の剰余類 \(\Omega_0=J_M/J_{\xi,0}\) に分解する。
+ポアンカレ級数の積分を開くと、この剰余類の平均が得られるため、
+初段に残る倍率は
+\[
+ \frac{d_{\xi,0}}{[J_M:J_{\xi,0}]}=[J^\circ_0:J_M]
+\]
+である。これは捻りによらない。
+中間段 \(1\le j<m\) では、
+\(\mathcal W_j\) が零でないところの有限成分の \(R_j(\mathbb A_f)\) 軌道を、
+レベル \(J_{\xi,j}\) の有限個の剰余類の集合 \(\Omega_j\) が覆う。
+\(c\in\Omega_j\) の重複度 \(m_j(c)\) は、局所格子の固定群を法として、
+その軌道に沿って \(c\) をこの集合へ戻す類を数えたものである。
+重み \(1/m_j(c)\) を置くと各軌道上で重みの積分が \(1\) になる。
+\(J^\circ_j\) の体積を \(1\) としているので、
+各 \(J_{\xi,j}\) の剰余類の体積は \(d_{\xi,j}^{-1}\) であり、
+先ほどの周期に掛かる \(d_{\xi,j}\) を打ち消す。
+無限側ではこの重み付けから得る測度で積分し、
+有限側では \(\prod_{j<m}\Omega_j\) 上の和を取る。
+初段の重複度は \(1\) で、他の重複度は
+\(\mathrm NQ(\xi)\) の冪を割る。
+ここで \(\mathrm NQ(\xi)\) は捻りの法のノルムである。
+\leansrc{New/UpperBound/Seesaw/IntegralAsCosetSum}{軌道の重みとレベル体積の計算}。
+\leansrc{New/UpperBound/Seesaw/Cut}{有限個の剰余類とその重複度}。
+
+\emph{二段ずつ核を分解する。}
+固定した外側変数について、連続する二段 \(Y_j,Y_{j+1},Y_{j+2}\)
+（\(j\) は偶数）の定数項の積を考える。
+第一の核の写像を随伴で反転し、第二の核と合わせると、
+\(Y_{j+1}\to Y_j^{-}\oplus Y_{j+2}\) 上のデータを得る。
+ここで \(Y_j^{-}\) はエルミート形式の符号を反転した空間である。
+二つの次数付き列に沿う写像を \(T,T'\) とすると、
+合わせたデータの平行移動は \((T^\ast,T')\) である。
+次数を上げる写像に沿う二つの平均は、合わせたデータでの
+次数零部分への射影に対応する。
+外側の \([R_j]\) のユニポテント部分では \(\mathcal W_j\) と
+定数項の指標が打ち消し合い、中間の \([R_{j+1}]\) の
+ユニポテント部分では、残った双曲平面の等方座標を平均する。
+このとき \(-TT^\ast+(T')^\ast T'=0\) なので、
+二つの平行移動を合わせる際のヘイゼンベルクの位相は \(1\) となる。
+従って残るのは、定数倍を除いて、
+\(X_{j+1}\to X_j^{-}\oplus X_{j+2}\) 上のテータ核である。
+これを \([U(X_{j+1})]\) で積分し、続いて \([U(X_j)]\) で
+先行する行列係数を掛けて積分すると、上側の二段の合成の行列係数となる。
+実際、無限側の Fock 多項式の積に対して核は二つのテータ核の積に分かれ、
+二つの定符号群の積分がそのまま合成を与える。
+一般の無限側の因子には、Fock 多項式の稠密性と積分の連続性により移る。
+\leansrc{New/UpperBound/Seesaw/UnfoldingStages}{二つの定数項の積と定符号群上の二重積分}。
+
+この計算では無限側と有限側が別々に作用する。
+捻りの無限側の重みは固定されているので、無限側は行列係数を取る
+線型形式だけを変え、その線型形式は捻り、\(\phi\)、有限側の外側変数によらない。
+有限側は、外側変数の剰余類の組 \(\boldsymbol c\) における
+二段の評価済みデータ \(\mathcal E_i(\xi;\boldsymbol c)\) を与える。
+従って二段ずつの帰納法で、終段の \(\mathcal W_m\) は
+\[
+  \mathcal E(\xi;\boldsymbol c)
+  =\bigotimes_{i=0}^{m/2-1}\mathcal E_i(\xi;\boldsymbol c)
+\]
+をデータとする \(X_0\to\cdots\to X_m\) の持ち上げの行列係数になる。
+
+終段では \(Y_m\) は定符号で \(R_m=U(Y_m)\) であり、
+その点は \(X_m\) の \(\operatorname{diag}(h,1)\) に入る。
+行列係数を \(\overline{x_m}\) と掛けて積分する際、無限側の直交関係によって
+整数係数の分岐写像を施した値の有限類平均を得る。
+同じ平均を \(Y_m\) への制限の内積として書くと、
+\(Y_m\) の Weyl 加群の次元と
+\(\prod_\tau\tau(\overline{\pi_N})^{u_\tau}\) で割ったものになる。
+ここで \(u_\tau\) は制限に用いる分岐指数である。
+従って終段周期は、上側の持ち上げを制限したものと \(x_m\) の内積に、
+外側の無限変数だけで決まる定数を掛けた形になる。
+その無限側の積分と \([J^\circ_0:J_M]\) を合わせた定数を \(c_0\) とすると、
+\(\langle x_m,L_\xi\mathcal P\phi\rangle\) は、
+次のデータによる上側の持ち上げを制限して \(x_m\) と内積を取り、
+\(c_0\) を掛けたものになる。
+\[
+ \mathcal A_\xi
+   =\sum_{\boldsymbol c\in\prod_{j<m}\Omega_j}
+         \left(\prod_{j<m}m_j(c_j)^{-1}\right)\mathcal E(\xi;\boldsymbol c).
+\]
+任意の \(x_m\) に対して等しいので、持ち上げ自体が等しい。
+\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{終段の分岐写像と上下の持ち上げの一致}。
+
+\emph{有限データの分母をそろえる。}
+\(\mathsf B=M^{f n_m^2}\), \(n_j=\dim_E X_j\) と置く。
+各評価済みデータを有限フーリエ展開すると、接合した平行移動の和になる。
+一組の二段に対する分母は \(\mathsf B^4\) を割り、
+真空を整な真空に正規化する倍率は捻りによらない。
+従って \(\mathcal A_\xi=\sum_t r_t C\,\mathcal V_t\) と書ける。
+\(\mathcal V_t\) は接合した整な真空の平行移動で、
+\(C\) は捻りによらず、\(\mathsf B^{2m} r_t\) は
+\(\mathrm NQ(\xi)\) に素な場所で整である。
+自明な捻りでは各評価済みデータの係数の絶対値和は \(1\) 以下であり、
+各切断の和の倍率は高々 \(\mathsf B\) なので
+\(\sum_t|\sigma(r_t)|\le\mathsf B^m\) となる。
+レベルの作用は剰余類の組を置換し重複度を保つため、\(\mathcal A_\xi\) は
+上側の中間レベルの同時作用で不変である。
+\leansrc{New/UpperBound/Seesaw/GoodDatum}{接合したデータの有限フーリエ展開}。
+
+\(c_0C/\mathsf B^{2m}\ne0\) ならこれを \(c_{\mathrm{ss}}\) とし、
+\(\Psi_\xi(t)=\mathsf B^{2m}r_t\) とする。
+積 \(c_0C\) が零なら全体の写像は零なので
+\(c_{\mathrm{ss}}=1,\ \Psi_\xi=0\) と取ることもできる。
+レベル \(M\mathrm NQ(\xi)\) に素な場所では、許容された平行移動を
+零に置き換えても真空への作用は同じである。
+こうして、対応する上側の合成持ち上げを \(B_{\xi,\Psi_\xi}\) とすれば
 \begin{equation}\label{eq:upper-seesaw}
  L_\xi(c_{\mathrm{ss}}^{-1}\mathcal P\phi)=B_{\xi,\Psi_\xi}\phi
  \qquad(\phi\in S).
 \end{equation}
-係数は許容された平行移動にのみ付く。具体的には、各平行移動は
-\(M\mathrm NQ(\xi)\) に素な場所で零であり、レベルの生成元で整化した
-平行移動は \(\mathrm NQ(\xi)\) に素な場所で整である。ここで
-\(\mathrm NQ(\xi)\) は捻りの法のノルムを表す。係数はこの法に素な
-すべての素点で整であり、接合したテンソルは各中間レベルの作用で不変である。
-自明な捻りに対しては
-\(\sum_t|\sigma(\Psi_1(t))|\le M^{3fmn_m^2}\) が成り立つ。
-\(n_j=\dim_E X_j\) とした。
-この三条件を同時に満たす係数が、シーソー展開から得られる。\leanref{exists_isAdmissibleCombination_seesawDatum}
-合成持ち上げの評価で使う展開は、
-\leansrc{New/UpperBound/Divisibility/ChainDatumExpansion}{接合テンソルの展開}
-である。これにより、一様に整な係数を持つ、接合していない
-平行移動データの和で持ち上げを計算できる。平行移動の分母には \(N\) が
-許され、自明な捻りでの係数の絶対値和は \(\exp(x^{60})\) 以下である。
+平行移動は \(M\mathrm NQ(\xi)\) の上に支持を持ち、
+\(\overline{\pi_M}\) を掛ければ \(\mathrm NQ(\xi)\) に素な場所で整である。
+係数もその場所で整であり、自明な捻りでは
+\(\sum_t|\sigma(\Psi_1(t))|\le\mathsf B^{3m}=M^{3fmn_m^2}\) である。
+接合したテンソルは中間レベルの同時作用で不変である。\leanref{exists_isAdmissibleCombination_seesawDatum}
+
+合成持ち上げの評価では、接合を \(N\) を法とする有限和として開く。
+各項は、二段の整な真空の平行移動に
+最後の列の \(-y/N\) と次の段の最後の行の \(-\overline y/N\) を加えたものになる。
+項を集めると、係数の整性を保った接合前の平行移動データの和を得る。
+平行移動の分母には \(N\) が許され、自明な捻りでの係数の絶対値和は
+\(\exp(x^{60})\) 以下である。
+\leansrc{New/UpperBound/Divisibility/ChainDatumExpansion}{接合テンソルの展開}。
 
 射影を施した後の持ち上げは、\(L_\xi z\) の右平行移動の和で書ける。すなわち、
 \(z\) を主レベルの形式、\(u\) を \(U(Y_m)\) の有限アデール点とすると
@@ -100,14 +241,177 @@
 という底本の規約を含め、この記号を用いる。
 
 \paragraph{テータ級数の標準形}
-CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを \(y\) とする。
-\(p\) が非分解で、\(u_i\) が \(p\) の上で整であるベクトル、
-\(\mu_i\in\mathbb Z_{\ge0}\) が重複度で
-\(\sum_i\mu_i u_i u_i^\ast=1\) を満たすとする。
-\(\prod_i\theta(u_i^\ast z)^{\mu_i}\) と \(y(u_i^\ast z)\) の整係数級数の積
-\(F(z)\) を、変数を \(\varpi\) 倍した後に整な因子と指数因子に分ける。
-底本のテータ積の標準形により、\(v_p(\varpi)=\rho_p\) と
-整係数の級数 \(W(z)\)、係数 \(\lambda_{e,\nu}\) を使って次のように書ける。\leanref{exists_hasNormalForm}
+\(p\) を非分解素数とする。以下では一つの \(p\)-進埋め込みを固定し、
+その像を \(\mathbb C_p\) の中で書く。\(\mathcal O\) をその付値環とし、
+\(q=p^2\)（惰性）、または \(q=p\)（分岐）とする。このとき
+\(\rho_p=v_p(\pi_p)/(q-1)\) である。CM 楕円曲線のテータ級数を
+\(\theta\) とし、正規化された局所パラメータを \(y=z+O(z^2)\) とする。
+曲線の2等分点 \(t\) を原点に平行移動した座標
+\(x_{\rm CM}(z)=\wp(z+t)-\wp(t)\) は \(\mathcal O[[y]]\) に属し、
+\(x_{\rm CM}=z^2+O(z^3)\) である。
+
+\emph{形式パラメータの拡大。}
+CM 整数による作用は \(\mathcal O[[y]]\) を保つ。この作用を
+\(p\)-進閉包に延ばすと、\(\zeta^{q-1}=1\) に対して
+\(y(\zeta z)\in\mathcal O[[y]]\) を得る。
+\[
+ T(z)=\frac{1}{q-1}\sum_{\zeta^{q-1}=1}\zeta^{-1}y(\zeta z)
+\]
+と置く。この元は \(y\) のうち次数が \(1\bmod(q-1)\) の部分を取り出す。
+\(q-1\) は単元で、\(T=y+O(y^2)\) の逆代入の各係数は次数ごとに
+\(\mathcal O\) の中で解ける。したがって
+\(\mathcal O[[T]]=\mathcal O[[y]]\) である。
+\(T(\zeta z)=\zeta T(z)\) より、
+\[
+ T(\pi_p z)=\pi_p T(z)+\sum_{i\ge1}b_i T(z)^{1+i(q-1)}
+ \qquad (b_i\in\mathcal O).
+\]
+剰余体上でこの級数の消滅次数は \([\pi_p]\) の非分離次数に等しく、
+その次数は \([\pi_p]\) の次数 \(q\) 以下である。係数 \(\pi_p\) は剰余体で
+零になり、次数 \(2,\ldots,q-1\) の項はない。従って \(b_1\) は単元である。
+\leansrc{Lib/CM/FormalGroup/InseparableDegree}{CM 作用の還元と非分離次数}。
+
+\(\varpi^{q-1}=-\pi_p/b_1\) を選び、\(Y(z)=\varpi^{-1}T(\varpi z)\) と置く。
+\(v_p(\varpi)=\rho_p\) であり、上の式を代入して
+\[
+ \frac{Y(\pi_p z)}{\pi_p}=Y(z)-Y(z)^q+\pi_p H_1(Y(z)),
+ \qquad H_1\in z^2\mathcal O[[z]]
+\]
+を得る。実際、\(i\ge2\) の項の係数は
+\(b_i\varpi^{i(q-1)}/\pi_p\in\pi_p\mathcal O\) である。
+\(Y(0)=0,\ [z]Y=1\) であり、次数 \(n\ge2\) では
+\((\pi_p^{n-1}-1)[z^n]Y\) が既に求めた係数の整係数多項式で与えられる。
+\(\pi_p^{n-1}-1\) は単元なので、帰納的に \(Y\in\mathcal O[[z]]\) となる。
+\(\mathcal O/(\pi_p)\) は標数 \(p\) であり、還元した式は \(Y-Y^q=z\)
+である。定数項零の解は次数ごとに一意に決まり、
+\begin{equation}\label{eq:upper-formalparam}
+ Y(z)\equiv\sum_{\nu\ge0}z^{q^\nu}\pmod{\pi_p}.
+\end{equation}
+また任意の \(H\in\mathcal O[[y]]=\mathcal O[[T]]\) は
+\(T(\varpi z)=\varpi Y(z)\) に代入した後に \(H(\varpi z)\in\mathcal O[[z]]\)
+を満たす。拡大前でも \(T=z+O(z^q)\) のため \(H\) の \(q\) 未満の係数は整である。
+\leansrc{Lib/CM/FormalGroup/FormalParameter}{形式パラメータの構成と合同式}。
+
+\emph{一変数の指数部。}
+\(g=-\log\theta\) とする。\([\pi_p]\) による \(\theta\) の引き戻しは
+次数 \(q\) の偶切断でねじれ点での整性を保つ。偶切断の展開を適用すると
+\(\theta(\pi_p z)=\theta(z)^qR(x_{\rm CM}(z))\) で
+\(2\deg R<q\) となる。ここで次数の狭義不等号は \(q\) が奇数であることによる。
+\leansrc{Lib/CM/Integrality/IntegralSections}{偶切断の多項式表示}。
+これから
+\begin{equation}\label{eq:upper-frobenius}
+ q g(z)-g(\pi_p z)=\pi_p H_2,\qquad H_2\in\mathcal O[[y]]
+\end{equation}
+を得る過程を述べる。\(g_0=g_1=0\) であり、\(g_n=[z^n]g\) とすれば
+\(n<q\) について \(\pi_p g_n\in\mathcal O\) である。
+\(n=2\) では \(\sqrt{-d}\,g_2\) の整性と
+\(v_p(\sqrt{-d})\le v_p(\pi_p)\) を使う。
+\leansrc{Lib/CM/Integrality/LogTheta}{テータ対数の二次係数の整性}。
+\(n>2\) では \(g''=g''(0)+x_{\rm CM}\) だから
+\(n(n-1)g_n=[z^{n-2}]x_{\rm CM}\) である。
+右辺は \(n<q\) なら整であり、惰性の場合 \(v_p(n(n-1))\le1\)、
+分岐の場合 \(v_p(n(n-1))=0\) となる。
+\(q=\pi_p^2\) または \(q=-\pi_p^2\) なので、
+\((q-\pi_p^n)g_n\in\pi_p\mathcal O\) が次数 \(q\) 未満で従う。
+
+従って \(\exp(qg-g(\pi_p z))-1\) の \(q\) 未満の各係数は
+\(\pi_p\) で割り切れる。実際、
+\(v_p(j!)\le(j-1)/(p-1)\le (j-1)v_p(\pi_p)\)（\(j\ge1\)）であり、
+指数の定数項は零である。この指数関数は \(R(x_{\rm CM})\) に等しい。
+\(x_{\rm CM}^i\) の最低次項は \(z^{2i}\) なので、次数 \(2i\) の係数を
+\(i=0\) から順に比較すると \((R-1)\) の全係数が
+\(\pi_p\mathcal O\) に属する。よって \(R(x_{\rm CM})=1+\pi_p H\) で
+\(H\in\mathcal O[[y]]\), \(H(0)=0\) となる。対数の第 \(j\) 項に現れる
+\(\pi_p^j/j\) も \(\pi_p\mathcal O\) に属するので
+\(\log(1+\pi_p H)\in\pi_p\mathcal O[[y]]\) である。
+\leansrc{New/Derivatives/FormalGroup/FrobeniusCongruence}{テータ対数のフロベニウス合同式}。
+
+\(g^\flat\) を次数 \(p+1\bmod(q-1)\) の部分とする。この次数類の
+最小の非負代表 \(i_0\) は、惰性の場合 \(p+1\)、分岐の場合 \(2\) である。
+CM 作用に対するテータの整性は、\(\zeta^{q-1}=1\) に対して
+\[
+ \exp\bigl(\zeta^{-(p+1)}g(\zeta z)-g(z)\bigr)\in\mathcal O[[y]]
+\]
+を与える。これは CM 整数での変換式をノルムと組にして
+\((\zeta^{-1},\zeta^{-(p+1)})\) に延長し、変数を \(\zeta z\) に置き換えた式である。
+\leansrc{Lib/CM/FormalGroup/FormalParameter}{単位根によるテータ級数の変換}。
+これらの式をすべて掛けると、次数類を取る平均の公式により
+\(\exp(g^\flat-g)^{q-1}\in\mathcal O[[y]]\) となる。定数項 \(1\) の
+\((q-1)\) 乗根は、各次数で新しい係数に掛かる \(q-1\) を割って求められる。
+従って \(\exp(g^\flat-g)\) 自身が \(\mathcal O[[y]]\) に属する。
+\(c_\varpi=\varpi^{p+1}/p\) と置くと
+\begin{equation}\label{eq:upper-one-variable}
+ \begin{aligned}
+ \theta(\varpi z)&=W_1(z)\exp(c_\varpi\Xi(z)),\\
+ W_1(z)&=\exp\bigl((g^\flat-g)(\varpi z)\bigr)\in\mathcal O[[z]],\\
+ \Xi(z)&=-g^\flat(\varpi z)/c_\varpi .
+ \end{aligned}
+\end{equation}
+
+式 \eqref{eq:upper-frobenius} の次数 \(i_0\bmod(q-1)\) の部分を取る。
+\(T(\zeta z)=\zeta T(z)\) なので、\(H_2\) を \(\mathcal O[[T]]\) で表して
+同じ次数類を取ってよい。この部分は
+\(\lambda' T^{i_0}+T^{i_0+q-1}H_3\)（\(\lambda'\in\mathcal O,\ H_3\in\mathcal O[[T]]\)）
+である。変数を \(\varpi z\) に替えて \(-q c_\varpi\) で割ると、
+\(-\pi_p\varpi^{i_0}/(q c_\varpi)\) は単元であり、
+第二項には \(\varpi^{q-1}\in\pi_p\mathcal O\) が残る。従ってある
+\(\lambda\in\mathcal O\) に対して
+\[
+ (1-\pi_p^n/q)[z^n]\Xi\equiv\lambda[z^n]Y^{i_0}\pmod{\pi_p\mathcal O}.
+\]
+\(n<i_0\) の係数は零である。\(n>2\) なら \(1-\pi_p^n/q\) は
+\(\pi_p\) を法として \(1\) に合同な単元であり、分岐時の \(n=2\) では
+この因子は \(2\) となる。従って \(\Xi\) は整であり、還元すれば
+\[
+ \Xi\equiv
+ \begin{cases}
+    \lambda Y^{p+1}& (p\text{ が惰性}),\\
+    \lambda(Y^2-z^2/2)& (p=d)
+ \end{cases}
+ \pmod{\pi_p}.
+\]
+惰性の場合、式 \eqref{eq:upper-formalparam} を \(Y^pY\) に代入すると
+指数 \(p^{2i+1}+p^{2j}\) が現れる。二つの (p) の冪指数の差の絶対値は正の奇数であり、
+小さい方を \(\nu\)、差を \(e\) とすれば \((e,\nu)\) ごとに一組ずつ生じる。
+分岐の場合、\(Y^2\) の対角項には係数 \(1\)、二つの指数の異なる項には
+係数 \(2\) が付き、\(z^2\) の係数だけが \(1/2\) に変わる。こうして
+\[
+  \Xi(z)\equiv
+  \sum_{e\in I_p^0}\sum_{\nu\ge0}\lambda_{e,\nu}(z^{p^e}z)^{p^\nu}
+  \pmod{\pi_p}
+\]
+を得る。惰性の場合の係数はすべて \(\lambda\) である。分岐の場合は
+\(\lambda_{0,0}=\lambda/2\)、\(\lambda_{0,\nu}=\lambda\)（\(\nu>0\)）、
+\(\lambda_{e,\nu}=2\lambda\)（\(e>0\)）である。
+\leansrc{New/Derivatives/FormalGroup/Exponent}{一変数の指数部の構成と係数合同式}。
+
+\emph{多変数のテータ積。}
+\(u_i\) を \(p\) の上のすべての素点で整なベクトルとし、
+\(\mu_i\in\mathbb Z_{\ge0}\) は \(\sum_i\mu_i u_i u_i^\ast=1\) を満たすとする。
+線型形式全体を \(L_i(z)=u_i^\ast z=\sum_{\tau,c}\overline{\tau(u_{i,c})}z_{\tau,c}\)
+と書く。\(F\) を \(\prod_i\theta(L_i(z))^{\mu_i}\) と
+\(y(L_i(z))\) の整係数級数の積とする。
+式 \eqref{eq:upper-one-variable} を各 \(L_i\) に代入する。指数部の整理には
+\(\overline{\tau(u_{i,c})}^{\,p^e}\equiv\tau_e(u_{i,c})\pmod{\pi_p}\)
+を使う。整元については、円分体の生成元である単位根と \(\sqrt{-d}\)
+でフロベニウスと \(\tau_e\) の作用を比べればよい。惰性の場合は
+\(e\) が奇数なので \(\sqrt{-d}\) に対する共役と \(p^e\) 乗の符号が一致し、
+分岐の場合は \(\sqrt{-d}\equiv0\pmod{\pi_p}\) となる。
+\(p\) の上で整な元は \(p\) と素な整数分母を除いて整元にでき、
+分母の \(p^e\) 乗は元の分母に合同なので、同じ結論が成り立つ。
+したがって
+\[
+ \begin{aligned}
+ \sum_i\mu_i L_i(z)^{p^e}L_i(z)
+ &\equiv \sum_{\tau,c}z_{\tau,c}^{p^e}
+              \sum_i\mu_i\tau_e(u_{i,c}) L_i(z)\\
+ &=\sum_{\tau,c} z_{\tau,c}^{p^e}z_{\tau_e,c}\pmod{\pi_p}.
+ \end{aligned}
+\]
+最後の等号は \(\sum_i\mu_i u_i u_i^\ast=1\) の \((\tau_e,c)\) 成分である。
+さらに \(p^\nu\) 乗と和は還元後に交換し、\(\mu_i^{p^\nu}\equiv\mu_i\)
+である。従って \(\sum_i\mu_i\Xi(L_i(z))\) と次の指数中の和との差は
+\(\pi_p\mathcal O[[z]]\) に属し、定数項は零である。
 \begin{equation}\label{eq:upper-normal}
  F(\varpi z)=W(z)\exp\!\left(
        \frac{\varpi^{p+1}}{p}
@@ -116,20 +420,12 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
  \qquad
  \Gamma_e(z)=\sum_{\tau,c}z_{\tau,c}^{p^e}z_{\tau_e,c}
 \end{equation}
-係数ごとの和は有限である。まず一変数の
-\(\theta(\varpi z)\) を整な因子と指数因子に分ける。
-指数因子を \(u_i^\ast z\) に代入し、各 \(\tau\) での \(p^e\) 乗が
-\(\tau_e\) での複素共役と \(\pi_p\) を法として一致することと、
-\(\sum_i\mu_i u_i u_i^\ast=1\) を使うと
-\[
- \sum_i\mu_i\sum_\tau
-    ((u_i^\ast z)_\tau)^{p^e}(u_i^\ast z)_\tau
- \equiv \Gamma_e(z)\pmod{\pi_p}.
-\]
-指数部をこの合同式で置き換えた際の誤差の指数関数は整である。
-実際、\(v_p(\varpi^{p+1}\pi_p/p)=1/(p-1)\) であり、
-誤差の指数関数を展開した第 \(j\) 項の分母 \(j!\) は
-\(v_p(j!)\le j/(p-1)\) を満たす。
+ここで \(W\in\mathcal O[[z]]\) である。実際、置換に伴う誤差を
+\(c_\varpi\) 倍して指数関数を取ると、
+\(v_p(c_\varpi\pi_p)=1/(p-1)\) と \(v_p(j!)\le j/(p-1)\) により整な因子となる。
+これを \(\prod_i W_1(L_i(z))^{\mu_i}\) および \(\varpi z\) への拡大で
+整となった \(y(L_i(z))\) の級数と掛ければ \(W\) を得る。
+指数中の和は各係数について有限である。\leanref{exists_hasNormalForm}
 
 \paragraph{小行列式の積に沿う微分}
 \(Q\) を多項式とし \(J_Q(F)=(Q(\partial)F)(0)\) と置く。
@@ -139,66 +435,172 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
   v_p(J_Q(G))\ge
   \frac{B}{p-1}-w\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr).
 \end{equation}
-実際、\(|D|=B\) の各単項式に対する微分は係数に \(D!=\prod_c D_c!\)
-を掛ける。Legendre の公式で各 \(v_p(D_c!)\) を下から評価し、和の
-付値を各項の付値の最小値で抑えればよい。
+実際、\(|D|=B\) の単項式に対する微分は係数に \(D!=\prod_c D_c!\)
+を掛ける。Legendre の公式によれば
+\(v_p(D_c!)=(D_c-s_p^{\mathrm{dig}}(D_c))/(p-1)\) で、
+\(s_p^{\mathrm{dig}}\) は \(p\) 進表示の桁の和である。
+各桁の大きさは \(p-1\) 以下で、桁数は
+\(1+\lfloor\log_p\max(B,1)\rfloor\) 以下である。
+各項の評価を足し合わせる際は非アルキメデス的三角不等式を使う。
 
-底本では、シュール行列の成分に沿う微分の評価を、整な方向の行列の
-小行列式の積に沿う微分に帰着する。\leanref{exists_norm_schurJet_le_norm_jet_minorProd}
-ある一段の持ち上げの各 \(\tau\) における図形について、高さがその段階の
-終域の階数 \(n_{j+1}\) 未満の列を数える。\(t_\tau,r_\tau,B_\tau\) を順に
-高さ 1 の列数、高さ 1 以外の列数、および後者の列に含まれる箱の数とする。
+\emph{シュール行列成分から小行列式の積へ。}
+一段の始域と終域の階数を \(n=n_j,\ n'=n_{j+1}\) とする。
+各場所 \(\tau\) の図形に高さが \(n\) と \(n'\) の間に狭義に入る列はない。
+終域の標準充填 \(I'\) を固定し、\(Z_\tau=(z_{\tau,b,a})\) を
+\(n'\) 行 \(n\) 列の変数行列、\(Y_\tau=(y_{\tau,a,k})\) を整な方向の行列とする。
+\(Q_Y(Z)\) は \(Z_\tau Y_\tau\) の小行列式の積である。場所 \(\tau\) の高さ
+\(h<n'\) の各列について、充填 \(I'\) が指定する \(h\) 行と最初の \(h\) 列を取る。
+シュール行列の \((I',I)\) 成分を \(P_{I'I}(Z)\) と書くと、
+シュール行列を定める標準充填の展開は
+\[
+ Q_Y(Z)=\sum_I B_I(Y)P_{I'I}(Z)
+\]
+を与える。\(B_I(Y)\) は始域の充填 \(I\) に対応する小行列式の積と、
+始域の階数に等しい高さの列（\(n<n'\) のとき）から生じる共通の行列式因子との積である。
+この共通因子は剰余体上でも零多項式でなく、標準充填の基底は剰余体上でも一次独立である。
+従って \(B_I\) の剰余類は一次独立である。
+\leansrc{New/Derivatives/Divisibility/Count}{シュール行列の展開と標準充填の基底}。
+
+\(\alpha_I=J_{P_{I'I}}(F)\) とする。すべて零なら上界は自明である。
+そうでなければ \(|\alpha_{I_0}|_p\) を最大に取ると
+\(\sum_I(\alpha_I/\alpha_{I_0})B_I\) の還元は零多項式でない。
+剰余体は無限なので、この還元が消えない点を選んで座標を \(\mathcal O\) に持ち上げる。
+そこで得た \(Y\) について
+\(J_{Q_Y}(F)=\sum_I\alpha_I B_I(Y)\) の絶対値は
+\(|\alpha_{I_0}|_p\) となる。従ってすべての整な \(Y\) に対する
+\(J_{Q_Y}(F)\) の付値下界を示せば、シュール微分の各成分にも同じ下界が従う。\leanref{exists_norm_schurJet_le_norm_jet_minorProd}
+
+\emph{方向に課す合同条件。}
+高さ \(h<n'\) の列数を \(N_{\tau h}\) とする。
+高さ \(1\) の列数を \(t_\tau\)、残る列数を \(r_\tau\)、その箱数を \(B_\tau\) と書く。
 全箱数は \(B=\sum_\tau(t_\tau+B_\tau)\) である。
-
-\(e\le\lfloor\log_p\max(B,1)\rfloor\) の関係する対に整除条件を課す。
-底本の微分方向の選択の補題により、係数が整の線形代入 \(z=Lz'\) を選べる。\leanref{exists_newDirection_dvd}代入後の \(\Gamma_e\) が \(\pi_p\) で割れ、列ごとの行列式の
-付値の加重和は \(v_p(\pi_p)\mathcal D_p\) 以下である。ここで
+印を付ける場所の集合を \(A\) とし、合同条件を数えるときだけ
+\(\tau\in A\) において \(t_\tau(A)=0\) とする。それ以外では \(t_\tau(A)=t_\tau\) とする。
+各 \(\tau,h\) で \(h\) 次の正方行列 \(g_{\tau h}\) を用いて方向を混ぜ、
 \[
- \mathcal D_p=
- \sum_{\substack{e\in I_p^0\\ e\le\lfloor\log_p\max(B,1)\rfloor}}
- \ \sum_{\tau\in\Phi}
- \left\{\min\!\left(\frac{t_\tau}{p^e},t_{\tau_e}+r_{\tau_e}\right)
-        +\frac{r_\tau}{p^e}
-        +\min\!\left(\frac{B_\tau}{p^e},B_{\tau_e}\right)\right\}.
+ \beta_{\tau h k,a}=\sum_{\ell<h}(g_{\tau h})_{k\ell}\,y_{\tau,a,\ell}
 \]
-行列式の評価は、各対と各高さに課す合同条件の割り振りから得られる。
-一つの合同条件に対し、付値が最小の行からの倍数を引いて他の行の値を
-消し、残る行に法を掛ける。複数の条件ではこの操作を順に行う。
-行列式の付値は各操作の付値の和になる。上の最小値は、対応する二つの側のうち
-箱または列の寄与が小さい側で条件を課す計数に現れる。
-
-\eqref{eq:upper-normal} にこの代入を行うと、次数 \(B\) までの
-係数が整になる。次数が \(B\) を越える \(\Gamma_e^{p^\nu}\) は
-\(B\) 次の係数に寄与せず、残る結合項の分母は先ほどの指数関数の
-計算で処理できる。変数の数は \(f n_{j+1}^{3}\) 以下である。
-連鎖律で元の微分に戻る際の付値の減少は
-\(\rho_p B+v_p(\pi_p)\mathcal D_p\) 以下なので、\eqref{eq:upper-legendre} は
-\begin{equation}\label{eq:upper-jet}
- v_p(J_Q(F))\ge \gamma_p B-v_p(\pi_p)\mathcal D_p
-       -f n_{j+1}^3\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr),
- \qquad
- \gamma_p=\frac1{p-1}-\rho_p
+とする。\(e\in I_p^0\), \(e\le\lfloor\log_p\max(B,1)\rfloor\) と
+\(\tau'=\tau_e\) に対し、抑えるべき対は
+\begin{equation}\label{eq:upper-direction-pairing}
+ \sum_a\beta_{\tau h k,a}^{\,p^e}\beta_{\tau' h' k',a}\equiv 0
+   \pmod{\pi_p}.
 \end{equation}
-を与える。
+例外は、\(h=1\) で、さらに \(\tau\in A\) または \(h'=1,\ \tau'\in A\) が成り立つ場合である。
 
-この計算には高さ 1 の列を特定の場所で印付けする版がある。
-印を付けた列と他の列の結合のうち合同条件から除いたものには、
-両側の少なくとも一方の方向に \(p\) の正の冪を掛ける。
-\(\mathcal D_p\) は印を付けた高さ 1 の列を除いて数え、
-その分の箱も含めた \(B\) に対して \eqref{eq:upper-jet} の
-\(\gamma_p B\) を取る。左辺には方向に掛けた \(p\) の冪指数を
-すべての箱について足したものを加える。\leanref{norm_jet_minorProd_le_of_charges}
-\(e>0\) について
-\(\gamma_p=v_p(\pi_p)\sum_{e\in I_p}p^{-e}\) を使うと、
-\(\gamma_p B\) と控除項の差に
+課す合同条件は、\(g_{\tau h}\) の行に関して線型である。
+\(\alpha_e^{p^e}=\pi_p\) とし、左側では法 \(\alpha_e\)、右側では法 \(\pi_p\) を使う。
+ある行の全成分を左側で \(\alpha_e\) の倍数にすると、
+新方向の各成分の \(p^e\) 乗が \(\pi_p\) で割れる。
+右側では全成分を \(\pi_p\) の倍数にすればよい。
+また左の高さが \(1\) なら、その新方向は元の \(y_{\tau,\cdot,0}\) の倍数なので、
+右側の各行について
+\(\sum_a y_{\tau,a,0}^{p^e}\beta_{\tau' h' k',a}\equiv0\pmod{\pi_p}\)
+という一つの合同条件で足りる。右の高さが \(1\) のときは、各
+\(y_{\tau',a,0}\) の \(p^e\) 乗根 \(\eta_a\in\mathcal O\) を選び、
+\(\sum_a\eta_a\beta_{\tau h k,a}\equiv0\pmod{\alpha_e}\) を課せばよい。
+この式を \(p^e\) 乗すると、\(\pi_p\mid p\) のため還元後に和と累乗が交換し、
+\(\sum_a y_{\tau',a,0}\beta_{\tau h k,a}^{p^e}\equiv0\pmod{\pi_p}\) となる。
+このようにペアリングの合同条件は、反対側の元の方向だけで定まる。
+
+条件は次のように割り当てる。
+
+\begin{enumerate}
+\item 左の高さが \(1\) の対には、左側の高さ \(1\) の全成分に条件を課すか、
+右側に元の左の方向とのペアリング条件を課すかを選ぶ。
+費用はそれぞれ \(t_\tau(A)/p^e\) と \(r_{\tau'}+t_{\tau'}(A)\) であり、
+小さい方を取る。選んだ側で印を付けた高さ \(1\) の列は除く。
+\item 左の高さが \(1\) より大きく右の高さが \(1\) の対には、
+左側に元の右の方向とのペアリング条件を課す。費用は \(r_\tau/p^e\) である。
+\item 両側の高さが \(1\) より大きい対には、一方の側の該当する行に
+全成分の条件を課す。費用は \(B_\tau/p^e\) と \(B_{\tau'}\) の小さい方である。
+\end{enumerate}
+
+費用の単位は \(v_p(\pi_p)\) である。各高さの正方行列について、
+ペアリング条件は一つの線型形式、全成分の条件は高さの数だけの線型形式に対応する。
+左側の法は \(v_p(\alpha_e)=v_p(\pi_p)/p^e\) を持つので \(p^{-e}\) を掛ける。
+ここで全成分の条件を数える際に掛かる高さは線型形式の数である。
+各形式を行列の全行で整除させる際に必要な行列式の損失は、その法一つ分で済む。
+
+実際、一つの線型形式に対して行ごとの値を \(a_k\) とする。
+零でない値があれば付値が最小の \(a_{k_0}\) を選び、
+他の各行からその行の \(a_k/a_{k_0}\) 倍を引く。
+この商は整で、他の行の値は零になる。残る行を法で掛けると、
+行列式はその法だけを余分に持つ。値がすべて零なら操作は不要である。
+単位行列から始めて線型形式を一つずつ処理する。
+新しい行は前の行の整係数結合なので、すでに課した整除は保たれる。
+従って \(\det g_{\tau h}\) は、その場所と高さに集めた法の積を割る。
+係数行列は同じ高さの各列に一度ずつ現れるので、
 \[
- \left(\frac{t_\tau}{p^e}-t_{\tau_e}-r_{\tau_e}\right)_+
- +\left(\frac{B_\tau}{p^e}-B_{\tau_e}\right)_+
- -\frac{r_\tau}{p^e}
+ \begin{aligned}
+  \sum_{\tau}\sum_{h<n'}N_{\tau h}v_p(\det g_{\tau h})
+   &\le v_p(\pi_p)\mathcal D_p(A),\\
+  \mathcal D_p(A)
+   &=\sum_{\substack{e\in I_p^0\\e\le\lfloor\log_p\max(B,1)\rfloor}}
+       \sum_{\tau\in\Phi}
+       \biggl\{\min\!\left(\frac{t_\tau(A)}{p^e},\,r_{\tau_e}+t_{\tau_e}(A)\right)\\
+   &\hphantom{=\sum_e\sum_\tau\biggl\{}{}
+          +\frac{r_\tau}{p^e}
+          +\min\!\left(\frac{B_\tau}{p^e},\,B_{\tau_e}\right)\biggr\}.
+ \end{aligned}
 \]
-が現れる。印を付けていれば、この式の \(t_\tau\) はその列を取り除いた
-後の列数であり、取り除いた箱の各々について \(\gamma_p\) を足す。
-\(p=d\) ではさらに \(e=0\) の控除がある。
+以上で例外を除く式 \eqref{eq:upper-direction-pairing} がすべて同時に成り立つ。\leanref{exists_newDirection_dvd}
+
+\emph{連鎖律による付値評価。}
+新変数 \(s_{\tau h k b}\) により
+\[
+ z_{\tau,b,a}(s)=\sum_{h<n'}\sum_{k<h}s_{\tau h k b}\,p^{w_{\tau h b}}\beta_{\tau h k,a}
+\]
+と置く。印がなければ \(w_{\tau h b}=0\) とする。
+印があるときは、各例外の対と各行 \(b\) について
+\(w_{\tau 1 b},w_{\tau' h' b}\in\mathbb Z_{\ge0}\) の少なくとも一方が正であるようにする。
+すると \(\Gamma_e(z(s))\) は \(\pi_p\) で割り切れる。
+実際、還元後に \(p^e\) 乗を和に分配すると、各項の係数は
+\eqref{eq:upper-direction-pairing} のペアリングに
+\(p^{p^e w_{\tau h b}+w_{\tau' h' b}}\) を掛けたものである。
+例外の対もこの因子により消える。
+
+\(Q_*(s)\) を各列について、充填 \(I'\) が与える行 \(b\) と
+\(k<h\) を添字とする小行列式 \(\det(s_{\tau h k b})\) を掛けたものとする。
+\(W_{\rm ch}\) を各箱の行 \(b\) について \(w_{\tau h b}\) を足した和とする。
+連鎖律によって
+\begin{equation}\label{eq:upper-minor-chain-rule}
+ J_{Q_*}\bigl(F(\varpi z(s))\bigr)
+ = \varpi^B p^{W_{\rm ch}}\!
+    \left(\prod_{\tau,h<n'}(\det g_{\tau h})^{N_{\tau h}}\right)J_{Q_Y}(F).
+\end{equation}
+一列だけを見れば、新方向の微分行列は \(Y_\tau\) の方向に沿う微分行列に
+右から \(g_{\tau h}^{\,t}\) を掛け、左から行因子
+\(\varpi p^{w_{\tau h b}}\) の対角行列を掛けたものである。
+行列式の積を取れば \eqref{eq:upper-minor-chain-rule} となる。
+
+\(Q_*\) は整係数で次数 \(B\)、変数は高々 \(f(n')^3\) 個ある。
+式 \eqref{eq:upper-normal} に代入した際、条件を課していない
+\(e>\lfloor\log_p\max(B,1)\rfloor\) の項は次数が \(B\) を越える。
+残る結合項には \(\pi_p\) が掛かるので、先ほどの指数関数の付値計算により
+\(F(\varpi z(s))\) の次数 \(B\) までの係数は整である。
+式 \eqref{eq:upper-legendre} と \eqref{eq:upper-minor-chain-rule} から
+\begin{equation}\label{eq:upper-jet}
+ \begin{aligned}
+ v_p(J_{Q_Y}(F))+W_{\rm ch}
+   &\ge \gamma_p B-v_p(\pi_p)\mathcal D_p(A)\\
+   &\quad{}-f n_{j+1}^3\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr),\\
+ \gamma_p&=\frac1{p-1}-\rho_p .
+ \end{aligned}
+\end{equation}
+を得る。\(B\) には印を付けた列の箱も含まれている。\leanref{norm_jet_minorProd_le_of_charges}
+\(e>0\) について
+\(\gamma_p=v_p(\pi_p)\sum_{e\in I_p}p^{-e}\) である。
+\(\gamma_p B\) から \(\mathcal D_p(A)\) の \(e>0\) の控除を引くと、
+\(v_p(\pi_p)\) を単位として、次の正部が利得に現れる。
+\[
+ \left(\frac{t_\tau(A)}{p^e}-t_{\tau_e}(A)-r_{\tau_e}\right)_+
+ +\left(\frac{B_\tau}{p^e}-B_{\tau_e}\right)_+
+ -\frac{r_\tau}{p^e}.
+\]
+実際、\(x-\min(x,y)=(x-y)_+\) を二つの最小値に適用している。
+控除を \(I_p\) 全体に延ばしても非負の項を引くだけなので下界が得られる。
+さらに印を付けた各箱の \(\gamma_p\) を加える。\(p=d\) では \(e=0\) の控除も引く。
 
 \paragraph{持ち上げ一段の利得}
 局所素数和と全段階の利得を
@@ -247,6 +649,143 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 一場所の誤差は \(a/(mp)\) を単位として、
 正部の比較に高々 \(2\)、分岐素点の控除に高々 \(2\)、微分の対数誤差に
 高々 \(1\) である。これらは \(5\le(\log b)^2\) で吸収できる。\leanref{le_divisibilityBound}
+
+\paragraph{局所核の級数と格子}
+一段 \(X_j\to X_{j+1}\) の局所核には、\(n'\times n\) 行列を集めた
+標準空間のシュワルツ・データが入る。レベル \(1\) の標準データとは、
+整な真空ベクトルを \(p\) の上で整な点で平行移動し、
+それらを \(p\)-進整な係数で有限和にしたものである。
+非分解素数 \(p\) は円分法 \(q_1\) を割らない。
+以下では任意のレベル \(1\) の標準データのテータ級数に
+式 \eqref{eq:upper-normal} が成り立つことを示す。
+
+\emph{真空のテータ積展開。}
+自己双対格子 \(\mathfrak a_0\) の元 \(v_i\) と \(p\) に素な整数 \(b_0\) を取り、
+\(\sum_i \tau(v_i)\overline{\sigma(v_i)}=b_0^2\delta_{\tau,\sigma}\)
+を満たすようにする。底本のタイトフレームの構成では、この条件を使って
+各座標に \(v_i/b_0\) を置いた線型形式上の \(\theta\) の積を作る。
+これに対応する Weil ベクトル \(F_0\) のテータ値は \(1\) で、
+そのテータ関数は \(b_0\mathfrak a_0\) の各座標方向に指定された
+符号付き周期を持つ。
+\leansrc{New/Derivatives/Vacuum/TightFrames}{タイトフレームからテータ積を作る構成}。
+
+整な真空を \(F_0\) の平行移動で表すには、この部分格子に対する
+有限フーリエ反転を用いる。各剰余類の代表を \(u\) とすると、
+フーリエ係数に真空を掛けたものは、\(F_0\) を \(-u\) で平行移動して
+さらに周期の代表で平行移動した和で表される。
+一方、反転公式にテータ汎関数を適用すると、これらのフーリエ係数を
+対応する真空平行移動のテータ値で重み付けした総和は
+\((b_0^2)^{f n n'}\) となる。
+これによって整な真空は \(F_0\) の平行移動の有限和になる。
+係数の分母は \((b_0^2)^{f n n'}\) で、分子は整な真空の値と
+ヘイゼンベルク作用の位相因子の積であるため、\(p\) で整である。
+現れる平行移動は \(b_0\) 倍で標準格子に入る。
+\leansrc{New/Derivatives/Vacuum/StandardDataProducts}{真空の有限フーリエ反転と分母}。
+
+標準データに現れる各平行移動をこの展開に適用する。
+ヘイゼンベルク作用の積は平行移動の和に位相因子を掛けたものであり、
+\(p\) での整性が保たれる。各平行移動は \(F_0\) への同じ作用を与える
+有理代表で置き換えられる。その代表 \(\gamma\) は
+ある \(p\) に素な整数 \(a_0\) を掛けると \(\mathfrak a_0\) の各座標に入る。
+\leansrc{New/Derivatives/Vacuum/StandardDataProducts}{整な分母を持つ有理代表の選択}。
+\(\gamma\) のテータ積に現れる各平行移動点 \(t_i\) は
+\(a_0 b_0 t_i\in\Omega_0\mathcal O_K\) を満たす。
+実際、各 \(t_i\) は \(-\Omega_0/b_0\) と、\(v_i\) と
+\(\gamma\) の該当座標とのエルミート対の積である。
+\(a_0\gamma\) と \(v_i\) は自己双対格子にあるので、その対は
+\(\mathcal O_K\) に入る。有限個の平行移動について、すべての
+\(a_0 b_0\) の倍数で \(p\) に素な整数 \(k_0\) を一つ取る。
+
+各座標に \(v_i/(b_0 k_0)\) を置いたベクトルを \(u_i\) とし、
+重複度を \(k_0^2\) とする。上のフレーム恒等式を \(b_0^2\) で割ると
+\(\sum_i k_0^2u_i u_i^\ast=1\) を得る。
+\(k_0 t_i\) が周期であるため、平行移動した一変数テータを
+\(\theta(z)^{k_0^2}\) と \(\mathcal O[[y]]\) の元の積に分けられる。
+ここでは \([k_0]\) による引き戻しを用い、級数の引数を \(k_0\) 倍した
+平行移動テータの次数は \(k_0^2\) となる。
+\leansrc{Lib/CM/Integrality/IsogenyIntegrality}{ねじれ点での平行移動テータの引き戻し}。
+\(k_0\) をすべての項で共通に選んだので、有限和でも
+\(\prod_i\theta(u_i^\ast z)^{k_0^2}\) をくくり出せる。
+残る因子は \(y(u_i^\ast z)\) の整な級数環に属する。
+
+この構成で整と分かるのは、まず \(u_i\) のアデール像
+\(\alpha^{-1}u_i\) である。標準格子を自己双対にするイデール \(\alpha\) は
+\(q_1\alpha\) が整であり、\(p\nmid q_1\) より \(p\) の上で \(\alpha\) は整である。
+従って \(u_i=\alpha(\alpha^{-1}u_i)\) は \(p\) の上のすべての素点で整になる。
+以上のテータ積展開は、テータ関数の変数を
+\(\sqrt{2\pi/\sqrt d}/\Omega_0\) 倍した規格化で得られる。
+実際の核ではこれにさらに周期因子と \(\pi_M\) を掛ける。
+ここで \(\pi_M\overline{\pi_M}=M\)、周期因子は \(p\nmid q_1\) で単元である。
+この追加のスカラーを \(c\) とすると \(v_p(c)\ge0\) である。
+式 \eqref{eq:upper-normal} で変数を \(c\) 倍すると
+\(W(cz)\) は整であり、指数係数には \(c^{(p^e+1)p^\nu}\) が掛かる。
+従って実際の核の規格化でも標準形が保たれる。
+\leansrc{New/Derivatives/Vacuum/Divisibility}{局所核のテータ級数の規格化と整性}。
+
+\emph{格子座標での評価。}
+標準充填による Weyl 加群の基底を使う。有限アデール点 \(g\) におけるベクトル
+\(\eta\) の局所ノルム \(\|\eta\|_g\) は、
+\(g^{-1}\) を重みの表現で作用させたベクトルの \(p\)-進座標の最大値である。
+各 \(\tau\) の重み作用は埋め込み \(x\mapsto\iota_p(\tau(\overline x))\) を使う。
+このノルムは格子を保つ点の右乗法で変わらず、有理点を
+有限アデール点とベクトルの両方に作用させても変わらない。
+
+\(\psi\) を標準データとし、\(K_j(\psi;g,h)\) を
+捻った Weil 作用 \(\omega_j(g,h)\psi\) のシュール微分行列とする。
+ここで \(g\) は \(X_j\)、\(h\) は \(X_{j+1}\) の有限アデール点である。
+標準データを \(\omega_j(1,x d_\ast y)\psi\) に取り替えた場合も考える。
+\(x,y\) は \(p\) の上で整な点とし、\(d_\ast\) は
+各重み埋め込みで成分 \(u_{\tau,b}\) の対角行列になるとする。
+弱近似により有理点 \(\gamma,\epsilon\) を選び、
+\(g_0=\gamma g,\ h_0=\epsilon h x d_\ast\) と
+\(d_\ast h_0 d_\ast^{-1}\) を \(p\) の上で整にする。
+\(g_0,h_0 y\) は標準格子を保つ。したがってそれらによる Weil 作用は
+真空の整な平行移動の張る加群を保ち、捻りの指標の値も単元である。
+よって \(\psi'=\omega_j(g_0,h_0 y)\psi\) は標準データである。
+
+核の共変性と局所ノルムの不変性により、
+入力の点 \(g\) と出力の点 \(h\) での比較は、
+標準データ \(\psi'\) を点 \(1\) で評価した微分行列を用い、
+入力の点を \(1\)、出力の点を \(d_\ast^{-1}\) とした比較に移る。
+実際、入力側の \(g_0\) は整であり、出力側では
+\(\epsilon h=d_\ast^{-1}(d_\ast h_0d_\ast^{-1})x^{-1}\) の右の二因子が整だからである。
+このとき充填 \(I'\) の行には、各箱の添字 \(b\) に対する \(|u_{\tau,b}|_p\) と、
+終域の重みの末項を \(e'_\tau\) とした行列式因子
+\(\prod_\tau(\prod_b|u_{\tau,b}|_p)^{e'_\tau}\) が掛かる。
+行列成分の最大絶対値が作用素ノルムを抑えるので、
+これらの積とシュール微分成分の積を評価すればよい。
+\leansrc{New/UpperBound/Kernels/ThetaLiftGauge}{捻った Weil 作用と格子座標での核の評価}。
+
+印なしの標準データでは \(d_\ast=1\) とすれば行因子はすべて \(1\) である。
+式 \eqref{eq:upper-jet} で \(W_{\rm ch}=0\) とし、控除をすべての \(e\) に延ばし
+対数の床を取らない形にゆるめると、各成分の付値は \(D_{p,j}(\varnothing)\) 以上である。
+よって
+\begin{equation}\label{eq:upper-kernel-gauge}
+ \|K_j(\psi;g,h)\eta\|_h
+ \le p^{-D_{p,j}(\varnothing)}\|\eta\|_g
+\end{equation}
+がすべての \(g,h,\eta\) に対して成り立つ。
+\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{一段の核の付値評価}。
+
+\emph{合成における付値の加算。}
+各段階のデータを \(\psi_{t,j}\) とし、核のノルムの倍率を \(p^{c_j}\)
+で抑える。これは \(\Psi(t)\ne0\) のすべての \(t\) に共通の上界とする。
+中間レベルの同時不変性により、合成した持ち上げの値は、
+各段階の類の代表点 \(g_j\) を渡る
+\[
+  \Psi(t)\,K_{m-1}(\psi_{t,m-1};g_{m-1},g_m)
+        \cdots K_0(\psi_{t,0};g_0,g_1)\phi(g_0)
+\]
+の有限和である。この表示には各類の安定化群の位数による分母が入らない。
+点 \(g_{j+1}\) における出力の格子が次の核の入力の格子になるので、
+積に対して各倍率を掛けることができる。
+\(\phi\) の局所ノルムが \(1\) 以下であり、\(\Psi(t)\) は \(p\) で整だから、
+和に非アルキメデス的三角不等式を使うと上界は \(p^{\sum_{j<m}c_j}\) になる。
+レベル作用と可換な線型作用素を各データに施しても同時不変性は保たれる。
+最後の \(Y_m\subset X_m\) への制限は分岐行列が整数係数で、
+\(p\ne N\) では \(\overline{\pi_N}\) が \(p\) 進単元であるから、
+同じ上界を保つ。
+\leansrc{New/UpperBound/Divisibility/ChainValuation}{接合した鎖の有限類和と制限の付値}。
 
 \subsection{有限素点での余長}
 
@@ -310,15 +849,103 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \text{ を誘導する}\}|\) とする。
 \(Y\) は、各 \(w\in\Lambda\) で指数 \(r_p\) のヘッケ作用素を
 \(p^{a_w}\) 倍して得た作用素 \(T_w\) の積である。
-スケーリングした Hecke 作用素の付値評価を \(Y^m\phi\) に適用する。\leanref{gaugeLe_scaledHeckeOperator_pow}
-持ち上げの付値の損失は、段階 \(j\) ごとに次の量で抑えられる。
+\emph{隣接格子における印付きの評価。}
+各 \(w\in\Lambda\) で、指数が \(r_p\) 以下のヘッケ二重剰余類の元を
+右から作用させた核を考える。両側の整な行列を除けば、
+その \(w\) での成分は行の集合 \(J_w\)（\(|J_w|\le r_p\)）上で \(p\)、
+それ以外で \(1\) の対角行列である。共役素点での成分は逆行列になる。
+重み埋め込みは共役素点の成分を読むので、行因子の絶対値は
+\(p^{\eta_{\tau,b}}\) となる。ここで \(\eta_{\tau,b}\) は、
+\(\tau\) が \(w\in\Lambda\) を誘導し \(b\in J_w\) なら \(1\)、
+\(\overline w\) を誘導し \(b\in J_w\) なら \(-1\)、
+それ以外では \(0\) である。
+行列式因子に現れる
+\(\sum_\tau e'_\tau\sum_b\eta_{\tau,b}\) は、\(w,\overline w\) 上の
+末項重みの和が等しいことにより零である。
+
+式 \eqref{eq:upper-jet} で使う \(w_{\tau h b}\) は、\(\tau\) が \(w\) を誘導し
+\(h=1,\ b\notin J_w\) の場合と、\(\tau\) が \(\overline w\) を誘導し
+\(b\in J_w\) の場合に \(1\)、他では \(0\) とする。
+\(p\) は惰性であり、関係する \(e\) は奇数なので、
+\(\tau_e\) が誘導する素点は \(\tau\) が誘導する素点の共役である。
+例外の対で、\(b\in J_w\) のときは共役側に、\(b\notin J_w\) のときは
+印のある高さ \(1\) の列に \(p\) の因子が付く。従って
+式 \eqref{eq:upper-direction-pairing} から除いた項にも必要な因子が現れる。
+
+一箱あたりの指数 \(\eta_{\tau,b}+w_{\tau h b}\) は、
+\(\tau\) が \(\overline w\) を誘導するときは \(0\) である。
+\(w\) を誘導する場所では、高さ \(1\) の列の箱は \(1\) を寄与する。
+他の列では標準充填の行添字が列内で相異なるので、
+\(J_w\) に属する箱は一列につき高々 \(r_p\) 個である。
+従って全箱について足した指数の上界は
+\(\sum_{w\in\Lambda}a_w+r_p\sum_{\tau\in A} r_\tau\) となり、
+この量から \(D_{p,j}(A)\) を引いたものが、隣接格子での核の損失を抑える。
+\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{隣接格子の重みと方向の冪指数の計数}。
+
+\emph{ヘッケ作用素を各段のデータに移す。}
+\(C_{\boldsymbol x,j}\) を、平行移動の組 \(\boldsymbol x\) に対する
+最初の \(j\) 段の合成とする。\(w\in\Lambda\) での剰余体の位数を
+\(Q_w=z_w^2\), \(z_w=p^{h_w}\), \(2h_w\le f\) と書き、
+\(X_j\) での指数 \(i\) のヘッケ作用素を \(T_{w,i}^{(j)}\) とする。
+階数差 \(n_{j+1}-n_j\) を \(t_{\rm rk}+1\) と書く。
+この素点では捻りの指標が不分岐で、局所データは真空である。
+ヘッケ多項式
+\[
+ {\cal H}_{w,j}(U)=\sum_{i=0}^{n_j}(-U)^i Q_w^{\binom{i}{2}}T_{w,i}^{(j)}
+\]
+に対する不分岐テータの恒等式は、一段の持ち上げを \(L_j\) とすれば
+\begin{equation}\label{eq:upper-hecke-polynomial}
+ {\cal H}_{w,j+1}(U)L_j
+    =R_j(U)L_j{\cal H}_{w,j}(z_w^{t_{\rm rk}+1}U)
+\end{equation}
+である。ここで \(\chi_{w,j+1}\) は持ち上げ指標の基底変換を \(w\) の
+一様化元で評価した値で、
+\(R_j(U)=\prod_{0\le k\le t_{\rm rk}}(1-Q_w^k z_w^{n_j}\chi_{w,j+1}U)\) である。
+\(\chi_{w,j+1}\) は \(w,\overline w\) 上で指標の重みの和が等しいため
+\(p\) 進単元であり、\(R_j\in\mathcal O[U]\) で \(R_j(0)=1\) である。
+\leansrc{Lib/Weil/Unramified/HeckeTransfer}{不分岐テータにおけるヘッケ多項式の恒等式}。
+
+式 \eqref{eq:upper-hecke-polynomial} に \(R_j^{-1}\in\mathcal O[[U]]\)
+を掛けて \(U^i\) の係数を比較する。
+\(z_w^{(t_{\rm rk}+1)i}Q_w^{\binom{i}{2}} L_j T_{w,i}^{(j)}\) は、
+\(i'\le i\) にわたる \(T_{w,i'}^{(j+1)}L_j\) の整係数線型結合となる。
+この前置因子は \(p^{h_w i(t_{\rm rk}+i)}\) であるから、
+\(i\le r_p\le t_{\rm rk}\) と \(2h_w\le f\) より
+\(p^{f r_p t_{\rm rk}}\) を割る。
+よって各段でこの冪を払うと、指数の上限 \(r_p\) を保ったまま
+整係数で移送できる。\(j+1\) 段について繰り返し、
+\((j+1)f r_p t_{\rm rk}\le \nu_p\) を使って不足する \(p\) の冪を掛けると、
+ある \(p\) 進整な係数 \(c_{w,i}\) によって
+\begin{equation}\label{eq:upper-hecke-transfer}
+ \sum_{i\le r_p}c_{w,i}\,T_{w,i}^{(j+1)}C_{\boldsymbol x,j+1}
+       = p^{\nu_p} C_{\boldsymbol x,j+1} T_{w,r_p}^{(0)}
+\end{equation}
+となる。この式は \(w\) で球的な形式上で成り立ち、
+係数は \(\boldsymbol x\) によらない。
+\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{一段の移送から合成の移送へ}。
+
+式 \eqref{eq:upper-hecke-transfer} の左の作用素をデータに作用させ、
+\(p^{a_w-\nu_p}\) を掛ける。同じ操作を相異なる \(w\) ごとに施す。
+終域でのヘッケ作用をデータに移せるのは持ち上げの共変性による。
+データが各 \(w\) で球的なので、終域レベルとの可換性が保たれ、
+始域の作用とも可換である。得られたデータによる一段の持ち上げを
+\(L'_{\boldsymbol x,j}\) とすると
+\(L'_{\boldsymbol x,j}C_{\boldsymbol x,j}
+ =C_{\boldsymbol x,j+1}Y\) である。
+帰納的に \(m\) 段の変更後の合成は \(C_{\boldsymbol x,m}Y^m\) となる。
+
+各作用素 \(T_{w,i}^{(j+1)}\) は二重剰余類の片側剰余類代表による
+平行移動の有限和である。これらはすべて、上で評価した
+隣接格子の条件を満たしている。整な \(c_{w,i}\) 付きの有限和は
+非アルキメデス的三角不等式により損失を増やさない。
+\(p^{a_w-\nu_p}\) を掛けると \(w\) ごとに \(\nu_p-a_w\) の損失が加わる。
+従って一段の総損失は
 \[
   |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau-D_{p,j}(A)
 \]
-である。\(r_\tau\) はその段階の高さ 1 以外の低い列の数である。
-これは、各段に \(Y\) を行き渡らせる際の \(|\Lambda|\nu_p\) と、
-印を付けた方向の冪を負担する低い列の和を、
-\eqref{eq:upper-one-step} の一段の利得から引いた形である。
+以下である。可換性により接合したデータの同時不変性が保たれるので、
+この上界を全段で加算できる。\leanref{gaugeLe_scaledHeckeOperator_pow}
+
 \leansrc{New/UpperBound/Divisibility/MarkedPrimes}{印を付けた列での損失の評価}の
 数値評価により
 \[
@@ -411,11 +1038,48 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 各行長を \(l_{j,\tau,i}\) とし、
 \(U_j=\sum_{\tau}\sum_{i<n_j}s_\infty(l_{j,\tau,i})\) と置く。
 周期を \(\Omega\) とすると \(s_\infty(q)=\log(q!)+q\log(M/\Omega)\)
-である。テータ核の無限素点での評価により、任意の共役について
-一段の持ち上げでノルムを増やす倍率は \(\exp(x^{50}+U_j/2)\) 以下である。\leanref{sqrt_weylNormSq_jetMap_le}
-これは、各行の長さに対応する階乗を用いたシュール微分の
-無限素点評価である。周期による正規化を含む階乗の項は \(U_j/2\) に現れ、
-それ以外の定数、変数の個数および行長の補正が \(x^{50}\) に吸収される。
+である。これが各核のノルムに現れることを示す。
+Weyl 加群の Gram ノルムを用い、シュール行列の作用素を双対ノルム
+\(1\) 以下の行ベクトルで評価する。一つの多項式行列 \(Z_\tau\) に対し、
+その特異値の二乗を大きい順に \(\rho_{\tau,i}\ge0\) とすると、シュール行列の
+作用素ノルムの二乗は \(\prod_{\tau,i}\rho_{\tau,i}^{l_{j,\tau,i}}\) 以下である。
+これは左右のユニタリ行列が Gram ノルムを保ち、対角行列では
+最高重みの行長が指数になることによる。\(\sum_i\rho_{\tau,i}\) は
+\(Z_\tau\) の成分の絶対値二乗和である。
+\leansrc{Lib/GLn/SchurModule/SchurNorm}{特異値によるシュール行列のノルム評価}。
+
+\(\lambda=a+1\), \(u=\log(M/\Omega)\) と置く。
+\(v=u+1/\lambda\) とすれば、指数級数の \(l\) 次の項を使って
+\(\rho^l\le l!\exp(lv+\rho e^{-v})\) となる。
+\(\sum_{\tau,i}\rho_{\tau,i}\le e^u(2\lambda+2)R\) のとき、
+\(e^{1/\lambda}\ge1+1/\lambda\) により
+\(e^{-v}\sum_{\tau,i}\rho_{\tau,i}\le2\lambda R\) である。
+従ってシュール多項式の成長を抑える倍率は
+\[
+ \exp\!\left(\frac{U_j}{2}
+       +\frac1{2\lambda}\sum_{\tau,i}l_{j,\tau,i}+\lambda R\right)
+\]
+となる。ここで共役後のガウス積分の変数に掛かるスカラーの二乗絶対値は
+\(M/\Omega\) である。
+
+微分の共役を、埋め込みの置換を施したシュール多項式と
+共役後の真空の平行移動とのガウス積分で表す。
+\(s_j=f n_j n_{j+1}\) 個の複素変数 \(y\) について
+\(R=\sum|y|^2/(2\lambda+2)\) を用いると、多項式の
+\(\exp(\lambda R)\) と真空の \(\exp(-\sum|y|^2/2)\) の積は
+\(\exp(-R)\) となる。各複素座標の測度はルベーグ測度を \(\pi\) で
+割ったものなので、このガウスの積分は \((2\lambda+2)^{s_j}\) である。
+\(K\) を固定する共役で積分表示を適用すればよい。
+他の共役は複素共役を合成して絶対値を保つものに取り替えられる。
+\leansrc{New/UpperBound/Kernels/JetConjugatesAndBounds}{ガウス積分と行ごとの階乗評価}。
+
+共役後の整な真空の評価から来る対数定数は
+\(\mathrm{const}(P)(q_1 n_j n_{j+1}+1)^2\) である。
+これと \(s_j\log(2\lambda+2)\)、および
+\((2\lambda)^{-1}\sum_{\tau,i}l_{j,\tau,i}\) の和は、
+行長が \(2a\) 以下であることとデータの尺度条件により \(x^{50}\) 以下である。
+従って任意の共役について一段の持ち上げでノルムを増やす倍率は
+\(\exp(x^{50}+U_j/2)\) 以下である。\leanref{sqrt_weylNormSq_jetMap_le}
 
 行長の主部は、第一行の \(a\,1_{\Phi_a}(\tau)\) と、
 続く \(k-1\) 行の \(\kappa(\tau)\) である。
@@ -507,8 +1171,15 @@ Stirling の上界
 \begin{equation}\label{eq:upper-cb}
  \log C_B\le-\sum_p G_p\log p+E_3+b .
 \end{equation}
-従って \eqref{eq:upper-arch} と射影の損失 \(x^{99}\) に
-倍率 \(C_B^2\) を掛けると、指数にあった \(2\sum_pG_p\log p\) が消える。
+二乗ノルムに倍率 \(C_B^2\) を掛けると、有限素点の利得と合わせた
+指数への寄与は
+\[
+ 2\log C_B+2\sum_p G_p\log p
+    =2\sum_{p\in\mathcal U\cup\{N\}}(G_p-g_p)\log p
+    \le 2(E_3+b)
+\]
+である。従って式 \eqref{eq:upper-arch} の素点の主項が相殺され、
+射影の損失 \(x^{99}\) とこの誤差が残る。
 
 \begin{proof}[定理~\ref{thm:upper-bound}の証明]
 \(S_0\) は全有限素点で整で、任意の共役の値の二乗ノルムが

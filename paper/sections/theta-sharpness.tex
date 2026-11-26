@@ -1,0 +1,209 @@
+\paragraph{付値の上界を達成するテータ係数}
+\(v_\ell\) は \(\iota\) での付値を \(v_\ell(\ell)=1\) と正規化したものとする。
+\(l_\tau=c(\tau)-u\) は \(\kappa(\tau)\le l_\tau\le\kappa(\tau)+x^{42}\)
+を満たす。ここで \(l!=\prod_\tau l_\tau!\) と書く。
+まず、階数 \(12\) のテータ核の係数で、付値が
+\(F(\ell)+v_\ell(t)\) 以下となるものを作る。
+係数は \(l!\) と整真空の規格化を含み、\(t\ne0\) は
+有限素点に依存せず、すべての共役の絶対値が \(\exp(fmb/k)\) 以下である。
+
+Weil 表現で使うイデールを \(\alpha_{\rm W}\)、対応する格子
+\(E\cap\alpha_{\rm W}\widehat{\mathcal O}_E\) を \(\mathfrak a_0\) とする。
+\(\mathfrak a_0\) に \(w_i\) と重複度 \(c_i\ge6fb\) を取り、
+各埋込み \(\tau,\sigma\) について
+\(\sum_i c_i\tau(w_i)\overline{\sigma(w_i)}=M\delta_{\tau\sigma}\)
+となるようにする。この枠の存在と、各 \(\ell\) で係数がすべて単元の
+線型形式を一つ得られることには、
+\leansrc{New/Derivatives/Vacuum/ShortVectors}{格子上での枠の構成}
+を用いる。各 \(w_i\) の埋込みの共役に周期の規格化を掛けた線型形式を
+\(\mu_i\) と書き、\(\Theta=\prod_i\theta(\mu_i z)^{c_i}\) とする。
+第5節の \(y\) を用いて \(H\) を \(y(\mu_i z)\) たちの整係数級数とする。
+\(V_j(\nu)\le r\) とは、独立な \(j\) 組の変数での
+\(\prod_{c=1}^j(H_c\Theta)(z_c)\) のうち、組を通算した多重次数が \(\nu\) である
+係数を、付値が \(r\) 以下になるように選べることをいう。
+
+まず六つの規格化 \(\delta_c\in\mathbb Z_\ell\) を
+\(\delta_0=1\)、\(\sum_c\delta_c^2=0\) となるように選ぶ。
+四平方定理を \(\mathbb Z_\ell\) のコンパクト性で延長して \(-1\) を四平方の和で表し、
+これと \(1,0\) を並べればよい。
+\(g=-\log\theta\) に対し
+\(\exp(\delta^2 g(z)-g(\delta z))\) は \(y(z)\) の整係数級数である。
+整数の倍写像に対するテータの商の公式を、係数ごとの極限で
+\(\delta\in\mathbb Z_\ell\) に移したものである。
+従って \(\prod_c\Theta(\delta_c z)\) は \(H\) の属する環の単元になる。
+定数項が \(1\) であり、逆数も同じ環で展開できる。
+\leansrc{New/Derivatives/Sharpness/LeastValuation}{六つのテータ積の単元性}。
+
+任意の次数 \(N\) で、原点での \(N\) 階微分の絶対値が
+\(\ell^{-\gamma_\ell N}\) 以上の \(y\) の整係数級数を取れる。
+ここで非分解素数では \(\gamma_\ell=1/(\ell-1)-\rho_\ell\)、
+分解素数では \(\gamma_\ell=0\) である。
+実際、\(D_N\) を \(y^j\) の \(N\) 階微分の最大絶対値とする。
+\(y\) の定数項は \(0\) なので最大値には \(j\le N\) だけを考えればよい。
+形式群の加法公式で \(y(z_1+z_2)^j\) は \(y(z_1),y(z_2)\) の整係数級数となる。
+両変数でそれぞれ \(m_1,m_2\) 回微分して絶対値を取れば
+\(D_{m_1+m_2}\le D_{m_1}D_{m_2}\) となる。
+一方、\(\ell\) の上の素点のノルムを \(q_\ell\) とすると、
+\(N=q_\ell^e\) では規格化した形式パラメータの \(N\) 次係数は
+剰余体で \(1\) である。第5節では非分解素数についてこの規格化を示した。
+分解素数では \(q_\ell=\ell\)、\(\rho_\ell=1/(\ell-1)\) で同じ合同式が成り立つ。
+\leansrc{Lib/CM/FormalGroup/FormalParameter}{全ての素数に対する形式パラメータの合同式}。規格化を戻して \(N!\) を掛け、
+\(v_\ell(N!)\le(N-1)/(\ell-1)\) を使うと \(D_N\ge\ell^{-\gamma_\ell(N-1)}\) となる。
+\(D_j\le1\) は形式群の加法公式から一次微分を繰り返して得る。
+固定した \(n\) に対して \(N=n\lfloor N/n\rfloor+(N\bmod n)\) と分け、
+\(N=q_\ell^e\) を無限に大きくすると \(D_n\ge\ell^{-\gamma_\ell n}\) が従う。
+\leansrc{New/Derivatives/Sharpness/OneCurve}{一変数の微分評価}。
+
+次数 \(|\nu|\) でこの評価を使い、選んだ級数に単元係数の \(\mu_i\) を代入する。
+多項式の係数の展開から、\(\nu\) 次係数の付値は
+\(\gamma_\ell|\nu|-v_\ell(\nu!)\) 以下である。
+六つの積の第一因子にこの級数と \((\prod_c\Theta(\delta_c z))^{-1}\) を掛けると、
+代入 \(z_c=\delta_c z\) 後の積は選んだ級数になる。
+代入の係数が整なので、代入前に少なくとも同じ絶対値の係数がある。
+従って \(V_6(\nu)\le\gamma_\ell|\nu|-v_\ell(\nu!)\) を得る。
+惰性素数ではさらに、枠を \(\bar\pi_M\) で割った分解恒等式が、
+各座標 \(z_\tau\) の単元倍を \(\mu_i(z)\) の整線型結合で表す。
+そこで \(\mu_i(z)\) を \(y(\mu_i z)\) に取り替えた級数の最低次項は
+\(z_\tau\) の単元倍である。これらの積で任意の多重次数の単元係数を作り、
+\(\Theta(0)=1\) を使うと \(V_6(\nu)\le0\) も得られる。
+
+\paragraph{結合項の選択と階乗}
+非分解素数では \(\tau_e=(-\ell^e)\tau\) とおき、第5節で定めた \(I_\ell\) を用いる。
+まず惰性素数での結合を考える。
+奇数 \(e_\tau\) に対して選んだ結合 \(z_\tau^{\ell^{e_\tau}}z_{\tau_{e_\tau}}\)
+を \(j_\tau\) 回使い、両因子の多重次数をそれぞれ \(\nu',\nu''\) とする。
+以下では、各終点に入る結合のうち、選んだ始点からのもので
+指数 \(e\le e_\tau\) となるのは、その選んだ結合だけである。
+\(V_6\) の評価には \(\Theta(\varpi z)=W\exp(C\Xi)\) という第5節の標準形を使う。
+\(C=\varpi^{\ell+1}/\ell\)、\(v_\ell(C)=1/(\ell-1)-1<0\) である。
+第一因子に \(z'+z''\)、残る五つに \(\delta_c z'\) を入れ、積を \(G\) とする。
+\(z''=0\) とすると前段で得た整係数の単元に戻る。
+\(z''\) の終点変数で計 \(|j|=\sum j_\tau\) 回微分して \(C^{|j|}\) を除くと、
+剰余体では \(\prod_\tau(\partial_{\tau_{e_\tau}}\Xi)^{j_\tau}\) とその単元との積になる。
+各微分で \(C\) を伴う項を選ぶとこの積が得られ、
+他の項は \(1/C\) を含むので剰余体で零になる。
+剰余体では \(\ell\) 乗の微分は消え、始点以外の \(z'\) を零にすると、
+各 \(\partial_{\tau_{e_\tau}}\Xi\) の最低次項は
+\(z_\tau'{}^{\ell^{e_\tau}}\) の単元倍である。
+従って \((z')^{\nu'}\) の係数は剰余体で非零である。
+\(\nu''!\) で割って係数に戻し、\(\varpi\) の規格化を外すと
+\begin{equation}\label{eq:attain-coupling}
+ V_6(\nu'+\nu'')
+ \le \left(\frac1{\ell-1}-1\right)|j|
+      -\rho_\ell|\nu'+\nu''|-v_\ell(\nu''!).
+\end{equation}
+\((\ell+1)|j|\le|\nu'+\nu''|\) より右辺は \(-|j|\) 以下である。
+また \(v_\ell(\nu'!)\le|\nu'|/(\ell-1)\) と
+\(|\nu''|=|j|\) を使うと
+\(v_\ell(\nu'!\nu''!)+V_6(\nu'+\nu'')\le
+\gamma_\ell|\nu'+\nu''|-|j|\) となる。
+\leansrc{New/Derivatives/Sharpness/Couplings}{終点での微分と最低次項の係数}。
+
+\(L=\lceil6b/k\rceil\)、\(l_\tau^-=\max(l_\tau-L,0)\) とし、
+\(B_\tau=(l_\tau^-+1)\cdots(l_\tau^-+L)\) とおく。
+\(L!\mid B_\tau\) かつ
+\(v_\ell(l_\tau!)\le v_\ell(l_\tau^-!)+v_\ell(B_\tau)\) である。
+以下の比較で用いるのは
+\begin{equation}\label{eq:attain-twelve}
+ v_\ell(l!)+V_{12}(l)\le F(\ell)+2\sum_\tau v_\ell(B_\tau).
+\end{equation}
+分解素数では \(F(\ell)=0\) であり、
+\(V_6(l)\le-v_\ell(l!)\) に次数 \(0\) の六つの因子を付ければよい。
+
+非分解で \(\ell>k\) ならば \(\ell\ne d\) なので惰性である。
+全ての \(\tau\) に \(e_\tau=1\) を用い、
+\(i_\tau=\lfloor l_\tau^-/\ell\rfloor\)、
+\(j_\tau=\min(i_\tau,l_{\tau_1})\) とする。
+\(\tau\mapsto\tau_1\) は全単射で、各座標に入る次数は
+\(l_\tau^-+\min(L,l_\tau)\le l_\tau\) である。
+実際、始点としての次数は \(\ell j_\tau\le l_\tau^-\)、
+終点としての次数は \(j_{\tau_1^{-1}}\le L,l_\tau\) である。
+従って最初の六つの因子で結合の次数を取り、残りの六つで残余次数を
+付値 \(0\) 以下で補うと \(V_{12}(l)\le-\sum j_\tau\) となる。
+\(i_\tau\le L\) であるから、階乗の再帰式は
+\(v_\ell(l_\tau!)\le i_\tau+2v_\ell(B_\tau)\) を与える。
+\(L\ge x^{42}\) より \(i_\tau\le\kappa(\tau)/\ell\) となり、
+\[
+ i_\tau-j_\tau\le
+   \bigl(\kappa(\tau)/\ell-\kappa(\tau_1)\bigr)_+ .
+\]
+右辺は \(F(\ell)\) の \(\tau,e=1\) の項である。
+
+非分解で \(\ell\le k\) のときは、\(e\in I_\ell\)、\(2e<l_0\) で
+\(\tau,\tau_e\) がともに \(\Phi_b\) に入る組を使う。
+\(\ell=d\) では \(d\equiv q_0/2-1\pmod{q_0}\) かつ \(d^2\equiv1\pmod{q_0}\) なので、
+\(-d^e\) は法 \(q_0\) で \(1\) に合同にならず、この組はない。惰性の場合、疎性によって異なる二組の始点と終点は
+重複しない。例えば同じ始点の二組なら指数 \(0,e,e'\) が疎性に反し、
+同じ終点の二組は大きい指数の始点に対し指数 \(0,e-e',e\) の関係を与える。
+終点が次の組の始点なら \(0,e,e+e'\) が疎性に反する。
+同一点への非自明な戻りも第3節の位数評価で排除される。
+従って \(j_\tau=\lfloor l_\tau/\ell^{e_\tau}\rfloor\) を取れる。
+始点の次数は \(\ell^{e_\tau}j_\tau\le l_\tau\)、
+終点の次数は \(j_\tau\le2b/2\le l_{\tau_e}\) であり、
+残りの次数を \(\eta=l-\nu'-\nu''\) とする。
+\eqref{eq:attain-coupling} と \(V_6(\eta)\le\gamma_\ell|\eta|-v_\ell(\eta!)\)
+を合わせ、Legendre の公式で三項の多項係数の付値を
+\(3f(\log b+2)\) 以下と評価すると
+\[
+ v_\ell(l!)+V_{12}(l)\le
+   \gamma_\ell |l|-\sum_\tau j_\tau+3f(\log b+2).
+\]
+
+ここから \(F(\ell)\) を引くと、各 \(\tau\) では \(\gamma_\ell\kappa(\tau)\) と
+\(F(\ell)\) の \(\tau\) 成分との差として
+次の量が残る。
+\[
+ v_\ell(\pi_\ell)\sum_{e\in I_\ell}\min\!\left(\frac{\kappa(\tau)}{\ell^e},\kappa(\tau_e)\right) .
+\]
+選んだ組の項は \(j_\tau+1\) 以下である。
+他の \(2e<l_0\) の項は一方の重さが \(a/x_1\) なので、その値以下である。
+\(2e\ge l_0\) の項を幾何級数で足すと \(2b/(k\ell)\) 以下となる。
+これは \(\lceil l_0/2\rceil-1\ge s\) と \(k\le2^s\) を使った評価である。
+従って近接する組の \(j_\tau\) を差し引いて残る誤差は、
+各 \(\tau\) について
+\[
+ 3(\log b+2)+x^{42}+1+l_0 a/x_1+2b/(k\ell)
+ \le 3b/(k\ell)\le L/\ell-1\le v_\ell(B_\tau).
+\]
+最初の不等式では
+\(3(\log b+2)+x^{42}+1\le a/x_1\) と
+\((l_0+1)a/x_1\le b/(k\ell)\) を使う。どちらも第3節のスケールから従う。
+最後は \(L\) 個の連続整数に含まれる \(\ell\) の倍数を数える。
+これで \eqref{eq:attain-twelve} が全ての素数で成り立つ。
+\leansrc{New/Derivatives/Sharpness/Cases}{三つの素数の場合の階乗との比較}。
+
+\paragraph{テータ核の係数への移行}
+\eqref{eq:attain-twelve} の係数を取る際、非アルキメデス性により、
+各 \(H_c\) は \(y(\mu_i z)\) の単項式でよく、その総次数は \(|l|\) 以下にできる。
+各冪 \(e_{ci}\) に対し \(3e_{ci}\le3|l|\le6fb\le c_i\) であるから、
+\(y^{e_{ci}}\theta^{c_i}=(y\theta^3)^{e_{ci}}\theta^{c_i-3e_{ci}}\)
+をテータ切断の積として実現できる。
+枠の恒等式により、十二組の積はアデール \(12\times1\) 行列上の
+Heisenberg 表現のベクトル \(U\) のテータ級数になる。
+このベクトルは有限部分で整な値を取り、\(\pi_M\mathfrak a_0^{12}\) の
+符号付き平行移動で不変である。
+\leansrc{New/Derivatives/Sharpness/BoundAttained}{テータ切断から Heisenberg 表現への移行}。
+
+法 \((\pi_M)\) の剰余類 \(y_0\) の指示関数を有限部分に置いた真空を \(I_{y_0}\) とする。
+剰余群の Fourier 反転で \(M^{12f}U\) は平行移動した真空の有限和となる。
+各係数 \(a_j\) は \(U\) の有限個の整な値に単位根を掛けた和から得られ、
+より正確には真空の任意の有限値 \(v_0\) に対し \(a_jv_0\) が整である。
+各平行移動した真空は単位根を係数とする \(I_{y_0}\) の和になる。
+従って係数を取る線型写像を \(\Lambda\) とすれば、非アルキメデス性により
+ある \(y_0\) について
+\(
+ |\Lambda(I_{y_0})|_\iota\ge|M^{12f} v_0\Lambda(U)|_\iota
+\)
+である。 \(\Lambda\) に整真空の規格化を含めて、固定した非零の整真空の値を
+\(v_{\rm int}\) とする。\eqref{eq:attain-twelve} と合わせると
+\[
+ t=M^{12f}v_{\rm int}\prod_\tau B_\tau^2
+\]
+に対し、ある \(I_{y_0}\) の規格化した係数に \(l!\) を掛けた値の付値が
+\(F(\ell)+v_\ell(t)\) 以下となる。
+\(B_\tau\le (2b+L)^L\)、全ての共役で
+\(|v_{\rm int}|\le\exp(12C_{q_0,d}q_1^2)\) なので、
+\(12f\log M+2fL\log(2b+L)+12C_{q_0,d}q_1^2\le fmb/k\)
+を使えば \(t\) の主張した共役の上界を得る。
+この \(t\) は \(\iota\) に依存しない。
+\leansrc{New/Derivatives/Sharpness/BoundAttained}{指示関数の係数と共役の上界}。

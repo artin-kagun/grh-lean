@@ -91,33 +91,780 @@ below. As before, we write \(|v|_\iota=|\iota(v)|_\ell\).
   \]
 \end{enumerate}
 
-The existence theorem uses the Galois representations of rank \(r\)
-attached to the finitely many Hecke eigensystems in the \(e_0\)-part of
-the forms on \(W_m\), together with the rank-one representation attached
-to each main pair. The twisting theorem is applied to the main summands
-whose traces are obtained from those of the twisted lifts by removing a
-string of characters. For the first \(m\) powers of one anticyclotomic
-character it bounds both the lengths of the Selmer groups with divisible
-coefficients and the valuations of the \(L\)-value ratios for ramified pairs.
-Let \(C_{\mathrm{lev}}\) be the product of level group orders used in the
-formal proof, and \(C_1\) the number of classes of \(U(1)\) at the chosen
-principal level. For the inverse ratio of a ramified pair the bound for
-\(\log|\cdot|_\iota\) is
+\subsubsection{Selmer descent and local factors}
+
+Fix a finite place \(\iota\). In this section \(v_\ell\) denotes the
+valuation normalized by \(v_\ell(\ell)=1\). For \(L\)-value ratios, which
+need not be integral, use \(v_\ell^+(z)=\max\{0,v_\ell(z)\}\).
+Let \(C_{\mathrm{lev}}\) be the product of the orders of
+\(\mathrm{GL}_{rt}(k_w)\) over the chosen level places \(w\), with \(k_w\)
+the residue field. Set
 \[
-  \big((4f+3)r\,v_\ell(C_{\mathrm{lev}})+2^{-\ell}\big)\log\ell.
+ c=(4f+3)r\,v_\ell(C_{\mathrm{lev}}),\qquad
+ \epsilon_\ell=2^{-\ell},\qquad e'_\ell=c+\epsilon_\ell .
 \]
-The denominator estimate obtained by Ribet's method combines the Selmer
-group length with local and level corrections in the exponent \(c_\ell\).
+Let \(S_0\) consist of the places dividing \(\ell MN\). Choose a level
+place \(w_0\nmid\ell\) whose norm is \(p_0\) or \(p_1\), and a generator
+\(g_0\) of its tame inertia group.
+
+Collect the Hecke eigensystems for the lifts from rank \(r\) at every
+stage and for the lift from rank \(1\) attached to each main pair.
+The rank-\(r\) input comes from the eigensystems in the \(e_0\)-part
+on \(W_m\). In general, if a lift has source rank \(r'\) and rank
+difference \(t'\), its normalized representation \(N_x\) has trace
+\[
+ \operatorname{tr}N_x(g)
+ =\psi_\vartheta(g)\operatorname{tr}R_x(g)
+   +\sum_{a=0}^{t'-1}\epsilon_{\mathrm{cyc}}(g)^{-a},
+\]
+where \(\psi_\vartheta\) is the \(\ell\)-adic character of the inverse
+of \(\vartheta\), and
+\(\epsilon_{\mathrm{cyc}}\) is the \(\ell\)-adic cyclotomic character.
+The finite collection of main summands \(R_i=R_x\) supplies the
+input for twisting. Each carries the conjugate duality
+\(R_i^c\simeq R_i^\vee(1-t')\), the specified Hodge--Tate jumps and
+inertial types at the level, and the property that its image spans the
+full matrix algebra over sufficiently large coefficient rings.
+\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/SelmerHypotheses.lean\#L434}{Conditions on the main summands}.
+
+Take stable lattices \(T_i\) in the \(R_i\) over a common coefficient
+discrete valuation ring \(\mathcal O\), and write \(\rho_i\) for their
+actions. Normalize lengths by assigning \(\mathcal O/\ell\) length \(1\).
+The Selmer conditions are to be unramified away from \(\ell M\), to be
+crystalline above \(\ell\), and to vanish at an inertial element
+\(\gamma_i\) above \(M\). The action \(\rho_i(\gamma_i)\) is scalar
+\(\zeta_i\) with \(\zeta_i^2-1\) a unit. The error \(b_i\) for \(T_i\)
+has three terms. For \(W=T_i/aT_i\), write \(W^{*c}\) for the Tate
+dual twisted by complex conjugation. The global term \(b_i^{\mathrm{glob}}\)
+is the supremum of the lengths of \(\operatorname{Hom}_{G_E}(W,W^{*c})\)
+over \(a\ne0\). The term \(b_i^{\mathrm{loc}}\) sums the bounds for
+excess lengths of the local cocycle modules at the old places away
+from \(\ell\). The term for the first auxiliary prime is
+\[
+ b_i^{\mathrm{first}}
+   =v_\ell\big(\det(\rho_i(g_0)-1)\big)
+    +v_\ell\big(\det(\rho_i(g_0^{-c})-1)\big),
+\]
+where \(g^{-c}\) is the inverse of the complex conjugate of \(g\).
+Writing \(r_i=\operatorname{rank}T_i\), the local conditions on the main
+summands give
+\[
+ \begin{split}
+ b_i^{\mathrm{glob}}&\le r_i v_\ell(C_{\mathrm{lev}}),\\
+ b_i^{\mathrm{loc}}+b_i^{\mathrm{first}}
+                   &\le (4f+2)r_i v_\ell(C_{\mathrm{lev}}).
+ \end{split}
+\]
+Thus \(b_i\le c\). Put \(M_0=c+2\), and let
+\(e=\operatorname{length}_{\mathcal O}(\mathcal O/\ell^{M_0})\) in the
+ordinary length convention. Choose the coefficient ring so that its
+residue field has more than \(2re+1\) elements. Then \(b_i+1<M_0\) for
+every \(i\), and the residue field allows the choices below.
+\href{\upstream/grh/src/New/Congruences/Selmer/MainSummands.lean\#L294}{Local conditions on the lattices and their error terms},
+\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L304}{Choice of a common coefficient ring}.
+
+For each ramified pair and sign, take a norm-compatible system of
+group ring elements \(\Theta_{Q'}\). At the empty set the
+specialization at the trivial character \(1(\Theta_\varnothing)\)
+is nonzero and integral. Write \(Y\) for the system, \(\varrho_Y\)
+for its character, and \(E_Y\) for the list of its Euler exponents.
+Its reference valuation is
+\[
+ b_Y=v_\ell(1(\Theta_\varnothing))+
+              2\,\#E_Y\,v_\ell(\varrho_Y(g_0)-1).
+\]
+Choose an integer \(M_1\) with \(b_Y+1<M_1\) for all the systems.
+Prescribing \(\rho_i(g_0),\rho_i(g_0^{-c})\) modulo \(\ell^{M_0}\)
+and \(\varrho_Y(g_0)\) modulo \(\ell^{M_1}\) specifies an open
+neighborhood of \(g_0\).
+\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L312}{Norm-compatible systems for ramified pairs}.
+
+When choosing auxiliary primes \(Q\), equip each \(q\in Q\) with
+a Frobenius element \(\phi_q\), an inertial element \(\tau_q\), and
+an anticyclotomic character \(\lambda_q\colon G_E\to\mathbb Z/\ell^A\).
+The character \(\lambda_q\) is unramified away from \(q,\bar q\), is
+trivial on decomposition groups above \(\ell\), and is normalized by
+\(\lambda_q(\tau_q)=1\). The sets \(Q,\bar Q,S_0\) are pairwise
+disjoint, and the places of \(Q\) have prime norm. The Frobenius
+element at the first prime \(q_0\) belongs to the open neighborhood
+above, and its slope is initially zero for all the lattices.
+The existence of these primes combines the Frobenius prescription
+with the Kummer condition that the units allowing denominators at
+a prescribed finite set of places reduce to \(\ell^A\)-th powers.
+Under this condition a discrete logarithm on the residue field
+descends to idele classes and gives the anticyclotomic character
+through \(z/\bar z\).
+\href{\upstream/grh/src/New/Congruences/Selmer/AuxiliaryPrimes.lean\#L102}{Anticyclotomic characters at auxiliary primes}.
+For each later prime \(q\ne q_0\), require
+\(\lambda_{q_0}(\phi_q)=1\) and \(\lambda_{q'}(\phi_q)=0\)
+for \(q'\ne q_0\). These prescriptions enter the calculations
+of the Euler factors and the inertia ties along the line.
+For each \(q\) and \(i\), choose a slope \(s_{i,q}\in\mathcal O\) and impose the
+following ties on cocycles \(z\) allowed to ramify at \(Q,\bar Q\):
+\[
+ z(\tau_q)=s_{i,q}z(\phi_q),\qquad
+ z(\tau_q^{-c})=s_{i,q}z(\phi_q^{-c}).
+\]
+At a new prime whose slope is nonzero for \(i\), choose
+\(\phi_q,\phi_q^{-c}\) to act trivially on \(T_i/\ell^{M_0}T_i\).
+
+Form the tied Selmer modules modulo \(\varpi^a\) and sum their
+ordinary lengths over \(a=1,\ldots,e\) and over \(i\). Suppose that
+at some depth, \((z(\phi_q),z(\phi_q^{-c}))\) lies outside the image
+under \((z(\tau_q),z(\tau_q^{-c}))\) of the module allowing
+ramification at \(q,\bar q\). Write \(A_\tau,A_\phi\) for the
+two evaluation maps and vary the kernel of \(u A_\tau-A_\phi\).
+On the sum \(D\) of these kernels, \(A_\phi(D)\subseteq A_\tau(D)\).
+Lift the action of \(A_\phi\) to an endomorphism of the free
+preimage of \(A_\tau(D)\) in \(\mathcal O^{2r_i}\).
+Away from the residual roots of its characteristic polynomial,
+the image of \(u A_\tau-A_\phi\) contains \(A_\tau(D)\). Comparing
+the sums of the image and kernel lengths excludes at most \(2r_i\)
+residues at each depth. The slope is \(u^{-1}\). Hence a single unit slope can avoid at most \(2r_i e\)
+forbidden residues and zero. Give all other lattices slope zero.
+No length increases at any depth, and at the depth where the image
+condition failed the length strictly decreases. Each new prime is paid
+for by a decrease of at least one in the total ordinary length.
+Minimize the sum of lengths subject to keeping
+\[
+ \#Q+\sum_i\sum_{a=1}^e
+     \operatorname{length}_{\mathcal O}
+        \bigl(\text{tied Selmer module}\bmod\varpi^a\bigr)
+\]
+at most its initial value. All the image conditions hold for a
+minimizing choice. The starting lengths are bounded by the Selmer
+modules without auxiliary primes, so \(\#Q\le s\) for an \(s\)
+independent of \(A\).
+
+If the remaining module has exponent \(\varpi^a\), read it at
+depth \(a\). When it is nonzero, some value of a cocycle \(z\)
+has a unit coordinate. The Greenberg--Wiles length comparison
+bounds the tied module by the length of the dual Selmer group
+plus \(b_i^{\mathrm{loc}}\). The image conditions at this depth
+give a linear map for each dual cocycle \(y\), by sending
+\(z(h)\) to \(y(h^c)\) on the normal subgroup \(H\) generated by
+commutators with \(\gamma_i\) and \(\gamma_i^c\).
+The pairing arising from reciprocity is skew-symmetric, and conjugation
+by \(\gamma_i\), with \(\zeta_i^2-1\) a unit, forces it to vanish.
+Thus the assignment respects the linear relations on \(z(h)\).
+The span of \(z(H)\) is Galois-stable and contains a vector with a
+unit coordinate, hence equals the coefficient module because the
+image of \(\rho_i\) spans the full matrix algebra. Restriction to
+\(H\) detects the dual cocycles. The assignment therefore embeds
+the dual Selmer group in the module of Galois-equivariant maps
+to the conjugate dual. Its length is at most
+\(b_i^{\mathrm{glob}}\), giving \(b_i^{\mathrm{glob}}+b_i^{\mathrm{loc}}\)
+as a bound for the length modulo \(\ell^{M_0}\). Now release the ties at
+\(q_0,\bar q_0\). By the Frobenius congruence, the increase is bounded
+by \(b_i^{\mathrm{first}}\), so the length with the remaining ties
+is at most \(b_i\).
+\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L63}{Linear algebra for choosing the slope},
+\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L527}{Descent at all torsion depths},
+\href{\upstream/grh/src/New/Congruences/Selmer/Count.lean\#L519}{Length comparison with the dual group},
+\href{\upstream/grh/src/New/Congruences/Selmer/Mirror.lean\#L659}{From dual cocycles to maps into the conjugate dual},
+\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L247}{Cost of releasing the first ties}.
+
+\subsubsection{Polynomial specialization and the choice of one character}
+
+From the ranks \(r_i\), the lengths \(\#E_Y\), and the auxiliary
+prime bound \(s\), choose a positive integer \(s_0\) that bounds
+\(2r_i\#Q,\,2\#E_Y\#Q,\,2\#Q\). Take a rational \(\rho>0\) so
+that \(s_0\rho\le\epsilon_\ell/2\). Require \(A\rho\ge M_0,M_1\),
+and take \(A\) large enough for the orders of the roots of unity
+specified below.
+
+For each \(i\), take an integral polynomial \(P_i((X_q)_q)\) bounding
+the length of the twisted Selmer module with \(\ell^{M_0}\)-torsion
+coefficients. The characters and the action on the lattice
+modulo \(\ell^{M_0}\) are locally constant. The cocycle equations
+with variable twists are given by a matrix with finitely many
+columns that works for all specializations. Adjoin \(\ell^{M_0}\) times the identity to this
+matrix and take its maximal minors. The least valuation of the
+minors at any specialization is the length of the torsion module.
+A minor attaining the minimum at the chosen point gives the
+length there and an upper bound at every other point.
+\href{\upstream/grh/src/New/Congruences/Selmer/OneSystem.lean\#L434}{Minors of the cocycle equations}.
+Keep the ties away from \(q_0,\bar q_0\)
+and restrict a polynomial with equality at the origin to the line
+\(X_{q_0}=Y,\ X_q=s_{i,q}Y\ (q\ne q_0)\). Call the restriction
+\(D_0(Y)\). Then \(v_\ell(D_0(0))\le b_i\). Choose \(P_i\) to
+attain equality for the untied module at \(Y=y\) on the same line.
+Adding the relative lengths for releasing the ties shows that
+the value of \(P_i\) there divides
+\[
+ D_0(y)D_1(y),\qquad
+ D_1(Y)=\prod_{q\ne q_0}\prod_{g\in\{\phi_q,\phi_q^{-c}\}}
+              \det\big((1+Y)\rho_i(g)-1\big).
+\]
+The relative length estimate uses the fact that if \(\alpha\)
+is a value of the twisting character with \(v_\ell(\alpha-1)\ge\rho\),
+then the geometric sum of length \(\ell^A\) is divisible by \(\ell^{M_0}\).
+
+Write \(v_\rho(\sum a_nY^n)=\min_n(v_\ell(a_n)+n\rho)\) for the Gauss
+valuation of radius \(\rho\). Bound \(v_\rho(D_0)\) by its constant
+term and each factor of \(D_1\) by its degree-\(r_i\) term, whose
+coefficient \(\det\rho_i(g)\) is a unit. Thus
+\[
+ v_\rho(D_0D_1)\le b_i+2r_i(\#Q-1)\rho\le b_i+s_0\rho .
+\]
+Choose \(y\) of valuation \(\rho\) with residue avoiding cancellation
+of the terms of least valuation. The evaluation then attains this
+Gauss valuation. This gives a point \(x_i\) with all coordinate
+valuations at least \(\rho\) and \(v_\ell(P_i(x_i))\le b_i+s_0\rho\).
+\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L291}{Determinant polynomials and divisibility along the line}.
+
+For the group ring element \(\Theta_Q\), take the integral polynomial
+\(P_Y\) obtained by evaluating at \(\prod_q(1+X_q)^{\lambda_q}\),
+with integer representatives for the values of \(\lambda_q\).
+Vary only the coordinate at \(q_0\). The group ring norm relation
+then says that \(P_Y\), multiplied by a power of \(1+Y\), is congruent
+to \(R_0(Y)R_1(Y)\) modulo \((1+Y)^{\ell^A}-1\).
+Here \(R_0\) is the specialization of \(\Theta_{\{q_0\}}\).
+Its value at \(Y=0\) is \(1(\Theta_\varnothing)\) times the Euler
+factors at \(q_0,\bar q_0\), so the Frobenius congruence gives
+\(v_\rho(R_0)\le b_Y\). The remaining Euler factors \(R_1\) have
+Gauss valuation at most \(2\#E_Y(\#Q-1)\rho\). The modulus has
+Gauss valuation at least \(A\rho\), and
+\[
+ v_\rho(R_0R_1)\le b_Y+s_0\rho<b_Y+1<M_1\le A\rho .
+\]
+Thus the congruence preserves the terms of lowest valuation, and the
+power of \(1+Y\) leaves the valuation unchanged. This gives a point
+\(x_Y\) with all coordinate valuations at least \(\rho\) and
+\(v_\ell(P_Y(x_Y))\le b_Y+s_0\rho\).
+\href{\upstream/grh/src/New/Congruences/Selmer/StickelbergerLine.lean\#L477}{Bounds for the Euler factors from the norm relation}.
+
+The polynomials have separate points attaining their bounds. To pass
+to a common character, average over roots of unity. Start with a
+one-variable polynomial \(g\) and count its roots with multiplicity.
+For primitive \(\ell^h\)-th roots \(\zeta\) one has
+\(\rho_h=v_\ell(\zeta-1)=1/\varphi(\ell^h)\). Let \(R_h\) be the
+multiset of roots of \(g\) of valuation \(\rho_h\). If \(v_\rho(g)\le B\),
+\[
+ \sum_{\rho_h\le\rho}\#R_h\,\rho_h\le B,
+\]
+since the Gauss valuation of each linear factor with root \(\alpha\)
+is \(\min\{\rho,v_\ell(\alpha)\}\). Given \(0<\delta<1\), take
+\(h_0\) so large that \(\delta\sum(h+1)^{-1}>B\) over
+\(1\le h\le h_0\) with \(\rho_h\le\rho\). For some \(h\) in that range
+we have \(\#R_h\,\rho_h(h+1)\le\delta\).
+For \(\alpha\in R_h\), the linear coefficient of
+\((1+\alpha+Y)^{\ell^h}-1\) has valuation \(h\), so its Gauss
+valuation of radius \(1\) is at most \(h+1\). It follows that
+\[
+ \sum_{\zeta\ {\rm primitive}}
+         \min\{v_\ell(\zeta-1-\alpha),1\}\le h+1 .
+\]
+There are \(1/\rho_h\) choices of \(\zeta\). Sum over \(\alpha\), then
+average over \(\zeta\) to find a choice for which the sum of truncated
+distance valuations is at most \(\delta\). Since \(\delta<1\), the
+truncation can be removed. All other roots of \(g\) have valuation
+different from that of \(\zeta-1\). The resulting specialization
+therefore has valuation at most \(v_{\rho_h}(g)+\delta\).
+
+For several variables, start with a separate point for each polynomial
+and replace one coordinate at a time by a root of unity minus \(1\).
+Apply the one-variable argument to the product after freezing the other
+coordinates. The Gauss valuation of the product is the sum of those
+of its factors. At the new coordinate the evaluated valuation of
+each factor is at least its Gauss valuation at the new radius, so
+the excess bound \(\delta\) holds for each factor. The old coordinate
+has valuation at least \(\rho\), and the new radius \(\rho_h\) is
+at most \(\rho\). The Gauss valuation used in the comparison is
+therefore bounded by the old evaluated valuation. With at most \(s_0\)
+coordinates, taking the loss per coordinate to be
+\(\min\{\epsilon_\ell/2,1\}/(s_0+2)\) gives total loss at most
+\(\epsilon_\ell/2\).
+
+To treat \(1\le j\le m\) simultaneously, include for every \(P_i,P_Y\)
+the polynomials
+\[
+ P^{(j)}((X_q)_q)=P\bigl(((1+X_q)^j-1)_q\bigr).
+\]
+Choose \(j\)-th roots \(1+x'_q\) of \(1+x_q\) with
+\(v_\ell(x'_q)\ge\rho/m\). Then \(P^{(j)}(x')=P(x)\). Each
+\(P^{(j)}\) at its starting point has valuation less than \(b_i+1\)
+or \(b_Y+1\). The sum of these fixed bounds together with
+\(s_0,\rho/m,\epsilon_\ell\) determines an order bound \(\ell^{h_0}\),
+so \(A\ge h_0\) can be imposed before choosing the auxiliary primes.
+We obtain one tuple of roots of unity \((\zeta_q)_q\) for which
+every polynomial and every \(j\) satisfy
+\[
+ v_\ell\bigl(P((\zeta_q^j-1)_q)\bigr)
+       \le b_P+s_0\rho+\epsilon_\ell/2\le b_P+\epsilon_\ell .
+\]
+\href{\upstream/grh/src/New/Congruences/Selmer/RootsOfUnity.lean\#L294}{Averaging over roots of unity and specializing coordinates},
+\href{\upstream/grh/src/New/Congruences/Selmer/GeneralTheorem.lean\#L318}{Simultaneous choice for powers of the character}.
+
+Set \(\psi=\prod_q\zeta_q^{\lambda_q}\). This is anticyclotomic and
+trivial above \(\ell\). Since \(v_\ell(\zeta_q-1)\le\rho/m\),
+we have \(v_\ell(\zeta_q^j-1)\le\rho\) and \(\zeta_q^j\ne1\).
+On inertia at \(q\), only the factor belonging to \(q\) acts.
+Consequently each power is ramified at every \(q\in Q\), and the
+sum of the valuations of \(\psi^j-1\) on the inertial generators
+at \(Q,\bar Q\) is at most \(2\#Q\rho\le\epsilon_\ell\). Class
+field theory recovers the weight-zero character \(\xi_\iota\)
+whose inverse has \(\ell\)-adic character \(\psi\).
+
+At the specialization of \(P_i\) the valuation is less than \(M_0\).
+The bound with \(\ell^{M_0}\)-torsion coefficients thus extends to
+divisible coefficients. Indeed, an element of order at least that of
+a generator of \(\mathcal O/\ell^{M_0}\) would produce a submodule
+whose \(\ell^{M_0}\)-torsion has length \(M_0\). The module is
+therefore killed by \(\ell^{M_0}\), and its length is the one bounded
+at the torsion level. Over every sufficiently large coefficient ring,
+the module of crystalline cocycles vanishing at \(\gamma_i\) embeds
+in the module bounded by the polynomial. The character \(\psi\) is
+trivial above \(\ell\) and at the old inertial element \(\gamma_i\),
+so the local conditions and scalar action used here persist under
+twisting. The Selmer group with divisible coefficients used for
+projection has length at most \(b_i+\epsilon_\ell\le e'_\ell\).
+\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L347}{Passage from torsion to divisible coefficients},
+\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L196}{Comparison with the crystalline Selmer conditions}.
+
+For a ramified pair, the norm of \(P_Y((\zeta_q^j-1)_q)\) is the
+norm of \(1(\Theta_\varnothing)\) times the norm of
+\(\mathcal L_{\nu,u}(\xi_\iota^j;\varepsilon)\) to a positive integral
+power, which is \(2\) if \(u=1\) and \(1\) otherwise.
+For this system \(b_Y-v_\ell(1(\Theta_\varnothing))\) is at
+most \(4v_\ell(\mathrm Nw_0-1)\). Subtract the reference valuation to
+obtain
+\[
+ v_\ell^+\bigl(\iota(\mathcal L_{\nu,u}(\xi_\iota^j;\varepsilon))\bigr)
+ \le 4v_\ell(\mathrm Nw_0-1)+\epsilon_\ell
+ \le e'_\ell .
+\]
+The last inequality uses that \(\mathrm Nw_0-1\) divides the order
+of the level group and \(4\le(4f+3)r\). Both the Selmer-length bound
+and the local \(L\)-value bound now hold for the same twist.
+\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L396}{Estimate extracting the \(L\)-value ratio from the group ring element},
+\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L417}{Application to the family of twists}.
+
+\subsubsection{Trace congruences and projection onto the lifts}
+
+Fix \(\vartheta=\xi_\iota^j\). Write \(Z\) for the space of lifts,
+\(r'\) for the source rank, and \(t'>0\) for the rank difference.
+Each \(Z\) used here is spanned by forms with the Hecke polynomials
+of theta lifts and with specified types at the chosen level places.
+Fix one such type and write \(e_c\) for its self-adjoint projection.
+Its image is contained in the image of the level operator used
+to define false lifts. At every auxiliary level, the eigensystem
+\(x\) of this type has a normalized conjugate self-dual representation
+\(N_x\) with common Hodge--Tate jumps. The characteristic polynomial
+type at the chosen level is the normalized source type times
+\((X-1)^{t'}\). At the ramified places of the twist and their conjugates,
+the inertial elements \(g\) satisfy
+\((N_x(g)-\psi_\vartheta(g)I)(N_x(g)-I)=0\).
+\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L519}{Hypotheses on types and Galois representations}.
+
+Let \(\mathcal X\) be the systems of genuine lifts spanning \(Z\).
+Call a base-level system \(x\) a weak lift if
+\(d_g(x)=\det(I-N_x(g))=0\) for every \(g\).
+The trace decomposition includes the trivial character, so
+every system in \(\mathcal X\) is a weak lift. At one split place
+\(w\) away from the level, the Hecke polynomial of each weak lift
+has the string of roots \(\chi_W(\mathrm{Frob}_w)(\mathrm Nw)^a\)
+for \(0\le a<t'\), where \(\chi_W(\mathrm{Frob}_w)\) is the
+Frobenius value of the source character. The inverse of the last
+root is the specialization point for the Hecke polynomial
+operator defining false lifts. Hence that operator annihilates
+the weak-lift isotypic components.
+
+Let \(y\) be integral at \(\iota\) and orthogonal to the false lifts,
+and put \(l=e_c y,\ p=e_c P_Z y\). The type projection and the
+Hecke polynomial operators commute and preserve \(Z\).
+Thus \(l-p\) lies in \(\operatorname{im}(e_c)\cap Z^\perp\).
+The part of this space annihilated by the specialized Hecke operator
+consists of false lifts. Since \(e_c\) is self-adjoint, \(l-p\) is
+also orthogonal to this part. In particular, \(l,p\) agree on
+the weak-lift components. Moreover \(p\) is supported on
+\(\mathcal X\), and \(C_{\mathrm{lev}}l\) is integral.
+\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L648}{Detection of weak lifts and the orthogonal projection},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1030}{The operator with the type projection}.
+
+There are finitely many base-level systems that are not weak lifts.
+For each choose \(g_s\) with \(d_{g_s}(x_s)\ne0\) and put
+\(b_s=d_{g_s}(x_s)\). These values are nonzero and integral because
+the characteristic polynomials have integral coefficients. Set
+\[
+ \delta_0=\prod_s(b_s-d_{g_s}),\qquad n_0=\prod_s b_s .
+\]
+The element \(\delta_0\) vanishes on the base-level systems that
+are not weak lifts and equals \(n_0\) on the weak lifts.
+
+Fix \(\pi\in\mathcal X\) and take Taylor--Wiles auxiliary primes in
+addition to the ramified places of the twist. Put \(\Delta=r^8\).
+Choose \(a_{\mathrm{cyc}}\) whose cyclotomic character topologically
+generates its image, and an exponent \(h_\ell\le v_\ell(C_{\mathrm{lev}})\)
+with \(\epsilon_{\mathrm{cyc}}(a_{\mathrm{cyc}})^a-1\mid\ell^{h_\ell}\)
+for \(0<a<t\). When \(\ell>\Delta^2\), take \(h_\ell=0\).
+To choose a prime whose Frobenius lies in a prescribed neighborhood,
+use the scalar inertia action at an old level place. Multiplication
+by a suitable power of the \(\ell^\nu\)-th power of this inertial
+element leaves the cyclotomic character unchanged. Its scalar has
+residual order greater than \(4r'+2\), so this multiplication can
+move all the residual eigenvalues in the twisted main summand
+of \(\pi\) away from \(1\). Its characteristic polynomial therefore
+has unit value at \(1\). The auxiliary primes are chosen to
+satisfy this Frobenius condition as well.
+
+The index set \(J\) of auxiliary primes and their assigned exponents
+\(0<a<t'\) are independent of the required congruence depth. The
+construction takes finitely many test points detecting cyclotomic
+cocycles unramified away from \(\ell\), and orders the pairs of
+positive exponents and test points by exponent. On the even part,
+evaluation at the Frobenius element of an auxiliary prime is twice
+evaluation at the corresponding test point. For a cocycle vanishing
+at earlier inertial elements and earlier Frobenius elements of
+its exponent, the error at the next inertial element of an even cocycle is annihilated
+by \(C=\ell^{\Delta h_\ell}\). The construction uses the local
+conditions and Kummer extensions giving these primes.
+If \(n_{\mathrm{test}}\) is the number of test points including
+\(a_{\mathrm{cyc}}^{-1}\), then
+\((\#J+n_{\mathrm{test}})\Delta h_\ell\le\Delta^{22}h_\ell\).
+\href{\upstream/grh/src/New/Congruences/FirstOrder/TrianglePrimes.lean\#L624}{Construction of the test points and ordered auxiliary primes},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L217}{Choice of Frobenius via scalar inertia}.
+
+Write \(n=r'+t'\) and choose \(\nu>0\) such that
+\(2n!(n_0C_{\mathrm{lev}}^2)^{\#J+1}\) divides \(p_\ast=\ell^\nu\)
+in the coefficient valuation ring.
+At the auxiliary prime indexed by \(j\in J\), the norm \(q_j\) is
+\(1\bmod p_\ast\). Since the main summand's characteristic polynomial
+takes a unit value at \(1\), a base-level weak lift residually congruent
+to \(\pi\) has normalized Hecke polynomial of the form
+\[
+  \prod_{a=0}^{t'-1}(X-q_j^a)\,H_{j,x}(X).
+\]
+Here \(H_{j,x}\) has \(\ell\)-adically integral coefficients
+via \(\iota\), with \(H_{j,x}(1)\) a unit. Apply the trace
+decomposition to all powers of \(g\) to obtain the characteristic
+polynomial of \(\pi\). Extract the root string from the local
+representation of a weak lift and use compatibility with the
+Galois representation to obtain the coefficientwise residual
+congruences. The string is monic and cancels in the congruence.
+The quotient is integral. After multiplication by the unit
+making the Hecke polynomial monic, its value at \(1\) is
+congruent to the value for the main summand. Divide each \(H_{j,x}\) by
+its value at \(1\) and take their product. The result \(H_j\) is
+divisible by each \(H_{j,x}\) and satisfies \(H_j(1)=1\).
+
+To construct the indicator of the residual congruence class in
+the integral Hecke algebra \(\mathbb T\), choose for each system
+outside the class a characteristic polynomial coefficient differing
+from that of \(\pi\) in the residue field. Subtract its value on
+that system to obtain a factor vanishing there. The product \(B\)
+of these factors is zero away from the class and a unit on it.
+Writing \([\pi]\) for the class, the indicator is
+\(A_\pi=1-\prod_{x\in[\pi]}(1-B/B(x))\).
+The root string and divisibility by \(H_j\) therefore both hold
+on base-level systems where \(A_\pi\delta_0\ne0\).
+\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L297}{The root string and the common polynomial},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/TiedTraces.lean\#L333}{The integral Hecke element cutting out the congruence class}.
+
+\paragraph{The polynomial measuring congruences}
+In \(\mathbb T[(X_j)_{j\in J}]\) let \(\mathfrak a\) be the ideal
+generated by \(\operatorname{tr}(p_\ast g)\) and
+\[
+ \operatorname{tr}\bigl((\tau_j-1-
+         X_j(\phi_j-1)H_j(\phi_j))g\bigr)\qquad (g\in G_E).
+\]
+The traces are taken in \(N_x\) for each \(x\). Conjugate duality
+gives the corresponding relations for inverse conjugates of the
+elements at the auxiliary primes. Each \(d_g\), obtained from the
+characteristic polynomial coefficients, is in \(\mathbb T\).
+Ribet's determinant construction gives a polynomial \(\mathcal D\)
+such that
+\[
+ d_g\mathcal D\in\mathfrak a\quad(g\in G_E),\qquad
+ \mathcal D_S\big|_{\mathcal X}=0\quad(S\subsetneq J),
+\]
+where \(\mathcal D_S\) denotes the coefficient of
+\(X_S=\prod_{j\in S}X_j\).
+In particular \((\delta_0-n_0)\mathcal D\in\mathfrak a\),
+since \(\delta_0-n_0\) belongs to the ideal generated by the \(d_{g_s}\).
+
+In this construction the lattice of a genuine lift splits into
+its main summand and the characters
+\(\chi_a=\epsilon_{\mathrm{cyc}}^{-a}\), \(0\le a<t'\).
+At the inertial element \(\gamma_x\), the scalar on the main summand
+differs from \(1\) by a unit, and \(\chi_a(\gamma_x)=1\).
+Write \(\zeta_x\) for this scalar. The ordered product \(K\) of
+\((\zeta_x-\gamma_x)/(\zeta_x-1)\) over \(x\in\mathcal X\) acts by
+\(0\) on all the main summands and by \(1\) on all the characters.
+The products of the pairwise differences of
+the actions of \(a_{\mathrm{cyc}}^{-1}\) separate the characters
+up to the factor \(C\).
+
+Take finitely many \(g\) whose families \((N_x(g)-I)_x\) span
+the module of all these families. Their coordinates give rows
+satisfying the trace congruences on the main blocks and the
+characters. On the main block of \(\pi\) the row determinant
+\(D_\pi\) has valuation at the origin at most \(b_0\). This bound
+comes from the length of the module of cocycles with divisible
+coefficients satisfying the linear relations among the families
+and vanishing at the new inertial elements, their conjugates,
+and \(\gamma_\pi\). Its length is bounded by the Selmer allowance
+\(\mathrm{sel}\) and the local crystalline defect.
+On the character rows discard the monomials that do not divide
+\(X_J\) after multiplication by the variables of earlier exponents.
+The factor that remains for exponent \(a\) is a multiple of
+\(\prod_{j:\,\operatorname{type}(j)=a}X_j\). Write \(\Gamma_a\)
+for the multiplier. The valuation of \(\Gamma_a(0)\) is bounded
+by the sum \(b_a\) of the length of the odd classes and the
+colength of the crystalline condition, plus the cost in powers
+of \(C\) of separation and detection.
+
+For the block matrix \(B_0\) and a matrix \(B_{\mathbf i}\) of
+character rows, form \((1-K)B_0+KB_{\mathbf i}\). Since each row
+satisfies the trace relations, the determinant multiplier lemma
+applies. Use a group-ring element selecting the trivial character
+with factor \(C\), and take the weighted sum over \(\mathbf i\).
+On \(\mathcal X\) the result is \(D_x\) times \(C c_0^{t'}\)
+times the product of the character determinant sums.
+Here \(c_0=C^{\#s}\prod_v o_v(1)\), where \(s\) consists of the
+test points, \(a_{\mathrm{cyc}}^{-1}\), the new inertial generators,
+and their inverse conjugates. The polynomials \((X-1)o_v(X)\)
+annihilate every \(N_x\) on the inertial elements away from \(\ell\)
+at which ramification is already allowed before the Taylor--Wiles
+primes are added. At a place of twist ramification use
+\(o_v(X)=\psi_\vartheta(g)-X\). For the places above \(M\) use
+\(o_v(X)=\sum_{a=0}^{C_{\mathrm{lev}}-1}X^a\). The error terms of the character sums
+supply no monomials dividing \(X_J\), so the coefficients at \(X_S\)
+vanish for \(S\subsetneq J\). The coefficient of \(X_J\) is
+\(\bigl(D_x C c_0^{t'}\prod_a\Gamma_a\bigr)(0)\), with valuation at
+\(\pi\) at most
+\[
+ b_0+\sum_{a=0}^{t'-1}b_a+
+ t'\!\left(\sum_v v_\ell(o_v(1))+2\#s\,v_\ell(C)\right)
+       +(\#J+1)v_\ell(C).
+\]
+The sum of the crystalline defects, including the main block,
+is at most \(r'L_\ell\), and the length for each odd character
+module is at most \(v_\ell(C_{\mathrm{odd}})\). Let \(\mathrm{ram}\)
+bound the sum of the inertia valuations of the twist on \(Q\).
+Include the conjugate side and use \(4f\) as a bound for the number
+of places above \(M\). This gives the total
+\(\sum_v v_\ell(o_v(1))\le2\mathrm{ram}+8f v_\ell(C_{\mathrm{lev}})\).
+Use \(\#s\le 2(\#J+n_{\mathrm{test}})\) and
+\(h_\ell\le v_\ell(C_{\mathrm{lev}})\). After normalizing the lengths,
+the resulting estimate is
+\begin{equation}
+ v_\ell\bigl(C_{\mathrm{lev}}^2\mathcal D_J(\pi)\bigr)
+ \le \mathrm{sel}+2t'\mathrm{ram}+r'L_\ell+e_\ell .
+ \label{eq:ribet-top-valuation}
+\end{equation}
+The constants \(L_\ell,e_\ell,C_{\mathrm{odd}}\) are specified below.
+\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L532}{The main-block determinant and the length of the cocycles},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L914}{The character rows and their tied corrections},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L892}{Annihilating polynomials at inertia and their cost},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L597}{Combining the determinants and extracting the top coefficient},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L328}{Substituting the local conditions and lengths}.
+
+\paragraph{The deformed norm and cancellation of denominators}
+At auxiliary prime \(j\) the ordinary norm \(N_j\) is the sum of
+the actions of the residue group \(\mathrm{GL}_{n}\). The base-level
+root string is used to construct \(N_j+X_j\partial_j\).
+For \(\partial_j\), act on the logarithm-weighted sum at the
+stabilizer of a line with the polynomial \((X-q_j^{t'-1})H_j(X)\)
+in the local Hecke operator \(\widetilde U_j\). Multiply on the
+two sides by the sums over the stabilizer cosets and their inverses,
+and change the sign. Here \(q_j\equiv1\bmod p_\ast\), and summing the
+logarithms on the lines gives the logarithm of the determinant.
+The resulting relations modulo \(p_\ast/(2n!)\) are
+\[
+ \begin{split}
+ N_j\operatorname{tr}((\tau_j-1)g)&\equiv0,\\
+ \partial_j\operatorname{tr}((\tau_j-1)g)
+    &\equiv N_j\operatorname{tr}((\phi_j-1)H_j(\phi_j)g).
+ \end{split}
+\]
+These equations cancel the constant and linear coefficients of
+the tied trace relation. Operators at distinct primes commute,
+so \(\mathcal N=\prod_j(N_j+X_j\partial_j)\) satisfies
+\(\mathcal N\mathfrak a\equiv0\) in the quotient by the \(X_j^2\).
+Put \(\delta=C_{\mathrm{lev}}^2 A_\pi\delta_0\),
+\(i=\#J\), and \(\mathrm{Nm}=\prod_jN_j\). One factor of \(\delta\)
+per place gives a factorization through the norm with integral
+operators \(Y_S\):
+\[
+ \delta^i\mathcal N_S\equiv Y_S\mathrm{Nm},\qquad
+ Y_\varnothing=\delta^i .
+\]
+This follows by factoring the difference of a local operator along
+the residue group through the norm and using \(C_{\mathrm{lev}}\)
+to clear the stabilizer orders.
+\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L151}{The local first-order term and its trace relations},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L232}{The deformed norm congruence}.
+
+Set \(n_1=n_0 C_{\mathrm{lev}}^2\) and let \(G\) be the coefficient
+of \(X_J\) in \(\mathcal N\mathcal D\). From
+\((\delta_0-n_0)\mathcal D\in\mathfrak a\),
+\[
+ n_1^{i+1} A_\pi^{i+1}G
+ \equiv \delta^{i+1}G
+ \equiv \sum_{S\subseteq J}Y_{J\setminus S}\mathrm{Nm}\,\delta\mathcal D_S .
+\]
+The first congruence factors the difference of the powers by
+\(\delta_0-n_0\) and uses \(\mathcal N\mathfrak a\equiv0\). The
+second factors \(\mathcal N_{J\setminus S}\) through the norm.
+Put \(d=C_{\mathrm{lev}}\). There is an integral form \(u\) at the
+deep level with \(\mathrm{Nm}\,u=d C_{\mathrm{lev}}l\). It is
+obtained by applying to \(dl\) the integral lifting operator for
+the norm, which uses representatives of the residue-group orbits
+and \(C_{\mathrm{lev}}\) to clear the stabilizer orders.
+
+Apply the congruence to \(u\). We have
+\(A_\pi\delta_0l=n_0 A_\pi p\) and \(\delta_0p=n_0p\).
+Furthermore \(\mathcal D_Sp=0\) for \(S\subsetneq J\). The
+only surviving term on the right is
+\[
+ n_1^{i+1}d C_{\mathrm{lev}} A_\pi^{i+1}\mathcal D_J p .
+\]
+The modulus \(p_\ast/(2n!)\) is a multiple of \(n_1^{i+1}\),
+so the error in the congruence is the value of an integral
+operator multiplied by \(n_1^{i+1}\). Cancel this nonzero scalar.
+It follows that \(d C_{\mathrm{lev}} A_\pi^{i+1}\mathcal D_Jp\)
+is integral. Since \(A_\pi(\pi)=1\), the valuation of the scalar
+action at \(\pi\) is bounded by \eqref{eq:ribet-top-valuation}.
+\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L434}{The congruence giving integrality of the projection}.
+
+\paragraph{Eigenvalues and the rank-one pairing}
+Choose a basis of \(Z\) among the genuine lifts and run the
+construction for each basis vector. All the resulting operators
+are diagonal in this basis, with the required valuation bound
+at their designated vector. A linear combination with integral
+coefficients still clears the projection. At each basis vector
+its eigenvalue is a linear form in the coefficients. Divide
+each linear form by a coefficient of largest absolute value.
+The residue field of \(\overline{\mathbb Q_\ell}\) is infinite,
+so one can avoid the finitely many hyperplanes causing cancellation. This ensures that the
+absolute value of the combined eigenvalue at each vector is at
+least that of the corresponding designated eigenvalue.
+
+Multiplication by one further \(C_{\mathrm{lev}}\) clears the
+stabilizer orders in the pairing on the finite classes. The
+resulting form \(\Lambda P_Zy'\) is integral at \(\iota\) for
+every \(y'\) integral there and orthogonal to the false lifts.
+For \(y\) integral at all places above \(\ell\), it also satisfies
+\(|\langle y,\Lambda P_Zy'\rangle|_\iota\le1\).
+Since \(1\le r'\le r,\ t'\le t\) and \(\mathrm{sel},\mathrm{ram}\le e'_\ell\),
+\[
+ \begin{split}
+ c_\ell&=L_\ell+(1+2t)e'_\ell+e_\ell+v_\ell(C_{\mathrm{lev}}),\\
+ \mathrm{sel}+2t'\mathrm{ram}+r'L_\ell+e_\ell+v_\ell(C_{\mathrm{lev}})
+      &\le r'c_\ell .
+ \end{split}
+\]
+The product of the eigenvalues gives
+\(|\det\Lambda|_\iota\ge \exp(-\dim Z\,r'c_\ell\log\ell)\).
 \leanref{clearingBound}
-The inner product of rank-one projections also requires an allowance of
-\(v_\ell(C_1)\log\ell\), so both estimates use
-\(\beta_\ell=(c_\ell+v_\ell(C_1))\log\ell\).
-The two sums over primes are bounded by \(x_1\) and \(B_{\mathrm{den}}\),
-respectively. We use the twisting theorem and the passage from Selmer
-group lengths to projection denominators in this form.
-\leansrc{New/Congruences/Selmer/TwistingTheorem}{Twisting theorem for Selmer groups},
-\leansrc{New/Congruences/FirstOrder/DenominatorBound}{Projection denominator bound},
-\leansrc{New/Congruences/FitTwistsExist}{Existence of regular families}.
+For \(Z=I_{j,\vartheta}\) we have \(r'=r\).
+Since \(I_{j,\vartheta}\) is the image of \(F_j\), its dimension is
+at most \(h\), giving \(|\det\Lambda|_\iota\ge\exp(-hrc_\ell\log\ell)\).
+\href{\upstream/grh/src/New/Congruences/FirstOrder/HeckeStrings.lean\#L59}{Combining diagonal operators with integral coefficients},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1246}{Stabilizer orders and the determinant bound}.
+
+For a main pair \(r'=1\), and the projection is onto the line
+spanned by the lift \(\phi\). The orthogonality condition on test
+forms is for false lifts in the kernel of the rank-one descent.
+To apply the estimate on the line, take representatives of the
+\(U(1)\) classes at the chosen principal level, integral above
+\(\ell\), and replace \(\Xi'\) by the sum \(\Xi''\) of its normalized
+central translates by the inverses of these representatives.
+Every translate preserves integrality. For a false lift orthogonal
+to \(\mathbb C\phi\), the sum of the corresponding forward translates
+stays in the Hecke kernel and the image of the level operator.
+It lies in the kernel of descent, since the stabilizers on \(U(1)\)
+are trivial and the class sum extracts the trivial component of
+descent. Therefore \(\Xi''\) has the orthogonality required for
+projection onto the line. Moreover \(P\Xi''=C_1P\Xi'\), since
+the normalized translations fix \(\phi\). Here \(C_1\) is the
+number of \(U(1)\) classes at the chosen principal level.
+If \(\phi=0\) the pairing is zero. Otherwise the operator on the
+line is a scalar \(\mu\) with
+\(|\mu|_\iota\ge\exp(-c_\ell\log\ell)\).
+Divide \(|\langle\Xi,\mu P\Xi''\rangle|_\iota\le1\) by the norm
+of \(\mu C_1\) and use \(P=P^\ast\) to obtain
+\[
+ |\langle P\Xi,P\Xi'\rangle|_\iota
+    \le\exp\bigl((c_\ell+v_\ell(C_1))\log\ell\bigr).
+\]
+\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L239}{The sum of central translates and the descent kernel},
+\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L272}{The pairing of rank-one projections}.
+
+\subsubsection{Summing the bounds over primes}
+
+Write the integer entering the local bound as
+\[
+ \Pi_b=\prod_{\max(b-30\Delta^3,0)<a\le b+30\Delta^3}a .
+\]
+The bound for the crystalline defect is
+\[
+ L_\ell=4f\cdot 10^6\,\frac{m}{k}
+        \left(b\,v_\ell(M)+v_\ell\!\left((2b)!\,\Pi_b^{\Delta^3}\right)\right).
+\]
+The positive integer \(C_{\mathrm{odd}}\) bounds by its valuation
+the length of the odd classes at positive exponents and the
+length of the unramified homomorphisms at exponent \(0\).
+For \(N_{\mathrm{cyc}}\) the conductor of the cyclotomic field
+containing \(E\) used in the proof, and \(h_E\) the class number of \(E\),
+one has \(C_{\mathrm{odd}}\le 2^{4(N_{\mathrm{cyc}}+t+3)^{27}}h_E\).
+The error \(e_\ell\) of the preceding subsection is
+\[
+ e_\ell=t\,v_\ell(C_{\mathrm{odd}})
+  +\bigl(8ft+2+(4t+1)\Delta^{22}+\Delta\bigr)v_\ell(C_{\mathrm{lev}}).
+\]
+The coefficient \((4t+1)\Delta^{22}+\Delta\) is used to bound
+\((2t'\#s+\#J+1)\Delta h_\ell\), and \(2v_\ell(C_{\mathrm{lev}})\)
+accounts for the factor on the left of \eqref{eq:ribet-top-valuation}.
+\href{\upstream/grh/src/New/Congruences/LocalLoss/Basic.lean\#L114}{Numerical bound for the crystalline defect},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L70}{Odd classes and the denominator error},
+\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L105}{Combination of the error terms}.
+
+For any positive integer \(A\) and any finite set \(T\) of primes,
+\(\sum_{\ell\in T}v_\ell(A)\log\ell\le\log A\).
+Using \(\sum_{\ell\in T}2^{-\ell}\log\ell\le\sum_{n\ge1}n2^{-n}=2\)
+and the size inequalities of the data gives
+\[
+ \sum_{\ell\in T} e'_\ell\log\ell
+ \le (4f+3)r\log C_{\mathrm{lev}}+2\le x^{999}\le x_1 .
+\]
+Take common multiplier \(1\) and Archimedean bound \(0\) in the
+definition of height. The family of inverse ratios of a ramified
+pair then has height bounded by \(x_1\).
+
+The product \(\Pi_b\) has at most \(60\Delta^3\) factors, each
+at most \(b+30\Delta^3\). This gives
+\[
+ \begin{split}
+ \sum_{\ell\in T} L_\ell\log\ell
+ &\le 4f\cdot10^6\,\frac{m}{k}
+      \left(b\log M+\log\big((2b)!(b+30\Delta^3)^{60\Delta^6}\big)\right)\\
+ &\le 4\cdot10^6 e^{180} f\,\frac{m}{k}\,b\log b .
+ \end{split}
+\]
+The last line is a logarithmic inequality for admissible data.
+The bound for \(C_{\mathrm{odd}}\) and \(\log h_E\le x^{30}\),
+with the logarithmic inequalities for the data, give
+\(\sum_{\ell\in T}v_\ell(C_{\mathrm{odd}})\log\ell\le x^{2000}\).
+Together with the estimate for the orders of the level groups
+this yields \(\sum_{\ell\in T}e_\ell\log\ell\le x^{4000}\).
+Also \(C_1\le\exp(x^{30})\). With
+\(\beta_\ell=(c_\ell+v_\ell(C_1))\log\ell\), we obtain
+\[
+ \begin{split}
+ \sum_{\ell\in T}\beta_\ell
+ &\le 4\cdot10^6 e^{180} f\,\frac{m}{k}\,b\log b
+          +(1+2t)x^{999}+x^{4000}+\log C_{\mathrm{lev}}+x^{30}\\
+ &\le B_{\mathrm{den}} .
+ \end{split}
+\]
+The last inequality again follows from admissibility. The character
+\(\xi_\iota\) is ramified away from \(\ell\), so all three conditions
+for regular twists are satisfied.
+\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L86}{Finite sums of the local bounds},
+\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L232}{The denominator budget},
+\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L475}{Construction of the regular family}.
 
 \subsection{Hecke values and theta derivatives for main pairs}
 
@@ -170,42 +917,103 @@ of primes,
 \end{equation}
 \leansrc{New/UpperBound/Size/Estimates}{Sum of local prime contributions}.
 
-The construction of the test form expands the lift of rank \(2u\)
-according to the four blocks above. In the block of rank \(12\), choose a
-theta-series coefficient that attains the valuation bound. This supplies
-a term of valuation at most \(F(\ell)\) plus the valuation of a fixed
-factor. In the second block, of rank \(4\), use the derivative-order-zero
-lift of a ramified pair \(q_2\), with ratio
-\(\rho_\vartheta=\mathcal L_{q_2}(\vartheta;1)\). The remaining two blocks
-are assigned the two factors of a character of the class group of
-\(U(1)\). Translate the class representatives so that the trivial class
-is represented by the identity. Summing the normalized, character-weighted
-class sums over all characters recovers the chosen coefficient by character
-orthogonality. The ultrametric inequality then gives at least one class
-sum whose \(\iota\)-absolute value is at least that of the coefficient.
-Choose a factorization of the corresponding character so that the product
-of the algebraic \(L\)-values from the last two blocks has
-\(\iota\)-absolute value at least their geometric mean over all possible
-factorizations. The product over the blocks defines the test form.
-Expanding its pairing with the lift as a class sum yields these factors.
+\input{sections-en/theta-sharpness}
 
-The resulting local estimate uses a scalar
-\(c_0\ne0\), independent of the twist and the finite place, with
-\(|\sigma(c_0)|\le\exp(fmb/k+3x^{34})\le\exp(B_{\mathrm{den}})\) for every
-\(\sigma\). For each \(\iota\) and each \(\vartheta\) admissible at its
-prime, there is a test form \(\Xi\) such that
+\paragraph{The test form from four blocks}
+Write \(I_{y_0}\) and \(z^\alpha\) for the rank \(12\) indicator and monomial
+obtained above, and \(s(g)\) for their kernel at a point \(g\) of \(U(1)\).
+Put \(T_\alpha=l!/\alpha!\), where \(\alpha!=\prod_{\tau,i}\alpha_{\tau,i}!\).
+Write \(\mathcal V\) for the vacuum normalization, and \(J_\alpha\)
+for the product of \(\pi_M\) and the theta variable scale raised to
+\(|\alpha|\). The relation between derivatives and coefficients makes
+the previous normalization
+\[
+ |\mathfrak c\,s(1)|_\iota\ge\ell^{-F(\ell)},
+ \qquad \mathfrak c=\mathcal V^{12}T_\alpha J_\alpha/t .
+\]
+
+Let \(\mathcal C\) be the class group at the chosen principal level of \(U(1)\)
+and \(N_{\rm cl}\) its cardinality. The stabilizers are trivial.
+Translate by \(z_0\) so that the representative of the trivial class moves
+to the identity. For each character \(\psi\) of the classes put
+\[
+ A_\psi=\frac1{N_{\rm cl}}\sum_{[g]\in\mathcal C}
+                 \psi(\det(gz_0))\,s(gz_0).
+\]
+Characters of the class group pull back to weight-zero automorphic
+characters with tame part trivial away from the chosen places.
+Orthogonality gives \(\sum_\psi A_\psi=s(1)\), so for some \(\psi\),
+\(|A_\psi|_\iota\ge|s(1)|_\iota\).
+
+In the second block, of rank \(4\), take a ramified pair \(q_2\) of
+derivative order zero. Its normalized algebraic value satisfies
+\(L_2(\vartheta)=\rho_\vartheta L_2(1)\), where
+\(\rho_\vartheta=\mathcal L_{q_2}(\vartheta;1)\).
+In the last two blocks, choose a pair of derivative order zero for each
+\(\chi\) in the group \(\mathcal X\) of weight-zero characters tame at the
+chosen places and unramified elsewhere. Denote their untwisted normalized
+algebraic values by \(L_3(\chi),L_1(\chi)\), and take a root
+\(L_\ast\ne0\) with \(L_\ast^{|\mathcal X|}=\prod_{\chi\in\mathcal X}L_3(\chi)L_1(\chi)\).
+The product is unchanged when one set of factors is indexed by
+\(\chi\mapsto\psi/\chi\). Hence we may choose \(\psi=\psi_3\psi_1\) with
+\(|L_3(\psi_3)L_1(\psi_1)|_\iota\ge|L_\ast|_\iota\).
+Dividing the character of the first block by \(\psi\) changes its kernel
+to \(\psi(\det g)s(g)\), and the four characters multiply to that
+of the main pair.
+
+For points \(h_2,h_3,h_1\) of the last three groups take the delta form
+supported on the class of \(\operatorname{diag}(1,h_2,h_3,h_1)\).
+At each chosen place the column concatenates \(y_0\) and the three standard
+columns. The final column is nonzero, so the concatenated column is
+injective. At a twist place use the designated row of the second block.
+At infinity choose an integral Weyl vector reading off the monomial
+in the first block. It is fixed by matrices whose columns in the first
+block are those of the identity, and its pairing reads the monomial with
+factor \(T_\alpha\). Thus the values of the delta form have Weyl gauge at
+most \(1\) at every place above \(\ell\).
+The product of the characters and the decomposition of the finite column
+give its pairing with the main kernel as \(T_\alpha\) times the product
+of the four block kernels.
+\leansrc{New/OneLift/ComparisonOperator/ExchangeData}{An integral vector reading off the monomial},
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Factoring the kernel against the delta form}.
+
+Sum the delta form over the three groups' classes with weights from
+the corresponding normalized lifts to obtain \(\Xi\).
+In each sum the level group order clears the stabilizer denominators.
+The weights include an integer clearing the denominators of the lift,
+and the remaining modulus norm is a unit at \(\ell\).
+Thus all three sums preserve integrality.
+When pairing with a false lift, expand the lift on the last block as
+a sum over \(U(1)\) and interchange the two class sums.
+The inner sum vanishes by the period identity, which uses the descent
+kernel and the Hecke polynomial kernel defining the false lift.
+The main pair is ramified at the chosen places, so character orthogonality
+also kills the hyperplane sums in the hypotheses of that identity.
+The last block's class sum is therefore orthogonal to false lifts,
+and the outer class sums preserve orthogonality.
+\leansrc{New/OneLift/FalseLifts/PeriodsOfFalseLifts}{Vanishing of the periods of false lifts}.
+
+The pairing of each block kernel with its lift is constant on \(U(1)\).
+By adjointness its class sum is the squared norm of the lift.
+Summing over the three blocks in turn gives a factor \(L_i/(N_{\rm cl}\mathcal V^{r_i})\) for each block of rank \(r_i\). The main lift is normalized by
+\(\mathcal V^{2u}J_\alpha\). Its final class sum over \(g\) contributes
+\(N_{\rm cl} A_\psi\). Therefore
+\begin{equation}\label{eq:attain-test-form-identity}
+ N_{\rm cl}^2\langle\Xi,\phi_\vartheta\rangle
+   =t\, L_2(1)\rho_\vartheta L_3(\psi_3)L_1(\psi_1)\mathfrak c A_\psi .
+\end{equation}
+Since \(N_{\rm cl}\) is an integer, \(|N_{\rm cl}|_\iota\le1\).
+Put \(c_0=t L_2(1)L_\ast\). Using the two lower bounds from the choices above,
 \begin{equation}
  |\langle\Xi,\phi_\vartheta\rangle|_\iota
-    \ge |c_0\rho_\vartheta|_\iota\,\ell^{-F(\ell)}.
+    \ge |c_0\rho_\vartheta|_\iota\,\ell^{-F(\ell)} .
  \label{eq:test-pairing-lower}
 \end{equation}
-Here \(c_0\) is the product of the fixed factor multiplying the theta
-coefficient, the untwisted algebraic \(L\)-value from the second block,
-and the geometric mean from the remaining two blocks. The same construction
-makes the test form integral at all places above \(\ell\) and orthogonal
-to the false lifts.
-\leansrc{New/Derivatives/Sharpness/BoundAttained}{Theta coefficient valuations},
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Construction of the test form}.
+All conjugates of the normalized algebraic values of derivative order zero
+have absolute value at most \(\exp(x^{34})\).
+Thus \(|\sigma(L_\ast)|\le\exp(2x^{34})\), and the bound on \(t\) gives
+\(|\sigma(c_0)|\le\exp(fmb/k+3x^{34})\le\exp(B_{\mathrm{den}})\).
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Class sums and the lower bound for the pairing}.
 
 Take \(\vartheta=\xi_\iota^j\). Choose test forms \(\Xi,\Xi'\)
 as in \eqref{eq:test-pairing-lower} at \(\iota\) and

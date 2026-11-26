@@ -68,6 +68,104 @@ steps in the archimedean estimate below.
 
 \subsection{Existence of admissible data}
 
+\begin{lemma}[Primes in logarithmic intervals]\label{lem:log-window-prime}
+Let \(J\) be a positive multiple of \(4\) and fix a positive integer \(A\).
+For all sufficiently large \(W\), if \(j\ge2\), \(J^j\le W^A\), and
+\(W\le U\le W^A\), there is a prime \(p\) with
+\[
+ p\equiv1\pmod{J^j},\qquad U\le\log p\le U+W .
+\]
+\end{lemma}
+
+\begin{proof}
+Put \(X=\sqrt W\) and \(Q=J^j\).
+We first show that a character \(\chi\) modulo \(Q\) whose square is
+principal is induced from a character modulo \(J^2\).
+If a unit \(u\) modulo \(Q\) is \(1\) modulo \(J^2\), write
+\(u=1-J^2v\) and \(J=4J'\). In \(\mathbb Z/Q\mathbb Z\) the element \(JJ'v\)
+is nilpotent. Run Newton iteration from \(C=0\) for \(P(C)=C^2+C+JJ'v\).
+If \(C\) lies in the ideal \((J)\), then \(1+2C\) is a unit. At the next
+approximation \(C_1=C-P(C)/(1+2C)\), the error is
+\(P(C_1)=(P(C)/(1+2C))^2\). Each iteration doubles the exponent of the power
+of \((J)\) containing the error. Since \((J)^j=0\), it reaches \(P(C)=0\)
+in finitely many steps. Then \((1+2C)^2=1+4(C+C^2)=u\), so \(\chi(u)=1\).
+The character descends to modulus \(J^2\). The two moduli have the same prime
+factors, so induction adds no Euler factors and \(f_\chi\) agrees with
+the function for the character of modulus \(J^2\).
+
+Take \(\mathcal L=(2A+1)\log X\), so that \(Q\le X^{2A}\le e^\mathcal L\).
+Nonvanishing at \(1\) and continuity for the finitely many regularized
+functions of modulus \(J^2\) give the hypothesis near \(1\) in
+Lemma \ref{lem:uniform-log-derivative}, uniformly in \(Q\) for large \(X\).
+Since \(2\mathcal L^{25}\le X\) for large \(X\), all the characters modulo
+\(Q\) satisfy
+\[
+ L^\circ(1+z,\chi)\ne0,\qquad
+ \left|\frac{(L^\circ)'(1+z,\chi)}{L^\circ(1+z,\chi)}\right|\le X
+ \qquad (|z|\le1/X).
+\]
+The function
+\[
+ F(z)=\frac{1-z\displaystyle\sum_{\chi\bmod Q}
+                   \frac{(L^\circ)'(1+z,\chi)}{L^\circ(1+z,\chi)}}{\varphi(Q)}
+\]
+is holomorphic on this disk, with \(|F(z)|\le2\) and \(F(0)=1/\varphi(Q)\).
+Put \(a_n=\Lambda(n)\mathbf 1_{n\equiv1\bmod Q}\). Orthogonality and the pole
+term of the principal character give \(F(z)/z=\sum_{n\ge1} a_n n^{-1-z}\)
+for \(\RePart z>0\).
+
+Suppose that the interval contains no prime of the required class.
+Set \(\beta_n=0\) at primes and \(\beta_n=\Lambda(n)\) elsewhere.
+Since \(\sum_{n\le t}\beta_n=\psi(t)-\vartheta(t)=O(\sqrt{t})\),
+partial summation gives \(C_\beta=\sum_{n\ge1}\beta_n n^{-3/4}<\infty\).
+Within the window \(a_n\le\beta_n\).
+Assume that \(X\ge\max(200,C_\beta)\) and put
+\(P_U(z)=\sum_{n<e^U}a_n n^{-1-z}\). On the circle \(|z|=1/X\), write
+\[
+ \Delta(z)=\RePart\!\left(2-Uz-\frac X4(1+Xz)^2\right)
+       =2-(U+t_z)\sigma,\qquad
+ \sigma=\RePart z,\quad t_z=\frac{X^2}{2}(1+X\sigma).
+\]
+The equality follows from \(X^2(\ImPart z)^2=1-(X\sigma)^2\).
+In particular, \(0\le t_z\le X^2=W\le U\).
+
+If \(\sigma\le1/U\), then \(\Delta(z)\ge0\), and for \(n<e^U\) one has
+\[
+ (1/U-\sigma)\log n\le U(1/U-\sigma)\le\Delta(z).
+\]
+The terms in \(\sum_n a_n n^{-1-1/U}=UF(1/U)\le2U\) are nonnegative.
+Comparison with this series gives \(|P_U(z)|\le2Ue^{\Delta(z)}\).
+Together with \(|F|\le2\) and \(|z|=1/X\), this yields
+\(|F(z)-zP_U(z)|\le3Ue^{\Delta(z)}\).
+
+If \(\sigma>1/U\), then \(F(z)/z-P_U(z)\) is the sum over \(n\ge e^U\).
+Compare terms with \(U\le\log n\le U+W\) to \(\beta_n n^{-3/4}\).
+Since \(\sigma\le1/X\) and \(t_z\le U\), one has
+\[
+ (-1/4-\sigma)\log n\le -U/4-U\sigma\le\Delta(z),
+\]
+so the comparison costs at most the factor \(e^{\Delta(z)}\).
+For \(\log n>U+W\), compare to \(a_n n^{-1-1/U}\) using
+\[
+ (1/U-\sigma)\log n
+       \le(1/U-\sigma)(U+t_z)\le\Delta(z).
+\]
+The resulting bound on the tail is
+\(e^{\Delta(z)}(C_\beta+2U)\le3Ue^{\Delta(z)}\).
+Using \(|z|\le1\) gives
+\(|F(z)-zP_U(z)|\le3Ue^{\Delta(z)}\) in this case as well.
+
+Apply the maximum modulus principle to the function
+\[
+ \bigl(F(z)-zP_U(z)\bigr)\exp\!\left(-2+Uz+\frac X4(1+Xz)^2\right)
+\]
+on the disk. Its modulus is at most \(3U\) on the circle, whereas the value
+at the center has modulus \(e^{X/4-2}/\varphi(Q)>3U\).
+Indeed \(U,Q\le X^{2A}\), and \(e^{X/4-2}>3X^{4A}\) for large \(X\).
+This contradiction proves the lemma.
+\leansrc{Lib/Analytic/Primes}{Characters of power moduli and Newman's contour argument}.
+\end{proof}
+
 \begin{proposition}\label{prop:admissible-data}
 Fix \(q_0,d\) as above and let \(0<\varepsilon<1/100\).
 For every sufficiently large integer \(x\), admissible data exist.
@@ -82,13 +180,35 @@ The least multiple \(b\) of \(q_1x_1\) exceeding \(e^{x^\varepsilon}\) satisfies
 \end{proposition}
 
 \begin{proof}
-Put \(W=x^{\varepsilon/6}\) and choose \(m,r\) as in the statement.
-For \(x_1=\lfloor e^W\rfloor\) one has \(W-1\le\log x_1\le W\).
-For all sufficiently large \(x\), \(q_1x_1\le e^{W^6}\), so that the
-chosen multiple satisfies \(e^{W^6}<b\le2e^{W^6}\).
-It follows that \(\log b\le W^6+1\).
-Since \(s=O(\log x)\) and \(W\) is a positive power of \(x\), the required
-logarithmic scale conditions hold.
+Put \(y=\log x\), \(W=x^{\varepsilon/6}\), and fix a positive integer \(n\)
+with \((\varepsilon/6)n>99q_0d\). Minimality of \(m,r\) gives
+\(\sqrt{x}\le m\le2\sqrt{x}\) and \(x^5\le r\le3x^5\).
+Since \(2^s=m^{22}\), we have \(s\le32y\) for large \(x\). For \(y\ge100\),
+\[
+ \log q_2^2=2(s+6)\log(q_0d)\le99q_0d\,y\le n\log W .
+\]
+As \(q_1d\mid q_2^2\) and \(2^s\mid q_1\), we have \(q_1d,2^s\le W^n\).
+Also \(W\le\sqrt{x}\le m\le 2^s\). Since \(W\) is a positive power of \(x\),
+for all sufficiently large \(x\) we have
+\[
+ 2\cdot10^6 y\le W,\qquad
+ (5184y)^n\le W,\qquad 7776y\,n2^n\le W,\qquad
+ n+1\le W,\qquad 2h_K+2\le W ,
+\]
+where \(h_K\) is the class number of \(K\).
+
+For \(x_1=\lfloor e^W\rfloor\) we have \(W-1\le\log x_1\le W\), and
+\[
+ q_1x_1\le W^n e^W\le e^{(n+1)W}\le e^{W^6}.
+\]
+Thus the least multiple \(b\) above \(e^{W^6}\) satisfies
+\(e^{W^6}<b\le2e^{W^6}\). In particular \(L=\log b\in[W^6,W^6+1]\) and
+\(\log L\in[6\log W,6\log W+1]\).
+Since \(\varepsilon<1/100\), one has \(100(6\log W+1)\le y\) for large
+\(x\), giving \((\log b)^{100}\le x\).
+The bounds \(W-1\ge10^6 y\) and \(W^6\ge10^6W\) give
+\(x^{10^6}\le x_1\) and \(x_1^{10^6}\le b\), respectively.
+We also have \((\log x_1)^6\le L\) and \(\log L\ge10^{12}C_{q_0,d}\).
 
 For the sparse set, use Behrend's construction. In an \(n\)-dimensional
 box with coordinates in \(\{0,\ldots,H-1\}\), at least \(H^n/(nH^2)\)
@@ -108,6 +228,12 @@ Let \(g=1+3l_0q_0\) and take places of the form \(-g^e\).
 If \(2^v\) is the highest power of \(2\) dividing \(q_0\), then \(g\) has
 order \(2^s\) modulo \(2^{s+v}\). Hence the selected exponents give
 distinct places, all congruent to \(-1\) modulo \(q_0\).
+For the order calculation, write \(g=1+2^v u\) with \(u\) odd.
+Since \(g^{2^h}+1\equiv2\bmod4\), each squaring raises \(v_2(g^{2^h}-1)\)
+by one, so \(v_2(g^{2^h}-1)=v+h\).
+Likewise, starting from \(4=1+3\) and cubing repeatedly gives
+\(v_3(4^{3^h}-1)=1+h\), hence order \(l_0\) modulo \(3l_0\).
+
 For \(\ell=2\) their ratios are \(1\) modulo \(3l_0\), whereas \(4\) has
 order \(l_0\) modulo \(3l_0\). This excludes the forbidden ratios.
 For an odd prime \(\ell\), raising the two ratios to \(2j\) and \(2i\),
@@ -117,37 +243,71 @@ The property of the exponents gives \(e_1=e_2=e_3\).
 Then \(\ell^{2i}\equiv1\pmod{2^{s+1}}\), which by the order bound in the
 formalization would imply \(2^s\le(\ell+1)2i\).
 The parameters satisfy \(2l_0(kt+1)<2^s\), yielding a contradiction.
-Fix \(n\) in terms of \(\varepsilon\), and choose \(H\) to be a power of \(2\)
+For the order bound, put \(o=2i\), take \(\epsilon=\pm1\) with
+\(\ell\equiv\epsilon\bmod4\), and set \(z=\epsilon\ell\).
+Since \(v_2(z^{2o}-1)=v_2(z-1)+v_2(o)+1\),
+\(2^{s+1}\mid\ell^{2o}-1=z^{2o}-1\) implies \(2^s\mid(\ell-\epsilon)o\).
+The latter is nonzero and has absolute value at most \((\ell+1)o\).
+Also \(l_0\le2592y\) and \(kt+1\le46x^{10}\), so
+\[
+ 2l_0(kt+1)\le2\cdot2592y\cdot46x^{10}
+   <10^6yx^{10}\le x^{11}\le2^s.
+\]
+For the chosen \(n\), take \(H\) to be a power of \(2\)
 with \(H^n\le 2^s/W<(2H)^n\). Under the numerical conditions
 \[
  W\le 2^s\le W^n,\qquad (2l_0)^n\le W,\qquad
  3l_0 n2^n\le W^3,
 \]
-one has \(H\le W\) and the encoded box fits within the modulus.
-The number of selected places is at least \(3l_0 2^s/W^6\).
+we have \(H^n\le2^s/W\le W^n\) and \((2l_0H)^n\le2^s\).
+Thus \(H\le W\) and the encoded box fits within the modulus. The number
+of places equals the number of exponents, so
+\[
+ |\Phi_b|\ \ge\ \frac{H^n}{nH^2}\ >\
+ \frac{2^s}{2^n n W H^2}\ \ge\
+ \frac{2^s}{2^n n W^3}\ \ge\ \frac{3l_0\,2^s}{W^6}.
+\]
 Since \(3l_0 2^s=|\Phi_a|\) and \(W^6\le\log b\), this gives the required
 cardinality. \leanref{Parameters.exists_isSparse}
 
-A Siegel--Walfisz type estimate supplies the level primes in windows
-of width \(W\) for \(\log p\).
-Since \(q_0,d\) are fixed and \(s=O(\log x)\), one can fix \(n\) with
-\(q_2^2\le W^{n+7}\).
-For \(W\le U\le W^{n+7}\) one can choose a prime in the residue class \(1\)
-modulo \(q_2^2\) with \(\log p\) in \([U,U+W]\).
-The values of \(U\) used here lie in \([\log b,24m\log b]\).
-Let \(h_K\) be the class number of \(K\). One can place \(h_K+1\) disjoint
-windows in \([10\log b,11\log b]\).
-Each prime \(p\) selected from these windows splits in \(K\). If \(I_p,J_p\)
-are the two primes above \(p\), their classes satisfy \([I_p][J_p]=1\).
-Choose \(I_{p_0},I_{p_1}\) in the same class. The ideal \(I_{p_0}J_{p_1}\)
-is principal, and one may take its generator to be \(\overline{\pi_M}\).
-For \(N\), start the window at \(\log N_-\).
-Since \(W\le\sqrt{\log b}\), the window lies in the range of
-\eqref{eq:level-window}.
-Since \(N\equiv1\pmod4\), one can write \(N=u^2+v^2\).
-As \(E\) contains \(\sqrt{-1}\), one may take \(\pi_N=u+v\sqrt{-1}\).
-The existence argument in the formalization supplies the windows and
-verifies the numerical conditions used above. \leanref{eventually_exists_data}
+Apply Lemma \ref{lem:log-window-prime} with \(J=q_0d\), \(j=2(s+6)\),
+and \(A=n+7\). We have \(4\mid q_0d\) and \(q_2^2\le W^n\).
+Since \(m\le2^s\le W^n\) and \(24L\le W^7\),
+\([L,24mL]\subseteq[W,W^{n+7}]\). We can therefore use the window of
+width \(W\) for every starting point \(U\) in this range.
+Since \((2h_K+2)W\le W^2\le L\), the windows
+\([10L+2iW,10L+(2i+1)W]\) for \(0\le i\le h_K\) are disjoint and contained
+in \([10L,11L]\). Choose one prime \(p\equiv1\pmod{q_2^2}\) from each window.
+These primes split in \(K\) because \(d\mid q_2^2\) and \(\chi_K(p)=1\).
+Write \(I_p,J_p\) for the two primes above \(p\).
+Then \(I_pJ_p=(p)\) and \([J_p]=[I_p]^{-1}\) in the class group.
+Of the \(h_K+1\) ideals \(I_p\) choose two of the same class, \(I_{p_0}\)
+and \(I_{p_1}\). Then \(I_{p_0}J_{p_1}\) is principal and its generator
+\(\overline{\pi_M}\) has norm \(p_0p_1=M\).
+
+For \(N\), we must verify that \(\log N_-\) lies in the range of the
+prime window lemma. We have \(1\le\kappa(\tau)\le b\) since
+\(x\le x_1\le b\) and \(x_1\mid b\).
+The different of \(E/K\) is generated by the derivative of the
+cyclotomic polynomial evaluated at \(\zeta_{q_1}\). Differentiating the
+factorization of \(X^{q_1}-1\) by the cyclotomic polynomial and evaluating
+at \(\zeta_{q_1}\) shows that this generator divides \(q_1\).
+The different of \(K/\mathbb Q\) is generated by \(\sqrt{-d}\), which divides
+\(d\). Transitivity of the different gives \(q_1d\) in the different of
+\(E/\mathbb Q\). The norm of the different is \(|\operatorname{disc} E|\) and divides the norm
+of \((q_1d)\), which gives \(1\le\mathrm{rd}_E\le q_1d\le b\).
+\leansrc{New/Derivatives/Field/PrimeDecomposition}{The different and its conductor bound}.
+Since \(b^{20}\le M\le b^{22}\) and \(2\pi\le b\), this gives
+\[
+ 0\le\log\bar\kappa\le L,\qquad
+ 19L\le\log\frac{M\mathrm{rd}_E}{2\pi}\le23L .
+\]
+Substituting in \eqref{eq:level-window} and using \(m\ge2\) gives
+\(mL\le\log N_-\le24mL\). Apply the lemma at \(U=\log N_-\).
+Since \(W\le\sqrt L\), the resulting \(N\) satisfies \eqref{eq:level-window}.
+Since \(N\equiv1\pmod4\), write \(N=u^2+v^2\). The field \(E\)
+contains \(\sqrt{-1}\), so we may take \(\pi_N=u+v\sqrt{-1}\).
+This supplies all the fields of \(D\). \leanref{eventually_exists_data}
 \end{proof}
 
 \subsection{Source and target spaces of the lifts}
@@ -212,11 +372,25 @@ write \(-\nu\tau\). Put \(u_+=\max(u,0)\), and for \(0\le y\le a\) set
 \end{align*}
 Here \(\gamma\) is Euler's constant and \(c_1=G_1(1)\) is the constant of
 \eqref{eq:prime-remainder}.
-We will use \(H_0\ge0\), which follows from
-\(s_\infty(\kappa(\tau))-s_{\mathrm{fin}}(\kappa(\tau),\tau)
-\ge\kappa(\tau)\log b\) at every \(\tau\).
-This inequality uses the scale conditions and
-\(s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\). \leanref{primeSum_le}
+We check \(H_0\ge0\). For \(0\le y\le a\) only the terms with
+\(\nu\le x_1\) contribute to \(s_{\mathrm{fin}}(y,\tau)\), since all weights
+are at least \(a/x_1\). By \(0\le\lambda_1(\nu)\le2\Lambda(\nu)\),
+the sum is at most \(2y\sum_{\nu\le x_1}\Lambda(\nu)/\nu\).
+For an integer \(T\ge1\), use \(T/\nu\le2\lfloor T/\nu\rfloor\) and
+\(\sum_{\nu\mid n}\Lambda(\nu)=\log n\) to obtain
+\[
+ T\sum_{1\le\nu\le T}\frac{\Lambda(\nu)}{\nu}
+ \le2\sum_{1\le\nu\le T}\Lambda(\nu)\lfloor T/\nu\rfloor
+ =2\log(T!)\le2T\log T.
+\]
+Thus \(0\le s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\le y\log b\).
+The bounds \(b^{20}\le M\le b^{22}\), \(1/\Omega\le x^{13}\le b\), and
+\(\Omega\le1\) give \(20\log b\le\log(M/\Omega)\le23\log b\).
+\leansrc{New/Reduction/Data/Sizes}{Bounds for the archimedean constant \(\Omega\)}.
+At \(y=\kappa(\tau)\le a\le b^2\), we have \(0\le\log(y!)\le2y\log b\),
+so \(20y\log b\le s_\infty(y)\le25y\log b\).
+Subtracting gives \(s_\infty(y)-s_{\mathrm{fin}}(y,\tau)\ge y\log b\).
+Hence \(A_0\ge0\) and \(H_0=mkA_0\ge0\). \leanref{primeSum_le}
 
 \begin{proposition}\label{prop:total-remainder}
 For admissible data,

@@ -93,13 +93,7 @@ Bessel フレームの等方部分 \(I\) に付随する対応ごとにまとめ
  \Bigl(\sum_{s\in\Omega}\|E_s\|_{\mathrm{HS}}^2\Bigr)^{1/2}
  \leq \mathcal L(\Omega)^{1/2}+b^{-15}D_{\mathrm{id}}^{1/2}.
 \end{equation}
-Bessel 部分群の外の項を整理する際、整ユニポテント群の左右作用で安定な和のうち、
-指標の一致条件を満たさない部分は指標の直交性で消える。残った項の振幅の二乗和を展開すると、
-判別式がともに非零で同じ対応に属する組は \(\mathcal L(\Omega)\) に入り、残りの組の寄与は
-\(b^{-kf}D_{\mathrm{id}}\le b^{-40}D_{\mathrm{id}}\) 以下である。
-切断前の Bessel 関数への復帰は二乗和の平方根で
-\(b^{-20}D_{\mathrm{id}}^{1/2}\) を加える。
-双方を合わせると \eqref{eq:span-cutoff} になる。\leanref{sqrt_secondMoment_compl_besselS_le}\leanref{secondMoment_remainingTerms_le}
+\ref{sec:span-pair-count}節で、振幅の二乗和の交差項と切断の誤差を評価する。\leanref{sqrt_secondMoment_compl_besselS_le}\leanref{secondMoment_remainingTerms_le}
 \item
 選んだ素点とその共役のうち、還元したフレームの張る空間が自己の \(s\) による像と
 非零の共通ベクトルをもつところのノルムの積を \(\operatorname{Meet}(s)\) とする。
@@ -108,7 +102,7 @@ Bessel 部分群の外の項を整理する際、整ユニポテント群の左�
  \mathcal L(\Omega)\leq
        \left(\frac{b^{2f}}z\right)^k D_{\mathrm{main}} .
 \end{equation}
-同じ対応をもつ項の組に対する、共通部分の格子を用いた計数である。\leanref{linkSecondMoment_le_of_le_meetNorm}
+\ref{sec:span-pair-count}節で、共通部分の格子を使って同じ対応をもつ項の組を数える。\leanref{linkSecondMoment_le_of_le_meetNorm}
 \item
 \(p_0\) の上の選んだ素点の集合 \(A\) で、各 \(w\in A\) について
 フレームの張る空間の非零ベクトルを \(w\) またはその共役で指定し、
@@ -119,11 +113,613 @@ Bessel 部分群の外の項を整理する際、整ユニポテント群の左�
 \begin{equation}\label{eq:span-open-input}
  \mathcal L(\Omega_A)\leq (1+b^{-4})b^{-6k|A|}D_{\mathrm{main}}.
 \end{equation}
-この場合、還元で小行列式が非零なので有理点でも非零となり、該当する項は
-Bessel 二重剰余類の大細胞に属する。底本では、Siegel の評価で類ごとの振幅の
-二乗和を局所密度の正の核で上から抑え、各素点の篩と Poisson 和公式でその核を評価する。
-固定条件一つごとに因子 \(b^{-6k}\) が現れる。\leanref{linkSecondMoment_isOpenElement_le}
+\ref{sec:span-open-proof}節で、Siegel の評価と Poisson 和公式を用い、
+局所質量の評価から固定条件一つ当たりの因子 \(b^{-6k}\) を導く。\leanref{linkSecondMoment_isOpenElement_le}
 \end{enumerate}
+
+\subsection{共通格子による計数}\label{sec:span-pair-count}
+
+\(n=\varrho+1\)、\(n_X=\#\{c\}\)、\(\tau=b^{kf/4}\)、
+\(n_p=|\bar R_0|n_X/N^{kf}\) と置く。切断 Bessel 関数の項を
+整ユニポテント群の二重軌道ごとにまとめる。ある無限素点の積の点 \(y\) について
+\(y\) と \(\gamma^{-1}y\) がともに、簡約条件と Bessel 長の上界を満たす領域に入るとき、
+項 \(\gamma\) を近接項と呼ぶ。各軌道には近接項があれば、その中から代表元を一つ選ぶ。
+還元 \(s\) が左右のユニポテント指標を一致させる条件は、積が
+\(us=su'\) となる整ユニポテント元に対して両側の指標の値が等しいことである。
+条件が破れると、指標の比を掛ける変数変換で振幅が消える。
+
+以下で数える項は、\(\mathfrak d(\gamma)\ne0\) の項と、
+\(\mathfrak d(\gamma)=0\) で \(\gamma I\ne I\) となり有理ユニポテント指標が
+一致する項である。有理点での一致条件は、\(u\gamma=\gamma u'\) を満たす
+有理ユニポテント元の指標値が等しいことである。この項の集合は有理ユニポテント群の
+左右作用で安定である。
+\leansrc{New/Spanning/Unfolding/TermStructure}{残りの項と有理ユニポテント指標}
+
+近接項 \(\gamma\) の格子 \(L_\gamma\) は、類 \(c\) の格子内の \(X_0\) のベクトルのうち、
+\(M\) 倍の整等方ベクトルを足して \(\gamma\) のフレームに直交させられるものからなる。
+同じ \((c,s,c')\) 上の代表元 \(\gamma,\gamma'\) に対し、
+二つの対応の共通部分で両座標の最後のフレーム方向への成分を零とする。
+この部分を第一座標で \(X_0\) に移した空間に \(L_\gamma\cap L_{\gamma'}\) を制限した格子を
+\(L_{12}\) とする。その余階数を \(l\)、判別式を \(d\) と書く。判別式は格子基底の
+Gram 行列式の一般化指数の平方根である。各対応は次元 \(k+1\) で、その共通部分の
+余次元を \(i\) とすると、最後の座標を落とす条件は二つなので \(l\le i+1\) となる。
+\(i=0\) で片方の \(\mathfrak d\) が零なら両方が零で、このとき \(l=0\) である。
+近接項に対する長さと格子の評価は \(l\le n^3\) と \(1\le d\le b^{n^3 f}\) を与える。
+\leansrc{New/Spanning/RemainingTerms/Gain}{共通格子の階数と判別式の上界}
+
+細胞の階数 \(j\) をもつ項の量 \(G_\gamma\) を、\(N^f\) 倍した首座小行列式の
+正規化ノルムと \(\mathfrak d(\gamma)\) のノルムの最大値に
+\(M^{2\min(\varrho,j)f}\) を掛け、左右の等方行格子の指数の積で割ったものとする。
+\(1\le z\le\operatorname{Meet}(s)\) に対し、\(i=0\) で \(\mathfrak d(\gamma)\ne0\) なら
+\(\zeta=z\) とし、ほかでは \(\zeta=1\) とする。二つの格子の切り分けから
+\begin{equation}\label{eq:span-pair-gain}
+ (d\zeta)^2\le (2/M)^{2if}G_\gamma G_{\gamma'}
+\end{equation}
+が従う。ここで \(\zeta=z\) のときの因子は次の行列式から得られる。
+フレームが交わる剰余体で、共通ベクトルを二通りに表示し、係数が同時には零でない
+最大の添字を取る。指標の一致条件により、その添字で現れた係数の対は、次の添字でも
+二つの旗の共通ベクトルの係数として現れる。これは、次の添字より前の両方の列を零にする
+線形形式が、次の列にその二係数を掛けたものに同じ値を取ることから従う。
+この操作を繰り返すと、最後の二つの係数が同時には零でない関係式を得る。
+\leansrc{New/Spanning/Unfolding/Climbing}{共通ベクトルの係数を次の段へ移す補題}
+この関係式を、先行部分に直交する二つの整リフトとの積で写すと、最後の二列に核が生じる。
+行列式を \(\delta\) とすれば、交わるすべての素点で \(\delta\) は零である。
+従って \(\widehat{\mathcal O}_E/\delta\widehat{\mathcal O}_E\) からそれらの
+剰余体の積への全射があり、\(\delta\) の一般化指数は \(\operatorname{Meet}(s)\) 以上となる。
+\leansrc{New/Spanning/RemainingTerms/Cut}{交わる素点での切断行列式}
+
+具体的には、対応の共通部分を両方の最後の座標が消える部分とその補空間に分け、
+さらに各対応で共通部分の直交補空間を取る。最後の座標が消える部分における
+\(L_\gamma\) の判別式を \(d_\gamma^0\)、等方行から生じるねじれ指数を
+\(a_\gamma\)、共通部分の外の補格子の判別式の二乗を \(\Delta_\gamma\) とする。
+切断行列式の因子と Gram 行列式の積公式により
+\((a_\gamma d_\gamma^0\zeta)^2\Delta_\gamma\le G_\gamma^2\) となる。
+二つの補空間の間のペアリングは非退化で、還元が同じなので、Hermite 形式の左右成分の差からなるペアリングを
+\(M\) で割ると整になる。その行列式を Gram 行列式で評価すると
+\(1\le(2/M)^{4if}\Delta_\gamma\Delta_{\gamma'}\) を得る。
+また \(L_\gamma\) の共通部分に \(L_{\gamma'}\) の条件を課すと増える指数は
+\(a_{\gamma'}\) で抑えられ、逆向きにも同じことが成り立つ。
+従って \(d\le d_\gamma^0a_{\gamma'}\) と \(d\le d_{\gamma'}^0a_\gamma\) を掛けた後、
+補格子の判別式を消去すると \eqref{eq:span-pair-gain} が得られる。
+\leansrc{New/Spanning/RemainingTerms/Gain}{二つの対応の判別式比較}
+
+余階数 \(l\) を固定する。\(\bar R_0\) の一つのラベルを持つ項は、
+類 \(c\) のレベル \(M\) のユニポテント作用までのフレームで決まる。
+\(L\subset L_\gamma\) のフレームを数えるため、まず細胞の階数 \(j\) と
+フレーム積の行列 \(B\) を固定する。\(B\) の最初の \(j\) 行を取り、
+残る行を恒等行列の対応する行で補った行列を \(B_j\) とする。
+その行列式 \(\delta_j\) は \(B\) の位数 \(j\) の首座小行列式で、非零である。
+\([a]\) は整有限イデール \(a\) の指数
+\(|\widehat{\mathcal O}_E/a\widehat{\mathcal O}_E|\) を表す。
+
+格子 \(L\) の基底を \(Y=yA_L\) と書く。\(y\) の \(k-l\) 本の列は有理で
+一次独立、\(A_L\) は有限アデール上で可逆である。\(L\subset L_\gamma\) の条件は、
+\(X_0\) 成分の行列 \(X_\gamma\) と \(B\) の等方行 \(B_{\mathrm{iso}}\) に対して
+\[
+ X_\gamma^*y+M B_{\mathrm{iso}}^*w=0,\qquad
+ wA_L\text{ は整}
+\]
+となる持ち上げ \(w\) を与える。ここでは \({}^*\) は随伴行列を表す。
+\(wA_L\) の各行を \(Y^*Y\) の行格子で分類する。その指数は
+\(\operatorname{disc}(L)^2\) なので \(\varrho\) 行の分類は
+\(\operatorname{disc}(L)^{2\varrho}\) 通り以下である。同じ類では
+ユニポテント作用で上の直交条件の右辺を共通にできる。
+
+従って \(X_\gamma\) の差の \(n\) 本の列は、\(L\) に直交する
+階数 \(l\) の格子に入る。これを法 \(M\delta_j\) で分類すると
+\([M\delta_j]^{ln}\) 通りであり、同じ類の \(X_0\) 成分は
+ユニポテント作用で一致させられる。残る等方成分については、
+\(j\) 段以降の共通ベクトルを記録する随伴小行列を用いた整行列で
+まず分類する。近接条件はその成分を各無限素点で \(b^{182n^2}\) 以下に
+抑えるので、その行列の数は \(b^{366n^4 f}\) 以下である。さらに等方成分の
+\(\varrho n\) 個の成分を法 \(M\det(B_j B_j^*)\) で分類する。
+同じ類に入るフレームはユニポテント作用で一致する。
+\leansrc{New/Spanning/RemainingTerms/FrameParts}{持ち上げの直交条件とユニポテント作用}
+\leansrc{New/Spanning/RemainingTerms/FramesOverLattice}{固定格子を含むフレームの合同類}
+
+固定した \(j,B\) の上では、これらの類の個数から
+\[
+ \operatorname{disc}(L)^{2\varrho}\,[M\delta_j]^{ln}
+       b^{366n^4 f}[M\det(B_j B_j^*)]^{n\varrho}
+\]
+を得る。二つの法の指数と \(\operatorname{disc}(L)^2\) はいずれも
+\(b^{2n^3f}\) 以下で、\(j\) の選択は \(b^{2f}\) 通り、\(B\) は
+\(b^{270n^3f}\) 通り以下なので、\(L\) を含む近接代表元は
+\(b^{2000n^6(l+1)f}\) 個以下である。ラベルは左右の指標が一致する
+還元に対して選べ、同じ組の二つの項に共通である。従って二つの
+代表元の選び方は \(b^{4000n^6(l+1)f}\le\tau\) 通り以下になる。
+
+格子の \(d^{-k}\) の和は、ランク \(k-l\) の格子について各類を動かして平均する。
+極大レベルの部分群に関する剰余類は少なくとも \((N^k/b)^f\) 個ある。
+一つのユニモジュラー格子を固定し、\(L\) の飽和格子の基底を
+環 \(\widehat{\mathcal O}_E\) 上の全体の基底に延長する。
+\(L\) の基底が飽和格子の基底の右から整行列 \(A_{\mathrm{sat}}\) を
+掛けたものなら、指定行の最初の \(k-l\) 成分 \(a\) は
+\(aA_{\mathrm{sat}}=\pi_N w\) を満たす必要がある。
+\(w\) を \(A_{\mathrm{sat}}\) の行格子を法として選ぶと、
+\(a\) の法 \(\pi_N\) の値が決まるので、選択は
+\([\det A_{\mathrm{sat}}]\) 通り以下である。あとの \(l\) 成分に
+\(\bigl|\widehat{\mathcal O}_E/\pi_N\widehat{\mathcal O}_E\bigr|^l=N^{lf}\)
+が掛かる。剰余類は行の法 \(\pi_N\) の値で区別されるため、
+この格子で寄与する剰余類は高々 \([\det A_{\mathrm{sat}}]N^{lf}\) 個になる。
+\(d\le D_\ast=b^{n^3 f}\) の格子の重みを合わせた剰余類上の和は
+\[
+  N^{lf}D_\ast^{2\varrho+6}
+       (200fk\,\operatorname{rd}_E)^{f(k+1)l}2^k
+  \le b^{-f}\tau^{l+1}
+\]
+で抑えられる。ここで \(\operatorname{rd}_E\) は \(E\) の根判別式である。
+剰余類数で割ると、類を一つ当たりに平均した格子の重みは
+\(N^{-kf}\tau^{l+1}\) 以下となる。全 \(n_X\) 類、\(|\bar R_0|\) 個のラベルと
+一つの格子当たりの組の数を掛けると
+\begin{equation}\label{eq:span-pair-count}
+ \sum_{\substack{\text{近接代表元の組}\\ \operatorname{corank} L_{12}=l}} d^{-k}
+ \le \tau^{l+2}n_p .
+\end{equation}
+\leansrc{New/Spanning/RemainingTerms/LatticesOfCorank}{剰余類上の格子の平均}
+\leansrc{New/Spanning/RemainingTerms/Count}{共通格子で重み付けした計数}
+
+一つの近接代表元の寄与には、軌道和に Schur の評価を適用した上界
+\[
+ \sigma_\gamma=\tau^2\left(\frac{D_j}{n_pG_\gamma^k}\right)^{1/2},
+ \qquad
+ D_j=\begin{cases}
+       D_{\mathrm{main}} & j=\varrho+1,\\
+       \tau^{-16}D_{\mathrm{id}} & j\le\varrho
+     \end{cases}
+\]
+を用いる。すなわち、上記の残りの項のうち、左右の有理ユニポテント作用で安定な集合に対して、
+切断振幅の
+ノルムを \(\nu\) で割った値は、選んだ近接代表元上の \(\sum_\gamma \sigma_\gamma\)
+以下である。階数 \(j=\varrho+1\) は \(\mathfrak d(\gamma)\ne0\) の場合に当たる。
+\leansrc{New/Spanning/RemainingTerms/Size}{二重軌道和に対する振幅評価}
+\((d\eta)^2\le G_\gamma G_{\gamma'}\) で \(D\ge D_j,D_{j'}\) なら、
+\[
+ \sigma_\gamma\sigma_{\gamma'}
+ \le \frac{\tau^4D}{n_p\eta^k}\,d^{-k}.
+\]
+従って、各余階数 \(l\) で \(\tau^{l+6}D/\eta^k\le C\) なら、
+\eqref{eq:span-pair-count} によりその重みの和は \(C\) 以下である。
+余階数は \(n^3+1\le\tau\) 通りなので、総和は \(\tau C\) 以下となる。
+
+同じ対応で判別式が非零の場合、\(l\le1\) であり、
+\eqref{eq:span-pair-gain} により \(\eta=z\)、\(D=D_{\mathrm{main}}\) と取れる。
+上の計算で \(C=\tau^7D_{\mathrm{main}}/z^k\) を使うと
+\(\tau^8 D_{\mathrm{main}}/z^k=(b^{2f}/z)^kD_{\mathrm{main}}\) が得られる。
+各組の還元と対応は一意に決まるので、これが \eqref{eq:span-intersect} を与える。
+
+同じ対応で判別式が零なら、\(l=0\)、\(\eta=1\)、
+\(D=\tau^{-16}D_{\mathrm{id}}\) と取れて、\(C=\tau^{-10}D_{\mathrm{id}}\) で足りる。
+対応が異なる場合には \(i\ge1\)、\(l\le i+1\) で、
+\(\eta=(M/2)^{if}\)、\(D=D_{\mathrm{main}}\) とする。
+\(\rho_\ast=\tau(2/M)^{kf}\le1\) および
+\(D_{\mathrm{main}}\le(M/b^6)^{kf}D_{\mathrm{id}}\) から
+\[
+ \frac{\tau^{l+6}D_{\mathrm{main}}}{\eta^k}
+ \le \tau^7\rho_\ast^iD_{\mathrm{main}}
+ \le \tau^8(2/b^6)^{kf}D_{\mathrm{id}}
+ \le \tau^{-10}D_{\mathrm{id}} .
+\]
+最後の不等式には \(2\le b\) と \(\tau=b^{kf/4}\) を使った。
+この二つの場合を合わせて同じ \(C=\tau^{-10}D_{\mathrm{id}}\) を使えるため、
+総和は \(\tau^{-9}D_{\mathrm{id}}\le b^{-kf}D_{\mathrm{id}}\) となる。
+\leansrc{New/Spanning/RemainingTerms/Sum}{対応ごとの二乗和と交差項の評価}
+
+この計数を振幅に適用するには、ブロックを判別式が非零の各対応と
+判別式が零の全項とに分け、部分ごとのノルムの和を二乗する。
+非零判別式の同一対応の対角項をそのまま足すと \(\mathcal L(\Omega)\) である。
+それ以外には上の \(\sigma_\gamma\sigma_{\gamma'}\) を適用する。
+各組は一つの還元に属するので、ブロック全体でも同じ上界を使える。
+
+切断に伴う誤差について、各 \((c,s)\) 行の振幅差のノルム和の上界を
+\(q=\nu/(2b^{k^3 f})\) とする Bessel 関数の裾の評価を用いる。
+行の二乗和はノルム和の二乗以下なので \(q^2\) 以下であり、
+\(|\bar G|b^{40}\le(2b^{k^3 f})^2\) と \(n_X\le D_{\mathrm{id}}\) により、
+全 \((c,s)\) 行の和を \(\nu^2\) で割った値は \(b^{-40}D_{\mathrm{id}}\) 以下になる。
+この評価は切断の前後で同じ項の集合に適用する。
+\leansrc{New/Spanning/RemainingTerms/Size}{切断による振幅差の行ごとの評価}
+許された \(\Omega\) 上で \(E_s\) の全振幅は、残りの項の和に等しい。
+実際、Bessel 部分群の外で残りの項にも入らないもののうち、有理指標の一致条件を
+満たさない項は、左右作用で安定な集合上で振幅の和が消える。一致条件を満たす項は
+最初の段からノルム一の係数対をもち、その還元は除外したスカラー剰余類に属する。
+\leansrc{New/Spanning/Unfolding/SquareExpansion}{Bessel 部分群の外の振幅の整理}
+二乗和の平方根の三角不等式と \(kf\ge40\) から
+\[
+ \Bigl(\sum_{s\in\Omega}\|E_s\|_{\mathrm{HS}}^2\Bigr)^{1/2}
+ \le \mathcal L(\Omega)^{1/2}
+       +(b^{-kf/2}+b^{-20})D_{\mathrm{id}}^{1/2}
+ \le \mathcal L(\Omega)^{1/2}+b^{-15}D_{\mathrm{id}}^{1/2}.
+\]
+これが \eqref{eq:span-cutoff} である。
+
+\subsection{開な還元の二次モーメント}\label{sec:span-open-proof}
+
+\paragraph{固定条件による局所質量の減少}
+有限素点の共役で安定な集合 \(\mathcal T\) を取り、法 \(M\) を支える素点を含める。
+その局所積で整ユニタリー群を \(K_{\mathcal T}\)、局所レベル \(g\) の主合同部分群を
+\(K_{\mathcal T}(g)\) と書く。Haar 測度を \(\mu\) とし、
+\(K_{\mathcal T}(g)\subset Z\subset K_{\mathcal T}\) に対して
+\[
+ \mathfrak M(Z)=\int
+    \left|\int_Z \chi_g(yxy^{-1})\,d\mu(y)\right|^2d\mu(x),
+ \qquad
+ m_Z=\frac{\mu(Z)\mu(K_{\mathcal T}(g))}{u_g^2}
+\]
+と置く。\(\chi_g\) はユニポテント指標を主合同部分群との積に延長し、その外で零と
+した関数であり、\(u_g\) はこの延長に用いるユニポテントの測度定数である。
+\(x\in K_{\mathcal T}(g)\) では \(\chi_g(yxy^{-1})=1\) であり、
+この部分の積分は \(\mu(Z)^2\mu(K_{\mathcal T}(g))\) となる。
+
+局所格子データについて、整数環に属する可逆元のうち逆元が整でないものの
+モジュラスが \(Q^{-1}\) 以下であり、\(Q\ge2\) とする。合同部分群の外での
+積分を分母イデアルの指数の範囲ごとに分ける局所評価により、
+\(a+10^8n^4\le k\) なら零段の積分の優関数の積分は
+\(m_Z2^{10^9n^4}\min(1,Q^{-a})\) 以下である。この評価では、合同部分群の外の元 \(x\) について、
+どのフレーム座標にも深さ \(Q\) 以上のものがなければ、
+安定なフレーム積に整単元を選べることを使う。その場合 \((x-1)/g\) は整となり、
+仮定に反する。従って深いベクトルによる利得があり、その二乗を用いる
+積分評価の座標数の損失と、分母イデアルの二進区分を足し合わせる損失は
+それぞれ \(2^{99\cdot13n}\) と \(2^{4\cdot10^8n^4}\) で抑えられる。
+その積は \(2^{10^9n^4}\) 以下である。
+\(a=t+10^9n^4\) を選ぶと \(2/Q\le1\) によって係数が吸収される。
+積分の優関数に \(u_g^2\) を掛け、合同部分群の寄与を足すと、
+\(t+2\cdot10^9n^4\le k\) の下で
+\begin{equation}\label{eq:span-local-mass}
+ \mathfrak M(Z)
+ \le\mu(Z)\mu(K_{\mathcal T}(g))\,\bigl(\mu(Z)+Q^{-t}\bigr).
+\end{equation}
+\leansrc{New/Spanning/Frames/FiniteShells}{分母イデアルによる局所積分の評価}
+
+一つの \(w\in A\) とその共役に限って \(K_{\mathcal T}\) を \(K_w\) と書き、
+固定条件の逆像を \(Z_w\) とする。還元から \(\mathrm{GL}_r(\mathbf F_{p_0})\)
+への写像は全射で、共役側では逆随伴を通じて作用する。いずれも非零ベクトルへの
+推移性から \([K_w:Z_w]=p_0^r-1\) となる。\(B=b^9\) と置くと
+\(2\le B\le p_0\) であり、選んだ素点の局所積では非単元部分の加法体積が
+\(B^{-1}\) 以下である。実際、各体積は剰余体位数の逆数、素点の個数は \(b\) 以下、
+各剰余体位数は \(b^{10}\) 以上である。この上界は逆元が整でない元の
+モジュラスにも適用できる。
+許容条件から \(t_0=k-10^{10}n^4\) は
+\[
+ t_0+1+n+2\cdot10^9n^4\le k,\qquad
+ 6k\le9t_0,\qquad t_0+1<r
+\]
+を満たす。指数の公式は \(\mu(Z_w)\le B^{-t_0-1}\mu(K_w)\) を与える。
+また局所積分の測度の正規化では \(\mu(K_w)\ge2^{-n}\ge B^{-n}\) である。
+\eqref{eq:span-local-mass} に \(Q=B,\ t=t_0+1+n\) を代入すると
+\[
+ \mathfrak M(Z_w)\le
+ \mu(Z_w)\mu(K_w(g))
+       \bigl(\mu(Z_w)+B^{-t_0-1}\mu(K_w)\bigr).
+\]
+これに \(\mu(K_w)b^{6k}\) を掛け、\(b^{6k}\le B^{t_0}\) と \(2/B\le1\) を使う。
+\(K_w(g)\) 上の積分だけで
+\(\mathfrak M(K_w)\ge\mu(K_w)^2\mu(K_w(g))\) となるから
+\[
+ \mathfrak M(Z_w)\mu(K_w)b^{6k}
+ \le\mathfrak M(K_w)\mu(Z_w).
+\]
+相異なる共役対では群と指標が直積に分かれる。従って質量積分と測度を
+それぞれ掛け、残る素点では条件なしの群を使うと、同じ不等式で
+\(K_w,Z_w,b^{6k}\) を \(K_{\mathcal T},Z,b^{6k|A|}\) に置き換えられる。
+この比の比較は直積測度からの共通の Haar 測度の定数倍に依らない。
+\leansrc{New/Spanning/Frames/FixedLines}{固定ベクトル一つ当たりの局所質量比}
+
+\(Z=K_{\mathcal T}\) には \eqref{eq:span-local-mass} を \(Q=2,\ t=n\) で適用する。
+\(\mu(K_{\mathcal T})\le1+2^{-n}\) および \(2^{-\varrho}\le b^{-6}\) を用いると
+\(\mathfrak M(K_{\mathcal T})\le(1+b^{-6})\mu(K_{\mathcal T})\mu(K_{\mathcal T}(g))\)
+である。零段の軌道形式は指標を平均した相関の二乗であり、その未正規化の値の絶対値に
+\(u_g^2\) を掛けると \(\mathfrak M(Z)\) 以下となる。そこで \(m_Z\) で
+正規化した零段の有限素点の核は
+\begin{equation}\label{eq:span-local-zero}
+ m_A=(1+b^{-6})b^{-6k|A|}
+\end{equation}
+以下に抑えられる。\leansrc{New/Spanning/MainTerm/FiniteSieveSystem}{有限素点の零段の密度}
+
+\paragraph{Siegel の評価と最後の座標}
+\(\Omega_A\) 上の非零の振幅ブロック \((c,s,c',\Lambda)\) を有限個取る。
+真の首座小行列式は有理点でもすべて非零であるため、大細胞の分解によって、
+各ブロックを最後の積 \(t\in E^\times\)、先行する双曲基底ベクトルをすべて
+固定する代表元 \(\sigma\)、および整持ち上げ \(n_s\) で記述できる。ここで
+\(|\Phi_v(t)|^2>N^2\) はすべての無限素点 \(v\) で成り立ち、
+\((c,c',\operatorname{red}(n_s),\sigma)\) はブロックを定める。
+\(\sigma\) を固定すると残る首座の座標は有限集合 \(T_0\subset E^\times\)
+に入るので、ブロックの振幅は
+\(\mathcal A=\sum_{\mathbf p\in T_0^\varrho} a(\mathbf p)\) と書ける。
+\(a(\mathbf p)\) は Weyl 代表 \(w(\mathbf p,t)\sigma\) の切断されたユニポテント
+二重剰余類の振幅である。\(\mathcal T\) を拡大して \(T_0\) の元とその逆元、
+\(M^{-1},N^{-1}\)、格子の基底とその逆、および類の代表元で移した各 \(\sigma\) が
+\(\mathcal T\) の外で整になるようにする。
+\leansrc{New/Spanning/MainTerm/EnergyEstimate}{大細胞の振幅和と有限集合への帰着}
+
+無限素点 \(v\) での第 \(j\) 座標の倍率を
+\(\lambda_{v,j}=\kappa_v^{2(\varrho-j)}/N\) とする。ここで
+\(\kappa_v=M\Phi_v(\varpi)/(2\pi\mathrm i)\)、\(\varpi\) は異なるイデアルの生成元である。
+\(R_t(\mathbf p,\mathbf q)\) を、最後の座標を \(t\) とする無限素点の
+最上段の核の積とする。各核は軌道積分を座標の倍率と頭部の密度で調整した
+Gram 核である。有限素点の最後の座標の密度 \(F_t(\mathbf p,\mathbf q)\) は、
+同一の最後のベクトルをもつファイバーでの Gram ペアリングを二次曲面上で
+積分したものである。
+
+\(t\) ごとに、\(\sigma\) が最後のフレームベクトルに作用してできる \(X_0\) 成分 \(y\)
+を取ると \(N\langle y,y\rangle=t\bar t-N^2\) である。
+\[
+ G_t=\left(\prod_v(|\Phi_v(t)|^2-N^2)\right)^{k-1}>0
+\]
+とする。各 \(v\) の Bessel 座標の個数を \(d_{B,v}\)、その積を \(d_B\) とする。
+大細胞の体積定数を \(c_G=\operatorname{vol}(U(k))^2/
+(\operatorname{vol}(U(r))\operatorname{vol}(U(k-1)))\) とすると、
+無限素点の軌道積分に掛ける重みは
+\[
+ \rho_t(\mathbf p)=
+ \prod_v \frac{\sqrt{c_G}}{d_{B,v}}
+ \left(\frac{|\Phi_v(t)|^2}{N^2}-1\right)^{(k-1)/2}
+ \prod_{j<\varrho}|\lambda_{v,j}\Phi_v(p_j)|^{k-1+2(\varrho-j)} .
+\]
+対応する有限素点の頭部密度を \(h_t(\mathbf p)\) とする。各 \(p_j\) は
+\(\mathcal T\) の外で単元なので、積公式により
+\(\prod_v|\Phi_v(p_j)|\) は \(\mathcal T\) における \(p_j\) のモジュラスの
+平方根の逆数となる。よって \(\rho_t(\mathbf p)h_t(\mathbf p)=r_0\sqrt{G_t}\) である。
+ここで
+\[
+ r_0=\frac{1}{d_B}\prod_v
+       \left(\sqrt{c_G}\prod_{j<n}\lambda_{v,j}^{k-1+2(\varrho-j)}\right).
+\]
+さらに \(D=|\bar R_0|M^{f\varrho(2k+2\varrho+1)}\) とし、
+\(C_S=D\,n_Xc_S\) を有限素点の正規化も含む Siegel の定数とする。
+同じ点 \(x=(c,y)\) のブロックを数える。
+\(\Psi_t(x)\) は、類の代表元の逆で移した \(y\) から作る最後の局所ベクトルでの値とする。
+\(\mathcal K=K_{\mathcal T}(g)\)、\(\mathcal C=Z/\mathcal K\) と置く。
+各頭部 \(\mathbf p\) の尺度付き軌道積分は、有限商 \(\mathcal C^2\) に
+座標をもつ。位置 \(\ell\) と座標 \((a,a')\in\mathcal C^2\) を固定し、
+その座標を頭部ごとに並べたベクトルを \(v_{\ell,a,a'}\) とすると、
+\(R_t\) を掛けた局所ペアリングの和は
+\[
+ Q_t(\ell)=\sum_{a,a'\in\mathcal C} v_{\ell,a,a'}^*R_t v_{\ell,a,a'}\ge0
+\]
+となる。類 \(c,c'\) と \(\sigma\) を固定すると、還元 \(s\) をもつ
+ブロックは、\(a'\) が \(n_s^{-1}a\) の合同類になる座標を占める。
+異なる \(s\) では同じ \((a,a')\) を占めることがない。
+各座標の項は軌道積分を展開すると
+\(\mu(\mathcal K)^2G_t r_0^2\|\mathcal A\|^2\) となる。
+\(a\) について足すと \(|\mathcal C|\) 倍となり、すべてのブロックの和を
+\(Q_t(\ell)\) で抑えられる。
+
+\(H_{\mathrm{fix}}\) を最後のフレームベクトルを固定する局所群とする。
+同じ点 \(x\) に属する \((c',\sigma)\) の位置 \(\ell\) は、
+\(H_{\mathrm{fix}}\) の左作用で移り合い、その合同類は相異なる。
+同じ合同類なら局所では合同であり、\(\mathcal T\) の外で整であることと
+合わせると、始域の類も有理代表元も一致するからである。
+\(Q_t\) は \(H_{\mathrm{fix}}\cap\mathcal K\) の左作用で不変である。
+従ってその剰余類の測度を掛けて和を取ると、ファイバーでの積分以下になる。
+\(\mu_H\) を \(H_{\mathrm{fix}}\) の Haar 測度としたとき、
+\(D\mu_H(H_{\mathrm{fix}}\cap\mathcal K)\mu(\mathcal K)^2|\mathcal C|\ge m_Z\)
+であり、有限素点のファイバーのペアリングを延長した非負の階段関数
+\(\Psi_t\) に対して
+\[
+ G_t(m_Z/D)\sum_{(c,y)=x} r_0^2\|\mathcal A\|^2\le\Psi_t(x)
+\]
+を得る。
+\leansrc{New/Spanning/Frames/TopFloor}{有限商の座標とファイバーのペアリング}
+
+\(\beta_t=(t\bar t-N^2)/N\) とする。階数 \(k\ge3\) の正定値空間に対する
+一ベクトルの Siegel の公式を、\(\mathcal T\) の外で整であり、\(\mathcal T\) では
+\(\Psi_t\) を最後のベクトルに引き戻した試験関数に適用する。
+これはコンパクト台をもち、局所定数で、始域のレベル群に不変である。
+\(\beta_t\) は総正であり、対応する類の和は
+\[
+ n_X|\operatorname{disc}(E)|^{1/4}
+       \prod_v\frac{\pi^k(\Phi_v(\beta_t))^{k-1}}{(k-1)!}
+\]
+と有限アデールのノルム密度との積になる。
+\leansrc{Lib/SiegelWeil/OneVector/SiegelClassSum}{一つのノルムに対する Siegel の公式}
+
+ノルム密度は、有限ベクトル \(w\) と自己共役な有限アデール周波数 \(u\)
+にわたって、試験関数と \(\psi_f(u(w^*w-\beta_t)/2)\) の積を積分したものである。
+周波数とベクトルを \(\mathcal T\) の成分で分けると、
+\(\mathcal T\) での球面密度と、補集合で整であることから出る Gauss 和の
+積分との積になる。Gauss 和の被積分関数を
+\[
+ F_{u,\Gamma}(w)=\psi_f\!\left(u(w^*w-\Gamma)/2\right),
+ \qquad w\in\widehat{\mathcal O}_E^{\,k}
+\]
+と書く。\(\Gamma\) はノルム値から来る定数で、次の評価は \(\Gamma\) に関して一様である。
+\(\int F_{u,\Gamma}(w)\,dw\) の絶対値の二乗は、
+\(\overline{F_{u,\Gamma}(w)}F_{u,\Gamma}(w+h)\) の \(w,h\) に関する積分に等しい。
+\(w\) の第 \(j\) 座標を \(\bar a\) だけ平行移動すると、相関には
+\(\psi_f(u h_j a)\) が掛かる。従って \(w\) の積分が残るのは、
+すべての \(h_j\) が導手イデアル
+\[
+ I_u=\{h\in\widehat{\mathcal O}_E:
+            \psi_f(uha)=1\text{ for all }a\in\widehat{\mathcal O}_E\}
+\]
+に入る場合だけである。指標の絶対値が \(1\) なので、この部分の積分は
+体積の積で抑えられ、\(q_u=|\widehat{\mathcal O}_E/I_u|\) と書くと
+\[
+ \left|\int F_{u,\Gamma}(w)\,dw\right|
+ \le \operatorname{vol}(\widehat{\mathcal O}_E)^k q_u^{-k/2}.
+\]
+導手 \(I\) を固定して周波数を数えると、余不同イデアルの自己共役部分による
+剰余類は、有限加法群 \(\widehat{\mathcal O}_E/I\) の指標により区別される。
+一剰余類の測度は \(1\) で、その個数は高々 \([\widehat{\mathcal O}_E:I]\) 個である。
+\(\mu_0=3\varrho+4\)、\(k\ge2(\mu_0+1)\) として
+各導手上で積分した上界を足すと、
+整アデールの有限指数イデアルのゼータ和
+\(\sum_I[\widehat{\mathcal O}_E:I]^{-\mu_0}\)
+に \(\operatorname{vol}(\widehat{\mathcal O}_E)^k\) を掛けたものになる。
+この和は \([E:\mathbf Q]\le 2^{2\varrho}\) で Dedekind ゼータの
+Euler 積と比較して \(1+2^{-\varrho}\le1+b^{-6}\) 以下である。
+\leansrc{Lib/SiegelWeil/Mass}{相関の指標直交性と導手ごとの Gauss 和の評価}
+
+\(\mathcal T\) で残ったノルム密度は、有限素点の Fourier 反転によって、
+球面 \(\langle y,y\rangle=\beta_t\) 上の試験関数の積分以下である。
+最後のベクトルの密度 \(F_t\) はこの積分を \(\pi_N\) のモジュラス \(N^{-f}\) で
+割った値である。従って球面の積分を密度に換える際に \(N^{-f}\) を掛け、
+無限素点のノルム因子の \(N^{-f(k-1)}\) と合わせると
+\[
+ c_S=\left(\frac{\pi^k}{(k-1)!N^k}\right)^f
+       |\operatorname{disc}(E)|^{1/4}
+       \operatorname{vol}(\widehat{\mathcal O}_E)^k
+\]
+となる。点 \(x\) ごとに一回ずつ和を取ると
+\[
+ \sum_x\Psi_t(x)\le(1+b^{-6})n_Xc_S G_t\,
+             \operatorname{Re}\sum_{\mathbf p,\mathbf q}R_t(\mathbf p,\mathbf q)
+                                                       F_t(\mathbf p,\mathbf q).
+\]
+両辺で \(G_t\) と \(m_Z\) を整理し、\(t\) を動かすと
+\begin{equation}\label{eq:span-siegel-sum}
+ r_0^2\sum_{\mathrm{blocks}}\|\mathcal A\|^2
+ \le (1+b^{-6})C_S\sum_t\operatorname{Re}\sum_{\mathbf p,\mathbf q}
+                         R_t(\mathbf p,\mathbf q)\frac{F_t(\mathbf p,\mathbf q)}{m_Z}.
+\end{equation}
+\leansrc{New/Spanning/MainTerm/SiegelTopBound}{類の和に対する Siegel の球面評価と局所密度}
+
+\paragraph{Poisson 和公式による座標の消去}
+無限素点の核と正規化した有限素点の核を各段で掛けたものを \(J_i\) とする。
+\(\mathcal S_{i+1}\) を、最初の \(i\) 座標が \(\mathbf p,\mathbf q\in T_0^i\) に入り、
+その次の座標を共通の \(t\in T_0\) とする \(J_{i+1}\) の和の実部とする。
+頭部以降の座標は \(1\) で埋め、無限素点では各座標に \(\lambda_{v,j}\) を掛ける。
+\(\mathcal S_0=\operatorname{Re}J_0\) は空の頭部に対する値である。
+共通の座標ごとの和は Gram 核の正値性から非負であり、
+\eqref{eq:span-siegel-sum} の核の和は \(\mathcal S_n\) 以下である。
+
+第 \(i\) 座標の和に片側の Poisson 和公式を適用する。頭部を固定して合計した
+核を非負の下半連続な関数とみなし、\(\mathcal T\) の外では整アデールの指示関数を
+掛ける。零周波数は軌道形式の積分公式により \(J_i\) の全頭部の和を与え、
+定数は
+\[
+  q_i=\frac{\operatorname{vol}(\widehat{\mathcal O}_E)}
+                 {\prod_v\lambda_{v,i}^2}.
+\]
+残る周波数は \(\varpi\) の逆数で尺度を変えた \(\mathcal T\)-整な有理点に限られる。
+局所 Fourier 評価の積の非零周波数にわたる和を \(\epsilon\)、
+長さ \(i\) の頭部の非負の重みの和を \(W_i\) とすると、この寄与は
+\(q_i\epsilon W_i^2\) 以下である。零周波数による全頭部の和で、
+最後の座標が等しい組を残せば \(\mathcal S_i\) になる。
+最後の座標 \(u,v\) が異なる組では、有限素点で
+\(M^{-1}(u^{-1}-v^{-1})\) が非零周波数を与える。この点は \(\mathcal T\) の外で整であり、
+同じ減衰評価を適用して、これらの組の和は \(\epsilon W_i^2\) 以下となる。
+従って
+\[
+ \mathcal S_{i+1}\le q_i(\mathcal S_i+2\epsilon W_i^2).
+\]
+
+周波数側では \(K_0=k-n^7\) と置く。無限素点で用いる減衰関数は
+\(d_{K_0}(a)=a^{K_0}\min(1,a^6)\) である。各 \(v\) の減衰因子と
+その体積比は
+\[
+ c_{\mathrm{vol}}b^{2000n^9}d_{K_0}(|\xi_v|^{-1}),
+ \qquad
+ c_{\mathrm{vol}}=\pi^{(2\varrho+1)k}
+            \frac{\operatorname{vol}(U(k))}{\operatorname{vol}(U(r))}.
+\]
+有限素点では、周波数の一般化指数の \(K_0/2\) 乗を
+分母指数の三乗で割り \(b^{n^9 f}\) を掛ける。
+非零の \(\mathcal T\)-整数 \(y\) に対応する周波数は
+\(\xi_v=(c_v/\lambda_{v,j})\Phi_v(y)\) の形で、
+二つの誤差に用いた \(c_v\) はいずれも \(|c_v|^{-1}\le|\kappa_v|/M\) を満たす。
+従って
+\[
+ |c_v/\lambda_{v,j}|^{-1}\le
+ \theta_v:=|\kappa_v|^{2\varrho+1}/(MN)
+ \le B_F:=b^{23(2\varrho+1)}.
+\]
+\(H(y)=\operatorname{Norm}(\mathfrak a_y)\prod_v\max(1,|\Phi_v(y)|)^2\)
+を \(y\) の高さとする。\(\mathfrak a_y\) は分母イデアルである。
+\(\mathcal T\) の外で \(y\) は整なので、有限素点の一般化指数の平方根は
+積公式により \(\prod_v|\Phi_v(y)|\) 以下である。この上界を掛けると、
+無限素点で \(|\Phi_v(y)|^{-K_0}\) が消える。
+\(\min(1,|\xi_v|^{-1})\le B_F/\max(1,|\Phi_v(y)|)\) と
+分母指数が \(\operatorname{Norm}(\mathfrak a_y)\) 以上であることから、
+\(b\) の冪と体積比の定数を除いた一つの周波数の寄与は
+\(H(y)^{-3}\prod_v(\theta_v^{K_0}B_F^6)\) 以下である。
+高さの逆三乗の和は \((64\cdot38\exp(4))^f\le b^{3f}\)。
+これと \((bB_F^2)^3\le b^{n^9}\) から
+\[
+ \epsilon\le b^{2002n^9f}\mathcal D_\ast,\qquad
+ \mathcal D_\ast=\prod_v c_{\mathrm{vol}}\theta_v^{K_0}.
+\]
+\leansrc{New/Spanning/MainTerm/GlobalSieve}{積公式と高さによる周波数の総和}
+
+頭部の重みでは、各先頭積について有限素点の一般化指数の \(n^6/2\) 乗を掛け、
+無限素点では尺度付き先頭積の絶対値の逆数と \(1\) の大きい方の \(n^6\) 乗を掛ける。
+先頭積が整でないか、尺度付き絶対値が \(b^{60n^2}\) を超えるなら重みは零である。
+重みが非零の頭部は、各共役で絶対値 \(b^{120n^2}\) 以下の代数的整数からなる
+先頭積の列で一意に定まる。その個数は格子計数により
+\((1+2b^{120n^2})^{2fi}\) 以下である。積公式によって一つの頭部の重みは
+\(b^{120n^8fi}\) 以下なので、\(i\le\varrho\) で \(W_i\le b^{130n^9f}\) を得る。
+一方、\(\lambda_{v,j}\le b^{46\varrho}\) と
+\(\operatorname{vol}(\widehat{\mathcal O}_E)=(2/\operatorname{rd}_E)^f\) から
+\(\prod_{j<i}q_j\ge b^{-100n^2f}\) である。従って
+\[
+ W_i^2\le b^{260n^9f+100n^2f}\prod_{j<i}q_j
+       \le b^{400n^9f}\prod_{j<i}q_j .
+\]
+\leansrc{New/Spanning/MainTerm/GlobalSieve}{先頭積の計数と頭部の重み}
+\(\deg_v\) を無限素点 \(v\) の Bessel 系の形式次数とする。
+\(\mathcal S_0\le \prod_v((1+b^{-10})/\deg_v)\,m_A\) と
+\(2n\le b^{n^9f}\) から、漸化式を \(n\) 回適用して
+\begin{equation}\label{eq:span-sieve-sum}
+ \mathcal S_n\le \left(\prod_{j<n}q_j\right)
+  \left[
+    \left(\prod_v\frac{1+b^{-10}}{\deg_v}\right)m_A
+    + b^{2403n^9f}\mathcal D_\ast
+  \right].
+\end{equation}
+
+\paragraph{定数の比較}
+各座標の倍率の \(k+2(\varrho-j)\) 乗の積を \(\Lambda_\ast\) とすると、
+\(r_0^2\) の式と Poisson 和公式の定数 \(q_j\) から
+\[
+ V_\ast=\frac{\prod_{j<n}q_j}{r_0^2}
+ =\frac{\operatorname{vol}(\widehat{\mathcal O}_E)^n}{c_G^f}
+    \left(\frac{d_B}{\Lambda_\ast}\right)^2
+\]
+となる。余体積 \(\nu\) の公式と Siegel の定数の比較は
+\[
+ \begin{split}
+ C_S V_\ast
+  &\le(1+b^{-9})D_{\mathrm{main}}\deg_B\nu^2,\\
+ C_S V_\ast\mathcal D_\ast
+  &\le b^{n^9f}d_BD_{\mathrm{id}}\nu^2
+ \end{split}
+\]
+を与える。第一式は類数・体積の式を代入した主項の比較である。第二式では
+\(s_d=\sqrt{\operatorname{rd}_E}\)、\(Q_d=Ms_d^2/(2\pi)\)、
+\(x_d=Q_d^{2\varrho+1}/(MN)\) と置く。\(\prod_v|\kappa_v|=Q_d^f\) を使い、
+\(\mathcal D_\ast\) の \(x_d^{k-n^7}\) のうち \(k\) 乗を Siegel の定数に
+吸収すると、\(C_SV_\ast\mathcal D_\ast/(d_BD_{\mathrm{id}}\nu^2)\) は
+次の因子の \(f\) 乗となる。
+\[
+ \frac{(2/s_d^2)^{n+2\varrho^2}(s_d/s_d^{2\varrho})}
+      {2M^{\varrho(2\varrho+1)}}\,x_d^{-n^7}.
+\]
+\(2/s_d^2\le b\)、\(s_d/s_d^{2\varrho}\le1\)、
+\(x_d^{-1}\le MN\le b^{23+60n}\) を用いると、この因子は \(b^{n^9}\) 以下である。
+\leansrc{New/Spanning/MainTerm/EnergyEstimate}{余体積と減衰を含む定数の比較}
+
+\(Y=b^{-6k|A|}D_{\mathrm{main}}\nu^2\) と置く。
+許容条件 \(d_B\le b^{2kf}\)、\(b^{11kf}D_{\mathrm{id}}\le D_{\mathrm{main}}\)、
+\(|A|\le f\)、\(512000n^9\le k\) により
+\(2404n^9f+2kf+10+6k|A|\le11kf\) である。
+従って \eqref{eq:span-sieve-sum} の誤差項に \(C_SV_\ast\) の対応する係数を
+掛けた値、すなわち \(C_SV_\ast b^{2403n^9f}\mathcal D_\ast\) は
+\(b^{-10}Y\) 以下になる。主項には
+\((1+b^{-10})^f\le1+b^{-9}\) と \(\prod_v\deg_v=\deg_B\) を使う。
+前者は \(f\le b/1000\) により \((1+b^{-10})^f\le
+\exp(b^{-9}/1000)\le1+b^{-9}\) となることから従う。
+\eqref{eq:span-siegel-sum}、\eqref{eq:span-local-zero}、
+\eqref{eq:span-sieve-sum} を合わせると
+\[
+ \sum_{\mathrm{blocks}}\|\mathcal A\|^2
+ \le (1+b^{-6})\left[(1+b^{-9})^2(1+b^{-6})+b^{-10}\right]Y
+ \le (1+b^{-4})Y .
+\]
+最後の不等式は \(b\ge1000\) による。実際、\(s_*=b^{-4}/100\) とすると
+\(b^{-6},b^{-9},b^{-10}\le s_*\le1\) なので、
+係数は \((1+s_*)^4+s_*(1+s_*)\le1+17s_*\) 以下である。
+有限部分和の上限を取り、\(\nu^2\) で割ると
+\eqref{eq:span-open-input} が得られる。
 
 \(\bar R_0G_i\) の元は、もう一方の素数の上で \(\bar R_0\) の元に一致する。
 従って、その素数の上の \(f\) 個の素点とその共役のすべてでフレームが交わり、

@@ -112,16 +112,8 @@ multiplying by nontrivial roots of unity, then
  \Bigl(\sum_{s\in\Omega}\|E_s\|_{\mathrm{HS}}^2\Bigr)^{1/2}
  \leq \mathcal L(\Omega)^{1/2}+b^{-15}D_{\mathrm{id}}^{1/2}.
 \end{equation}
-Outside the Bessel subgroup, character orthogonality eliminates the parts
-of the sums that are stable under left and right multiplication by the
-integral unipotent group and fail the character matching condition.
-In the expanded sum of squares of the remaining amplitudes, pairs in the
-same correspondence with both discriminants nonzero enter
-\(\mathcal L(\Omega)\). The other pairs contribute at most
-\(b^{-kf}D_{\mathrm{id}}\le b^{-40}D_{\mathrm{id}}\).
-Passing from the truncated to the full Bessel function adds at most
-\(b^{-20}D_{\mathrm{id}}^{1/2}\) to the square root of the sum of squares.
-These bounds give \eqref{eq:span-cutoff}.
+Section \ref{sec:span-pair-count} bounds the cross terms in the sum of squares
+and the error from truncation.
 \leanref{sqrt_secondMoment_compl_besselS_le}\leanref{secondMoment_remainingTerms_le}
 \item
 Among the chosen places and their conjugates, take those at which the
@@ -133,8 +125,8 @@ If a positive integer \(z\) is at most \(\operatorname{Meet}(s)\) for every
  \mathcal L(\Omega)\leq
        \left(\frac{b^{2f}}z\right)^k D_{\mathrm{main}}.
 \end{equation}
-The estimate counts pairs of terms in the same correspondence using the
-lattice in the intersection. \leanref{linkSecondMoment_le_of_le_meetNorm}
+Section \ref{sec:span-pair-count} counts pairs in the same correspondence
+using the lattice in the intersection. \leanref{linkSecondMoment_le_of_le_meetNorm}
 \item
 Let \(A\) be a set of chosen places above \(p_0\). For each \(w\in A\),
 specify a nonzero vector in the span of the frame at \(w\) or its conjugate.
@@ -146,13 +138,690 @@ Then
 \begin{equation}\label{eq:span-open-input}
  \mathcal L(\Omega_A)\leq (1+b^{-4})b^{-6k|A|}D_{\mathrm{main}}.
 \end{equation}
-Nonvanishing after reduction implies nonvanishing at the rational point,
-so the corresponding terms lie in the big cell for the Bessel double
-cosets. Siegel's estimate bounds the sum of squared amplitudes for the
-classes by a positive kernel of local densities. A sieve at the finite
-places and Poisson summation bound this kernel, with a factor \(b^{-6k}\)
-for each fixed-vector condition. \leanref{linkSecondMoment_isOpenElement_le}
+Section \ref{sec:span-open-proof} applies Siegel's estimate and Poisson
+summation, deriving a factor \(b^{-6k}\) per fixed-vector condition from
+the local mass. \leanref{linkSecondMoment_isOpenElement_le}
 \end{enumerate}
+
+\subsection{Counting with the common lattice}\label{sec:span-pair-count}
+
+Put \(n=\varrho+1\), \(n_X=\#\{c\}\), \(\tau=b^{kf/4}\), and
+\(n_p=|\bar R_0|n_X/N^{kf}\). Group the terms of the truncated Bessel function
+into double orbits under the integral unipotent groups. A term
+\(\gamma\) is near if there is a point \(y\) in the product at the infinite
+places such that both \(y\) and \(\gamma^{-1}y\) lie in the region of reduced
+points with bounded Bessel lengths. In each orbit containing a near term,
+choose one of them as representative. A reduction \(s\) matches the left and
+right unipotent characters if their values agree on integral unipotent
+elements satisfying \(us=su'\) after reduction. If this condition fails,
+the change of variables by such a pair multiplies the amplitude by a
+nontrivial character ratio and forces it to vanish.
+
+The terms to be counted are those with \(\mathfrak d(\gamma)\ne0\) and those
+with \(\mathfrak d(\gamma)=0\), \(\gamma I\ne I\), and matching rational
+unipotent characters. The latter matching condition means equality of
+the character values of rational unipotent elements satisfying
+\(u\gamma=\gamma u'\). This set is stable under the rational unipotent
+actions on both sides.
+\leansrc{New/Spanning/Unfolding/TermStructure}{The remaining terms and rational character matching}
+
+The lattice \(L_\gamma\) of a near term \(\gamma\) consists of the vectors
+in \(X_0\) in the lattice of class \(c\) that can be made orthogonal to the
+frame of \(\gamma\) by adding \(M\) times an integral isotropic vector.
+For two representatives \(\gamma,\gamma'\) over \((c,s,c')\), take the
+intersection of their correspondences and impose the vanishing of the
+last frame component in both coordinates. Project to \(X_0\) by the first
+coordinate and restrict \(L_\gamma\cap L_{\gamma'}\) to this subspace.
+Denote the resulting lattice by \(L_{12}\), its corank by \(l\), and its
+discriminant by \(d\). The discriminant is the square root of the generalized
+index of the Gram determinant of a lattice basis. Each correspondence has
+dimension \(k+1\). If their intersection has codimension \(i\) in each
+correspondence, the two last-coordinate conditions give \(l\le i+1\).
+When \(i=0\), vanishing of one \(\mathfrak d\) implies vanishing of both, and
+then \(l=0\). The bounds on lengths and lattices for near terms give
+\(l\le n^3\) and \(1\le d\le b^{n^3 f}\).
+\leansrc{New/Spanning/RemainingTerms/Gain}{Rank and discriminant bounds for the common lattice}
+
+For a term of cell rank \(j\), define \(G_\gamma\) by taking the larger of
+\(N^f\) times the normalized norm of the leading minor and the norm of
+\(\mathfrak d(\gamma)\), multiplying by \(M^{2\min(\varrho,j)f}\), and dividing
+by the product of the two indices of the isotropic row lattices.
+For \(1\le z\le\operatorname{Meet}(s)\), set \(\zeta=z\) when \(i=0\) and
+\(\mathfrak d(\gamma)\ne0\), and set \(\zeta=1\) otherwise. The discriminant
+comparison for the two lattices gives
+\begin{equation}\label{eq:span-pair-gain}
+ (d\zeta)^2\le (2/M)^{2if}G_\gamma G_{\gamma'}.
+\end{equation}
+The factor for \(\zeta=z\) comes from a determinant. Over a residue field
+where the frames meet, express a common vector in both frames and take
+the largest index at which its two coefficients are not both zero.
+Character matching allows the same pair of coefficients to occur at
+the next index in a vector common to the two flags. Indeed, all linear
+forms killing the columns before the next index in both frames take the
+same value on the next columns weighted by these two coefficients.
+Iteration gives a relation between the columns of both frames with at
+least one nonzero last coefficient.
+\leansrc{New/Spanning/Unfolding/Climbing}{Passing the coefficients of a common vector up the flags}
+Pair this relation with the two integral lifts orthogonal to the earlier
+part of the frames. The two last columns then have a nonzero kernel.
+The resulting determinant \(\delta\) vanishes at every place counted in
+\(\operatorname{Meet}(s)\). The quotient
+\(\widehat{\mathcal O}_E/\delta\widehat{\mathcal O}_E\) maps onto the product
+of the residue fields at these places, so the generalized index of
+\(\delta\) is at least \(\operatorname{Meet}(s)\).
+\leansrc{New/Spanning/RemainingTerms/Cut}{The determinant at places where the frames meet}
+
+To obtain the comparison, split the common part of the correspondences
+into the subspace cut out by the two last-coordinate conditions and its
+complement. Then take the orthogonal complement of the common part in
+each correspondence. Write \(d_\gamma^0\) for the discriminant of the
+part of \(L_\gamma\) cut out by the last-coordinate conditions,
+\(a_\gamma\) for the torsion index from the isotropic rows, and
+\(\Delta_\gamma\) for the squared discriminant of the lattice outside the
+common part. The determinant factor and the factorization of Gram
+determinants give
+\((a_\gamma d_\gamma^0\zeta)^2\Delta_\gamma\le G_\gamma^2\).
+The two outer complements pair nondegenerately. Since the reductions
+agree, the pairing defined by the difference of the Hermitian forms in
+the two coordinates is integral after division by \(M\). Estimating its
+determinant by the two Gram determinants gives
+\(1\le(2/M)^{4if}\Delta_\gamma\Delta_{\gamma'}\).
+Imposing the conditions of \(L_{\gamma'}\) on the common part of
+\(L_\gamma\) increases its index by at most \(a_{\gamma'}\). Interchanging
+the two terms gives the other comparison. Multiply
+\(d\le d_\gamma^0a_{\gamma'}\) and \(d\le d_{\gamma'}^0a_\gamma\), then
+eliminate the complementary discriminants to obtain
+\eqref{eq:span-pair-gain}.
+\leansrc{New/Spanning/RemainingTerms/Gain}{Discriminant comparison for two correspondences}
+
+Fix the corank \(l\). A term of a given label in \(\bar R_0\) is
+determined by its frame modulo the level-\(M\) unipotent moves of class
+\(c\). To count frames with \(L\subset L_\gamma\), first fix the cell rank
+\(j\) and the matrix \(B\) of frame products. Let \(B_j\) have the
+first \(j\) rows of \(B\) and the remaining rows of the identity.
+Its determinant \(\delta_j\) is the nonzero leading minor of order \(j\). Write \([a]\) for the index
+\(|\widehat{\mathcal O}_E/a\widehat{\mathcal O}_E|\) of an integral finite idele \(a\).
+
+Write a basis of \(L\) as \(Y=yA_L\), with \(k-l\) independent rational
+columns in \(y\) and \(A_L\) invertible over the finite adeles.
+The hypothesis \(L\subset L_\gamma\) gives a lift \(w\) satisfying
+\[
+ X_\gamma^*y+M B_{\mathrm{iso}}^*w=0,\qquad
+ wA_L\text{ is integral},
+\]
+where \(X_\gamma\) is the matrix of \(X_0\)-components of the frame and
+\(B_{\mathrm{iso}}\) consists of the isotropic rows of \(B\).
+Here \({}^*\) denotes conjugate transpose. Reduce each row of \(wA_L\)
+modulo the row lattice of \(Y^*Y\). That lattice has index
+\(\operatorname{disc}(L)^2\), giving at most
+\(\operatorname{disc}(L)^{2\varrho}\) classes for all \(\varrho\) rows.
+Within one class a unipotent move makes the right-hand side of the
+orthogonality condition for \(X_\gamma^*y\) the same for all frames.
+
+The \(n\) columns of a difference of the matrices \(X_\gamma\) now lie
+in the rank-\(l\) lattice orthogonal to \(L\). Reduction modulo
+\(M\delta_j\) gives \([M\delta_j]^{ln}\) classes. Within one such class
+unipotent moves make the \(X_0\)-components coincide. For the remaining
+isotropic components, first fix the integral matrix of adjugate
+entries recording the common vectors from stage \(j\) onwards. The
+near condition bounds each entry by \(b^{182n^2}\) at infinity, giving
+at most \(b^{366n^4 f}\) such matrices. Finally reduce the \(\varrho n\)
+entries of the isotropic block modulo \(M\det(B_j B_j^*)\).
+Frames in the same class coincide after a unipotent move.
+\leansrc{New/Spanning/RemainingTerms/FrameParts}{The lift equation and unipotent moves}
+\leansrc{New/Spanning/RemainingTerms/FramesOverLattice}{Congruence classes of frames over a fixed lattice}
+
+For fixed \(j,B\), the number of these classes is at most
+\[
+ \operatorname{disc}(L)^{2\varrho}\,[M\delta_j]^{ln}
+       b^{366n^4 f}[M\det(B_j B_j^*)]^{n\varrho}.
+\]
+Both modulus indices and \(\operatorname{disc}(L)^2\) are at most
+\(b^{2n^3f}\). There are at most \(b^{2f}\) choices of \(j\) and
+\(b^{270n^3f}\) choices of \(B\). Thus there are at most
+\(b^{2000n^6(l+1)f}\) near representatives whose lattices contain \(L\).
+A label can be chosen for each reduction with matching characters,
+and the same label applies to both terms. There are consequently at
+most \(b^{4000n^6(l+1)f}\le\tau\) ordered pairs.
+
+To sum the weights \(d^{-k}\) for lattices of rank \(k-l\), average over
+the cosets at maximal level, of which there are at least \((N^k/b)^f\).
+In one unimodular lattice, extend a basis of the saturation of \(L\)
+to a basis of the whole lattice. Write the basis of \(L\) as the
+basis of its saturation multiplied by an integral matrix \(A_{\mathrm{sat}}\).
+For the specified row to vanish on \(L\) modulo \(\pi_N\), its first
+\(k-l\) values \(a\) must satisfy \(aA_{\mathrm{sat}}=\pi_N w\).
+The class of \(w\) modulo the row lattice of \(A_{\mathrm{sat}}\) determines
+\(a\) modulo \(\pi_N\), giving at most \([\det A_{\mathrm{sat}}]\) choices.
+The other \(l\) values contribute
+\(\bigl|\widehat{\mathcal O}_E/\pi_N\widehat{\mathcal O}_E\bigr|^l=N^{lf}\).
+Distinct cosets have distinct rows modulo \(\pi_N\), so at most
+\([\det A_{\mathrm{sat}}]N^{lf}\) cosets contribute for this lattice. Summed over the cosets, the weighted
+lattice count with \(d\le D_\ast=b^{n^3f}\) is at most
+\[
+  N^{lf}D_\ast^{2\varrho+6}
+       (200fk\,\operatorname{rd}_E)^{f(k+1)l}2^k
+  \le b^{-f}\tau^{l+1},
+\]
+where \(\operatorname{rd}_E\) is the root discriminant of \(E\). Dividing by
+the number of cosets bounds the average weight for one class by
+\(N^{-kf}\tau^{l+1}\). Including all \(n_X\) classes, the \(|\bar R_0|\)
+labels, and the multiplicity of pairs for each lattice gives
+\begin{equation}\label{eq:span-pair-count}
+ \sum_{\substack{\text{pairs of near representatives}\\
+                            \operatorname{corank} L_{12}=l}}d^{-k}
+ \le \tau^{l+2}n_p .
+\end{equation}
+\leansrc{New/Spanning/RemainingTerms/LatticesOfCorank}{Averaging lattice counts over cosets}
+\leansrc{New/Spanning/RemainingTerms/Count}{Counting pairs weighted by their common lattice}
+
+Schur's estimate for the orbit sum gives the bound
+\[
+ \sigma_\gamma=\tau^2\left(\frac{D_j}{n_pG_\gamma^k}\right)^{1/2},
+ \qquad
+ D_j=\begin{cases}
+       D_{\mathrm{main}} & j=\varrho+1,\\
+       \tau^{-16}D_{\mathrm{id}} & j\le\varrho
+     \end{cases}
+\]
+for each near representative. More precisely, for a subset of the
+remaining terms stable under both rational unipotent actions, the norm
+of its truncated
+amplitude divided by \(\nu\) is at most \(\sum_\gamma\sigma_\gamma\) over
+the chosen near representatives. The case \(j=\varrho+1\) is precisely
+\(\mathfrak d(\gamma)\ne0\).
+\leansrc{New/Spanning/RemainingTerms/Size}{Amplitude bound for the double-orbit sum}
+If \((d\eta)^2\le G_\gamma G_{\gamma'}\) and \(D\ge D_j,D_{j'}\), then
+\[
+ \sigma_\gamma\sigma_{\gamma'}
+ \le \frac{\tau^4D}{n_p\eta^k}\,d^{-k}.
+\]
+Thus if \(\tau^{l+6}D/\eta^k\le C\) for each corank \(l\),
+\eqref{eq:span-pair-count} bounds the sum of these weights at each corank
+by \(C\). There are at most \(n^3+1\le\tau\) coranks, giving the bound \(\tau C\).
+
+For equal correspondences with nonzero discriminants, \(l\le1\), and
+\eqref{eq:span-pair-gain} allows \(\eta=z\) and \(D=D_{\mathrm{main}}\).
+Taking \(C=\tau^7D_{\mathrm{main}}/z^k\) gives
+\(\tau^8D_{\mathrm{main}}/z^k=(b^{2f}/z)^kD_{\mathrm{main}}\).
+Each pair determines its reduction and its correspondence, so this
+proves \eqref{eq:span-intersect}.
+
+For equal correspondences with vanishing discriminants, take
+\(l=0\), \(\eta=1\), and \(D=\tau^{-16}D_{\mathrm{id}}\).
+Here \(C=\tau^{-10}D_{\mathrm{id}}\) suffices. For distinct correspondences,
+\(i\ge1\) and \(l\le i+1\). Take \(\eta=(M/2)^{if}\) and
+\(D=D_{\mathrm{main}}\). Since \(\rho_\ast=\tau(2/M)^{kf}\le1\) and
+\(D_{\mathrm{main}}\le(M/b^6)^{kf}D_{\mathrm{id}}\), we have
+\[
+ \frac{\tau^{l+6}D_{\mathrm{main}}}{\eta^k}
+ \le \tau^7\rho_\ast^iD_{\mathrm{main}}
+ \le \tau^8(2/b^6)^{kf}D_{\mathrm{id}}
+ \le \tau^{-10}D_{\mathrm{id}} .
+\]
+The last inequality uses \(2\le b\) and \(\tau=b^{kf/4}\).
+Both cases therefore fit the same bound \(C=\tau^{-10}D_{\mathrm{id}}\),
+and their total is at most \(\tau^{-9}D_{\mathrm{id}}\le b^{-kf}D_{\mathrm{id}}\).
+\leansrc{New/Spanning/RemainingTerms/Sum}{Squares for one correspondence and the cross terms}
+
+To apply the count, split each block into one piece per correspondence
+with nonzero discriminant and a single piece of all terms with vanishing
+discriminant. Square the sum of the norms of the pieces. Summing the
+diagonal terms for the pieces of nonzero discriminant gives
+\(\mathcal L(\Omega)\). Use the products
+\(\sigma_\gamma\sigma_{\gamma'}\) for the other terms. A pair belongs to
+only one reduction, so the same bound applies after summing over the blocks.
+
+For the truncation error, the Bessel tail bound gives
+\(q=\nu/(2b^{k^3 f})\) as an upper bound on the sum of the norms of the
+amplitude differences in each row \((c,s)\). The sum of squares in the
+row is at most \(q^2\). The number of rows and the inequalities
+\(|\bar G|b^{40}\le(2b^{k^3 f})^2\) and \(n_X\le D_{\mathrm{id}}\) show that
+the sum over all rows divided by \(\nu^2\) is at most
+\(b^{-40}D_{\mathrm{id}}\). This estimate compares the full and truncated
+functions on the same set of terms.
+\leansrc{New/Spanning/RemainingTerms/Size}{Row estimate for the truncation error}
+On the allowed set \(\Omega\), the full amplitude for \(E_s\) equals the
+sum over the remaining terms. Outside the Bessel subgroup and the
+remaining terms, those failing the rational character matching condition
+give a vanishing sum over a stable set. Those with matching rational
+characters have a norm-one coefficient pair from the first stage, and
+their reductions lie in the excluded scalar cosets.
+\leansrc{New/Spanning/Unfolding/SquareExpansion}{The amplitude outside the Bessel subgroup}
+The triangle inequality for the square root of the sum of squares and
+\(kf\ge40\) give
+\[
+ \Bigl(\sum_{s\in\Omega}\|E_s\|_{\mathrm{HS}}^2\Bigr)^{1/2}
+ \le \mathcal L(\Omega)^{1/2}
+       +(b^{-kf/2}+b^{-20})D_{\mathrm{id}}^{1/2}
+ \le \mathcal L(\Omega)^{1/2}+b^{-15}D_{\mathrm{id}}^{1/2}.
+\]
+This proves \eqref{eq:span-cutoff}.
+
+\subsection{The second moment on open reductions}\label{sec:span-open-proof}
+
+\paragraph{Local mass under fixed-vector conditions}
+Choose a conjugation-stable finite set of finite places \(\mathcal T\)
+containing the support of the level \(M\). Write \(K_{\mathcal T}\) for the
+integral unitary group over the product of completions and
+\(K_{\mathcal T}(g)\) for its principal congruence subgroup of local level
+\(g\). For \(K_{\mathcal T}(g)\subset Z\subset K_{\mathcal T}\) and Haar
+measure \(\mu\), put
+\[
+ \mathfrak M(Z)=\int
+    \left|\int_Z \chi_g(yxy^{-1})\,d\mu(y)\right|^2d\mu(x),
+ \qquad
+ m_Z=\frac{\mu(Z)\mu(K_{\mathcal T}(g))}{u_g^2}.
+\]
+Here \(\chi_g\) is the unipotent character extended to the product of its
+subgroup with \(K_{\mathcal T}(g)\) and by zero elsewhere, and \(u_g\) is
+the associated unipotent measure constant. For \(x\in K_{\mathcal T}(g)\),
+\(\chi_g(yxy^{-1})=1\), so the contribution from this subgroup is exactly
+\(\mu(Z)^2\mu(K_{\mathcal T}(g))\).
+
+Suppose the local lattice data have the following property for \(Q\ge2\).
+An invertible integral element whose inverse is nonintegral has modulus
+at most \(Q^{-1}\). The estimate outside the congruence subgroup divides
+the integral into ranges of the index of the denominator ideal. For
+\(a+10^8n^4\le k\), the integral of the zeroth-stage majorant there is at most
+\(m_Z2^{10^9n^4}\min(1,Q^{-a})\). If no coordinate at a position \(x\) outside the congruence subgroup
+had depth at least \(Q\), one could choose integral units among the
+stable frame products. This would make \((x-1)/g\) integral, a contradiction.
+Thus the bound for a deep vector applies. The factor in the integral
+estimate for the number of coordinates is at most \(2^{99\cdot13n}\).
+The sum over dyadic ranges of the denominator index incurs at most
+\(2^{4\cdot10^8n^4}\). Their product is at most \(2^{10^9n^4}\).
+Taking \(a=t+10^9n^4\) absorbs the extra factor by
+\(2/Q\le1\). Multiplying the majorant by \(u_g^2\) and adding the principal
+congruence contribution gives, for \(t+2\cdot10^9n^4\le k\),
+\begin{equation}\label{eq:span-local-mass}
+ \mathfrak M(Z)
+ \le\mu(Z)\mu(K_{\mathcal T}(g))\,\bigl(\mu(Z)+Q^{-t}\bigr).
+\end{equation}
+\leansrc{New/Spanning/Frames/FiniteShells}{The local integral estimated by denominator ideals}
+
+On the factor for a single \(w\in A\) and its conjugate, denote the
+integral group by \(K_w\) and the inverse image of the fixed-vector
+condition by \(Z_w\). Reduction onto \(\mathrm{GL}_r(\mathbf F_{p_0})\) is
+surjective, and the conjugate factor acts by the inverse adjoint.
+Transitivity on nonzero vectors in either action gives
+\([K_w:Z_w]=p_0^r-1\). Put \(B=b^9\), so \(2\le B\le p_0\).
+The additive volume of nonunits in the product over the selected places
+is at most \(B^{-1}\). Each residue field has cardinality at least
+\(b^{10}\) and contributes at most its reciprocal, with at most \(b\) places.
+The same bound applies to the modulus of an element whose inverse is nonintegral.
+The admissibility conditions give \(t_0=k-10^{10}n^4\) with
+\[
+ t_0+1+n+2\cdot10^9n^4\le k,\qquad
+ 6k\le9t_0,\qquad t_0+1<r.
+\]
+The index formula gives \(\mu(Z_w)\le B^{-t_0-1}\mu(K_w)\).
+In the normalization of the local integral,
+\(\mu(K_w)\ge2^{-n}\ge B^{-n}\). Apply \eqref{eq:span-local-mass} with
+\(Q=B\) and \(t=t_0+1+n\) to obtain
+\[
+ \mathfrak M(Z_w)\le
+ \mu(Z_w)\mu(K_w(g))
+       \bigl(\mu(Z_w)+B^{-t_0-1}\mu(K_w)\bigr).
+\]
+Multiply by \(\mu(K_w)b^{6k}\) and use \(b^{6k}\le B^{t_0}\) and \(2/B\le1\).
+The contribution to \(\mathfrak M(K_w)\) from \(K_w(g)\) alone is
+\(\mu(K_w)^2\mu(K_w(g))\), so
+\[
+ \mathfrak M(Z_w)\mu(K_w)b^{6k}
+ \le\mathfrak M(K_w)\mu(Z_w).
+\]
+The groups and characters factor over distinct conjugate pairs. Multiply
+the mass integrals and volumes, taking the full integral group on the
+remaining factors. This gives the same inequality with
+\(K_w,Z_w,b^{6k}\) replaced by \(K_{\mathcal T},Z,b^{6k|A|}\).
+The ratio comparison is invariant under a common rescaling of the
+product Haar measure.
+\leansrc{New/Spanning/Frames/FixedLines}{Mass ratio for each fixed-vector condition}
+
+For \(Z=K_{\mathcal T}\), apply \eqref{eq:span-local-mass} with \(Q=2\)
+and \(t=n\). The inequalities \(\mu(K_{\mathcal T})\le1+2^{-n}\) and
+\(2^{-\varrho}\le b^{-6}\) give
+\(\mathfrak M(K_{\mathcal T})\le(1+b^{-6})\mu(K_{\mathcal T})\mu(K_{\mathcal T}(g))\).
+The zeroth-stage orbital form is a squared correlation averaged against
+the character, and its unnormalized absolute value times \(u_g^2\) is
+at most \(\mathfrak M(Z)\). Dividing by \(m_Z\) bounds the normalized
+zeroth-stage finite-place kernel by
+\begin{equation}\label{eq:span-local-zero}
+ m_A=(1+b^{-6})b^{-6k|A|}.
+\end{equation}
+\leansrc{New/Spanning/MainTerm/FiniteSieveSystem}{Zeroth-stage finite-place density}
+
+\paragraph{Siegel's estimate at a fixed last entry}
+Take finitely many nonzero amplitude blocks \((c,s,c',\Lambda)\) over
+\(\Omega_A\). All proper leading minors are nonzero at the rational
+point, so the big-cell decomposition names each block by its last
+entry \(t\in E^\times\), a representative \(\sigma\) fixing the preceding
+hyperbolic basis vectors, and an integral lift \(n_s\).
+They satisfy \(|\Phi_v(t)|^2>N^2\) at every infinite place \(v\), and
+\((c,c',\operatorname{red}(n_s),\sigma)\) determines the block.
+With \(\sigma\) fixed, the remaining leading entries are in a finite set
+\(T_0\subset E^\times\). The block amplitude can be written
+\(\mathcal A=\sum_{\mathbf p\in T_0^\varrho} a(\mathbf p)\), where
+\(a(\mathbf p)\) is the truncated unipotent double-coset amplitude of the
+Weyl representative \(w(\mathbf p,t)\sigma\). Enlarge \(\mathcal T\) so
+that the elements of \(T_0\) and their inverses, \(M^{-1}\), \(N^{-1}\),
+the lattice basis and its inverse, and the class translates of each
+\(\sigma\) are integral outside \(\mathcal T\).
+\leansrc{New/Spanning/MainTerm/EnergyEstimate}{Big-cell amplitude sums and reduction to finite sets}
+
+At an infinite place \(v\), let
+\(\lambda_{v,j}=\kappa_v^{2(\varrho-j)}/N\) be the scale of entry \(j\), where
+\(\kappa_v=M\Phi_v(\varpi)/(2\pi\mathrm i)\) for the generator \(\varpi\) of the
+different. Let \(R_t(\mathbf p,\mathbf q)\) be the product of the top
+kernels at the infinite places at last entry \(t\). These are Gram kernels
+of orbital integrals with weights given by the coordinate scales and the
+densities of the preceding entries. The last-entry finite-place density
+\(F_t(\mathbf p,\mathbf q)\) is an integral over a quadric of the Gram
+pairings on fibers with a common last vector.
+
+For a fixed \(t\), the \(X_0\)-component \(y\) of the image of the last
+frame vector under \(\sigma\) satisfies \(N\langle y,y\rangle=t\bar t-N^2\).
+Set
+\[
+ G_t=\left(\prod_v(|\Phi_v(t)|^2-N^2)\right)^{k-1}>0 .
+\]
+Write \(d_{B,v}\) for the number of Bessel coordinates at \(v\) and \(d_B\)
+for their product. With the big-cell volume constant
+\(c_G=\operatorname{vol}(U(k))^2/
+(\operatorname{vol}(U(r))\operatorname{vol}(U(k-1)))\), the weight of the
+archimedean orbital integral is
+\[
+ \rho_t(\mathbf p)=
+ \prod_v \frac{\sqrt{c_G}}{d_{B,v}}
+ \left(\frac{|\Phi_v(t)|^2}{N^2}-1\right)^{(k-1)/2}
+ \prod_{j<\varrho}|\lambda_{v,j}\Phi_v(p_j)|^{k-1+2(\varrho-j)} .
+\]
+Let \(h_t(\mathbf p)\) be the corresponding finite-place density of
+the head. Since \(p_j\) is a unit outside \(\mathcal T\), the product
+formula identifies \(\prod_v|\Phi_v(p_j)|\) with the inverse square root
+of the modulus of \(p_j\) at \(\mathcal T\). This gives
+\(\rho_t(\mathbf p)h_t(\mathbf p)=r_0\sqrt{G_t}\) with
+\[
+ r_0=\frac{1}{d_B}\prod_v
+       \left(\sqrt{c_G}\prod_{j<n}\lambda_{v,j}^{k-1+2(\varrho-j)}\right).
+\]
+Put \(D=|\bar R_0|M^{f\varrho(2k+2\varrho+1)}\) and \(C_S=D\,n_Xc_S\),
+where \(c_S\) is the constant in the Siegel sum on the sphere.
+We first sum the blocks with a common point \(x=(c,y)\).
+By \(\Psi_t(x)\) we mean evaluation at the last local vector obtained
+from \(y\) after transporting it by the inverse of the class representative.
+Put \(\mathcal K=K_{\mathcal T}(g)\) and \(\mathcal C=Z/\mathcal K\).
+The scaled orbital integral for a head \(\mathbf p\) has coordinates
+in the finite set \(\mathcal C^2\). For a position \(\ell\) and a
+coordinate \((a,a')\in\mathcal C^2\), denote the vector of these
+coordinates, indexed by the heads, by \(v_{\ell,a,a'}\).
+The sum of the finite-place pairings weighted by \(R_t\) is
+\[
+ Q_t(\ell)=\sum_{a,a'\in\mathcal C} v_{\ell,a,a'}^*R_t v_{\ell,a,a'}\ge0 .
+\]
+For fixed \(c,c',\sigma\), the block with reduction \(s\) occurs in
+the coordinates where \(a'\) is the coset of \(n_s^{-1}a\).
+Distinct reductions occupy disjoint sets of coordinate pairs.
+Unfolding the orbital integral identifies each such summand with
+\(\mu(\mathcal K)^2G_t r_0^2\|\mathcal A\|^2\). Summing over \(a\) gives
+a factor \(|\mathcal C|\), and the sum over all the blocks is bounded by
+\(Q_t(\ell)\).
+
+Write \(H_{\mathrm{fix}}\) for the local stabilizer of the last frame
+vector in the subgroup fixing the hyperbolic pairs. The positions
+\(\ell\) for \((c',\sigma)\) with the same \(x\) lie in a single orbit
+under left multiplication by \(H_{\mathrm{fix}}\). They lie in distinct
+congruence cosets. Indeed, congruence at \(\mathcal T\) together with
+integrality away from \(\mathcal T\) identifies both the source class
+and the rational representative. The integrand \(Q_t\) is invariant
+under left multiplication by \(H_{\mathrm{fix}}\cap\mathcal K\).
+Multiplying the sum by the measure of a congruence coset thus bounds it
+by the integral on the fiber. For the Haar measure \(\mu_H\) on
+\(H_{\mathrm{fix}}\), the mass comparison gives
+\(D\mu_H(H_{\mathrm{fix}}\cap\mathcal K)\mu(\mathcal K)^2|\mathcal C|\ge m_Z\).
+The step function \(\Psi_t\) extending the finite-place fiber pairing
+therefore satisfies
+\[
+ G_t(m_Z/D)\sum_{(c,y)=x} r_0^2\|\mathcal A\|^2\le\Psi_t(x).
+\]
+\leansrc{New/Spanning/Frames/TopFloor}{Finite quotient coordinates and the fiber pairing}
+
+Put \(\beta_t=(t\bar t-N^2)/N\). Apply Siegel's formula for one vector in
+the definite space of rank \(k\ge3\). The test function imposes
+integrality away from \(\mathcal T\) and pulls back \(\Psi_t\) along the
+last-vector map at \(\mathcal T\). It is compactly supported, locally
+constant, and invariant under the source level. The norm \(\beta_t\)
+is totally positive. The class sum is the finite adelic norm density
+times
+\[
+ n_X|\operatorname{disc}(E)|^{1/4}
+       \prod_v\frac{\pi^k(\Phi_v(\beta_t))^{k-1}}{(k-1)!}.
+\]
+\leansrc{Lib/SiegelWeil/OneVector/SiegelClassSum}{Siegel's formula at one norm}
+
+The norm density integrates the test function times
+\(\psi_f(u(w^*w-\beta_t)/2)\) over the finite vectors \(w\) and
+self-adjoint finite adelic frequencies \(u\). Splitting the vectors
+and frequencies by their components at \(\mathcal T\) factors the
+density into the sphere density there and an integral of Gauss sums
+from the integrality condition outside \(\mathcal T\). Write
+\[
+ F_{u,\Gamma}(w)=\psi_f\!\left(u(w^*w-\Gamma)/2\right),
+ \qquad w\in\widehat{\mathcal O}_E^{\,k}.
+\]
+Here \(\Gamma\) is the shift from the prescribed norm that remains in
+the Gauss sum, and the bound is uniform in \(\Gamma\).
+The square of the absolute value of \(\int F_{u,\Gamma}(w)\,dw\)
+is the integral of \(\overline{F_{u,\Gamma}(w)}F_{u,\Gamma}(w+h)\)
+over \(w,h\). Translating coordinate \(j\) of \(w\) by \(\bar a\)
+multiplies the correlation by \(\psi_f(u h_j a)\).
+Consequently the integral over \(w\) vanishes unless every \(h_j\)
+lies in the conductor ideal
+\[
+ I_u=\{h\in\widehat{\mathcal O}_E:
+            \psi_f(uha)=1\text{ for all }a\in\widehat{\mathcal O}_E\}.
+\]
+The integrand has modulus \(1\), so the remaining correlation is
+bounded by the product of the volumes. With
+\(q_u=|\widehat{\mathcal O}_E/I_u|\), it follows that
+\[
+ \left|\int F_{u,\Gamma}(w)\,dw\right|
+ \le \operatorname{vol}(\widehat{\mathcal O}_E)^k q_u^{-k/2}.
+\]
+For a fixed conductor \(I\), the frequency classes modulo the
+self-adjoint codifferent are distinguished by the characters of
+the finite additive group \(\widehat{\mathcal O}_E/I\). Each class has
+measure \(1\), and there are at most \([\widehat{\mathcal O}_E:I]\) of them.
+With \(\mu_0=3\varrho+4\) and \(k\ge2(\mu_0+1)\), integration over the
+frequencies is therefore bounded by
+\(\operatorname{vol}(\widehat{\mathcal O}_E)^k
+\sum_I[\widehat{\mathcal O}_E:I]^{-\mu_0}\).
+The sum over finite-index ideals is at most
+\(1+2^{-\varrho}\le1+b^{-6}\), by comparison with the Dedekind zeta
+Euler product using \([E:\mathbf Q]\le2^{2\varrho}\).
+\leansrc{Lib/SiegelWeil/Mass}{Character orthogonality and the Gauss-sum bound by conductor}
+
+Finite-place Fourier inversion bounds the density at \(\mathcal T\)
+by the integral of the test function on the sphere
+\(\langle y,y\rangle=\beta_t\). The density \(F_t\) divides this integral by
+the modulus \(N^{-f}\) of \(\pi_N\). Expressing the integral in terms of
+\(F_t\) multiplies the archimedean norm factor \(N^{-f(k-1)}\) by \(N^{-f}\),
+giving
+\[
+ c_S=\left(\frac{\pi^k}{(k-1)!N^k}\right)^f
+       |\operatorname{disc}(E)|^{1/4}
+       \operatorname{vol}(\widehat{\mathcal O}_E)^k.
+\]
+Summing over the distinct points \(x\) gives
+\[
+ \sum_x\Psi_t(x)\le(1+b^{-6})n_X c_S G_t\,
+             \operatorname{Re}\sum_{\mathbf p,\mathbf q}R_t(\mathbf p,\mathbf q)
+                                                       F_t(\mathbf p,\mathbf q).
+\]
+Cancel \(G_t\), divide by \(m_Z\), and sum over \(t\) to obtain
+\begin{equation}\label{eq:span-siegel-sum}
+ r_0^2\sum_{\mathrm{blocks}}\|\mathcal A\|^2
+ \le (1+b^{-6})C_S\sum_t\operatorname{Re}\sum_{\mathbf p,\mathbf q}
+                         R_t(\mathbf p,\mathbf q)\frac{F_t(\mathbf p,\mathbf q)}{m_Z}.
+\end{equation}
+\leansrc{New/Spanning/MainTerm/SiegelTopBound}{Siegel's estimate for the class sum and its local densities}
+
+\paragraph{Removing the entries by Poisson summation}
+Let \(J_i\) be the product of the archimedean kernels and the normalized
+finite-place kernel at stage \(i\). Let \(\mathcal S_{i+1}\) be the real part of
+the sum of \(J_{i+1}\) over two heads \(\mathbf p,\mathbf q\in T_0^i\)
+followed by a common entry \(t\in T_0\). Entries after the heads are filled
+with \(1\), and each entry at infinity is multiplied by its scale
+\(\lambda_{v,j}\). At stage zero \(\mathcal S_0=\operatorname{Re}J_0\) on the empty
+heads. The sum for each common entry is nonnegative by the Gram property,
+so the kernel sum on the right of \eqref{eq:span-siegel-sum} is at most \(\mathcal S_n\).
+
+Apply the one-sided Poisson summation bound to entry \(i\).
+The sum of the kernels with that entry held in common is a nonnegative
+lower semicontinuous function. Multiply it by the indicator of the
+integral adeles outside \(\mathcal T\). By the integral identity for the
+orbital forms, the zero frequency gives the sum of \(J_i\) over all
+pairs of heads, with multiplier
+\[
+  q_i=\frac{\operatorname{vol}(\widehat{\mathcal O}_E)}
+                 {\prod_v\lambda_{v,i}^2}.
+\]
+The other frequencies are rational points integral outside \(\mathcal T\)
+and scaled by \(\varpi^{-1}\). Let \(\epsilon\) bound the sum of the
+products of the local Fourier decay factors at the nonzero frequencies,
+and let \(W_i\) be the sum of the nonnegative weights of heads of length \(i\).
+The contribution from those frequencies is at most \(q_i\epsilon W_i^2\).
+In the sum of \(J_i\) produced by the zero frequency, the pairs with
+equal last entries give \(\mathcal S_i\). For unequal last entries \(u,v\), the
+finite-place frequency \(M^{-1}(u^{-1}-v^{-1})\) is nonzero and integral
+outside \(\mathcal T\). The same decay estimate bounds these pairs by
+\(\epsilon W_i^2\), giving
+\[
+ \mathcal S_{i+1}\le q_i(\mathcal S_i+2\epsilon W_i^2).
+\]
+
+For the frequency bound put \(K_0=k-n^7\).
+At infinity the decay function is \(d_{K_0}(a)=a^{K_0}\min(1,a^6)\).
+The factor at \(v\) and its volume ratio are
+\[
+ c_{\mathrm{vol}}b^{2000n^9}d_{K_0}(|\xi_v|^{-1}),
+ \qquad
+ c_{\mathrm{vol}}=\pi^{(2\varrho+1)k}
+            \frac{\operatorname{vol}(U(k))}{\operatorname{vol}(U(r))}.
+\]
+At the finite places the factor is the generalized index of the frequency
+to power \(K_0/2\), divided by its denominator index cubed, times \(b^{n^9 f}\).
+The frequencies associated to a nonzero \(\mathcal T\)-integer \(y\)
+have the form \(\xi_v=(c_v/\lambda_{v,j})\Phi_v(y)\) at infinity.
+In both error terms the scales satisfy \(|c_v|^{-1}\le|\kappa_v|/M\), so
+\[
+ |c_v/\lambda_{v,j}|^{-1}\le
+ \theta_v:=|\kappa_v|^{2\varrho+1}/(MN)
+ \le B_F:=b^{23(2\varrho+1)}.
+\]
+Write \(H(y)=\operatorname{Norm}(\mathfrak a_y)\prod_v\max(1,|\Phi_v(y)|)^2\)
+for the height of \(y\), where \(\mathfrak a_y\) is its denominator ideal.
+Since \(y\) is integral outside \(\mathcal T\), the product formula bounds
+the square root of the finite-place generalized index by
+\(\prod_v|\Phi_v(y)|\). This upper bound cancels the factors
+\(|\Phi_v(y)|^{-K_0}\) at infinity.
+Since \(\min(1,|\xi_v|^{-1})\le B_F/\max(1,|\Phi_v(y)|)\) and the
+finite-place denominator index is at least \(\operatorname{Norm}(\mathfrak a_y)\),
+the contribution of one frequency, with the powers of \(b\) and volume
+ratios factored out, is at most \(H(y)^{-3}\prod_v(\theta_v^{K_0}B_F^6)\).
+The inverse cubes of the heights sum to at most
+\((64\cdot38\exp(4))^f\le b^{3f}\).
+Together with \((bB_F^2)^3\le b^{n^9}\), this gives
+\[
+ \epsilon\le b^{2002n^9f}\mathcal D_\ast,\qquad
+ \mathcal D_\ast=\prod_v c_{\mathrm{vol}}\theta_v^{K_0}.
+\]
+\leansrc{New/Spanning/MainTerm/GlobalSieve}{Summing frequencies using the product formula and height}
+
+For the head weight, each prefix product contributes its finite-place
+generalized index to power \(n^6/2\). At each infinite place, it
+contributes the larger of \(1\) and the inverse modulus of the scaled
+prefix product, raised to \(n^6\). The weight is zero if a prefix product
+is nonintegral or if its scaled modulus exceeds \(b^{60n^2}\).
+A head of nonzero weight is determined by its sequence of prefix
+products, which are algebraic integers of modulus at most \(b^{120n^2}\)
+in every embedding. The lattice count bounds the number of such heads
+by \((1+2b^{120n^2})^{2fi}\). By the product formula each weight is at
+most \(b^{120n^8fi}\), giving \(W_i\le b^{130n^9f}\) for \(i\le\varrho\).
+Also \(\lambda_{v,j}\le b^{46\varrho}\) and
+\(\operatorname{vol}(\widehat{\mathcal O}_E)=(2/\operatorname{rd}_E)^f\)
+give \(\prod_{j<i}q_j\ge b^{-100n^2f}\). Hence
+\[
+ W_i^2\le b^{260n^9f+100n^2f}\prod_{j<i}q_j
+       \le b^{400n^9f}\prod_{j<i}q_j .
+\]
+\leansrc{New/Spanning/MainTerm/GlobalSieve}{Counting prefix products and bounding head weights}
+Write \(\deg_v\) for the formal degree of the Bessel system at \(v\).
+Using \(\mathcal S_0\le\prod_v((1+b^{-10})/\deg_v)\,m_A\) and
+\(2n\le b^{n^9f}\), iterate the recurrence \(n\) times to obtain
+\begin{equation}\label{eq:span-sieve-sum}
+ \mathcal S_n\le \left(\prod_{j<n}q_j\right)
+  \left[
+    \left(\prod_v\frac{1+b^{-10}}{\deg_v}\right)m_A
+    + b^{2403n^9f}\mathcal D_\ast
+  \right].
+\end{equation}
+
+\paragraph{Comparison of constants}
+Let \(\Lambda_\ast\) be the product of the entry scales to powers
+\(k+2(\varrho-j)\). The formulas for \(r_0\) and the Poisson multipliers
+\(q_j\) give
+\[
+ V_\ast=\frac{\prod_{j<n}q_j}{r_0^2}
+ =\frac{\operatorname{vol}(\widehat{\mathcal O}_E)^n}{c_G^f}
+    \left(\frac{d_B}{\Lambda_\ast}\right)^2 .
+\]
+Substituting the covolume formula for \(\nu\) into the comparison of
+Siegel constants gives
+\[
+ \begin{split}
+ C_S V_\ast
+  &\le(1+b^{-9})D_{\mathrm{main}}\deg_B\nu^2,\\
+ C_S V_\ast\mathcal D_\ast
+  &\le b^{n^9f}d_BD_{\mathrm{id}}\nu^2 .
+ \end{split}
+\]
+The first inequality substitutes the class count and volumes into the
+main term. For the second, put \(s_d=\sqrt{\operatorname{rd}_E}\),
+\(Q_d=Ms_d^2/(2\pi)\), and \(x_d=Q_d^{2\varrho+1}/(MN)\).
+Use \(\prod_v|\kappa_v|=Q_d^f\) and cancel the \(k\)-th power in
+\(x_d^{k-n^7}\) against the powers in the Siegel constant. The ratio
+\(C_SV_\ast\mathcal D_\ast/(d_BD_{\mathrm{id}}\nu^2)\) is the \(f\)-th
+power of
+\[
+ \frac{(2/s_d^2)^{n+2\varrho^2}(s_d/s_d^{2\varrho})}
+      {2M^{\varrho(2\varrho+1)}}\,x_d^{-n^7}.
+\]
+Since \(2/s_d^2\le b\), \(s_d/s_d^{2\varrho}\le1\), and
+\(x_d^{-1}\le MN\le b^{23+60n}\), this factor is at most \(b^{n^9}\).
+\leansrc{New/Spanning/MainTerm/EnergyEstimate}{Comparing the covolume and decay constants}
+
+Put \(Y=b^{-6k|A|}D_{\mathrm{main}}\nu^2\). The admissibility inequalities
+\(d_B\le b^{2kf}\), \(b^{11kf}D_{\mathrm{id}}\le D_{\mathrm{main}}\),
+\(|A|\le f\), and \(512000n^9\le k\) give
+\(2404n^9f+2kf+10+6k|A|\le11kf\). Thus the error in
+\eqref{eq:span-sieve-sum}, after accounting for its normalization, is
+\(C_SV_\ast b^{2403n^9f}\mathcal D_\ast\le b^{-10}Y\).
+For the main term use \((1+b^{-10})^f\le1+b^{-9}\) and
+\(\prod_v\deg_v=\deg_B\). The former follows from \(f\le b/1000\), which
+gives \((1+b^{-10})^f\le\exp(b^{-9}/1000)\le1+b^{-9}\). Combining \eqref{eq:span-siegel-sum},
+\eqref{eq:span-local-zero}, and \eqref{eq:span-sieve-sum} yields
+\[
+ \sum_{\mathrm{blocks}}\|\mathcal A\|^2
+ \le (1+b^{-6})\left[(1+b^{-9})^2(1+b^{-6})+b^{-10}\right]Y
+ \le (1+b^{-4})Y .
+\]
+For the last inequality, \(b\ge1000\) implies
+\(b^{-6},b^{-9},b^{-10}\le s_\ast=b^{-4}/100\le1\), so the coefficient
+is at most \((1+s_\ast)^4+s_\ast(1+s_\ast)\le1+17s_\ast\).
+Taking the supremum over the finite sums and dividing by \(\nu^2\)
+proves \eqref{eq:span-open-input}.
 
 An element of \(\bar R_0G_i\) agrees with an element of \(\bar R_0\) above
 the other prime. The frames therefore meet at all \(f\) chosen places
