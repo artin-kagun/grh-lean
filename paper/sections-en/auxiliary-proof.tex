@@ -1,0 +1,127 @@
+\paragraph{Surjectivity from the deep level}
+Write \(\widetilde Y_0^0=Y_0\perp\langle1\rangle\) for \(Y_0\) with one
+positive line added. The deep level has modulus \(\pi_M^b\).
+We first find a real point \(\omega\) for which the restrictions
+\(g\mapsto\phi((g\oplus1)\omega)\) detect every form at the principal level
+by its inner products.
+
+Compare the lowest \(K\)-type weights at an infinite place.
+With the sign reversal in the parameters, the common positive block
+has weight zero. On the other entries the signs alternate. The weights
+on one side decrease strictly in \([-3\kappa_0,-\kappa_0]\) and those of
+the other are positive in the opposite order, where
+\(\kappa_0=\kappa(\tau)+\Delta/2\).
+The correction from the Harish--Chandra parameter to the lowest
+\(K\)-type counts the entries above and below each entry with signs.
+It is bounded by the rank. On the common positive block this count
+cancels the original entry. On the remaining entries the gaps exceed
+the correction and keep their ordering.
+
+On the alternating block, let \(\mu_i\) be the negative weights on the
+larger side and \(\mu'_j\) the positive weights on the smaller side.
+Let \(P,Q\) be the respective monic polynomials with these roots.
+For a polynomial \(F\) set
+\[
+ [F]_i=\frac{F(\mu_i)}{|P'(\mu_i)Q(\mu_i)|^{1/2}} .
+\]
+The Hermitian pairing of such real vectors is \((-1)^{\deg Q}\) times
+the sum of the residues of \(F_1F_2/(PQ)\) at the \(\mu_i\).
+As \(\deg P=\deg Q+1\) and \(\deg Q\) is even, \([Q]\) has Hermitian
+length \(1\), as required for the extra positive line.
+Write \(Q_j=Q/(X-\mu'_j)\). The residue of \(Q_j/P\) at infinity is zero,
+so \([Q_j]\) is orthogonal to \([Q]\).
+For \([Q_j]\) paired with \([Q_{j'}]\), the only other possible residue
+is at \(\mu'_j\) when \(j=j'\). The resulting pairing is zero for
+\(j\ne j'\) and \((-1)^{\deg Q+1}Q'(\mu'_j)/P(\mu'_j)\) on the diagonal.
+Normalize these columns to Hermitian lengths of modulus \(1\) and
+use the identity on the common positive block to make an isometry \(i_0\).
+Because \((X-\mu'_j)Q_j=Q\), compression of
+\(\operatorname{diag}(\mu_i)\) to the orthogonal complement of the
+extra line gives \(\operatorname{diag}(\mu'_j)\).
+Thus with \(w=(i_0,[Q])\) and \(g'=w(g\oplus1)w^{-1}\) the difference
+of the lowest \(K\)-type phases
+\(\operatorname{tr}(\mu(g'-I))-\operatorname{tr}(\mu'(g-I))\)
+is zero.
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/DeepLevelPoincarePeriod}{Counting the entries of the lowest K-type weights}
+  \leanlinksep \leansrc{New/Appendix/DiscreteSeries/StationaryPosition}{Constructing the line and its compression by residues}}
+
+The entries are separated by at least \(1\) and their absolute values
+are at most \(3\kappa_0\). Hence the coordinates of the line and the
+isometry are bounded by \((6\kappa_0)^{M_0+1}\), where \(M_0\) is the
+length of the smaller alternating block. Therefore
+\(\|w\|^2\le(r+1)^4(6\kappa_0)^{2M_0+2}\le\beta\), with
+\(\beta=(\sqrt M)^{\lceil x\rceil}\).
+Pair the discrete series coefficients in this position.
+Put \(D_0=(2r+1)^2\) and let \(J_g\) be the direct sum of the two group
+matrices. In the Flensted--Jensen integrals the minor powers give decay
+away from the compact subgroups. Near the compact subgroups, expand
+\(\log(1+z)\) to order two. The linear phases cancel by compression
+and the quadratic Gaussian integral gives a positive main term.
+For the phase-aligned product \(B(g)\) and
+\(D(g)=(2/\|J_g\|)^{9D_0}\) this gives
+\[
+ |B(g)|\le D(g),\qquad
+ |B(g)|\le 2\RePart B(g)+6\beta^{-50D_0}D(g).
+\]
+The margin in the gaps here is at least \(10^{30}(D_0\log\beta)^3\).
+On \(\|J_g-I\|\le(200\beta^5)^{-1}\) the modulus of \(B(g)\) is at
+least \(1/4\). The ball \(\|J_g\|\le\beta+1\) has volume at most
+\(\beta^{16D_0}\) times that of this small ball. The integral of
+\(D(g)\) is at most \(16^{9D_0}\) times the volume of the unit ball.
+These estimates show that the integrated error does not cancel
+the contribution of the small ball, and give
+\(v\le\beta^{20D_0}|\int B(g)\,dg|\), with \(v\) the volume of the
+unit ball of the smaller group. Use \(\omega_\tau=w^{-1}\) at each
+infinite place and take their product for \(\omega\).
+\leanlinks{\leansrc{New/Appendix/DiscreteSeries/GaussianShape}{The Gaussian approximation and its error}
+  \leanlinksep \leansrc{New/Appendix/DiscreteSeries/Periods}{Volume comparison and the integral lower bound}
+  \leanlinksep \leansrc{New/Appendix/DiscreteSeries/PositionGroup}{Specialization to the codimension-one position}}
+
+Suppose a form \(f\) on \(Y_0\) is orthogonal to every restriction
+and is bounded by \(S\). We prove \(|f|\le S/2\) at every adelic point.
+For this argument write \(L=\beta^{20r^4(f_E+1)}\) with \(f_E=|\Phi|\).
+Where the first minimum is below
+\((L^{-2}/(M C_{\mathrm{cusp}}^2))^r\), cusp vanishing bounds \(f\)
+by the difference with its translate by a real point within \(L^{-2}\)
+of the identity. Here \(C_{\mathrm{cusp}}\) is the lattice constant
+depending on the rank and different. The real reproducing kernel
+and its small-translation estimate bound the difference by
+\(2S(\beta/L)\int K_\mathrm{maj}\le S/8\), where
+\(\int K_\mathrm{maj}\le L/(16\beta)\).
+
+At a point \(g\) with first minimum at least the threshold, form
+the Poincaré series centred at \(g\oplus1\), using the discrete
+series coefficient on \(\widetilde Y_0^0\) at infinity and the
+indicator of the deep level at the finite places. Its period against
+\(f\) is zero by orthogonality.
+Unfolding, the identity coset contributes a real convolution of \(f\)
+times the level volume. The other cosets are distinguished by the
+last column of the rational matrix. The level congruence and the
+lower bound for the first minimum separate these columns at the
+infinite places by \(L^2\). Since the base column has norm at most \(L\),
+count the remaining columns in balls from radius \(L^2/2\) and
+apply the inverse-power decay. This gives
+\((10/L)^{r^4}\le10/L\).
+The real convolution is thus bounded by \(10S/L\) times the
+factor controlling the translated matrix coefficient.
+Convolve again with the reproducing kernel of \(Y_0\).
+By Fubini and discrete series reproduction the result is \(f(g)\)
+times the product of the real integrals bounded below above.
+Dividing by that product cancels the factors \(v\) and the
+powers of \(\beta\) from the majorant estimate, giving
+\(|f(g)|\le (10/(16\beta))S\le S/2\).
+Halving the uniform bound repeatedly now gives \(f=0\).
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/DeepLevelPoincarePeriod}{Last-column separation and the identity term}
+  \leanlinksep \leansrc{New/Determinant/AuxiliaryForms/DeepLevelVanishing}{The cusp estimate and reproduction by real integrals}}
+
+The forward chain of the second triangle at the deep level is
+injective by the same induction on length using the exchanges of
+Section~\ref{sec:exchange-proof}. Its transposed chain is surjective.
+Indeed an \(f\) orthogonal to the image can be lifted by the forward
+chain to \(Uf\), and transposition gives \(\|Uf\|^2=0\).
+Injectivity gives \(f=0\).
+Compose the transposed chain with restriction at \(\omega\) and
+orthogonal projection onto the principal-level space. Since the
+orthogonal complement to the image is zero, this gives the desired
+surjection \(s\) onto the principal-level space.
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/FirstPath}{Surjectivity of the transposed chain and the restriction map}}

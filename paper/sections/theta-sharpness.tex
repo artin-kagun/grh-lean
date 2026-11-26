@@ -7,15 +7,82 @@
 係数は \(l!\) と整真空の規格化を含み、\(t\ne0\) は
 有限素点に依存せず、すべての共役の絶対値が \(\exp(fmb/k)\) 以下である。
 
-Weil 表現で使うイデールを \(\alpha_{\rm W}\)、対応する格子
-\(E\cap\alpha_{\rm W}\widehat{\mathcal O}_E\) を \(\mathfrak a_0\) とする。
-\(\mathfrak a_0\) に \(w_i\) と重複度 \(c_i\ge6fb\) を取り、
-各埋込み \(\tau,\sigma\) について
-\(\sum_i c_i\tau(w_i)\overline{\sigma(w_i)}=M\delta_{\tau\sigma}\)
-となるようにする。この枠の存在と、各 \(\ell\) で係数がすべて単元の
-線型形式を一つ得られることには、
-\leansrc{New/Derivatives/Vacuum/ShortVectors}{格子上での枠の構成}
-を用いる。各 \(w_i\) の埋込みの共役に周期の規格化を掛けた線型形式を
+Weil 表現で使うイデールを \(\alpha_\mathrm{W}\)、対応する格子
+\(E\cap\alpha_\mathrm{W}\widehat{\mathcal O}_E\) を \(\mathfrak a_0\) とする。
+以下で、格子ベクトル \(w_i\) と重複度 \(c_i\ge6fb\) を
+\begin{equation}\label{eq:attain-frame}
+ \sum_i c_i\tau(w_i)\overline{\sigma(w_i)}=M\delta_{\tau\sigma}
+\end{equation}
+となるように作る。さらに、各 \(\iota\) に対し、ある \(w_i\) のすべての
+共役座標が周期による規格化のあとで単元になるようにする。
+
+\(\zeta=\zeta_{q_1}\)、\(P_\zeta(X)=\Phi_{q_1}(X)\) とし、
+\(D_\zeta=P_\zeta'(\zeta)\)、\(\beta=(1+\sqrt{-d})/2\) とする。
+この格子の条件は、\(\beta\) を割る素点では \(D_\zeta w\) が整であること、
+それ以外の素点では \(w\) が整であることである。集合として
+\(\mathfrak a_0\) は \(\mathcal O_E\) 倍および \(\operatorname{Gal}(E/K)\) の作用で閉じる。
+また \(D_\zeta\alpha_\mathrm{W}\overline{\alpha_\mathrm{W}}\) は有限素点で単元なので、
+\(D_\zeta w\overline{w'}\) は \(w,w'\in\mathfrak a_0\) に対して整である。
+相対余不同の定義により \(\operatorname{Tr}_{E/K}(w\overline{w'})\in\mathcal O_K\)。
+とくに \(\nu(w)=\sum_{\tau\in\Phi}|\tau(w)|^2\) は非負の有理整数である。
+\leanlinks{\leansrc{New/Derivatives/Vacuum/TightFrames}{格子のエルミート内積の整性}}
+
+\(j_0=\lceil\log_2 q_1\rceil\) とし、\(P_\zeta(X)/(X-\zeta)=\sum_{i<f}a_iX^i\) と書く。
+\(u_i=\bar\beta^{j_0}a_i/D_\zeta\) は \(\mathfrak a_0\) に属する。
+実際、\(\beta\) を割る素点では \(D_\zeta\) を掛ければ整となる。
+他の素点では \(\beta\) が単元であり、
+\(D_\zeta\mid q_1\mid(\beta\bar\beta)^{j_0}\) から
+\(\beta^{j_0}u_i\) が整である。ここで二番目の整除性は、
+\(q_1\) の各素因数が \(\beta\bar\beta=(d+1)/4\) を割り、
+その \(q_1\) での指数が \(j_0\) 以下であることによる。
+\(a_i/D_\zeta\) と \(\zeta^i\) はトレースに関する双対基底である。
+これは \(\zeta\) の各共役での Lagrange 補間多項式の係数を読むと得られる。
+双対基底の埋込み行列を掛け、\(\overline{\sigma(\zeta^{-i})}=\sigma(\zeta)^i\)
+を使うと
+\[
+ \sum_{i<f}\tau(u_i)\overline{\sigma(\zeta^{-i})}
+     =\bar\beta^{j_0}\delta_{\tau\sigma}.
+\]
+\leanlinks{\leansrc{New/Derivatives/Vacuum/ShortVectors}{円分基底のトレース双対と格子への帰属}}
+
+\(\zeta^{-k'}\) を \(0\le k'<q_1\) について並べた族の枠定数は \(q_1\) である。
+異なる埋込みでは、両者の \(\zeta\) の値の比が非自明な \(q_1\) 乗根なので、
+その冪の和が消える。同じ計算で、各 \(u_i\) に対して
+\(\zeta^{k'}\rho(u_i)\) を \(0\le k'<q_1\) と
+\(\rho\in\operatorname{Gal}(E/K)\) について並べた族の枠定数は
+\(q_1\nu(u_i)\) である。すべてを合わせ、\(\zeta^{-i},u_i\) の対を
+\(\zeta^{-i}+u_i\) で置き換える。加わる交差項は上の双対関係と
+その随伴によってスカラーとなり、新しい枠定数は
+\[
+ h=q_1\Bigl(1+\sum_{i<f}\nu(u_i)\Bigr)+\beta^{j_0}+\bar\beta^{j_0}.
+\]
+\(p\mid q_1\) の上の素点で \(\beta,\bar\beta\) の一方は \(0\)、他方は \(1\) に等しい。
+従って \(h\equiv1\pmod p\)。また \(\zeta u_{f-1}\) は置き換えに使わなかったので
+この族に残る。
+
+\(P_\zeta(X)=\Phi_{q_0}(X^{q_1/q_0})\) の各係数は絶対値が \(2^{q_0}\) 以下である。
+一次因子での除法により \(|\tau(a_i)|\le q_1\,2^{q_0}\) を得る。
+\(|\tau(D_\zeta)|\ge1\)、\(|\beta|\le d\) だから、
+\[
+ 0<h\le q_1\Bigl(1+q_1 f(d^{j_0}q_1\,2^{q_0})^2\Bigr)+2d^{j_0}\le b .
+\]
+最初の不等号は \(h\) が非負整数で \(q_1\) と互いに素であること、
+最後の不等号は \(j_0\le q_0+3s+10\) と許容データの尺度条件による。
+\(R=\lceil6fb\rceil\) とすると \(M\ge q_1h+R(q_1+h)\) である。
+\(0\le B<q_1\) を \(Bh\equiv M-R(q_1+h)\pmod{q_1}\) となるように取れば、
+\(M-R(q_1+h)-Bh\) は非負の \(q_1\) の倍数 \(Aq_1\) となる。
+\(\zeta\) の冪を \(A+R\) 回ずつ、枠定数 \(h\) の族を \(B+R\) 回ずつ使えば
+\eqref{eq:attain-frame} が成り立つ。
+
+\(\tau\) の共役埋込みが誘導する素点で \(\beta\) が単元ならば、周期因子も単元であり、
+\(w_i=1\) を取れる。この判定は、すべての \(\tau\in\Phi\) が \(K\) 上で一致するので
+\(\tau\) に依らない。残る場合には \(\bar\beta\) が単元で、
+\(\zeta u_{f-1}=\zeta\bar\beta^{j_0}/D_\zeta\) の絶対値は
+\(D_\zeta^{-1}\) の絶対値に等しい。周期因子は \(D_\zeta\) と同じ絶対値をもつから、
+この \(w_i\) を使えばどの座標も規格化後に単元となる。
+\leanlinks{\leansrc{New/Derivatives/Vacuum/ShortVectors}{枠定数の調整と単元係数}}
+
+各 \(w_i\) の埋込みの共役に周期の規格化を掛けた線型形式を
 \(\mu_i\) と書き、\(\Theta=\prod_i\theta(\mu_i z)^{c_i}\) とする。
 第5節の \(y\) を用いて \(H\) を \(y(\mu_i z)\) たちの整係数級数とする。
 \(V_j(\nu)\le r\) とは、独立な \(j\) 組の変数での
@@ -32,7 +99,7 @@ Weil 表現で使うイデールを \(\alpha_{\rm W}\)、対応する格子
 \(\delta\in\mathbb Z_\ell\) に移したものである。
 従って \(\prod_c\Theta(\delta_c z)\) は \(H\) の属する環の単元になる。
 定数項が \(1\) であり、逆数も同じ環で展開できる。
-\leansrc{New/Derivatives/Sharpness/LeastValuation}{六つのテータ積の単元性}。
+\leanlinks{\leansrc{New/Derivatives/Sharpness/LeastValuation}{六つのテータ積の単元性}}
 
 任意の次数 \(N\) で、原点での \(N\) 階微分の絶対値が
 \(\ell^{-\gamma_\ell N}\) 以上の \(y\) の整係数級数を取れる。
@@ -47,12 +114,13 @@ Weil 表現で使うイデールを \(\alpha_{\rm W}\)、対応する格子
 \(N=q_\ell^e\) では規格化した形式パラメータの \(N\) 次係数は
 剰余体で \(1\) である。第5節では非分解素数についてこの規格化を示した。
 分解素数では \(q_\ell=\ell\)、\(\rho_\ell=1/(\ell-1)\) で同じ合同式が成り立つ。
-\leansrc{Lib/CM/FormalGroup/FormalParameter}{全ての素数に対する形式パラメータの合同式}。規格化を戻して \(N!\) を掛け、
+\leanlinks{\leansrc{Lib/CM/FormalGroup/FormalParameter}{全ての素数に対する形式パラメータの合同式}}
+規格化を戻して \(N!\) を掛け、
 \(v_\ell(N!)\le(N-1)/(\ell-1)\) を使うと \(D_N\ge\ell^{-\gamma_\ell(N-1)}\) となる。
 \(D_j\le1\) は形式群の加法公式から一次微分を繰り返して得る。
 固定した \(n\) に対して \(N=n\lfloor N/n\rfloor+(N\bmod n)\) と分け、
 \(N=q_\ell^e\) を無限に大きくすると \(D_n\ge\ell^{-\gamma_\ell n}\) が従う。
-\leansrc{New/Derivatives/Sharpness/OneCurve}{一変数の微分評価}。
+\leanlinks{\leansrc{New/Derivatives/Sharpness/OneCurve}{一変数の微分評価}}
 
 次数 \(|\nu|\) でこの評価を使い、選んだ級数に単元係数の \(\mu_i\) を代入する。
 多項式の係数の展開から、\(\nu\) 次係数の付値は
@@ -97,7 +165,7 @@ Weil 表現で使うイデールを \(\alpha_{\rm W}\)、対応する格子
 \(|\nu''|=|j|\) を使うと
 \(v_\ell(\nu'!\nu''!)+V_6(\nu'+\nu'')\le
 \gamma_\ell|\nu'+\nu''|-|j|\) となる。
-\leansrc{New/Derivatives/Sharpness/Couplings}{終点での微分と最低次項の係数}。
+\leanlinks{\leansrc{New/Derivatives/Sharpness/Couplings}{終点での微分と最低次項の係数}}
 
 \(L=\lceil6b/k\rceil\)、\(l_\tau^-=\max(l_\tau-L,0)\) とし、
 \(B_\tau=(l_\tau^-+1)\cdots(l_\tau^-+L)\) とおく。
@@ -170,7 +238,7 @@ Weil 表現で使うイデールを \(\alpha_{\rm W}\)、対応する格子
 \((l_0+1)a/x_1\le b/(k\ell)\) を使う。どちらも第3節のスケールから従う。
 最後は \(L\) 個の連続整数に含まれる \(\ell\) の倍数を数える。
 これで \eqref{eq:attain-twelve} が全ての素数で成り立つ。
-\leansrc{New/Derivatives/Sharpness/Cases}{三つの素数の場合の階乗との比較}。
+\leanlinks{\leansrc{New/Derivatives/Sharpness/Cases}{三つの素数の場合の階乗との比較}}
 
 \paragraph{テータ核の係数への移行}
 \eqref{eq:attain-twelve} の係数を取る際、非アルキメデス性により、
@@ -182,7 +250,7 @@ Weil 表現で使うイデールを \(\alpha_{\rm W}\)、対応する格子
 Heisenberg 表現のベクトル \(U\) のテータ級数になる。
 このベクトルは有限部分で整な値を取り、\(\pi_M\mathfrak a_0^{12}\) の
 符号付き平行移動で不変である。
-\leansrc{New/Derivatives/Sharpness/BoundAttained}{テータ切断から Heisenberg 表現への移行}。
+\leanlinks{\leansrc{New/Derivatives/Sharpness/BoundAttained}{テータ切断から Heisenberg 表現への移行}}
 
 法 \((\pi_M)\) の剰余類 \(y_0\) の指示関数を有限部分に置いた真空を \(I_{y_0}\) とする。
 剰余群の Fourier 反転で \(M^{12f}U\) は平行移動した真空の有限和となる。
@@ -195,15 +263,15 @@ Heisenberg 表現のベクトル \(U\) のテータ級数になる。
  |\Lambda(I_{y_0})|_\iota\ge|M^{12f} v_0\Lambda(U)|_\iota
 \)
 である。 \(\Lambda\) に整真空の規格化を含めて、固定した非零の整真空の値を
-\(v_{\rm int}\) とする。\eqref{eq:attain-twelve} と合わせると
+\(v_\mathrm{int}\) とする。\eqref{eq:attain-twelve} と合わせると
 \[
- t=M^{12f}v_{\rm int}\prod_\tau B_\tau^2
+ t=M^{12f}v_\mathrm{int}\prod_\tau B_\tau^2
 \]
 に対し、ある \(I_{y_0}\) の規格化した係数に \(l!\) を掛けた値の付値が
 \(F(\ell)+v_\ell(t)\) 以下となる。
 \(B_\tau\le (2b+L)^L\)、全ての共役で
-\(|v_{\rm int}|\le\exp(12C_{q_0,d}q_1^2)\) なので、
+\(|v_\mathrm{int}|\le\exp(12C_{q_0,d}q_1^2)\) なので、
 \(12f\log M+2fL\log(2b+L)+12C_{q_0,d}q_1^2\le fmb/k\)
 を使えば \(t\) の主張した共役の上界を得る。
 この \(t\) は \(\iota\) に依存しない。
-\leansrc{New/Derivatives/Sharpness/BoundAttained}{指示関数の係数と共役の上界}。
+\leanlinks{\leansrc{New/Derivatives/Sharpness/BoundAttained}{指示関数の係数と共役の上界}}

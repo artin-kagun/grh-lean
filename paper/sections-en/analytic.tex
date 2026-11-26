@@ -75,7 +75,8 @@ The termwise integration is absolutely convergent for \(\RePart s>2\). Consequen
 Substitution of \eqref{eq:lambda-dirichlet} gives \eqref{eq:prime-transform}.
 The numerator vanishes at \(s=1\). At \(s=\rho\ne1\), apply to
 \eqref{eq:log-derivative} the fact that the residue of the logarithmic derivative
-of an entire function equals its order of vanishing. \leanref{integral_primeRemainder}
+of an entire function equals its order of vanishing.
+\leanlinks{\leanref{integral_primeRemainder}}
 \end{proof}
 
 \subsection{Selecting the quadratic twist}
@@ -135,7 +136,7 @@ If \(L(s,\chi)=0\), then \(\Psi(s)=-\Gamma_j(s)^2\).
 The modulus of \(\Gamma_j\) has a positive lower bound on
 \(1/2\le\RePart s\le1,\ |\ImPart s|\le H\). Therefore a zero in the required
 region forces \(J(\chi,T)>T^{2\eta}\) for all sufficiently large \(T\).
-\leanref{eventually_rpow_lt_thetaTailIntegral}
+\leanlinks{\leanref{eventually_rpow_lt_thetaTailIntegral}}
 
 Next let \(n^\circ\) be the odd part of \(n\), and for \(|\alpha_n|\le1\) put
 \(c_v(n)=\alpha_n(-v/n^\circ)\), using the Jacobi symbol.
@@ -165,7 +166,8 @@ two bounds gives
 Cauchy--Schwarz followed by integration against \(du/u\) yields
 \(\sum_{v\le T^2}J(c_v,T)\ll_\eta T^{2+\eta}\).
 For the term involving \(\theta_{\mu c_v}\), the coefficients are
-\(\alpha_n\mu(n)\). \leanref{sum_thetaTailIntegral_le}
+\(\alpha_n\mu(n)\).
+\leanlinks{\leanref{sum_thetaTailIntegral_le}}
 
 For \(d\equiv7\pmod8\), quadratic reciprocity and \((2/d)=1\) give
 \((n/d)=(-d/n^\circ)\). For each \(\psi\bmod q\), let \(\psi^\ast\) be the
@@ -180,7 +182,8 @@ exponent after summing over them.
 
 Were every prime in the residue class to produce such a zero, this counting
 estimate would imply convergence of \(\sum_{p\equiv d_0\bmod q}(\log p)/p\).
-That series diverges in a reduced residue class. \leanref{zero_density_quadTwist}
+That series diverges in a reduced residue class.
+\leanlinks{\leanref{zero_density_quadTwist}}
 \end{proof}
 
 \subsection{Zero exclusion from a one-sided bound}
@@ -216,7 +219,8 @@ residue is the limit
 This is a nonnegative real number and is nonzero at a simple pole, hence is
 strictly positive. The contradiction gives \(\sigma_c\le\beta\).
 The integral, and therefore \(K/(s-\beta)-A(s)\), is holomorphic on
-\(\RePart s>\beta\). \leanref{IsPolar.landau}
+\(\RePart s>\beta\).
+\leanlinks{\leanref{IsPolar.landau}}
 \end{proof}
 
 \begin{proposition}\label{prop:one-sided-criterion}
@@ -239,7 +243,8 @@ hypothesis gives \(U(v)\le e^{(\beta-1)v}\) for all sufficiently large \(v\).
 By Lemma \ref{lem:landau} the residue at \(\rho\) is zero.
 The denominator is nonzero, and \(\nu(\rho)\) is a sum of nonnegative orders
 of vanishing, so every summand is zero. Since \(\rho\ne1\), nonvanishing of
-\(L^\circ\) implies nonvanishing of \(L\). \leanref{LFunction_ne_zero_of_primeRemainder_le}
+\(L^\circ\) implies nonvanishing of \(L\).
+\leanlinks{\leanref{LFunction_ne_zero_of_primeRemainder_le}}
 \end{proof}
 
 \subsection{The prime number theorem for a fixed modulus}
@@ -290,7 +295,7 @@ Consequently
 For \(\RePart z\ge 1-1/(2\mathcal L)\) and \(|z|\le2e^\mathcal L\), applying
 this bound on the circle of radius \(1/(2\mathcal L)\) gives
 \(|f_\chi'(z)|\le2\mathcal L^3\) by Cauchy's estimate.
-\leansrc{Lib/Analytic/PrimeNumberTheorem/LFunctionGrowth}{Partial summation, three lines, and the derivative bound}.
+\leanlinks{\leansrc{Lib/Analytic/PrimeNumberTheorem/LFunctionGrowth}{Partial summation, three lines, and the derivative bound}}
 
 Now set \(\eta=\mathcal L^{-25}\) and take \(v=\sigma+it\) with
 \(\sigma\ge1+\eta\) and \(|v|\le3e^\mathcal L/2\).
@@ -325,7 +330,7 @@ Therefore \(|f_\chi'(s)/f_\chi(s)|\le\mathcal L^{25}/4\).
 On passing back to \(L^\circ(s,\chi)=s^{\delta_\chi}f_\chi(s)\), the added
 term in the logarithmic derivative is \(\delta_\chi/s\), of modulus at
 most \(2\). This proves \eqref{eq:uniform-log-derivative}.
-\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{Proof of the zero-free region}.
+\leanlinks{\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{Proof of the zero-free region}}
 \end{proof}
 
 For a fixed modulus \(Q\), one has \(f_\chi(1)\ne0\) for every character.
@@ -333,7 +338,8 @@ By continuity the hypothesis near \(1\) holds for all sufficiently large
 \(\mathcal L\). For the principal character \(f_\chi(1)\) is the residue at
 the pole, and for a nonprincipal character the assertion is Dirichlet's
 nonvanishing at \(1\). See also \cite[Chapter 11]{mv} for the fixed-modulus
-zero-free region. \leanref{eventually_norm_logDeriv_entireL_le}
+zero-free region.
+\leanlinks{\leanref{eventually_norm_logDeriv_entireL_le}}
 
 \begin{lemma}\label{lem:fixed-modulus-pnt}
 Fix an odd prime \(d\) and a positive integer \(q\) with \((d,q)=1\).
@@ -363,7 +369,7 @@ and \(1/|s|\le2\). Thus, for all sufficiently large \(\mathcal L\),
 \(F(s)=G_q(s)/s\) is holomorphic on \(\RePart s\ge1-\mathcal L^{-26}\),
 \(|s|\le e^\mathcal L\), with
 \(|F(s)|\le2(4\mathcal L^{25}+1)\le\mathcal L^{26}\).
-\leanref{eventually_norm_logDerivMean_div_le}
+\leanlinks{\leanref{eventually_norm_logDerivMean_div_le}}
 
 Take \(u\) large and put \(k=\lfloor u^{2B+4}\rfloor\), \(H=(k+1)/u\),
 \(\mathcal L=(2B+5)\log u\), and \(\eta=\mathcal L^{-26}\).
@@ -392,5 +398,5 @@ For sufficiently large \(u\) we have \(\mathcal L^{52}\le u\),
 \(4H\le u^{2B+5}\), and \(u^{3B+7}\le e^{\sqrt{u}/2}\), so
 \(|A|\le u^{-B-1}\). Consequently \(|U(u)|\le53u^{-B-1}\le u^{-B}\).
 The substitution \(u=\log y\) finishes the proof.
-\leanref{eventually_abs_le_inv_pow_of_transform}
+\leanlinks{\leanref{eventually_abs_le_inv_pow_of_transform}}
 \end{proof}

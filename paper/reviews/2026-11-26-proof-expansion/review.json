@@ -1,0 +1,145 @@
+{
+  "id": "2026-11-26-proof-expansion",
+  "date": "2026-11-26",
+  "previous_paper_commit": "4272447bcd3dcb7036a625830016aa8f63170f9c",
+  "lean_source": {
+    "repository": "lsernau/grh-lean",
+    "project": "grh",
+    "commit": "72fead102f663d5c7a407964a13dc0cf9d977207"
+  },
+  "scope": "Expand source-specific proof steps in the bilingual exposition and clarify Lean references.",
+  "comparison_level": "targeted proof comparison with pinned Lean passages, concentrating on the revised arguments",
+  "edit_authority": "bilingual paper, PDF and README files in the public fork",
+  "prior_findings": [
+    "The previous PDF placed source captions directly in the running text.",
+    "The previous paper often stated local estimates or determinant steps without their derivation."
+  ],
+  "findings": [
+    {
+      "id": "reference-display",
+      "type": "typesetting",
+      "status": "fixed",
+      "location": "Section 3.3 and the other body occurrences",
+      "change": "Separate parenthesized reference lines with blue links."
+    },
+    {
+      "id": "compressed-proof-steps",
+      "type": "exposition",
+      "status": "expanded",
+      "location": "Sections 3 and 5–7",
+      "change": "Reconstruct the proof passages documented in the review records."
+    }
+  ],
+  "coverage": [
+    {
+      "section": "1–4, 8",
+      "math_review": "partial",
+      "proof_units": [
+        "zero-density reduction and prime-power bound",
+        "graded unitary data and main determinant"
+      ],
+      "source_check": "targeted source comparison and statement/label checks",
+      "pdf_check": "text and annotation checks on all pages, rendered page samples"
+    },
+    {
+      "section": "5",
+      "math_review": "partial",
+      "proof_units": [
+        "finite seesaw",
+        "local Weil integrality",
+        "Frobenius elementary divisors",
+        "level prime",
+        "archimedean norms"
+      ],
+      "source_check": "pinned proof passages in workers/upper.md",
+      "pdf_check": "text and annotation checks on all pages, rendered page samples"
+    },
+    {
+      "section": "6",
+      "math_review": "partial",
+      "proof_units": [
+        "Fourier decay",
+        "local spherical density",
+        "stable vectors and coordinate bounds",
+        "Schur orbit sums",
+        "finite types"
+      ],
+      "source_check": "pinned proof passages in workers/spanning.md",
+      "pdf_check": "text and annotation checks on all pages, rendered page samples"
+    },
+    {
+      "section": "7.1",
+      "math_review": "partial",
+      "proof_units": [
+        "Galois main blocks",
+        "norm-compatible L-values",
+        "Fitting lattices",
+        "Ribet determinant coefficient",
+        "crystalline defects",
+        "odd classes"
+      ],
+      "source_check": "pinned proof passages in workers/lower.md",
+      "pdf_check": "text and annotation checks on all pages, rendered page samples"
+    },
+    {
+      "section": "7.2–7.5",
+      "math_review": "partial",
+      "proof_units": [
+        "sharp theta coefficient",
+        "rank-one norm",
+        "false-lift periods",
+        "exchanges",
+        "chain determinant",
+        "auxiliary forms"
+      ],
+      "source_check": "comparison of the newly expanded arguments, with links at the points of use",
+      "pdf_check": "text and annotation checks on all pages, rendered page samples"
+    }
+  ],
+  "artifacts": {
+    "ja": {
+      "path": "paper/grh-ja.pdf",
+      "sha256": "49d24ef59f0901b06737cf464258c32a95a4a129cd64313772ecd481460ab554",
+      "pages": 120,
+      "section_pages": {
+        "sec:overview": 2,
+        "sec:upper-bound": 17,
+        "sec:spanning": 45,
+        "sec:determinant-estimates": 69,
+        "eq:ribet-top-valuation": 87,
+        "par:false-lift-periods": 98,
+        "sec:conclusion": 115
+      },
+      "screenshot_comparison_page": 13,
+      "standalone_lean_notes": 296,
+      "links_to_lean_source_in_body_and_appendix": 406,
+      "links_to_correspondence_appendix": 64
+    },
+    "en": {
+      "path": "paper/grh-en.pdf",
+      "sha256": "44cf4eaf66ddc773ece43e644d2161d29b6d2ae8b5ebfbe82a4537436e39164f",
+      "pages": 114,
+      "section_pages": {
+        "sec:overview": 2,
+        "sec:upper-bound": 16,
+        "sec:spanning": 42,
+        "sec:determinant-estimates": 65,
+        "eq:ribet-top-valuation": 82,
+        "par:false-lift-periods": 92,
+        "sec:conclusion": 108
+      },
+      "screenshot_comparison_page": 12,
+      "standalone_lean_notes": 298,
+      "links_to_lean_source_in_body_and_appendix": 408,
+      "links_to_correspondence_appendix": 64
+    }
+  },
+  "shared_numbered_labels_checked": 158,
+  "pinned_source_files_checked": 240,
+  "auxiliary_inputs": [
+    "Weil representation and local discrete series",
+    "automorphic Galois representations and local–global compatibility",
+    "CM reciprocity, Siegel–Weil and local Tate duality",
+    "specified auxiliary reductions for period rings and Gauss sums"
+  ]
+}

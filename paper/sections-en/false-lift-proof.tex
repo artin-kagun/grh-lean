@@ -1,0 +1,114 @@
+\paragraph{Block periods of false lifts}\label{par:false-lift-periods}
+Let \(W,V\) be the two spaces of the descent pair, of ranks \(r_d,n\).
+Take \(Y\) to be the conjugate of a matrix coefficient of the form being
+tested. For the highest weight coefficient, the descent with the harmonic
+polynomial and the finite block datum vanishes. With the finite datum fixed,
+replacing the archimedean polynomial by any Fock polynomial gives the
+convolution of this zero function with a test function on the real points
+of \(U(W)\). These descents therefore vanish as well. A change of the
+character multiplies the descent by a factor on the determinant of its
+argument, so the conclusion holds with the normalization used here.
+\leanlinks{\leansrc{New/OneLift/FalseLifts/PeriodsOfFalseLifts}{From the harmonic datum to arbitrary polynomials}}
+
+At the places \(w\) of the level, decompose a finite test function into
+indicators of sufficiently small residue classes. Write the center as
+\(z_w=\binom{z'_w}{z''_w}\). Suppose that all selected row blocks \(z'_w\)
+are invertible and \(z''_w(z'_w)^{-1}\) is integral, with zero reduction at
+the chosen places. Right translation by \((z'_w)^{-1}\) puts the center
+where the block datum has value \(1\), and that datum is constant on a
+sufficiently small class. The character-weighted average of the indicator
+over level translations is a scalar multiple of the translated block
+datum. The level group acts transitively on its support, and the
+transformation rule determines values from one value. Pairing with the
+descent is invariant under the averaging, so this pairing is zero.
+
+If the condition fails at a place, use the kernel of the selected row block,
+or clear the denominator of a row of \(z''_w(z'_w)^{-1}\) to obtain a
+primitive row. This gives an integral row \(l\) with \(lz_w=0\) whose
+reduction \(\lambda\) on the selected rows is nonzero. At a twist place
+the remaining entries of \(l\) can be taken to have zero reduction. Lift
+each invertible \(s=1+v\lambda\) over the residue field to an integral
+matrix \(1+\widetilde v l\). It fixes \(z_w\) and preserves the residue
+class. On the form it acts as \(\chi_w(\det s)^{-1}\bar s\), where
+\(\bar s\) is the block action of \(s\) at a chosen place and \(1\) at a
+twist place. Adding the descents after these translations gives the
+original descent value times the order of the group. At chosen places
+the sum is zero by the hyperplane condition. At twist places the
+determinant \(1+\lambda v\) runs with constant multiplicity over the
+units, so the sum is zero by \(\chi_w\ne1\). This proves vanishing of the
+descents to \(W\) for all data that are vacuum off the level.
+\leanlinks{\leansrc{New/OneLift/FalseLifts/BottomOfTower}{Integrals on small classes and hyperplane sums}}
+
+Add the hyperbolic planes one at a time. After adding \(i\ge1\) planes,
+put \(m'=r_d+2i\), \(k'=n-m'\), and write \(F\) for the descent.
+In the mixed model the zero term along the last isotropic line integrates
+to zero by the induction hypothesis for \(i-1\) planes. The remaining
+kernel is uniformly bounded. Indeed, the definite target has height
+\(1\). If the source height \(H\) exceeds \(2\), rational translation
+makes the isotropic line have length at most \(2/H\). Subtracting the zero
+term gives a functional that kills its translation average. Decay of
+arbitrary order under the resulting short translations absorbs the moderate
+growth \(O(H^A)\). For \(H\le2\), moderate growth suffices. Integrating
+against the form on the compact target quotient makes \(F\) bounded.
+
+Let \(q\) be the residue cardinality at the split place off the level and
+\(P_{d,w}(T)\) the rank-\(d\) Hecke polynomial. The original form is killed
+by \(P_{n,w}(X)\) with \(|X|=q^{-(n-1-r_d/2)}\).
+Transferring the local Hecke action on the vacuum makes \(F\) spherical
+and gives
+\[
+ \prod_{j=0}^{k'-1}(1-q^jX_0)\,P_{m',w}(X')F=0,\qquad
+ X_0=\chi(\mathrm{Frob}_{\bar w})q^{m'/2}X,\qquad
+ X'=\frac{q^{k'}X_0}{q^{n/2}} .
+\]
+Here \(\chi\) is the base change of the descent character.
+The inequalities \(i\ge1\) and \(2r_d+2i+3<n\) imply
+\(q^{k'+m'/2}|X|\le1\) and \(q^{m'+1+k'/2}|X|\le1\).
+The first makes the product nonzero and the second gives
+\(q^{m'+1}|X'|\le1\). In the expansion of \(P_{m',w}\) over subspaces of
+the residue vector space, the zero subspace gives the identity and the
+Gaussian binomial formula gives the sum of the absolute coefficients
+\[
+ \prod_{j=0}^{m'-1}(1+q^j|X'|)
+ \le\exp\!\left(\frac{1}{q(q-1)}\right)<2 .
+\]
+Taking the supremum after isolating the identity term bounds
+\(\|F\|_\infty\) by a multiple strictly less than \(1\) of itself.
+Thus \(F=0\). Translates of the highest vector span the coefficient space,
+so the result holds for every matrix coefficient.
+\leanlinks{\leansrc{New/OneLift/FalseLifts/HyperbolicPlaneStep}{Subtracting the zero term and using a small Hecke root}}
+
+Write \(V=V_1\oplus V_2\) with \(\dim V_1=N_d\) and \(2r_d+2N_d+3<n\).
+Complete the kernel of \(W\) on \(V_2\) occurring in the period by a kernel
+on \(V_1\), with inverse block characters. The \(V_1\) datum can be chosen
+so that its kernel is nonzero at the fixed arguments. Multiply \(Y\) by
+the resulting kernel on \(U(V)\) to get \(Y_2\). Multiplication of kernels
+in the source makes the descent of \(Y_2\) to the hyperbolic space a
+descent of \(Y\) to \(W\oplus\mathbb H^{N_d}\), which vanishes.
+Finite right translations supported at the level preserve the condition
+on the data.
+
+Let \(I(g)\) be the translated block period of \(Y_2\) over \(U(V_2)\),
+and \(x(g)\) its corresponding frame of \(V_1\). The Fourier coefficient
+in the mixed model along the isotropic frame, for a Heisenberg translate
+of the vacuum, introduces the weight
+\(\psi_u(x(g))\,|e(\alpha_0x(g))|^2\).
+Here \(\psi_u\) is the additive character pairing the frame entries
+with \(u\), omitting the components held fixed by the vacuum condition.
+Integrating first over \(U(V_2)\) gives zero for the integral of this weight
+times \(I(g)\), for every \(u\). On the vacuum support, changes in the
+omitted components can be absorbed by the integral unitary level away
+from the selected places. The conjugate of the period thus descends
+continuously through the values of the additive characters. Applying
+Stone--Weierstrass to the algebra generated by their products and
+conjugates gives
+\[
+ \int |e(\alpha_0x(g))|^2\,|I(g)|^2\,\mathrm dg=0 .
+\]
+The integrand is continuous and nonnegative. The vacuum weight is positive
+at the frame giving the original period, so that period is zero. Divide
+by the nonzero first-block factor to obtain vanishing of the desired
+\(V_2\) period. On level classes the integral is a sum weighted by
+stabilizer orders.
+\leanlinks{\leansrc{Lib/Weil/Periods/DescentVanishing}{Recovering the period from Fourier coefficients of the frame}
+  \leanlinksep \leansrc{New/OneLift/FalseLifts/PeriodsOfFalseLifts}{Vanishing of the class sum on the block}}

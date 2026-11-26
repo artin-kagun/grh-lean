@@ -2,10 +2,25 @@
 \newcommand{\leansrc}[2]{\href{\upstream/grh/src/#1.lean}{#2}}
 \newcommand{\leandecl}[3]{\href{\upstream/grh/src/#1.lean\#L#2}{\texttt{#3}}}
 
+\definecolor{linkblue}{HTML}{145B9B}
+\hypersetup{colorlinks=true,linkcolor=linkblue,urlcolor=linkblue,citecolor=linkblue}
+
+\newcommand{\leanlinksep}{\paperlanguage{、}{\space\textperiodcentered\space}}
+\newcommand{\leanlinks}[1]{%
+  \par\nobreak\vskip .25\baselineskip
+  \begingroup
+    \small\normalfont\raggedright
+    \leftskip=1.25em\relax
+    \parindent=0pt\relax
+    \interlinepenalty=10000\relax
+    \noindent\paperlanguage{（}{(}\textbf{\paperlanguage{Lean 参照}{Lean source}}\enspace
+    #1\paperlanguage{）}{)}\par
+  \endgroup
+}
+
 \newcounter{leanentry}
 \renewcommand{\theleanentry}{L\arabic{leanentry}}
-\newcommand{\leanref}[1]{\unskip\nobreak\hspace{0.2em}%
-  \textsuperscript{\normalfont\hyperref[lean:#1]{[\ref*{lean:#1}]}}}
+\newcommand{\leanref}[1]{\hyperref[lean:#1]{\ref*{lean:#1}}}
 \newcommand{\leanentry}[4]{%
   \item[]\refstepcounter{leanentry}\label{lean:#1}%
   \textbf{[\theleanentry]}\enspace\paperlanguage{#2}{#3}\par\nobreak

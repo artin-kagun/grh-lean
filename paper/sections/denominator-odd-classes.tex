@@ -1,0 +1,169 @@
+\paragraph{奇コサイクルの一様な長さ}
+この段落では \(N=N_{\mathrm{cyc}}\)、\(y=N+t+3\) と置く。\(\nu=0\) では加群は零なので、\(\nu\ge1\) とする。指数 \(a=0\) では、
+大域類体論により、至る所不分岐な連続準同型 \(G_E\to\mathcal O/\ell^\nu\) は
+類群 \(\operatorname{Cl}(E)\) からの準同型である。各巡回因子の位数を \(n_j\) とすると、
+準同型加群の長さは \(\sum_jv_\ell(n_j)=v_\ell(h_E)\) 以下である。
+
+\(0<a<t\) とする。Bernoulli 多項式の係数公式により
+\(B_j=(a+2)!\,N^{a+1}B_{a+1}(j/N)\) は整数である。
+\(g(j)=2B_j+(-1)^a\mathbf 1_{j=1}+\mathbf 1_{j=-1}\) を \(\mathbb Z/N\) 上で
+最小非負剰余を用いて定義する。単元 \(s,j\) を添字とする行列 \(T_{s,j}=g(j/s)\)
+の指標 \(\psi\) に対応する固有値は \(2\sum_j\psi(j)B_j+(-1)^a+\psi(-1)\) である。
+\(\psi(-1)=-(-1)^a\) のとき、Dirichlet \(L\) 関数の関数等式と
+\(\operatorname{Re}s>1\) での Euler 積により Bernoulli 和は \(L(-a,\psi)\) の
+零でない倍数である。非原始指標から原始指標への移行で現れる Euler 因子も \(a>0\)
+では零でない。他方の偶奇では Bernoulli 和が消え、固有値は \(2(-1)^a\) になる。
+\[
+ X_a=|\det T|\prod_{c\in\{1+N,1+2N\}}(c^a-1)(c^{a+1}-1).
+\]
+行列成分は絶対値で \(64(a+2)!N^{a+1}(a+1)!\) 以下なので、
+行列式を展開して \(0<X_a\le2^{(N+a+3)^6}\) を得る。
+少なくとも一方の \(c\) は任意の \(\ell\) と互いに素である。
+
+\(c\equiv1\pmod N\)、\(\ell\nmid c\) とし、\(R=N\ell^\nu\) と置く。
+\(\psi(-1)=-(-1)^a\) なら、\(\mathcal O/\ell^\nu\) において次の \(S_c\) は
+\((c^{a+1}-1)X_a\) を割る。
+\[
+ S_c=\sum_{j\in(\mathbb Z/R)^\times}
+ \left(\left\lfloor\frac{cj}{R}\right\rfloor
+       -\left\lfloor\frac{c[-j]_R}{R}\right\rfloor\right)j^a\psi(j).
+\]
+ここで \(j\) と \([-j]_R\) は最小非負剰余である。指標ベクトルに伴随行列を作用させ、
+成分 \(1\) を取ると固有値 \(2\sum_j\psi(j)B_j\) は \(X_a\) を割る。
+Voronoi の合同でこの固有値に \(c^{a+1}-1\) を掛けたものを床関数の和の倍数に書く。
+法 \(N\ell^\nu\) と法 \(N\ell^{\nu-1}\) の全剰余の和を比較して \(\ell\) の倍数の寄与を
+除くと、左辺に単元 \(1-\ell^a\psi(\ell)\) が掛かる。
+単元剰余の和で \(j\mapsto-j\) と置き換えると床関数の差が現れる。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Voronoi.lean\#L393}{Bernoulli 多項式から作る整数}
+  \leanlinksep \href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L576}{単元剰余に限った合同}}
+
+\(C_N=(\mathbb Z/N)^\times\) から \(G_{\mathbb Q}\) への持ち上げ \(\sigma\) を
+\(\sigma(1)=1\) となるように取る。複素共役 \(c_\infty\) に対して
+\[
+ B(u,h)=u(c_\infty h c_\infty^{-1}h^{-1})u^{-1},\qquad
+ z_\psi(h)=\sum_{v\in C_N}(\epsilon_{\mathrm{cyc}}^a\psi)(\sigma(v))\,z(B(\sigma(v),h)).
+\]
+円分商は可換なので \(B(u,h)\in G_E\) である。
+\(B(u,hh')=B(u,h)B(uh,h')\) であり、これらの交換子の円分指標は自明である。
+\(u\) に左から \(G_{\mathbb Q(\mu_N)}\) の元を掛けると、\(z(B(u,h))\) の
+共役による因子と \(\epsilon_{\mathrm{cyc}}^a(u)\) の変化が相殺する。
+従って \(v\mapsto v\overline h\) で和を置換すると
+\(z_\psi\) は \((\epsilon_{\mathrm{cyc}}^a\psi)^{-1}\) に対するコサイクルとなる。
+\(c_\infty\) では交換子が自明であり、指定された局所元では両共役上の \(z\) の値が零である。
+直交関係により \(h\in G_E\) では
+\[
+ \sum_\psi z_\psi(h)=\varphi(N)\bigl(z(c_\infty h c_\infty^{-1})-z(h)\bigr).
+\]
+偶 \(\epsilon_{\mathrm{cyc}}^a\psi\) の成分は \(c_\infty\) による共役で不変である。
+従って奇成分が消えれば、右辺を \(h\) と \(c_\infty h c_\infty^{-1}\) で比較し、
+\(z\) の奇性を用いて \(4\varphi(N)z=0\) を得る。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/OddSha.lean\#L414}{コサイクルの指標分解}}
+
+奇成分で \(4X_a^2z_\psi\ne0\) なら、\(2X_a^2z_\psi\) は \(G_{\mathbb Q(\mu_R)}\) 上で
+消えない。そこで消えれば可換商を経由し、\(c_\infty\) で値が零で作用が \(-1\) であるため、
+その二倍が零になるからである。Chebotarev の定理で
+\(p\equiv1\pmod R\) の Frobenius \(\sigma_p\) における非零値を選ぶ。
+\(\ell\) と互いに素な \(c\in\{1+N,1+2N\}\) を用いる。
+Jacobi 和 \(J(1/R)\) は \(p\) の外で単元であり、その共役の \(p\) での付値は
+\(S_c\) に現れた床関数の差である。Artin 相互法則をこの元に適用すると
+\(S_c\,2(c^a-1)z_\psi(\sigma_p)=0\) となる。
+\(S_c\mid(c^{a+1}-1)X_a\) と \((c^a-1)(c^{a+1}-1)\mid X_a\) を順に用いると
+\(2X_a^2z_\psi(\sigma_p)=0\) となり矛盾する。
+よって \(Y_a=4\varphi(N)\cdot4X_a^2\) は元の奇コサイクルを零化する。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L670}{Jacobi 和から成分の零化元を得る計算}}
+
+次に \(y^{20}\) 個以下の点でコサイクルを検出する。
+\(\ell\le y^2\) では \(D=N\ell^2\)、\(K=\mathbb Q(\mu_D)\) とする。
+\(G_E/G_K\) の剰余類代表と、\(G_K\) の \(\ell\) 外不分岐で \(D\) に殺される
+アーベル商の生成元の持ち上げを評価点に取る。後者の商の位数は
+\(h_K\) と \(\ell\) 上の局所乗法群の \(D\) 乗部分群の指数の積を割る。
+円分判別式、Minkowski の類数評価と局所指数評価より、この積は
+\(2^{D^3+5D^2+D}\) 以下である。巡回分解から、評価点は
+\(\varphi(D)+D^3+5D^2+D\le D^4\le y^{20}\) 個以下でよい。
+これらの点で消える \(z\) を零化する \(\ell\) 冪について帰納すると \(Dz=0\)
+となる。実際、\(Dz\) は同じ点で消え、より低い冪で零化される。
+従って \(G_K\) は \(z\) の値に自明に作用し、\(z|_{G_K}\) は上記のアーベル商を
+経由する準同型となる。生成元と剰余類代表で消えるので \(z=0\) となる。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/OddSha.lean\#L91}{円分体の類数、局所指数、小さい素数での評価点}}
+
+\(\ell>y^2\) では奇成分一つにつき \(m_a=\operatorname{ord}_\ell(X_a)+1\) 個の評価点を
+Kolyvagin の Gauss 和の微分コサイクルから得る。どの \(m_a\) 点も検出しないと仮定する。
+\(N\ell\) を法として \(1\) に合同な素数の集合 \(T\) が \(\#T\le m_a\) を満たすとき、
+各素数の Frobenius で消える成分を選び、その最後の非零な \(\ell\) 冪倍を取る。
+得られる \(w\) は \(\ell w=0\) で、\(T\) の上で自明である。
+実際、これらの素数では \(\ell\)-捩れ係数への作用が自明であり、
+どの分解群も慣性群と共役の Frobenius によって位相的に生成される。
+
+\(c\equiv1\pmod N\) を \(\ell\) を法とする原始根に選び、\(c^a-1,c^{a+1}-1\) を単元とする。
+双対指標 \(\epsilon_{\mathrm{cyc}}^{a+1}\psi\) が \(c^{a+1}\) をとる \(\ell\) 上の慣性元 \(\gamma\) を選ぶ。
+法 \(cN\ell^{m_a}\) で \(1\) に合同な補助素数の有限集合 \(Q\) を選ぶには、
+\(\mathbb Q(\mu_N)\) 上で \(\ell\) 外不分岐な双対コサイクルで
+\(G_{\mathbb Q(\mu_{cN\ell^{m_a}})}\) 上に非零値を持つものと、非零な奇成分との
+各対について、両者が同じ Frobenius で非零となる素数を Chebotarev の定理で一つ取る。
+これは指定の円分体上で二つの制限の核がともに真部分群であり、その和集合は全体でないためである。
+有限係数のコサイクルは係数作用が自明となる部分群では類体論の有限商を経由し、
+剰余類代表でも有限個の値しか取らない。よって \(Q\) は有限である。
+さらに \(p\equiv1\pmod {N\ell^{m_a}\prod_{r\in Q}r}\) を、ある非零の \(\ell\)-捩れ成分が
+自明でない素数に選ぶ。
+
+法 \(\ell^{m_a}\) の双対コサイクルが \(\ell\) に殺され、
+\(\mathbb Q(\mu_N)\) 上で \(\ell,T\) 外不分岐なら \(\ell\) 外不分岐となる、
+という性質を考える。空集合はこの性質を持つ。\(w\) が \(T\) の上で自明で、
+新しい素数 \(r\equiv1\pmod{N\ell}\) の上で自明でないとき、\(T\cup\{r\}\) にも成り立つ。
+実際、\(r\) 上の慣性値 \(z=\kappa(\tau)\) について、
+\(\mathcal Oz\) の \(\mathbb F_\ell\)-基底 \((e_i)\) での座標を \(\mu_\ell\) への
+準同型に延長する。\(\mathbb Q(\mu_{N\ell})\) 上で Hilbert の定理 90 を適用し、
+各座標の Kummer 元 \(\alpha_i\) を取る。その \(\ell\) 乗はこの体に属する。
+その共役の \(r\) での位数を \(m_{i,u}\) とし、
+\(\tau(r^{1/\ell})/r^{1/\ell}=\zeta_\ell^j\) とする。
+\(r^{m_{i,u}/\ell}/\sigma(u)\alpha_i\) の \(\ell\) 乗は局所単元なので、
+慣性元によるこの比の変化は主単元である。従って根の指数を比べると
+\(u^a\psi(u)\sum_i m_{i,u}j e_i=z\) となる。ここでは双対指標の一つ分の冪が
+根の共役から出る \(u\) で相殺する。各 \(\alpha_i^\ell\) に Artin 相互法則を適用すると
+\(\sum_u m_{i,u}u^a\psi(u)\) は非零な \(2(c^a-1)w(\operatorname{Frob}_r)\) を零化し、
+従って極大イデアルに属する。座標の式を \(u\) について足すと、
+\(\varphi(N\ell)z\) は極大イデアルと \(\mathcal Oz\) の積に入る。
+\(\varphi(N\ell)\) が単元なので \(z=0\) である。従って \(\{p\}\) はこの性質を持つ。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L430}{法 \(\ell\) の相互法則での Kummer の計算}}
+
+\(p,Q\) に対する Gauss 和の微分コサイクルを \(\kappa_S\) (\(S\subset Q\)) と書く。
+構成では Jacobi 族 \(J(x)\) の \(\ell^{m_a}\) 乗根 \(Y(x)\) を選ぶ。
+\(N\ell^{m_a}\prod_{r\in S}r\) に殺される \(x\) について、
+\(\gamma(Y(x))/(g\gamma g^{-1})(Y(x))\) の \(\mu_{\ell^{m_a}}\) 内での指数を取る。
+この函数に各 \(r\in S\) の作用素
+\(f\mapsto\sum_{u\in(\mathbb Z/r)^\times}\log_r(u)f(x+u/r)\) を作用させる。
+\(\log_r\) は \(\mathbb Z/\ell^{m_a}\) への全射である。
+最後に \(x=j/(N\ell^{m_a})\) で評価し、重み \(j^a\psi(j)\) で足す。
+このコサイクルは \(\gamma\) で零であり、
+\(\mathbb Q(\mu_N)\) 上で \(\ell,p,S\) の外で不分岐である。
+\(r\in Q\setminus S\) に対し、\(\mu_r\) に \(v^{-1}\) で作用する慣性元を
+\(\log_r(v)=1\) となるように選ぶ。\(v\) による置換で \(\log_r\) の重みが \(1\) ずれ、
+Jacobi 族の分配関係と \(r\) での還元によって、
+この慣性元での \(\kappa_{S\cup\{r\}}\) の値が
+\(\kappa_S(\operatorname{Frob}_r)\) と一致する。
+\(r\) と互いに素な位数の根は還元で区別される。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/DerivativeCocycles.lean\#L922}{微分コサイクルにおける Frobenius と慣性の比較}}
+\(\#S\le i\) かつ \(\{p\}\cup S\) が上の性質を持つとき、
+\(\ell^i\kappa_S\) が \(\ell\) 外不分岐となることを \(i=m_a\) から降順に示す。
+初めは \(\ell^{m_a}\kappa_S=0\) である。段階 \(i\) で \(u=\ell^{i+1}\kappa_S=0\)
+なら、集合の性質を適用できる。\(u\ne0\) なら \(\gamma\) で消え、双対指標の値と \(1\)
+の差が単元であるため、指定の円分体の絶対 Galois 群上で消えない。
+\(\{p\}\cup S\) 上で自明な \(w\ne0\) と組にして \(Q\) の選び方を用いると、
+二つの値がともに非零の \(\operatorname{Frob}_r\) がある。
+この \(r\) は \(S\) の外であり、追加した集合にも性質が成り立つ。
+帰納法より \(\ell^{i+1}\kappa_{S\cup\{r\}}\) は \(r\) 上で不分岐なので、
+慣性値との一致が \(u(\operatorname{Frob}_r)\ne0\) に矛盾する。
+従って \(\kappa_\varnothing\) は \(p\) 上で不分岐である。その慣性値の式から
+\((\epsilon_{\mathrm{cyc}}^{a+1}\psi(\gamma)-1)S_c=0\) になる。最初の因子と \(c^{a+1}-1\) が
+単元なので Stickelberger 和の合同は \(\ell^{m_a}\mid X_a\) を与え、矛盾する。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L868}{法 \(\ell\) の相互法則、補助素数、降順の議論}}
+
+各指標の評価点を \(\gamma_{\psi,i}\) とすると、\(z\) には
+\(B(\sigma(v),\gamma_{\psi,i})\) を用いる。これらで消えればすべての奇成分が消え、
+\(4\varphi(N)<\ell\) より \(z=0\) となる。点の個数は
+\(\varphi(N)^2m_a\le y^{20}\) 以下である。小さい素数の場合も合わせて、評価写像は
+加群を高々 \(y^{20}\) 個の \((\mathcal O/\ell^\nu)[Y_a]\) の直和に埋める。
+各因子の長さは \(v_\ell(Y_a)\) 以下なので、全指数と全素数に対し
+\(C_{\mathrm{odd}}=h_E(\prod_{0<a<t}Y_a)^{y^{20}}\) が使える。
+各 \(Y_a\le 2^{4y^6}\) で因子は高々 \(y\) 個なので、\(C_{\mathrm{odd}}\le h_E2^{4y^{27}}\) となる。
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/OddSha.lean\#L507}{全指数と全素数に共通の長さの上界}}

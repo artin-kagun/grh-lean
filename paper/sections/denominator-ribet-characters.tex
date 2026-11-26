@@ -1,0 +1,169 @@
+\paragraph{指標の行列式と補助素点からの因子}
+添字 \(I\) を、旧惰性元 \(\delta_v\) の添字、追加の生成元 \(I_0\)、
+および試験点を含む検出集合 \(s\) の三つに分けて並べる。
+\(\eta_a\colon\mathcal A\to\mathcal S\) を指標 \(\chi_a\) で読む準同型とする。
+行を \(\eta_a\) で読み、旧惰性元の座標を忘れた後、さらに
+\(\mathcal S\)-線形写像を施したものを \(F\) と書く。
+\(\Phi:\mathcal O^I\to\operatorname{im}(F)\) は定数行に制限した写像とする。
+\(U\) を \(F(N_\mathrm{row})\) を含む部分加群とし、
+\[
+ Z(U)=\{\Psi\circ z:\ \Psi:\mathcal O^I\to\mathcal O/(p_\ast)
+      \text{ は }\mathcal O\text{-線形で }\Phi^{-1}U\text{ 上零}\}
+\]
+と定める。主成分の場合と同じ三種の行から、\(c=\Psi\circ z\) は
+\(\chi_a\) に対するコサイクルで、\(N_x(g)-1\) の族の線形関係を満たす。
+旧惰性元 \(\delta_v\) の座標を忘れたので、\(z(\delta_v)-\mathbf e_v\)
+の行から \(c(\delta_v)=0\) が従う。
+\((g-1)u_\gamma\) を \(\eta_a\) で読むと
+\[
+ (\chi_a(g)-1)\bigl(c_\gamma z(\gamma)+z(a_{\mathrm c})\bigr)
+\]
+となる。従って \(c(\gamma)=0\) なら
+\((\chi_a(g)-1)c(a_{\mathrm c})=0\) が全ての \(g\) について成り立つ。
+これが順序付き素点の評価に入力する指標のコサイクル条件である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L564}{行の消滅条件から指標のコサイクルへ}}
+
+まず \(F\) を \(I_0\) 座標のみを読む写像とする。
+検出点 \(g\in s\) の座標を忘れるので、どの \(c\in Z(U)\) も
+\(c(g)=0\) となる。試験点と \(a_{\mathrm c}\)、新素点の惰性元を合わせた
+\(s\) の検出性から \(c=0\) である。
+\(p_\ast\mathcal O^I\subset\Phi^{-1}U\) なので、この消滅条件の双対を取れる。
+実際、\(\mathcal O^I/\Phi^{-1}U\) は \(p_\ast\) で殺される有限生成
+\(\mathcal O\)-加群であり、Smith 標準形で各巡回因子を
+\(\mathcal O/(p_\ast)\) への線形形式で検出できる。
+したがって \(\Phi(z(g_i))\) は \(U=F(N_\mathrm{row})\) に属する。
+\(z(g_i)-\mathbf e_i\) は拘束行なので、
+\(I_0\) 座標に任意の単位行をもつ拘束行が各 \(\eta_a\) で得られる。
+
+これらの単位行は全ての指標に共通にできる。
+既に幾つかの指標で \(i\) 番目の単位行になっている行を \(b\) とする。
+次の指標について、\(j\in I_0\) の単位行を与える行 \(m_j\) を選び、
+\(b+\sum_{j\in I_0}(\delta_{ij}-b_j)m_j\) に置き換える。
+新しい指標では \(I_0\) 部分が \(i\) 番目の単位行になる。
+これまでの指標では追加項の係数がすべて零なので、その値は変わらない。
+これを全指標について繰り返した行を \(\nu_i\) とする。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/FittingBlock.lean\#L326}{指標に共通の単位行}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/FittingBlock.lean\#L700}{検出性から単位行を作る双対性}}
+
+この \(\nu_i\) で \(I_0\) 座標を消去し、\(s\) 座標に残る写像を
+\(F_a\)、その行の像を \(K_a=F_a(N_\mathrm{row})\subset\mathcal S^s\) とする。
+最初の座標を消すために \(F_a\) を通した後でも
+\(p_\ast\Phi(\mathcal O^I)\subset K_a\) であり、
+\(y(g)=\Phi(z(g))\) と書くと \(y(g)\equiv\mathbf e_g\bmod K_a\) が
+\(g\in s\) で成り立つ。新素点では \(H_j(\chi_a(\phi))\equiv1\bmod p_\ast\)。
+従って、もとの拘束行に適当な \(p_\ast X_j z(\phi)\) の整倍を加え、
+\[
+ y(\tau_j)\equiv X_j y(\phi_j),\qquad
+ y(\tau_j')\equiv X_j y(\phi_j')\pmod{K_a}
+\]
+を得る。プライム付きの元は共役逆元側である。
+
+\(J_a=\{j\in J:\operatorname{type}(j)=a\}\)、
+\(X_{<a}=\prod_{\operatorname{type}(j)<a}X_j\) とし、
+\(\mathfrak n\) を \(X_J\) を割らない単項式が張るイデアルとする。
+\(\mathfrak q_a=(\mathfrak n:X_{<a})\) と置く。
+\(\operatorname{type}(i)<a\) では \(X_iX_{<a}\) が \(X_i^2\) で割れるため、
+\(X_i\in\mathfrak q_a\) である。
+以下 \(U=K_a+\mathfrak q_a\mathcal S^s\) から始める。
+部分加群 \(V\subseteq\mathcal S^s\) に対し
+\(\operatorname{Fitt}(V)\) を、行が \(V\) に属する正方行列の行列式が張る
+イデアルとする。これは \(\mathcal S^s/V\) の第零 Fitting イデアルである。
+
+ここで使う長さと Fitting イデアルの比較を示す。
+\(Z(V)\) を上の定義とし、関数の部分加群 \(Z_*\) を固定する。
+\(\Psi\circ z\in Z_*\) となる全ての \(\Psi\) が殺す
+\(u\in\mathcal O^I\) について \(\Phi(u)\in V\) としたい。
+外にある \(\Phi(u)\) があれば、一様化元を \(\varpi\) として
+\(q=\Phi(\varpi^k u)\notin V\) かつ \(\varpi q\in V\) となる \(k\) を取る。
+\(p_\ast\mathcal O^I\) の像を \(V\) が含むのでこの \(k\) が存在する。
+行を一つ加えた \(V'=V+\mathcal S q\) について、
+行列式をその行に沿って多重線形に展開すると
+\(\varpi\operatorname{Fitt}(V')\subseteq\operatorname{Fitt}(V)\) である。
+同じ行 \(q\) を二つ以上含む項は零で、一つ含む項は
+\(\varpi q\in V\) で処理できる。
+また \(Z(V')\) の \(Z_*\) による商への像は、\(Z(V)\) の像より真に小さい。
+もし像が等しければ、\(V\) を消す \(\Psi\) を \(V'\) を消す \(\Psi'\)
+に変えても \((\Psi-\Psi')\circ z\in Z_*\) であり、
+\(\Psi(u)=\Psi'(u)\) である。従って全ての \(\Psi\) が
+\(\varpi^k u\) を殺し、上で用いた有限商の双対性から \(q\in V\) となる。
+各追加をこの真の長さの減少で数えると、
+必要な行を加えた後の Fitting イデアルに掛ける乗数の付値は
+\(\operatorname{length}\bigl(Z(V)/(Z(V)\cap Z_*)\bigr)\) 以下である。
+\leanlinks{\href{\upstream/grh/src/Lib/General/Algebra/FittingIdealsAndLengths.lean\#L671}{長さで Fitting イデアルの変化を抑える議論}}
+
+この比較を三段に適用する。まず、補助素点の評価に現れる集合
+\(A_a\subset G_E\) 上でコサイクルが消えるようにする。
+上の \(Z_*\) を \(A_a\) 上零となる関数全体に取ると、
+拡大した加群 \(U_1\) でこの消滅が成り立つ。
+Fitting イデアルを \(U\) のものに戻す乗数 \(k_1\) の付値は、
+\(Z(U)\) と \(A_a\) 上零となる部分との差の長さ以下である。
+
+次に \(j\in J_a\) を順に取り、
+\(v_j=y(\phi_j)-y(\phi_j')\) を行に加える。
+先に追加した行を含む加群を \(V\) とする。
+\(i<j\) が同じ型なら \(v_i\in V\) であり、それより前の型なら
+\(X_i\in\mathfrak q_a\) であるから、どちらも \(X_i v_i\in V\) である。
+新素点の拘束によって全ての \(\Psi\) は、
+先行する \(\tau_i,\tau_i'\) で同じ値を取り、
+同型の先行する \(\phi_i,\phi_i'\) でも同じ値を取る。
+従って順序付き素点の合同から
+\(C\bigl(c(\tau_j)-c(\tau_j')\bigr)=0\) となる。
+有限商の双対性を再び使って
+\(C(y(\tau_j)-y(\tau_j'))\in V\) を得る。
+拘束によってこれは \(CX_jv_j\in V\) を意味する。
+行 \(v_j\) を足したときの Fitting イデアルには \(CX_j\) を掛ければ
+もとに戻る。すべて足した加群を \(T\) とすると、
+\(\operatorname{Fitt}(T)\) に \(C^{\#J_a}\prod_{j\in J_a}X_j\) と
+\(k_1\) を掛けたものは \(\operatorname{Fitt}(U)\) に入る。
+
+最後に \(T_0=T+(X_j:j\in J)\mathcal S^s\) とする。
+\(Z(T_0)\) では全ての惰性で \(c=0\) となり、
+\(j\in J_a\) の \(\phi_j,\phi_j'\) で同じ値を取る。
+今度は \(Z_*\) を \(C\)-捩れの関数全体として長さと Fitting イデアルを比較する。
+\(Cz(g)\) は \(C\)-捩れの全ての関数から零に読まれる。
+従って拡大した行加群は \(C y(g)\) を含み、
+\(y(g)\equiv\mathbf e_g\) から \(C\mathbf e_g\) も含む。
+行列 \(C I\) の行列式 \(C^{\#s}\) に比較の乗数 \(k_2\) を掛けると
+\(\operatorname{Fitt}(T_0)\) に入る。
+\(T_0\) で足した行の定数項は全て零なので、
+\(\operatorname{Fitt}(T)\) に定数項が \(k_2 C^{\#s}\) となる
+\(d\) がある。
+
+順序付き素点の評価によれば \(k_1,k_2\) に払う長さの和は \(b_a\)
+以下である。ここで \(b_a\) は結晶的条件の余長と奇部分の長さの和である。
+従って \(\Gamma_a=k_1 C^{\#J_a}d\) とすると
+\[
+ \Gamma_a\prod_{j\in J_a}X_j\in\operatorname{Fitt}(U),\qquad
+ v_\ell(\Gamma_a(0))\le b_a+(\#J_a+\#s)v_\ell(C).
+\]
+\(U=K_a+\mathfrak q_a\mathcal S^s\) だったので、
+行列式を行について展開して
+\(\operatorname{Fitt}(U)\subseteq\operatorname{Fitt}(K_a)+\mathfrak q_a\)
+を得る。従って
+\(d_a+\xi_a=\Gamma_a\prod_{j\in J_a}X_j\) と分けられる。
+ここで \(d_a\in\operatorname{Fitt}(K_a)\)、\(\xi_a\in\mathfrak q_a\) である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/FittingBlock.lean\#L124}{指標の三段階の Fitting 評価}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L706}{行の像に対する適用}}
+
+\(d_a=\sum_i w_{a,i}\det B_{a,i}\) と書く。
+\(B_{a,i}\) の各行を拘束行に持ち上げて \(\nu_i\) で消去すれば、
+\(\eta_a\) で読むと \(I_0\) 座標が零で \(s\) 座標が所定の行である
+行が得られる。指標ごとに行列を一つ選んで添字の組 \(\mathbf i\) とする。
+\(a_{\mathrm c}\) の作用の差の積を用いて
+\(\eta_a(u_a)=C\) で、\(a'\ne a\) では \(\eta_{a'}(u_a)=0\) となる
+\(u_a\in\mathcal A\) を作れる。
+具体的には \(\prod_{a'\ne a}(a_{\mathrm c}-\chi_{a'}(a_{\mathrm c}))\) に、
+その \(\eta_a\) での値が \(C\) を割った商を掛ける。
+各 \(g\in s\) の行について、
+\(\eta_a\) に対する持ち上げに \(u_a\) を掛けて \(a\) について足す。
+\(I_0\) には \(\nu_i\) を置く。旧惰性元 \(\delta_v\) の行には
+その座標にだけ \(o_v(\delta_v)\) を置く。
+この行は値 \((\delta_v-1)o_v(\delta_v)\) が全ての表現で零なので
+拘束行である。こうしてできた正方行列 \(B_{\mathbf i}\) を
+\(\eta_a\) で読むとブロック三角形になり、対角ブロックの行列式は
+\(\prod_v o_v(1),\,1,\,C^{\#s}\det B_{a,i(a)}\) である。
+従って \(c_0=C^{\#s}\prod_v o_v(1)\) とすると
+\[
+ \det\eta_a(B_{\mathbf i})=c_0\det B_{a,i(a)}.
+\]
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L933}{全指標を同じ行列で表す構成}}

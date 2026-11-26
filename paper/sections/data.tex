@@ -16,7 +16,9 @@
  \sqrt{x}\le m\le 2\sqrt{x},\qquad x^5\le r\le 3x^5.
 \end{gather*}
 \(\log\log b\) は \(10^{12}C_{q_0,d}\) 以上を要求する。
-ここで \(C_{q_0,d}\) は底本が \(q_0,d\) だけから定める定数である。\leanref{Parameters.constantBound}また \(2^s=m^{22}\) とすると \(s\le32\log x\) であり、
+ここで \(C_{q_0,d}\) は底本が \(q_0,d\) だけから定める定数である。
+\leanlinks{\leanref{Parameters.constantBound}}
+また \(2^s=m^{22}\) とすると \(s\le32\log x\) であり、
 \[
   l_0=3^{\lfloor\log_3 s\rfloor+4},\qquad
   q_1=3l_0\,2^s q_0,\qquad q_2=(q_0d)^{s+6},\qquad
@@ -43,7 +45,8 @@
 \(\tau/\sigma\equiv\pm\ell^i\) および
 \(\rho/\sigma\equiv\pm\ell^j\) を同時に満たすことはない。
 合同は \(q_1\) の \(\ell\) と互いに素な部分を法とし、二つの符号は独立である。
-この条件が、底本で \(\Phi_b\) に課す疎性である。\leanref{Parameters.IsSparse}
+この条件が、底本で \(\Phi_b\) に課す疎性である。
+\leanlinks{\leanref{Parameters.IsSparse}}
 
 レベルを定める素数 \(p_0,p_1,N\) は \(q_2^2\) を法として \(1\) に合同である。
 相異なる \(p_0,p_1\) は \([b^{10},b^{11}]\) に属し、\(M=p_0p_1\) とする。
@@ -161,7 +164,7 @@
 \(e^{X/4-2}/\varphi(Q)>3U\) となる。最後の不等式は
 \(U,Q\le X^{2A}\) と、十分大きな \(X\) で
 \(e^{X/4-2}>3X^{4A}\) であることによる。この矛盾で証明が終わる。
-\leansrc{Lib/Analytic/Primes}{法の冪に関する指標と Newman の積分路の議論}。
+\leanlinks{\leansrc{Lib/Analytic/Primes}{法の冪に関する指標と Newman の積分路の議論}}
 \end{proof}
 
 \begin{proposition}\label{prop:admissible-data}
@@ -209,7 +212,8 @@
 \(x^{10^6}\le x_1\) と \(x_1^{10^6}\le b\) が従う。
 \((\log x_1)^6\le L\) と \(\log L\ge10^{12}C_{q_0,d}\) も成立する。
 
-疎集合には Behrend の構成を使う。\leanref{exists_three_term_free}
+疎集合には Behrend の構成を使う。
+\leanlinks{\leanref{exists_three_term_free}}
 座標を \(0,\ldots,H-1\) とする \(n\) 次元の箱の中で、二乗長の同じ
 点を少なくとも \(H^n/(nH^2)\) 個選ぶ。
 各点の座標を底 \(2l_0H\) の数字と読むことで指数の集合が得られる。
@@ -267,7 +271,8 @@
  \frac{2^s}{2^n n W H^2}\ \ge\
  \frac{2^s}{2^n n W^3}\ \ge\ \frac{3l_0\,2^s}{W^6}.
 \]
-\(3l_0 2^s=|\Phi_a|\) および \(W^6\le\log b\) より必要な個数を確保できる。\leanref{Parameters.exists_isSparse}
+\(3l_0 2^s=|\Phi_a|\) および \(W^6\le\log b\) より必要な個数を確保できる。
+\leanlinks{\leanref{Parameters.exists_isSparse}}
 
 補題 \ref{lem:log-window-prime} に \(J=q_0d\)、\(j=2(s+6)\)、\(A=n+7\) を取る。
 \(4\mid q_0d\)、\(q_2^2\le W^n\) であり、\(m\le2^s\le W^n\) と
@@ -294,7 +299,7 @@
 不同イデアルの推移律から \(q_1d\) は \(E/\mathbb Q\) の不同イデアルに属する。
 このイデアルのノルムが \(|\operatorname{disc} E|\) であり、
 \((q_1d)\) のノルムを割るので \(1\le\mathrm{rd}_E\le q_1d\le b\) となる。
-\leansrc{New/Derivatives/Field/PrimeDecomposition}{不同イデアルに対する導手の評価}。
+\leanlinks{\leansrc{New/Derivatives/Field/PrimeDecomposition}{不同イデアルに対する導手の評価}}
 \(b^{20}\le M\le b^{22}\)、\(2\pi\le b\) から
 \[
  0\le\log\bar\kappa\le L,\qquad
@@ -306,14 +311,58 @@
 \(W\le\sqrt L\) より選んだ \(N\) は \eqref{eq:level-window} を満たす。
 \(N\equiv1\pmod4\) から \(N=u^2+v^2\) と書ける。
 \(E\) は \(\sqrt{-1}\) を含むので \(\pi_N=u+v\sqrt{-1}\) とすればよい。
-以上で \(D\) のデータが全てそろう。\leanref{eventually_exists_data}
+以上で \(D\) のデータが全てそろう。
+\leanlinks{\leanref{eventually_exists_data}}
 \end{proof}
 
 \subsection{持ち上げの始域と目標空間}
 
-底本は \(E\) 上のエルミート空間 \(X_j,Y_j\) を用いる。
-\(\dim_E X_j=k+j(t+1)\)、\(\dim_E Y_j=r+jt\) であり、
-\(Y_m\subset X_m\) は余次元 \(1\) の定符号空間である。
+\(X_j\) は階数 \(n_j=k+j(t+1)\) の標準正定値エルミート空間とする。
+\(Y_j\) の階数は \(r+jt\) で、\(j<m\) では \(X_j\) に
+長さ \(s_j=m-1-j\) の列を直交に加える。
+列のベクトル \(v_0,\ldots,v_{s_j-1}\) について
+\(\langle v_i,v_{s_j-1-i}\rangle=1\) とし、
+中点があるときだけその自己内積を \(-N\) に替える。
+他の内積は零である。\(Y_m\) は階数 \(n_m-1\) の標準正定値空間で、
+座標を取り直し、最後の座標を除く包含で \(X_m\) に入れる。
+
+有限アデールで、選んだ素点の法を生成するイデールを \(\varpi\) とし、
+\(a_f=\alpha_\mathrm{W}/\bar\varpi\) と置く。
+\(u_j=(a_f/\bar a_f)^{\lceil(m-j)/2\rceil}\) はノルム \(1\) である。
+長さ \(s_j\) が偶数なら、列の前半に \(u_j a_f^{-1}\)、
+後半に \(u_j\bar a_f\) を掛ける。
+向かい合う二列の積の規格化は \(1\) なので、この部分の Gram 行列は
+双曲平面の直和となる。長さが奇数なら、列に \(u_j\) を掛け、
+\(X_j\) の最後の単位ベクトル \(y\) を
+\(y/\bar\pi_N+u_j v_{(s_j-1)/2}/N\) に替える。
+このベクトルの自己内積は \(1/N-1/N=0\) であり、
+\(u_jv_{(s_j-1)/2}\) と組にした Gram 行列は
+\(\begin{psmallmatrix}0&-1\\-1&-N\end{psmallmatrix}\) である。
+行列式が単元なので、この有限格子は自己双対である。
+局所での整直交化のあと、選んだ素点の剰余上の変換を
+その逆の持ち上げで修正し、選んだ素点での剰余フレームを保つ。
+\leanlinks{\leansrc{Lib/Weil/Periods/Grading}{列の Gram 行列}
+  \leanlinksep \leansrc{New/UpperBound/Objects/Rows}{有限格子の構成と剰余フレーム}}
+
+\(\Delta=2r^8\)、\(\kappa_u(\tau)=\kappa(\tau)+(u+1/2)\Delta\) とする。
+\(Y_j\) の Harish--Chandra パラメータを二倍して書くと、
+基礎ブロックは \((k/2-1,k/2-2,\ldots,1-k/2;
+-\kappa_{1/2},-\kappa_{3/2},\ldots)\) の最初の \(r\) 項の二倍である。
+そこに各 \(1\le i\le j\) で
+\((-2\kappa_i+t-1,-2\kappa_i+t-3,\ldots,-2\kappa_i-t+1)\)
+を付け、\(j\) が奇数のとき全成分から \(1\) を引く。
+基礎ブロックの \(u\) 番目を零始まりで数えると、その符号は
+\((-1)^{v+\min(v,j)}\)、\(v=\max(u+1-k,0)\) である。
+付けたブロックの符号はすべて正である。
+\(X_j\) の代数的重みは、\(i<n_j\) に対する高さ \(i\) の列数で書ける。
+高さ \(1\) では \(a\,1_{\Phi_a}(\tau)\)、高さ \(k\) では
+\(\kappa_1(\tau)-\lfloor n_1/2\rfloor\)、それより高く \(k\) と
+法 \(t+1\) で合同な高さでは \(\Delta-t-1\) であり、残りでは零である。
+この図形に \(\det^{\lfloor n_{j-1}/2\rfloor-\kappa_j(\tau)}\) を掛ける。
+\(j=0\) では行列式の指数は零である。
+\leanlinks{\leansrc{New/UpperBound/Objects/Parameters}{符号と Harish–Chandra パラメータ}
+  \leanlinksep \leansrc{New/UpperBound/Objects/Weights}{定符号側の列数と行列式の指数}}
+
 \(X_0\) 上の代数的保型形式のうち、無限素点での重さが
 \(\Phi_a\) では \((a,0,\ldots,0)\)、その他では \(0\) で、
 指定のレベルを持つ空間を \(S_0\) とする。
@@ -321,7 +370,8 @@
 \(\pi_N\) では最後の行を \((0,\ldots,0,1)\) に合同とする。
 \(S\subseteq S_0\) は \(\pi_N\) を割る各素点 \(w\) について、
 \(w\) とその共役で支持される有限アデールの中心スカラー作用の平均が
-零になる形式の空間である。\leanref{ramifiedSourceForms}
+零になる形式の空間である。
+\leanlinks{\leanref{ramifiedSourceForms}}
 
 一方、\(Y_0\) 上の主合同レベルの形式には、\(p_0,p_1\) の上で
 \(\pi_M\) により選ぶ有限素点 \(w\) に対応した
@@ -332,17 +382,26 @@
 その剰余体にある根は \(q_2\) 乗根を含まない。
 また \(p_0,p_1\) それぞれの上に、次数 \(r\) の拡大体の乗法群の生成元を根に持つ
 原始多項式のラベルが少なくとも一つある。
-\leansrc{New/UpperBound/Objects/LabelsAndIndexTypes}{有限群と中心冪等元}、
-\leansrc{New/UpperBound/Objects/Rows}{目標空間とその無限型}。
+\leanlinks{\leansrc{New/UpperBound/Objects/LabelsAndIndexTypes}{有限群と中心冪等元}
+  \leanlinksep \leansrc{New/UpperBound/Objects/Rows}{目標空間とその無限型}}
 
 捻り \(\xi\) ごとに \(Y_0\to\cdots\to Y_m\) の \(m\) 段の
 テータ持ち上げがあり、その合成を \(V\) に制限して \(\Theta_\xi\) を得る。
-第 \(j\) 段の指標は底本の固定指標 \(\mu_j^0\) に \(\xi^j\) を掛けたものである。
+第 \(j\) 段の指標は \(\mu_j^0\xi^j\) である。ここで
+\(\mu_j^0=\mu^\flat(\upsilon^{-\Delta}\chi_M)^j\) とする。
+\(\mu^\flat\) は重さ \(-\kappa_0\) で分岐しない固定指標、
+\(\upsilon\) は Weil 表現の重さ \(1\) の分裂指標、
+\(\chi_M\) は重さ零で選んだ素点だけに分岐する固定指標である。
+これらの重さを足せば \(\mu_j^0\) の重さは \(-\kappa_j\) となる。
+各核の有限部分には法 \(\pi_M Q_\xi\) での標準包含の指示関数、
+それ以外では真空を置く。無限部分には上の隣り合う型に対する
+同時調和多項式を置く。最終レベルは、選んだ素点では主合同、
+捻りの素点ではブロック上三角であり、対角ブロックに各段の指標が作用する。
 自明な捻りを \(1\) と書く。\(X_0\) から \(Y_0\) へのポアンカレ写像に対し、
 第\ref{sec:upper-bound}節の正規化と射影を施した写像を
 \(\mathfrak p_g\colon S\to V\) と書く。
-\leansrc{New/UpperBound/Objects/RowChain}{持ち上げの連鎖}、
-\leansrc{New/Reduction/IntegralTargetForms}{\(\Theta_\xi\) と整構造}。
+\leanlinks{\leansrc{New/UpperBound/Objects/RowChain}{持ち上げの連鎖}
+  \leanlinksep \leansrc{New/Reduction/IntegralTargetForms}{\(\Theta_\xi\) と整構造}}
 
 \subsection{局所整除性に現れる素数和}
 
@@ -379,11 +438,12 @@
 従って \(0\le s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\le y\log b\) である。
 一方、\(b^{20}\le M\le b^{22}\)、\(1/\Omega\le x^{13}\le b\)、
 \(\Omega\le1\) から \(20\log b\le\log(M/\Omega)\le23\log b\) を得る。
-\leansrc{New/Reduction/Data/Sizes}{無限素点側の定数 \(\Omega\) の評価}。
+\leanlinks{\leansrc{New/Reduction/Data/Sizes}{無限素点側の定数 \(\Omega\) の評価}}
 \(y=\kappa(\tau)\le a\le b^2\) では \(0\le\log(y!)\le2y\log b\) なので
 \(20y\log b\le s_\infty(y)\le25y\log b\)。
 差を取れば \(s_\infty(y)-s_{\mathrm{fin}}(y,\tau)\ge y\log b\) となり、
-\(A_0\ge0\)、\(H_0=mkA_0\ge0\) が従う。\leanref{primeSum_le}
+\(A_0\ge0\)、\(H_0=mkA_0\ge0\) が従う。
+\leanlinks{\leanref{primeSum_le}}
 
 \begin{proposition}\label{prop:total-remainder}
 許容データについて
@@ -421,5 +481,6 @@
  =|\Phi_a|(\log x_1+c_1)
    +\frac{|\Phi_b|}{\varphi(q_0)}(\log x-\log x_1).
 \]
-これが上の和の主項なので、差を取れば \eqref{eq:total-remainder} を得る。\leanref{totalRemainder_eq}
+これが上の和の主項なので、差を取れば \eqref{eq:total-remainder} を得る。
+\leanlinks{\leanref{totalRemainder_eq}}
 \end{proof}

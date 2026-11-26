@@ -11,7 +11,7 @@
 各 \(1\le j\le m\) で \(\xi^j\) は \(Q_\xi\) の各素点で分岐する。
 法のノルム \(N_\xi\) が \(\ell\) と互いに素な場合、
 捻り \(\xi\) は \(\ell\) で許容されるという。
-\leansrc{New/Reduction/Data/LevelAndTwists}{捻りと許容条件}。
+\leanlinks{\leansrc{New/Reduction/Data/LevelAndTwists}{捻りと許容条件}}
 
 \begin{editorialnote}
 添字 \(\iota\) は素数だけでなく体同型も指定する。
@@ -36,9 +36,11 @@
 第一の変数に複素共役を取り、二つの変数にそれぞれ \(\rho_{\mathrm{W}}(A^{\mathsf T})\)、
 \(\rho_{\mathrm{W}}(A^{-1})\) を作用させると、ゲージの仮定により両方の座標が整になる。
 \(\rho_{\mathrm{W}}(A^{\mathsf T})^{\mathsf T}G\rho_{\mathrm{W}}(A^{-1})=G\) なので、
-この整な座標で計算する内積はもとの内積の \(\iota\) での像に等しい。\leanref{gramForm_mem_embValRing}
+この整な座標で計算する内積はもとの内積の \(\iota\) での像に等しい。
+\leanlinks{\leanref{gramForm_mem_embValRing}}
 自明な捻りでは類の代表における値を標準 Weyl 基底で読んだ座標により、
-内積は有理数成分の正定値行列で表せる。\leanref{Data.targetLattice}
+内積は有理数成分の正定値行列で表せる。
+\leanlinks{\leanref{Data.targetLattice}}
 
 \begin{definition}
 \(y\in V\) が \(\iota\) で整であるとは、
@@ -62,7 +64,8 @@
 この座標と内積で計算した \(y\) の持ち上げのグラム行列式が、
 すべての \(\sigma\) で \(e^c\) 以下なら、対数二乗余体積は \(c\) 以下という。
 とくに \(\|\Theta_1 y_i\|_\sigma^2\le e^B\) がすべての \(i,\sigma\) で成り立てば、
-Hadamard の不等式から \(c=nB\) が使える。\leanref{IndexLe}
+Hadamard の不等式から \(c=nB\) が使える。
+\leanlinks{\leanref{IndexLe}}
 
 \subsection{高さの積公式}
 
@@ -86,7 +89,8 @@ Hadamard の不等式から \(c=nB\) が使える。\leanref{IndexLe}
 \(\ell=2\) で \(|H|_\iota\) が全 \(\iota\) にわたり有界なので \(H\) は代数的である。
 実際、超越数なら同型を選んで任意の超越的な像に移せる。
 \(\overline{\mathbb Q_2}\) では任意の上界より大きい絶対値を持つ開集合に
-超越数がある。代数的数が可算で、その補集合が稠密だからである。\leanref{isAlgebraic_of_norm_complexToCp_le}
+超越数がある。代数的数が可算で、その補集合が稠密だからである。
+\leanlinks{\leanref{isAlgebraic_of_norm_complexToCp_le}}
 
 \(Q=\operatorname{Nm}_{\mathbb Q(H)/\mathbb Q}H\)、\(n_H=[\mathbb Q(H):\mathbb Q]\)
 とおくと、\(Q\ne0\) であり、
@@ -102,7 +106,8 @@ Hadamard の不等式から \(c=nB\) が使える。\leanref{IndexLe}
 したがって \(C\ge0\)。特に、\(z\ne0\) の定数族の高さが \(C\) 以下で
 \(|\sigma z|\le e^{C'}\) が全 \(\sigma\) で成り立てば、\(C+C'\ge0\) である。
 実際、\(z^{-1}\) の定数族は乗数 \(H=z\) を取れば高さ \(C'\) 以下となり、
-二つの族の積が \(1\) になる。\leanref{HeightLe.nonneg_of_one}
+二つの族の積が \(1\) になる。
+\leanlinks{\leanref{HeightLe.nonneg_of_one}}
 
 \subsection{基底に対するグラム行列式}
 
@@ -180,5 +185,6 @@ Cauchy--Schwarz の不等式から
 
 \(\Theta_1\) は単射なので \(\Delta_1(w)\ne0\) である。
 その高さの上界と無限素点の上界を積公式で合わせれば
-\eqref{eq:gram-product} を得る。\leanref{covolume_add_index_nonneg}
+\eqref{eq:gram-product} を得る。
+\leanlinks{\leanref{covolume_add_index_nonneg}}
 \end{proof}

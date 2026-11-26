@@ -1,0 +1,267 @@
+\subsection{Exchanging theta integrals of complementary ranks}\label{sec:exchange-proof}
+
+The determinant comparison uses an identity between integrals along two different
+groups, viewed as functions on the same group. Write \(n,d_+,d_-\) for the ranks of
+\(W,V_+,V_-\), with \(n=d_++d_-\) and \(d_+-d_-=2e\ge0\).
+The number \(q\) of negative signs of \(W\) is the sum of the numbers for \(V_+\)
+and \(V_-\). If \(\mu_\tau\) is the weight of \(\nu\) at an infinite place,
+the range is \(2q+2\le n\le2\mu_\tau+2q\).
+The character \(\nu\) is tamely ramified at a nonempty finite set \(S\) of split
+places disjoint from its conjugate. Write \(\chi\) for its ramified part and
+\(L^S(s,\nu)\) for the \(L\)-function of its base change with the factors
+at \(S\cup\bar S\) omitted. Put
+\begin{equation}\label{eq:exchange-lstar}
+ L_*(e)=\left(\prod_{w\in S}\mathrm Nw\right)^{e^2}
+             \prod_{j=1}^{e}|L^S(j,\nu)|^2,\qquad
+ L_*(-e)=L_*(e)^{-1}.
+\end{equation}
+For an integrally invertible matrix \(g\), let \(R(g)\) consist of the last
+\(d_+\) rows of \(g^{-1}\) and \(C(g)\) of the first \(d_-\) columns of \(g\).
+The finite data \(\Phi,\Psi\) are supported on these respective matrices
+and satisfy \(\Phi(R(g))=\chi(\det g)\Psi(C(g))\).
+
+Given the real datum \(y\) on the \(V_-\) side, one can choose the datum \(x\)
+on the \(V_+\) side before choosing the modulus and the character.
+Writing the two integrals as \(I_+(x,\Phi;g)\) and \(I_-(y,\Psi;g)\), we have
+\begin{equation}\label{eq:exchanged-integrals}
+ I_+(x,\Phi;g)=c\,I_-(y,\Psi;g),\qquad
+ |c|^2=C L_*(e)>0.
+\end{equation}
+Here \(g\in U(W)(\mathbb A)\) and \(C>0\) is independent of the modulus and character.
+In the Weil representation the parameter for \(W\) is \(\gamma=\nu^{-1}\upsilon^{n/2}\).
+The two parameters \(\alpha,\alpha'\) for the partner spaces satisfy
+\(\alpha\alpha'=\gamma\). This is equivalent to the product of the
+rank-dependent splitting characters being the inverse of the base change of \(\nu\).
+\leanlinks{\leansrc{New/Determinant/Exchange/TheoremForPartners}{Hypotheses and normalization of the exchange identity}}
+
+\paragraph{Comparison after adjoining hyperbolic planes}
+Take adjoints and reverse the signs of \(V_-\) to write both kernels as kernels
+from the central space. Put \(p=d_-\), \(W_1=W\perp H\), and \(X=W_1\perp H^p\).
+The large partner is \(V_-^{\mathrm{opp}}\perp W_1\) and the small partner
+is \(V_-^{\mathrm{opp}}\). First extend \(y\) to a Schwartz vector \(y_1\)
+whose zero slice over \(W\) is \(y\). Choose a Schwartz vector \(v_1\)
+for \((W_1,W_1)\) as a second input. At the ramified places use the standard
+data. For an integral auxiliary matrix \(z\), the row datum is \(\chi^{-1}\)
+of the determinant of the square matrix obtained by stacking \(z\) and the
+variable. The column datum uses the determinant of their product. Both are
+zero when the determinant is a nonunit.
+
+In the mixed model for \(X\), take slices along the \(p\) isotropic columns.
+At an infinite place write \(x_0=\binom{I}{0}\) for the standard frame and \(J\)
+for the matrix of the Hermitian form of the large partner. Near \(x_0\), the
+span of \(x_0\) can be moved to that of a frame \(x\) by a smoothly varying
+unitary matrix. Indeed, let \(w=(x_0^*Jx_0)^{-1}x_0^*\) and put
+\[
+ A(B)=(Bx_0w-x_0wB^*)J,\qquad
+ \mathcal T(B)=\exp(A(B))(B-A(B)).
+\]
+Then \(A(B)^*J+JA(B)=0\) and \((B-A(B))x_0=x_0wB^*Jx_0\).
+As \(A(I)=0\), the derivative of \(\mathcal T\) at \(I\) is the identity.
+Apply its local inverse to \(I+(x-x_0)wJ\) to obtain \(B\).
+Then \(k(x)=\exp(A(B))\) carries the span of \(x_0\) onto the span of \(x\).
+
+Choose a nonnegative smooth cutoff \(\sigma\) supported in this neighbourhood
+and equal to \(1\) at \(x_0\). Use the projection of \(x_0\) onto the span of
+\(x\), namely \(z(x)=x(x^*Jx)^{-1}x^*Jx_0\).
+The inverse is needed only in the cutoff neighbourhood and can be smoothly
+extended away from it. On the large side act on \(y_1\otimes v_1\) by
+\(k(z(x))\). Multiply by \(\sigma(z(x))\), by the cutoff at the moved frame
+\(k(z(x))^{-1}x\), and by the \(2\mu_\tau\)-th power of the conjugate
+determinant of its upper square block at each infinite place.
+On the small side use the cutoff of the standard frame and
+\(|\det B_\tau|^{2(j+\mu_\tau)}\) in the square variable \(B_\tau\), where
+\(2j=\operatorname{rk}W_1\). Normalize this slice so that the zero slice
+in the opposite polarization is \(y_1\). The zero slice is obtained by taking
+the Fourier transform at zero in the frame variable, and the integral of the
+cutoff with the determinant powers is positive. Dividing by that integral
+gives the required normalization. Compact support in the frame variables
+and the Schwartz property in the orthogonal variables give the required
+Schwartz vectors.
+
+For \(h\in U(V_-^{\mathrm{opp}}\perp W_1)(E_\infty)\) with nonzero cutoff at
+\(z(h^{-1}x_0)\), the matrix \(h k(z(h^{-1}x_0))\) preserves the span of \(x_0\).
+It is therefore block diagonal. Absorb its two blocks into the variables
+of integration on \(U(V_-^{\mathrm{opp}})\) and \(U(W_1)\).
+The moved frame is now \(\binom{B_\tau}{0}\), and the theta functional
+factors. Integration over \(U(W_1)\) contributes
+\[
+ I_0=\int_{[U(W_1)]}
+    \theta_{W_1,W_1}\bigl(v_1,\chi^{-1}\circ\det\bigr)(1,h_1)\,dh_1 .
+\]
+The other factor is the small-side slice. The ratio of the determinant
+factors is
+\[
+ \frac{1}{\nu(b_\infty/\bar b_\infty)|b_\infty|_{\mathbb A_E}^{j}},
+\]
+where \(b_\infty\) has infinite part \(\det B_\tau\) and finite part \(1\).
+This cancels the inverse factor in the Levi action on the kernel.
+\leanlinks{\leansrc{New/Determinant/Exchange/RealVectors}{Moving the frame smoothly and computing the slice period}}
+
+Taking a central Fourier coefficient restricts the theta sum to the orbit
+of frames with the specified Gram matrix. A real signature absent on the
+small side contributes zero on the large side by the support of the cutoff.
+If the finite lattice is self-dual and the signatures agree, the local-global
+principle for Hermitian forms and Witt's theorem reduce the index to the
+standard Gram matrix. The stabilizer of that frame on the large side is
+\(U(W_1)\) and that on the small side is trivial. Unfold the large-side
+integral in stages through \(U(V_-^{\mathrm{opp}})\times U(W_1)\) and use the
+slice calculation. The ratio of the two coefficients is the product of
+\(I_0\), a measure constant, and character values of modulus one.
+The measure constant is nonzero because the nonnegative cutoff is positive
+near the identity.
+
+The self-dual lattice tests suffice as follows. At a ramified place, translate
+the column datum by the root group of the additional hyperbolic line, with
+matrix \(A\) ranging modulo \(\varpi_w\). On the central Fourier coefficient
+of the difference this gives the multiplier
+\[
+ \sum_{A}\chi_w^{-1}(\det A)\,\psi_w(\operatorname{tr}(TA)).
+\]
+For a primitive character the matrix Gauss sum vanishes at singular \(T\).
+At invertible \(T\), the change of variable \(A\mapsto TA\) gives the sum
+at the identity times a determinant character. Thus only indices invertible
+at the ramified places have to be tested. At the other finite places, the
+shears through the adjacent hyperbolic plane move the partial means of the
+central coefficient. They fix the block reading the left inverse in the
+standard column datum. Strong approximation moves the coefficient to a
+point whose Gram matrix and inverse are integral, where there is an integral
+orthonormal basis. The self-dual comparison applies there. Central Fourier
+inversion and parabolic decomposition give proportionality on the standard data.
+\leanlinks{\leansrc{New/Determinant/Exchange/LargeTriple}{The Fourier coefficients on Gram orbits}
+  \leanlinksep \leansrc{New/Determinant/Exchange/StableSpacesStandardData}{Matrix Gauss sums and self-dual lattice tests}}
+
+\paragraph{Rank descent by constant terms}
+Remove corresponding hyperbolic planes one at a time. Let \(u\) be the rank
+of the remaining large partner minus half the remaining central rank.
+Unfolding the large-side constant term in the mixed model gives Tate's
+integral along the isotropic line at \(s=u+1\). The determinant character of
+the standard datum kills the zero term and the Fourier-transformed zero
+term. At the ramified places the integral gives the Gauss sum of the unit
+character, and at the unramified places the vacuum gives a geometric series.
+At infinity one integrates the slice on the isotropic cone over the maximal
+compact group and the infinite ideles. For \(u\ge0\) the constant term
+is \(\gamma_u\) times the lower theta integral with the cone datum at \(s=u+1\).
+For \(u<0\) the other side of Poisson summation gives the dual cone datum
+at \(s=-u\). In both cases, with \(a_u>0\) independent of the character,
+\begin{equation}\label{eq:exchange-descent}
+ |\gamma_u|^2 L_*(u)=a_u L_*(u+1).
+\end{equation}
+For positive \(s\), the Tate factor has modulus, up to a fixed factor,
+\(|L^S(s,\nu)|\prod_{w\in S}(\mathrm Nw)^{s-1/2}\).
+The difference \((u+1)^2-u^2=2(u+1)-1\) gives the formula for \(u\ge0\);
+the inverse convention for \(L_*\) gives it for \(u<0\).
+On the column side, primitivity of the full column block kills the
+contribution of a nonzero isotropic column. The constant term is the
+integral of the zero slice times a fixed vacuum factor \(\kappa\ne0\).
+Thus removing one plane changes the proportionality factor \(c\) to
+\(c\kappa/\gamma_u\). Equation~\eqref{eq:exchange-descent} preserves the
+ratio to \(L_*\) up to a constant independent of the character.
+Removing all \(p+1\) added planes restores the required column datum.
+The squared modulus of the resulting factor is \(L_*(e)|I_0|^2/L_*(j)\)
+times a fixed positive constant.
+\leanlinks{\leansrc{Lib/SiegelWeil/Tower/LargeSideConstantTerm}{The Tate integral for a constant term and its local factors}
+  \leanlinksep \leansrc{New/Determinant/Exchange/RemovingPlanes}{Descent by cone integrals and zero slices}}
+
+\paragraph{The equal-rank normalization and nonvanishing}
+The equal-rank integral with finite datum \(\chi^{-1}\circ\det\) is constant.
+At the ramified places the general linear group fixes the datum because
+the column block is empty. Elsewhere the standard level fixes it. Strong
+approximation, together with the constant term calculation along the
+isotropic line, shows that the dependence on the line variable of the
+Levi also disappears. Let \(R_{W_1}(v_1)\) denote the squared modulus of this
+integral divided by \(L_*(\operatorname{rk}W_1/2)\).
+
+First take \(J_0\) positive definite of rank \(2k_0\) and \(W_1=H\perp J_0\).
+If \(R_{W_1}\) were zero for every datum at a fixed character, the preceding
+Fourier coefficient argument would give vanishing on all standard data
+on the large side for \((H^{2k_0}\perp W_1,J_0^{\mathrm{opp}}\perp W_1)\).
+The vanishing descends one plane at a time. For any datum \(v\) below,
+place a smooth cutoff on a small region of the isotropic cone and take
+the slices there to be compact-group translates of \(v\). The Tate integral
+above separates a strictly positive Mellin factor \(B(s)\) and the lower
+integral \(I(v)\). The product formula for \(s\ge1\) extends analytically
+to \(s>-k_0\). With weights \(\mu_\tau\ge k_0\), the functional equation
+has no vanishing infinite-place factor at the relevant integers in this range.
+The Euler product for \(s>1\), nonvanishing at \(s=1\), and the functional
+equation give nonvanishing of the \(L\)-factor at every integer \(s>-k_0\).
+Thus evaluating at \(u+1>-k_0\) makes \(I(v)=0\) whenever the upper
+integral vanishes. After \(2k_0+1\) steps one reaches \((J_0,0)\), where the
+vacuum integral is the strictly positive volume of the rank-zero quotient.
+This contradicts vanishing.
+
+Now apply the exchange successively to \((J_0,J_0,0)\) and \((J_0,0,J_0)\).
+The squared moduli of the resulting factors \(c_1,c_2\) are proportional
+to \(L_*(k_0)R_{W_1}(v_1)\) and \(L_*(k_0)^{-1}R_{W_1}(v_1)\), respectively,
+with constants independent of the character. Integrate the intermediate
+\((J_0,J_0)\) kernel over both groups and exchange the order by Fubini.
+This identifies \(c_1c_2\) with the value of the real datum in rank zero,
+independent of the character. The \(L_*(k_0)\) factors cancel, so
+\(R_{W_1}(v_1)^2\) is independent of the character. Choose \(v_1\) by
+nonvanishing for one character. Then \(R_{W_1}(v_1)>0\) has the same value
+for all characters.
+For general signs, add hyperbolic planes. At each stage the upper equal-rank
+integral equals its constant term and the lower datum can be realized by
+the cone integral. By \eqref{eq:exchange-descent} this multiplies the ratio
+by a fixed positive constant.
+\leanlinks{\leansrc{New/Determinant/Exchange/ConeImage}{Realizing prescribed data by cone integrals}
+  \leanlinksep \leansrc{New/Determinant/Exchange/VanishingDescends}{Descending vanishing by constant terms}
+  \leanlinksep \leansrc{New/Determinant/Exchange/TheoremForPartners}{Nonvanishing and character independence of the equal-rank ratio}}
+
+\paragraph{Passage to all matched data}
+The difference of the two integrals is an equivariant linear map for
+left translations at the ramified places. Its kernel contains the
+standard column datum \(P(Y)=\chi^{-1}(\det zY)\).
+Choose integral \(x_0\) with \(z x_0=I\), and choose \(a\) so that \(\Psi\)
+is constant on residue classes modulo \(\varpi^a\). The matrix
+\(d=x_0z+\varpi^{-a}(I-x_0z)\) fixes the span of \(x_0\) and expands \(\ker z\).
+When \(P(dgY)\ne0\) we have
+\(Y\equiv g^{-1}x_0(z\,dgY)\pmod{\varpi^a}\).
+The determinant character for the right action gives
+\(\Psi(g^{-1}x_0)P(dgY)=|P(dgY)|\Psi(Y)\).
+Average over \(g\in\mathrm{GL}_n(\mathcal O_S)\). The left side belongs
+to the kernel. The mean of \(|P(dgY)|\) is constant on the support of
+\(\Psi\) and positive near \(Y=x_0,g=1\). Hence \(\Psi\) itself belongs to
+the kernel. Apply this argument to data modulo \(\mathfrak m\) by lifting
+them to the local integer rings. Undoing the adjoint on the small side
+transposes the data and scales by an integral unit of norm \(-1\), which
+contributes a scalar of modulus one. The relation \(\alpha\alpha'=\gamma\)
+then inserts the same factor \(\alpha(\det g)^{-1}\) on both sides.
+This proves \eqref{eq:exchanged-integrals}.
+\leanlinks{\leansrc{New/Determinant/Exchange/StableSpacesStandardData}{Generating the matched data by averaging translates}
+  \leanlinksep \leansrc{New/Determinant/Exchange/TheoremForPartners}{Adjoints and changing the splitting characters}}
+
+\paragraph{Composing two lifts}
+Take \(W=U_1\perp U_2\), \(V_+=A\), and \(V_-=A'\).
+Use the two column blocks of row datum \(x\) in the respective kernels,
+and write \(\Theta_x\) for the lift \(U_1\to A\) followed by the transposed
+lift \(A\to U_2\). Write \(\Theta'_y\) for the composition through \(A'\)
+using the two row blocks of column datum \(y\).
+Fix forms \(f_1,f_2\) on \(U_1,U_2\) and pair the resulting lift of \(f_1\)
+with \(f_2\). For the edge characters \((a_i,b_i)\) and \((a_i',b_i')\)
+the product condition gives \(a_1a_2=a_1'a_2'=\gamma\) and
+\(\nu_0=b_1/b_2=b_2'/b_1'\). Multiply the exchange at \((g_1,g_2)\) by
+\(f_1(g_1)\overline{f_2(g_2)}\nu_0(\det g_2)\).
+The last character cancels the difference in characters when the kernel
+on each path is split into the product of its two edge kernels.
+
+On the \(A'\) side the real datum starts as the product of the two
+Fock polynomials. The point data also split by the two row blocks.
+Fubini and transposition identify the integral with
+\(\langle f_2,\Theta'_y f_1\rangle\). On the \(A\) side the real datum
+is the vector chosen by exchange. First decompose a polynomial into
+a sum of products in the two column blocks. For each product, real
+reproduction on each edge writes its lift as a real convolution of the
+prescribed edge lift. In the pairing the two convolutions give a scalar
+depending only on the real data. The two forms are rapidly decreasing
+for the types of the edges, so the integral is continuous in the moment
+norms of the Schwartz data. The proportionality to all pairings is a
+closed condition, so the integral for the chosen real vector is
+\(\kappa_0\langle f_2,\Theta_x f_1\rangle\).
+Summing both sides with the finite weights and testing against every
+\(f_2\) gives
+\begin{equation}\label{eq:exchange-square}
+ \sum_y\Psi(y)\Theta'_y=\frac{\kappa_0}{c}\sum_x\Phi(x)\Theta_x .
+\end{equation}
+This uses \(c\ne0\). The scalar \(\kappa_0\) is independent of the twist,
+and the identity at this stage allows \(\kappa_0=0\).
+\leanlinks{\leansrc{New/Determinant/Exchange/OneSquare}{Exchanging the two paths with transposed lifts}}

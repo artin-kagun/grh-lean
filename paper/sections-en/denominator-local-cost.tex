@@ -1,0 +1,249 @@
+\paragraph{The cost of imposing the crystalline conditions}
+For each \(v\mid\ell\), take the decomposition group \(\Gamma_v\)
+and let \(d_v=[G_{\mathbb Q_\ell}:\Gamma_v]\), viewing the group as
+an open subgroup of \(G_{\mathbb Q_\ell}\).
+The local lattice class \(\mathcal C_v\) is specified by the invariance
+of spanning periods over \(B_{\max}\), the set of Hodge--Tate jumps,
+and polynomial annihilators of inertia. At \(v\nmid M\) the class is
+crystalline with no polynomial condition on inertia. At \(v\mid M\)
+it is potentially crystalline, and the inertia polynomials are those
+common to all representations of the prescribed type.
+Use the common jumps of all the \(N_x\).
+Thus the lattices of the \(N_x\) belong to this class.
+The direct-sum decomposition at \(\pi\) puts the main block and the
+Tate-character lattices in the same class, whose allowed jumps come
+from the actual jumps of these summands. Since the inverse twist is
+trivial on \(\Gamma_v\), the main summand has the original jumps.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L757}{The common class of local lattices}}
+
+The crystalline cocycles \(Z_f(L)\) of a lattice \(L\) are those that
+become coboundaries in \(B_{\max}\otimes L\).
+Let \(\delta_v(L)\) be the normalized length of the quotient of
+\(Z_f(L^\vee(1))\) by the cocycles whose cup products with the
+crystalline cocycles of the lattices in \(\mathcal C_v\) are
+coboundaries. The pairings are taken at finite coefficient level,
+using forms equivariant modulo \(\ell^u\) whose lifted coboundary
+divided by \(\ell^u\) is crystalline.
+
+Let \(c\) be a cocycle modulo \(\ell^u\) respecting the linear
+relations among \((N_x(g)-1)_x\). If \(L_0\) denotes the span of
+these families, the assignment \((N_x(g)-1)_x\mapsto c(g)\) is
+an equivariant linear map on \(L_0\). Equivariance follows from
+\(N_x(h)(N_x(g)-1)=(N_x(hg)-1)-(N_x(h)-1)\) and the cocycle rule.
+Put \(\mathcal B=\prod_xM_n(\mathcal O)\).
+Artin--Rees applied to the finite \(\mathcal O\)-modules
+\(L_0\subseteq\mathcal B\) and the principal ideal \((\ell^u)\)
+gives \(L_0\cap \ell^{u k_0}\mathcal B\subseteq\ell^uL_0\) for
+\(k_0\) sufficiently large.
+Thus the map extends by zero on \(\ell^{u k_0}\mathcal B\).
+Its graph injects into the first component. Projection onto all
+matrix columns gives an equivariant injection into a sum of the
+local lattices of the \(N_x\), so the graph is in \(\mathcal C_v\).
+The graph cocycle with first component \(g\mapsto(N_x(g)-1)_x\)
+becomes the coboundary of \(\ell^{u k_0}(I)_x\) after
+multiplication by \(\ell^{u k_0}\). Hence it is crystalline, and
+its second component is the local restriction of \(c\).
+
+Lift the second-component map to a linear map \(q\) between lattices.
+Its coboundary \(gq-q\) is divisible by \(\ell^u\), and the quotient
+is a cocycle that becomes a coboundary over \(B_{\max}\).
+The evaluation pairing transferred through \(q\) is therefore among
+the finite-coefficient pairings above. Apply local Tate duality to
+\(L/\ell^u L\) and its Tate dual over the open local decomposition
+group. Using the orthogonality of the crystalline local conditions
+under local duality, the order of the quotient of the cocycles just
+constructed by the crystalline image divides the order of the
+quotient of \(Z_f(L^\vee(1))\) by its orthogonal part.
+Here evaluation over \(\mathcal O\) is composed with a generator
+of its \(\mathbb Z_\ell\)-dual to give a perfect pairing over
+\(\mathbb Z_\ell\). Divisibility of orders gives the length bound.
+The reduction of an integral crystalline cocycle obeys all its
+integral linear relations, so imposing those relations on a
+finite-coefficient cocycle costs at most the same length.
+The colength of imposing the conditions at all \(v\mid\ell\) is
+bounded by the sum of the separate colengths.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/Basic.lean\#L386}{The graph of a cocycle and Artin--Rees}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/LocalLoss/TateDualBound.lean\#L101}{Finite-coefficient duality and the colength}}
+
+To bound the length on the dual side, write \(n_L=\operatorname{rank}L\),
+\(q_L=1\) for a main block and \(q_L=t\) for a character.
+Writing \(\operatorname{def}_\ell=L_\ell/(4f)\), the required estimate is
+\[
+ \delta_v(L)\le d_v n_L\operatorname{def}_\ell/q_L .
+\]
+For \(v\mid M\) the inertia spectra provide the annihilator
+\(X^{\operatorname{lcm}_{1\le i\le r}(\ell^i-1)}-1\) and a monic
+polynomial over \(\mathbb Z_\ell\) of degree at most \((r+t)r\).
+Since \(\ell\equiv1\) modulo the conductor, the coefficient
+embeddings at the same \(v\) read the same embedding of \(E\).
+The tame period calculation for the opposed jump intervals and
+these annihilating polynomials sends the crystalline cocycles into
+the orthogonal part on multiplication by \(\ell^{k_\mathrm{tame}}\),
+where
+\[
+ k_\mathrm{tame}=3r^2((r+t)r+1)^2+150(\Delta^2+4t+2).
+\]
+By the Bloch--Kato dimension formula, the rank of the crystalline
+cocycles is at most \(2d_v n_L\), giving length at most
+\(2d_v n_L k_\mathrm{tame}\). The size hypotheses and \(v_\ell(M)\ge1\)
+give \(2k_\mathrm{tame}\le\operatorname{def}_\ell/q_L\).
+
+For \(v\nmid M\) write \(H=\Delta\), let \(b_{\mathrm{sm}}\) denote the smaller weight,
+and let \(j\) be the lift index. Put \(Q_0=kt\), \(\eta=H^2+1\), \(W=4t\), and
+\(\delta=2jH+H-2t\). The near interval is \([-\eta,\eta]\). The far intervals
+have width \(W\) and start at \(b+\delta\) or \(b_{\mathrm{sm}}+\delta\),
+with the signs read at the embedding. These starting points are the lift weights
+minus \(2t\). The original far jumps are at least \(t\) from the endpoints, so
+\(u\mapsto-u-1\) takes them into the opposite interval of the same width.
+In the main block the negative jumps are at most \(-H/2\), and there are at most
+\(\mu=\lfloor n_Lm/(kq_L)\rfloor\) dual jumps in the near interval.
+A character has only the dual jump \(-a-1\) in \([-\eta,0]\).
+
+The Kummer chart \(W(\mathbb F_{\ell^{f_v}})[[z]]\subset A_{\inf}\) has ramification
+index \(e_v\), with \(e_v f_v=d_v\) and \(e_v\le H\).
+Group the coefficient embeddings by the Teichmüller representatives of the residue-field units
+and read the jumps at each unit. If \(\ell\) is prime to the cyclotomic conductor, the chart is
+unramified and the representative determines the embedding of \(E\).
+Otherwise \(\ell\le Q_0\) and all embeddings with the larger weight have one sign.
+When \(\ell\le Q_0\), no three positions of the larger weight follow each other with both
+Frobenius gaps at most \(J_0=\lfloor\log_\ell H^3\rfloor\). This is the condition on the
+chosen set of large-weight places transported to the coefficient embeddings.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineDefect.lean\#L217}{Reading the weights and embeddings on the Kummer chart}}
+
+Put \(\lambda=v_\ell((2b)!\Pi_b^{H^3})\) and \(K_0=\lfloor2\lambda/Q_0\rfloor\).
+The factorial gives \(2b<\ell(\lambda+1)\), and division gives \(2\lambda<(K_0+1)Q_0\).
+
+\begin{itemize}
+\item If \(\ell\le Q_0\), the weight sizes and these inequalities give
+\(2(b+\delta)<H^2K_0\). Include the far interval of smaller weight in the enlarged
+near interval \([-2b_{\mathrm{sm}},2b_{\mathrm{sm}}]\).
+Let \(d=0\) if \(e_v=1\) and \(d=v_\ell(e_v)+1\) otherwise, the chart's bound for the different.
+Then
+\[
+ \begin{split}
+ 2e_v(b+\delta+10b_{\mathrm{sm}})&\le
+      \ell^{J_0+1}\,2K_0,\\
+ 20(J_0+1+d)\,2b_{\mathrm{sm}}+
+       \lfloor\log_\ell(2(b+\delta+10b_{\mathrm{sm}}))\rfloor&\le K_0 .
+ \end{split}
+\]
+The first uses \(\ell^{J_0+1}\ge H^3\). The second uses \(J_0+1+d\le H\) and
+\(41 b_{\mathrm{sm}}H\le K_0\). Take as cuts the positions followed by \(J_0\)
+consecutive positions of the smaller weight. Sparsity supplies a cut at most \(2J_0+1\)
+steps back. The comparison uses constant signs in the ramified case, and
+\(10\ell^{J_0}\,2b_{\mathrm{sm}}\le b+\delta\) in the unramified case.
+Annihilating the period cokernels at the cuts and comparing the extension points
+from the cuts gives the cup-product exponent \(10^3(2K_0+(J_0+1)K_0)\le10^4K_0m\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L333}{The exponent comparison at small primes}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Lifting/CutExponentBounds.lean\#L805}{Cuts and cup products for sparse larger weights}}
+
+\item If \(\ell>Q_0\) and \(\lambda\ge H^3\), the chart is unramified and \(\ell\ge7\).
+The two inequalities and the weight sizes give \(b+\delta<K_0\ell^2\),
+\(2(b_{\mathrm{sm}}+\delta)<K_0\ell\), and \(W+4\eta\le K_0\).
+Allow a pole shift of \(\max(\lfloor(b+\delta)/\ell\rfloor-7K_0,0)\) where the next position
+has the larger weight, and shift zero elsewhere. A position is a cut when its shift is less
+than the start of its far interval. This includes all positions of the larger weight and
+all positions whose successor has the smaller weight, so there is a cut one or two steps back.
+The cup-product exponent is
+\[
+ 10^4\bigl(K_0+\lfloor\log_\ell(2(b+\delta+W+4\eta))\rfloor\bigr)
+ \le10^4K_0m.
+\]
+In both cases the indicated power carries crystalline cocycles into the orthogonal
+submodule. Their rank is at most \(2d_v n_L\), which bounds the colength after multiplying
+by the exponent.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L425}{The exponent at large primes and large loss}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Lifting/CutExponentBounds.lean\#L991}{Cuts and cup products for arbitrary patterns}}
+
+\item If \(\ell>Q_0\) and \(\lambda<H^3\), a multiple of \(\ell\) in
+\((b-30H^3,b+30H^3]\) would contribute at least \(H^3\) to the valuation of \(\Pi_b^{H^3}\).
+Also \(2b<\ell(\lambda+1)\) and the weight sizes imply \(\ell\ge9b_{\mathrm{sm}}\).
+With \(A=2(\lambda+1)\), there are therefore no nonzero multiples of \(\ell\) within
+\(6(A+\eta+W)\) of \(0\) or the starts of the far intervals with either sign.
+The upper endpoints of the unsigned far intervals plus \(\eta\) are at most \((\ell-3)A\).
+Under these conditions, at each residue unit take the submodule of constants with extension
+points of the prescribed depth, then intersect the pullbacks over all units.
+The cup product is a coboundary on this submodule and its colength is at most
+\(11d_v(\mu(A+1)+n_L(W+1))\), counting length \(A+1\) for each near jump and \(W+1\)
+for all jumps, summed over the coefficient embeddings.
+The defect is zero for the characters, whose dual jumps lie in \([-\eta,0]\).
+It is also zero for a main block when \(\lambda<\lfloor H/5\rfloor\), since the two sets
+of jumps avoid \([-A,0)\). In the remaining case use \(A+1\le6\lambda\) and \(W+1\le K_0\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Lifting/FewLowJumps.lean\#L945}{The submodule of constants with extension points of the prescribed depth}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L458}{The nondivisibility condition and the colength for small loss}}
+\end{itemize}
+
+In all three cases the
+bound per unit of local degree is
+\[
+ 10^5\bigl(n_L m\lfloor 2\lambda/(kt)\rfloor+\mu\lambda\bigr)
+ \le 3\cdot10^5\,n_L m\lambda/(kq_L)
+ \le n_L\operatorname{def}_\ell/q_L.
+\]
+The last comparisons use \(1\le q_L\le t\).
+Now \(\sum_{v\mid\ell}d_v\le2f\) and over the summands
+\(\sum n_L/q_L=r'+t'/t\le2r'\). Thus all the dual defects
+together are at most \(r'L_\ell\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineDefect.lean\#L487}{Substitution in the tame and crystalline cases}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L571}{Three cases in the crystalline period calculation}}
+
+A cocycle annihilating the main-block rows vanishes on inertia
+where all \(N_x(g)-1\) vanish. At the Taylor--Wiles places and
+their conjugates it vanishes on the new tame generators.
+The main block is unramified there, so this last condition
+gives vanishing on the entire inertia groups.
+Imposing the crystalline conditions leaves a module contained
+in the Selmer group unramified outside \(\ell,M,Q,\bar Q\)
+and vanishing at \(\gamma\). With \(\ell^u\)-torsion coefficients
+the length of the crystalline part is at most \(\mathrm{sel}\),
+and its colength is at most the sum of the main-block defects.
+The bound is uniform in \(u\), and hence also bounds the length
+for divisible coefficients, the union of these torsion modules.
+This accounts for \(b_{\mathrm{main}}\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L198}{Length of the main block with divisible coefficients}}
+
+\paragraph{Parity and length of the character cocycles}
+For character cocycles, vanishing at the old inertial generators
+allows ramification only above \(\ell\) and at the new places and
+their conjugates. Take \(A_a\) to be the inertia groups above \(\ell\)
+if \(a=0\), and the elements in the local decomposition groups
+with trivial cyclotomic character if \(a>0\).
+In the Bloch--Kato calculation for Tate twists, crystalline
+classes for the trivial character are unramified and those for
+\(\mathcal O(-a)\) with \(a>0\) are coboundaries over the fraction
+field. The integral cocycles therefore vanish at the prescribed
+elements, and finite-coefficient cocycles satisfying the
+corresponding linear relations do so as well.
+Thus the cost of vanishing on \(A_a\) is at most the crystalline
+colength.
+
+The elements \(\tau_j,\phi_j\) and their conjugates act trivially
+on the finite coefficients. The cocycle rule gives
+\(c(g^{-c})=-c(g^c)\). Agreement of \(c(\tau_j)\) with
+\(c(\tau_j')\) is therefore equivalent to vanishing of
+\(c^+=c+c\circ c_E\) at \(\tau_j\), where \(c_E(g)=g^c\),
+and likewise at Frobenius elements.
+The condition on even cocycles at the ordered auxiliary primes
+now gives \(C(c(\tau_j)-c(\tau_j'))=0\) under the agreements at
+the earlier places.
+
+The submodule vanishing on all new inertia is unramified away
+from \(\ell\). Its members vanish at \(\gamma\), so
+\((\chi_a(a_{\mathrm c})-1)c(a_{\mathrm c})=0\).
+If \(a=0\), the condition at \(A_0\) then gives homomorphisms
+unramified everywhere. For \(a>0\), use the map
+\(c\mapsto c\circ c_E-c\) to the odd classes.
+In its kernel \(c\) is even. Since \(c^+(\phi_j)=0\) for
+\(j\in J_a\), the reading of twice the values of the even
+part at the test points implies \(4c(u)=0\) at each test point \(u\).
+Put \(d_\chi=\chi_a(a_{\mathrm c})-1\). The cocycle \(4d_\chi c\)
+vanishes at the test points and \(a_{\mathrm c}\), hence is zero
+by detection. Since \(4d_\chi^2\mid C\), the kernel is killed
+by \(C\). Thus the length modulo \(C\)-torsion is at most
+the length of the odd classes. This gives \(b_a\) as the sum
+of the crystalline colength and the length of the odd classes.
+A cocycle that vanishes on the new inertia, test points, and
+\(a_{\mathrm c}\) is zero by the same unramifiedness and detection.
+This proves detection by \(s\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/TateTwistCocycles.lean\#L156}{The even kernel and the map to odd classes}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L560}{Application to the tied-row cocycles}}

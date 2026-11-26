@@ -1,0 +1,94 @@
+\paragraph{主成分の構成}
+階数 \(r\) の場合、所与の Hecke 固有系を持つ良い形式
+\(z\ne0\) を最大の添字の \(W_m\) に取る。\(e_0z=z\) で \(e_0\) は
+許容される型のタプルの冪等元の和だから、あるタプルの作用は \(z\) を零にしない。
+\(W_m\) の形式を代数的形式へ移す同型は右正則作用を移し、
+従って指定レベル外で Hecke 作用を保つ。指定素点での主合同レベルによって、
+各極大コンパクトの作用は剰余体上の一般線形群の作用を経由する。
+タプルの作用が非零なので、各成分の型がここに現れる。
+この代数的固有形式に標準の局所大域整合性で付随する表現を \(R\) とする。
+指定素点では型の根が惰性作用を与え、共役素点では共役自己双対性で
+条件を移せる。他の素点では球状性により、不分岐性、\(\ell\) 上では
+結晶性と指定の Hodge--Tate 跳躍が従う。Hecke 多項式の次高次係数の
+符号を反転すると第一 Hecke 固有値と表現の跡がそれぞれ得られ、
+局所大域整合性により、各 \(g\) に近づく Frobenius での第一固有値の極限は
+\(\operatorname{tr}R(g)\) である。階数 \(r\) の各 \(W_j\) で現れる固有系も
+\(W_m\) に現れる。良い形式の固有空間が \(W_m\) で零なら \(W_j\) で零であるという
+比較を使い、持ち上げの像を、良い形式の固有成分の持ち上げで張る。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L480}{固有系に付随する表現の構成}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/GaloisRepresentations/AttachedRepresentations.lean\#L641}{指定の型と各素点での条件}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L326}{各段で必要な固有系の範囲}}
+
+始域の階数を \(r'\)、階数差を \(t'\)、捻り前の降下対の指標を \(\mu\)、
+その重みを \(w\) とする。\(r'\) と \(t'\) は奇数なので
+\(A=(r'-t')/2\) は整数である。\(R_x\) は \(R\) に代数的 Hecke 指標
+\(x\mapsto\mu^{-1}(x/\bar x)|x|_E^A\) の \(\ell\) 進指標を掛けて得る。
+複素埋め込み \(\sigma\) 上の跳躍 \(u\) は
+\(u-(A-\varepsilon_\sigma w(v))\) となる。ここで \(v\) は \(\sigma\) の無限素点、
+\(\varepsilon_\sigma=1\) は CM 型、\(\varepsilon_\sigma=-1\) はその共役を表す。
+有限素点での馴分岐部分はラベルの根に馴指標の逆の名を掛け、
+円分べきによる積は自己双対性の指数を \(1-t'\) に変える。
+
+階数 \(r\) では、重みの図式の第 \(q\) 成分を展開すると、ずらした跳躍は
+\(\lfloor t/2\rfloor-\varepsilon_\sigma(\lambda_q+w_j)\)、\(0\le q<r\) となる。
+\(w_j\) は第 \(j\) 段の降下対の重みの負、\(\lambda_q\) は始域のパラメータである。
+重み間隔を \(G\) と書く。\(q+1<k\) では
+\(|\lambda_q|\le k/2\) なので \(|\varepsilon_\sigma u+w_j|\le t\) となる。
+\(k\le q+1\le r\) では \(i=q+2-k\) に対し
+\(\lambda_q+w_j=(j-i+\tfrac12)G\) となり、
+\(G/4\le |u|\le2mG\) である。後者は \(m\) 個であり、
+小さい跳躍の上限 \(rm/k\) を満たす。共役埋め込みで対応する二つの跳躍の和が
+\(2\lfloor t/2\rfloor\) なので、埋め込みの対で負の跳躍は高々 \(r\) 個となる。
+階数 \(1\) の主対では元の \(R\) は自明表現で、唯一の跳躍は \(0\)、
+惰性のラベルは \(X-1\) であり第一固有値は \(1\) である。
+\(t'=2u_0-1\)、重み \(-c\) の主対 \((\nu,u_0)\) でずらした跳躍は
+\(u_0-1-\varepsilon_\sigma c\) である。主対の範囲
+\(m<u_0\le r\)、\(w_j+r-t\le c\le w_j\) より
+\(|\varepsilon_\sigma(u_0-1-\varepsilon_\sigma c)+w_j|\le t\) となり、
+小さい跳躍はない。共役での和は \(2(u_0-1)\) である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L143}{階数 \(r\) と階数 \(1\) での跳躍の評価}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L265}{階数一で用いる自明表現}}
+
+整行列環を張る性質は \(\ell\) と異なるレベル素数の上で示す。
+その上の指定素点の一つでは調整後のラベルが原始多項式である。
+階数 \(1\) では調整後の \(X-1\) のラベルを用いる。
+馴惰性元 \(s\) の固有値はラベルの根の像であり、Frobenius \(\phi\) は
+\(R_x(s)\) をその \(\mathrm Nw\) 乗に共役する。
+階数 \(r\) では一つの根の Frobenius 軌道が \(r\) 個を与え、
+\(r=3^{d+1}\)、\(q=\mathrm Nw\equiv1\pmod 9\) と書く。
+\(q^{3^d}=1+9h\) なら \((q^r-1)/(q^{3^d}-1)=81h^2+27h+3\) は
+\(3\) で割り切れるが \(9\) で割り切れず、\(3\) より大きい。
+従ってどの \(\ell\) 冪もこの商の倍数ではなく、原始 \((q^r-1)\) 乗根の
+\(\ell\) 冪の Frobenius 周期は \(3^d\) を割らない。周期は \(r\) である。
+\(\ell\) 進固有値の差は単元だから、剰余体で一つの固有ベクトルに Frobenius の
+逆元の冪を作用させると異なる固有値を持つ基底を得る。
+\(\phi^{-a}s^b\)、\(0\le a,b<r'\) の行列の線形関係を各固有ベクトルに適用すると、
+各 \(a\) について係数からなる次数 \(r'\) 未満の多項式が全 \(r'\) 固有値で消える。
+従ってこの \(r'^2\) 個は剰余体で独立で、行列式が単元なので整行列環の基底になる。
+さらに \(\phi^{r'}\) は \(s\) と \(\phi\) の両方の像に可換であり、
+整行列環を張るこの基底と可換だからスカラーである。
+原始ラベルの根の積は位数 \(\mathrm Nw-1\) で、各根の共通の冪である。
+階数 \(1\) では調整後の根の位数は固定した馴指標の冪の位数である。
+その共通の冪で \(R_x(s)\) がスカラーとなり、馴指標の位数の条件により
+\(\ell\) 冪倍の \(1,\ldots,4r'+2\) 乗を取っても \(1\) との差は単元である。
+同じ型の根は \(\mathrm Nw^{r'}-1\) 乗で \(1\) になり、
+許されたレベルの他の指定素点とその共役でも、
+これらの位数によって \(\det(R_x(s)-I)\) の付値を評価する。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsAndColumnsFromLabels.lean\#L356}{型の根の共通冪と分離}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsAndColumnsFromLabels.lean\#L510}{行列環を張る惰性と Frobenius の作用}}
+
+最後に、捻った持ち上げの Hecke 多項式の逆多項式をとり、
+\(\prod_{a<t'}(1-q^a\alpha X)\) と始域の逆多項式を変数 \(\beta X\) で
+評価したものとの積で表す。\(q=\mathrm Nw\) とし、
+\(\alpha,\alpha'\) を始域と終域の指標の正規化した一様化元での値とすると
+\(\beta=q^{t'}\alpha/\alpha'\) である。定数項は \(1\) で、
+一次係数の符号を反転すると
+\(\beta\,p(w,1)+\alpha\sum_{a<t'}q^a\) を得る。\(\alpha^{-1}\) で正規化し、
+局所 Artin 写像で指標の値を移すと、
+第一項は捻りの逆指標と上記の代数的 Hecke 指標の \(\ell\) 進指標の積に
+\(\iota(p(w,1))\) を掛けたものとなる。第二項の \(q^a\) は
+\(\epsilon_{\mathrm{cyc}}^{-a}\) の値である。
+付随表現の局所大域整合性、指標の連続性、Chebotarev による
+各 \(g\) への Frobenius の近似から、冒頭の跡の式を全 \(g\) に得る。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L295}{Hecke 多項式の一次係数と Frobenius における跡}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L391}{Frobenius での等式から全元での等式へ}}

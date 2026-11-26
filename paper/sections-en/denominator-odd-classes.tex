@@ -1,0 +1,171 @@
+\paragraph{A uniform length bound for odd cocycles}
+In this paragraph write \(N=N_{\mathrm{cyc}}\) and \(y=N+t+3\). The module is zero if \(\nu=0\), so take \(\nu\ge1\). At exponent \(a=0\), global class field theory
+identifies the everywhere unramified continuous homomorphisms \(G_E\to\mathcal O/\ell^\nu\)
+with the homomorphisms from \(\operatorname{Cl}(E)\). A cyclic factor of order \(n_j\)
+contributes length at most \(v_\ell(n_j)\), so the length is at most \(v_\ell(h_E)\).
+
+Suppose \(0<a<t\). The coefficients of the Bernoulli polynomials give the integers
+\(B_j=(a+2)!\,N^{a+1}B_{a+1}(j/N)\).
+Define \(g(j)=2B_j+(-1)^a\mathbf 1_{j=1}+\mathbf 1_{j=-1}\) using the least nonnegative
+representatives modulo \(N\). The matrix \(T_{s,j}=g(j/s)\) on the units modulo \(N\) has
+eigenvalue \(2\sum_j\psi(j)B_j+(-1)^a+\psi(-1)\) at \(\psi\).
+When \(\psi(-1)=-(-1)^a\), the Bernoulli sum is a nonzero multiple of \(L(-a,\psi)\)
+by the functional equation and the nonvanishing Euler product in \(\operatorname{Re}s>1\).
+The Euler factors from passing to the inducing primitive character are nonzero since \(a>0\).
+For the other parity the Bernoulli sum vanishes and the eigenvalue is \(2(-1)^a\). Take
+\[
+ X_a=|\det T|\prod_{c\in\{1+N,1+2N\}}(c^a-1)(c^{a+1}-1).
+\]
+The entries have absolute values at most \(64(a+2)!N^{a+1}(a+1)!\).
+Expanding the determinant gives \(0<X_a\le2^{(N+a+3)^6}\).
+At least one of the two \(c\)'s is prime to any given \(\ell\).
+
+Let \(c\equiv1\pmod N\) be prime to \(\ell\) and put \(R=N\ell^\nu\).
+If \(\psi(-1)=-(-1)^a\), in \(\mathcal O/\ell^\nu\) the following sum divides
+\((c^{a+1}-1)X_a\).
+\[
+ S_c=\sum_{j\in(\mathbb Z/R)^\times}
+ \left(\left\lfloor\frac{cj}{R}\right\rfloor
+       -\left\lfloor\frac{c[-j]_R}{R}\right\rfloor\right)j^a\psi(j).
+\]
+Here \(j\) and \([-j]_R\) are least nonnegative representatives.
+Applying the adjugate to the character vector and taking its coordinate at \(1\) shows
+that the eigenvalue \(2\sum_j\psi(j)B_j\) divides \(X_a\).
+Voronoi's congruence writes its product with \(c^{a+1}-1\) as a multiple of a sum of floors.
+Comparing the full sums at \(N\ell^\nu\) and \(N\ell^{\nu-1}\) removes the terms indexed
+by multiples of \(\ell\) and introduces the unit \(1-\ell^a\psi(\ell)\) on the left.
+Replacing \(j\) by \(-j\) in the sum over the units gives the difference of floors.
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Voronoi.lean\#L393}{Construction of the integer from Bernoulli polynomials}
+  \leanlinksep \href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L576}{The congruence restricted to unit residues}}
+
+Choose lifts \(\sigma\) from \(C_N=(\mathbb Z/N)^\times\) to \(G_{\mathbb Q}\) with \(\sigma(1)=1\).
+For complex conjugation \(c_\infty\), put
+\[
+ B(u,h)=u(c_\infty h c_\infty^{-1}h^{-1})u^{-1},\qquad
+ z_\psi(h)=\sum_{v\in C_N}(\epsilon_{\mathrm{cyc}}^a\psi)(\sigma(v))\,z(B(\sigma(v),h)).
+\]
+The cyclotomic quotient is abelian, so \(B(u,h)\in G_E\).
+We have \(B(u,hh')=B(u,h)B(uh,h')\), and the cyclotomic character is trivial on these commutators.
+Left multiplication of \(u\) by an element of \(G_{\mathbb Q(\mu_N)}\) changes \(z(B(u,h))\)
+by the conjugation factor that cancels the change in \(\epsilon_{\mathrm{cyc}}^a(u)\).
+Reindexing by \(v\mapsto v\overline h\) gives the cocycle law for \((\epsilon_{\mathrm{cyc}}^a\psi)^{-1}\).
+The commutator at \(c_\infty\) is trivial, and at the prescribed local elements \(z\) vanishes
+on both conjugates that form the commutator. Character orthogonality gives, for \(h\in G_E\),
+\[
+ \sum_\psi z_\psi(h)=\varphi(N)\bigl(z(c_\infty h c_\infty^{-1})-z(h)\bigr).
+\]
+An even \(\epsilon_{\mathrm{cyc}}^a\psi\) gives a component invariant under conjugation by \(c_\infty\).
+If the odd components vanish, comparing the formula at \(h\) and \(c_\infty h c_\infty^{-1}\)
+and using the oddness of \(z\) yields \(4\varphi(N)z=0\).
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/OddSha.lean\#L414}{The character components of a cocycle}}
+
+If an odd component has \(4X_a^2z_\psi\ne0\), then \(2X_a^2z_\psi\) is nonzero on
+\(G_{\mathbb Q(\mu_R)}\). Indeed, vanishing on this subgroup would give descent to an abelian
+quotient, where the value zero and the action \(-1\) at \(c_\infty\) would force twice the cocycle
+to vanish. By Chebotarev choose a Frobenius \(\sigma_p\) at \(p\equiv1\pmod R\) where it is nonzero.
+Take \(c\in\{1+N,1+2N\}\) prime to \(\ell\).
+The Jacobi sum \(J(1/R)\) is a unit away from \(p\), and the valuations of its conjugates
+above \(p\) are the differences of floors in \(S_c\).
+Artin reciprocity for this element gives \(S_c\,2(c^a-1)z_\psi(\sigma_p)=0\).
+Using \(S_c\mid(c^{a+1}-1)X_a\) and \((c^a-1)(c^{a+1}-1)\mid X_a\) in turn yields
+\(2X_a^2z_\psi(\sigma_p)=0\), a contradiction.
+Thus \(Y_a=4\varphi(N)\cdot4X_a^2\) annihilates the original odd cocycles.
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L670}{Annihilating each component using the Jacobi sums}}
+
+We next find at most \(y^{20}\) evaluation points to detect a cocycle.
+For \(\ell\le y^2\), put \(D=N\ell^2\) and \(K=\mathbb Q(\mu_D)\).
+Use representatives for \(G_E/G_K\) and lifts of generators of the abelian quotient of \(G_K\)
+unramified outside \(\ell\) and killed by \(D\).
+The order of the latter quotient divides \(h_K\) times the index of local \(D\)-th powers above
+\(\ell\). The cyclotomic discriminant, Minkowski's class number bound and the local index bound
+give \(2^{D^3+5D^2+D}\) as an upper bound for this product.
+Cyclic decomposition gives at most \(\varphi(D)+D^3+5D^2+D\le D^4\le y^{20}\) points.
+For \(z\) vanishing at these points, induct on the exponent of a power of \(\ell\) killing \(z\).
+The cocycle \(Dz\) vanishes at the same points and is killed by a smaller power, so \(Dz=0\).
+Then \(G_K\) acts trivially on the values and \(z|_{G_K}\) is a homomorphism through the indicated
+abelian quotient. Its vanishing on generators and coset representatives implies \(z=0\).
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/OddSha.lean\#L91}{The class number, the local index and the evaluation points at small primes}}
+
+For \(\ell>y^2\) the Kolyvagin derivatives of Gauss sums give
+\(m_a=\operatorname{ord}_\ell(X_a)+1\) evaluation points per odd component.
+Suppose no \(m_a\) points detect the component. For a set \(T\) of at most \(m_a\) primes congruent
+to \(1\) modulo \(N\ell\), choose a component vanishing at one Frobenius above each prime of \(T\)
+and take its last nonzero \(\ell\)-power multiple. The resulting \(w\) has \(\ell w=0\) and
+is trivial above \(T\): the action on the \(\ell\)-torsion coefficients is trivial at these primes,
+and every decomposition group is topologically generated by inertia and the conjugate Frobenius.
+
+Choose \(c\equiv1\pmod N\) to be a primitive root modulo \(\ell\), so \(c^a-1,c^{a+1}-1\) are units.
+Choose an inertia element \(\gamma\) above \(\ell\) at which the dual character
+\(\epsilon_{\mathrm{cyc}}^{a+1}\psi\) takes the value \(c^{a+1}\).
+To construct a finite set \(Q\) of auxiliary primes congruent to \(1\) modulo \(cN\ell^{m_a}\),
+consider a dual cocycle unramified outside \(\ell\) over \(\mathbb Q(\mu_N)\) and nonzero on
+\(G_{\mathbb Q(\mu_{cN\ell^{m_a}})}\), paired with a nonzero odd component. The subgroup is no
+union of the kernels of the two restrictions, since both are proper there.
+Chebotarev gives a prime at whose Frobenius both are nonzero. Use one such prime for each pair.
+There are finitely many cocycles since restriction to a subgroup where the coefficient action is
+trivial factors through a finite class field theory quotient and only finitely many values
+are possible on coset representatives. Next choose \(p\equiv1\pmod {N\ell^{m_a}\prod_{r\in Q}r}\)
+above which a nonzero \(\ell\)-torsion component is nontrivial.
+
+Consider the following property of \(T\). Every dual cocycle modulo \(\ell^{m_a}\) killed by
+\(\ell\) and unramified over \(\mathbb Q(\mu_N)\) outside \(\ell,T\) is unramified outside \(\ell\)
+over that field. The empty set has the property. If \(w\) is trivial above \(T\) but nontrivial
+above \(r\equiv1\pmod{N\ell}\), then \(T\cup\{r\}\) also has it. To see this, apply equally to
+each place above \(r\) the following calculation of the inertia value \(z=\kappa(\tau)\)
+of any such dual cocycle \(\kappa\). Extend the coordinates in an \(\mathbb F_\ell\)-basis
+\((e_i)\) of \(\mathcal Oz\) to homomorphisms to \(\mu_\ell\).
+Over \(\mathbb Q(\mu_{N\ell})\), Hilbert 90 applied to these coordinates gives
+Kummer elements \(\alpha_i\) with \(\alpha_i^\ell\) in that field.
+Write \(m_{i,u}\) for the orders of its conjugates above \(r\), and
+\(\tau(r^{1/\ell})/r^{1/\ell}=\zeta_\ell^j\).
+The element \((r^{m_{i,u}/\ell}/\sigma(u)\alpha_i)^\ell\) is a local unit.
+Inertia therefore fixes \(r^{m_{i,u}/\ell}/\sigma(u)\alpha_i\) up to a principal unit.
+Comparing the exponents of \(\zeta_\ell\) gives
+\(u^a\psi(u)\sum_i m_{i,u}j e_i=z\), where the factor \(u\) from conjugating
+\(\mu_\ell\) cancels one power of the dual character.
+Artin reciprocity for each \(\alpha_i^\ell\) shows that
+\(\sum_u m_{i,u}u^a\psi(u)\) annihilates \(2(c^a-1)w(\operatorname{Frob}_r)\ne0\).
+Each of these sums lies in the maximal ideal of \(\mathcal O\).
+Summing the coordinate identities over \(u\) now puts
+\(\varphi(N\ell)z\) in the maximal ideal times \(\mathcal Oz\).
+Since \(\varphi(N\ell)\) is a unit, \(z=0\). In particular \(\{p\}\) has the property.
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L430}{The Kummer calculation in reciprocity modulo \(\ell\)}}
+
+For \(S\subset Q\), write \(\kappa_S\) for the Gauss-sum derivative cocycles for \(p,Q\).
+To construct them, take \(\ell^{m_a}\)-th roots \(Y(x)\) of the Jacobi family \(J(x)\).
+For \(g\in G_{\mathbb Q}\) take the exponent in \(\mu_{\ell^{m_a}}\) of
+\(\gamma(Y(x))/(g\gamma g^{-1})(Y(x))\) on arguments killed by \(N\ell^{m_a}\prod_{r\in S}r\).
+For each \(r\in S\) apply the operator taking \(f\) to
+\(\sum_{u\in(\mathbb Z/r)^\times}\log_r(u)f(x+u/r)\), where \(\log_r\) is onto
+\(\mathbb Z/\ell^{m_a}\). Then sum at \(x=j/(N\ell^{m_a})\) with weights \(j^a\psi(j)\).
+The resulting cocycles vanish at \(\gamma\) and are unramified over \(\mathbb Q(\mu_N)\)
+outside \(\ell,p,S\). For \(r\in Q\setminus S\), choose an inertia element acting on \(\mu_r\)
+as \(v^{-1}\) with \(\log_r(v)=1\). Substitution by \(v\) shifts the weight \(\log_r\) by \(1\).
+The distribution relation of the Jacobi family and reduction at \(r\) identify the resulting
+value of \(\kappa_{S\cup\{r\}}\) on inertia with \(\kappa_S(\operatorname{Frob}_r)\).
+Here roots of unity of order prime to \(r\) are distinguished by reduction.
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/DerivativeCocycles.lean\#L922}{The Frobenius and inertia calculation for the derivatives}}
+
+When \(\#S\le i\) and \(\{p\}\cup S\) has the property above, show in descending order from \(i=m_a\)
+that \(\ell^i\kappa_S\) is unramified outside \(\ell\) over \(\mathbb Q(\mu_N)\).
+Initially \(\ell^{m_a}\kappa_S=0\). At stage \(i\), if \(u=\ell^{i+1}\kappa_S=0\), the property
+of the set applies. If \(u\ne0\), the value zero at \(\gamma\) and the unit difference of the dual
+character from \(1\) imply that \(u\) is nonzero on the subgroup over the specified cyclotomic
+field. Pair it with a nonzero \(w\) trivial above \(\{p\}\cup S\), and choose \(r\) from \(Q\)
+where both Frobenius values are nonzero. Then \(r\notin S\), and adjoining it preserves the property.
+By induction \(\ell^{i+1}\kappa_{S\cup\{r\}}\) is unramified above \(r\), so the equality on inertia
+contradicts \(u(\operatorname{Frob}_r)\ne0\). Hence \(\kappa_\varnothing\) is unramified above \(p\).
+Its inertia value formula yields \((\epsilon_{\mathrm{cyc}}^{a+1}\psi(\gamma)-1)S_c=0\).
+The first factor and \(c^{a+1}-1\) are units, so the Stickelberger congruence gives
+\(\ell^{m_a}\mid X_a\), contradicting the definition of \(m_a\).
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/Kolyvagin/ReciprocityComponentBounds.lean\#L1029}{The descending induction}}
+
+If \(\gamma_{\psi,i}\) are the points for the components, use \(B(\sigma(v),\gamma_{\psi,i})\)
+for \(z\). Vanishing at these points kills every odd component, and \(4\varphi(N)<\ell\) gives
+\(z=0\). The number of points is at most \(\varphi(N)^2m_a\le y^{20}\).
+For small and large primes alike, evaluation therefore embeds the module into at most
+\(y^{20}\) copies of \((\mathcal O/\ell^\nu)[Y_a]\), each of length at most \(v_\ell(Y_a)\).
+For all exponents and primes we can take \(C_{\mathrm{odd}}=h_E(\prod_{0<a<t}Y_a)^{y^{20}}\).
+There are at most \(y\) factors and each \(Y_a\le 2^{4y^6}\), so
+\(C_{\mathrm{odd}}\le h_E2^{4y^{27}}\).
+\leanlinks{\href{\upstream/grh/src/Lib/Cyclotomic/OddSha.lean\#L507}{The uniform bound for all exponents and primes}}

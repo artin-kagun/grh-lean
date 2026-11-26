@@ -7,14 +7,14 @@
 同時に制御する。以下では、その二つの条件から各段の行列式の比を求め、
 連鎖全体に移す。
 
-\subsection{捻りの選択と射影の分母}
+\subsection{捻りの選択と射影の分母}\label{subsec:denominator-twists}
 
 \(r=\dim_E Y_0\)、\(t=5r\) とし、各段の比較に用いる空間を
 \(W_j,V_j\) と書く。エルミート空間としての階数はそれぞれ \(r,r+t\) である。
 \(W_j\) の主レベルの形式に \(e_0\) を作用させて得られる空間を \(F_j\) とする。
 レベル外の分裂素点の Hecke 固有系ごとに、\(W_j\) と \(Y_0\) で
 この射影後の重複度が一致する。特に \(\dim_{\mathbb C} F_j=h\) である。
-\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{重複度の一致}
+\leanlinks{\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{重複度の一致}}
 
 捻り \(\xi\) は、無限素点で重さ \(0\) の \(U(1)\) の保型指標で、
 その分岐素点の集合を \(Q_\xi\) とする。
@@ -45,7 +45,7 @@
 \(w_j(\tau)+r-t\le c(\tau)\le w_j(\tau)\) を満たす臨界対である。
 主対に付随する階数 \(2u\) の空間を、階数
 \(12,4,4,2u-20\) の四つのブロックに分ける。
-\leansrc{New/Determinant/Twist/FitTwists}{臨界対と主対}
+\leanlinks{\leansrc{New/Determinant/Twist/FitTwists}{臨界対と主対}}
 
 \(u_{j,\vartheta}\) を \(F_j\) 上のテータ持ち上げ、\(P_{j,\vartheta}\) を
 その像 \(I_{j,\vartheta}\) への直交射影とする。
@@ -53,7 +53,7 @@
 Hecke 多項式作用素を特殊化する。形式化でいう擬似持ち上げは、
 この作用素の核と \(e_0\) の像と \(I_{j,\vartheta}^{\perp}\) の交わりである。
 擬似持ち上げに直交するという条件は、すべてのこのような \(w\) に課す。
-\leansrc{New/OneLift/TestedForms}{擬似持ち上げの定義}
+\leanlinks{\leansrc{New/OneLift/TestedForms}{擬似持ち上げの定義}}
 
 \[
  B_{\mathrm{den}}=\frac{E_3}{mk}
@@ -114,7 +114,9 @@ Hecke 多項式作用素を特殊化する。形式化でいう擬似持ち上�
 これらには \(R_i^c\simeq R_i^\vee(1-t')\)、指定された Hodge--Tate 跳躍、
 レベル素点での惰性作用の型、十分大きい係数環上でその像が全行列環を
 張るという性質がある。
-\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/SelmerHypotheses.lean\#L434}{主成分に課される条件}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/SelmerHypotheses.lean\#L434}{主成分に課される条件}}
+
+\input{sections/denominator-main-summands}
 
 共通の係数離散付値環 \(\mathcal O\) に \(R_i\) の安定格子 \(T_i\) を取り、
 その作用を \(\rho_i\) と書く。長さは \(\mathcal O/\ell\) が長さ \(1\) に
@@ -147,8 +149,8 @@ Hecke 多項式作用素を特殊化する。形式化でいう擬似持ち上�
 通常の長さとする。剰余体が \(2re+1\) 個より多くの元を持つように
 係数環を取れるので、全ての \(i\) について \(b_i+1<M_0\) となり、
 以下の剰余体上の選択も可能になる。
-\href{\upstream/grh/src/New/Congruences/Selmer/MainSummands.lean\#L294}{格子の局所条件と誤差項}、
-\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L304}{共通係数環の選択}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/MainSummands.lean\#L294}{格子の局所条件と誤差項}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L304}{共通係数環の選択}}
 
 分岐対と符号ごとに、群環元 \(\Theta_{Q'}\) のノルム両立系を用意する。
 空集合での自明指標への特殊化 \(1(\Theta_\varnothing)\) は非零整元である。
@@ -162,7 +164,9 @@ Hecke 多項式作用素を特殊化する。形式化でいう擬似持ち上�
 \(\rho_i(g_0),\rho_i(g_0^{-c})\) を \(\ell^{M_0}\) を法として、
 \(\varrho_Y(g_0)\) を \(\ell^{M_1}\) を法として指定することで、
 \(g_0\) の開近傍を定める。
-\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L312}{分岐対に付随するノルム両立系}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L312}{分岐対に付随するノルム両立系}}
+
+\input{sections/denominator-stickelberger}
 
 補助素点 \(Q\) を選ぶとき、各 \(q\in Q\) に Frobenius 元 \(\phi_q\)、
 惰性元 \(\tau_q\)、および反円分指標
@@ -175,7 +179,7 @@ Hecke 多項式作用素を特殊化する。形式化でいう擬似持ち上�
 有限個の場所を許した単元を剰余体で \(\ell^A\) 乗にする Kummer 条件と
 Frobenius の指定を合わせて得る。この条件の下で、剰余体上の離散対数を
 イデール類に降ろし、\(z/\bar z\) を通して反円分指標を作る。
-\href{\upstream/grh/src/New/Congruences/Selmer/AuxiliaryPrimes.lean\#L102}{補助素点の反円分指標}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/AuxiliaryPrimes.lean\#L102}{補助素点の反円分指標}}
 後に加える \(q\ne q_0\) では、\(\lambda_{q_0}(\phi_q)=1\)、
 それ以外の \(\lambda_{q'}(\phi_q)=0\) となるように選ぶ。
 この条件が、直線上での Euler 因子と惰性の拘束を計算する際に使われる。
@@ -233,11 +237,11 @@ Greenberg--Wiles の長さの比較を使うと、拘束付き加群の長さは
 以下になる。最後に \(q_0,\bar q_0\) でだけ拘束を外すと、
 Frobenius の合同により、増分は \(b_i^{\mathrm{first}}\) 以下である。
 従って残った拘束の下での長さは \(b_i\) 以下である。
-\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L63}{傾きを選ぶ線形代数}、
-\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L527}{全ての深さでの降下}、
-\href{\upstream/grh/src/New/Congruences/Selmer/Count.lean\#L519}{双対群との長さの比較}、
-\href{\upstream/grh/src/New/Congruences/Selmer/Mirror.lean\#L659}{双対群から共役双対への準同型}、
-\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L247}{最初の拘束を外す費用}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L63}{傾きを選ぶ線形代数}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L527}{全ての深さでの降下}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Count.lean\#L519}{双対群との長さの比較}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Mirror.lean\#L659}{双対群から共役双対への準同型}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L247}{最初の拘束を外す費用}}
 
 \subsubsection{多項式の特殊化と一つの指標の選択}
 
@@ -256,7 +260,7 @@ Frobenius の合同により、増分は \(b_i^{\mathrm{first}}\) 以下であ�
 特殊化の付値の最小値が、捩れ加群の長さになる。
 指定した一点でこの最小値を取る小行列式を選べば、そこでは等号を持ち、
 他の全ての点では長さの上界を与える。
-\href{\upstream/grh/src/New/Congruences/Selmer/OneSystem.lean\#L434}{コサイクル方程式の小行列式}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/OneSystem.lean\#L434}{コサイクル方程式の小行列式}}
 まず \(q_0,\bar q_0\) 以外で拘束を残し、原点でこの等式を持つ
 多項式を直線 \(X_{q_0}=Y,\ X_q=s_{i,q}Y\ (q\ne q_0)\) に制限して
 \(D_0(Y)\) とする。よって \(v_\ell(D_0(0))\le b_i\) である。
@@ -283,7 +287,7 @@ Frobenius の合同により、増分は \(b_i^{\mathrm{first}}\) 以下であ�
 \(v_\ell(y)=\rho\) でこの Gauss 付値を実現できる。
 こうして、全座標の付値が \(\rho\) 以上であり
 \(v_\ell(P_i(x_i))\le b_i+s_0\rho\) となる点 \(x_i\) を得る。
-\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L291}{行列式多項式と直線での除法}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L291}{行列式多項式と直線での除法}}
 
 群環元 \(\Theta_Q\) については、\(\prod_q(1+X_q)^{\lambda_q}\)
 で特殊化する整係数多項式 \(P_Y\) を取る。ここでは
@@ -301,7 +305,7 @@ Frobenius の合同により、増分は \(b_i^{\mathrm{first}}\) 以下であ�
 従って合同は \(R_0R_1\) の最低付値項に影響せず、\(1+Y\) の冪も
 付値を変えない。これで \(P_Y\) に対しても、座標の付値が \(\rho\) 以上で
 \(v_\ell(P_Y(x_Y))\le b_Y+s_0\rho\) となる点を得る。
-\href{\upstream/grh/src/New/Congruences/Selmer/StickelbergerLine.lean\#L477}{ノルム関係からの Euler 因子の評価}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/StickelbergerLine.lean\#L477}{ノルム関係からの Euler 因子の評価}}
 
 重み付き付値の評価を得た点は多項式ごとに異なる。これを同じ指標に
 移すため、底本では円分根の上で平均を取る。一変数多項式 \(g\) の
@@ -322,7 +326,7 @@ Frobenius の合同により、増分は \(b_i^{\mathrm{first}}\) 以下であ�
 \((1+\alpha+Y)^{\ell^h}-1\) の一次係数の付値は \(h\) である。
 この多項式の半径 \(1\) での Gauss 付値は高々 \(h+1\) なので、
 \[
- \sum_{\zeta\ {\rm primitive}}
+ \sum_{\zeta\ \mathrm{primitive}}
           \min\{v_\ell(\zeta-1-\alpha),1\}\le h+1 .
 \]
 \(\zeta\) は \(1/\rho_h\) 個ある。先に \(\alpha\) を足してから平均すると、
@@ -356,8 +360,8 @@ Gauss 付値以上である。そのため増分の上界 \(\delta\) は各因�
        \le b_P+s_0\rho+\epsilon_\ell/2\le b_P+\epsilon_\ell
 \]
 となる同じ円分根 \((\zeta_q)_q\) を得る。
-\href{\upstream/grh/src/New/Congruences/Selmer/RootsOfUnity.lean\#L294}{円分根を用いた平均と座標ごとの特殊化}、
-\href{\upstream/grh/src/New/Congruences/Selmer/GeneralTheorem.lean\#L318}{指標の冪の同時選択}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/RootsOfUnity.lean\#L294}{円分根を用いた平均と座標ごとの特殊化}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/GeneralTheorem.lean\#L318}{指標の冪の同時選択}}
 
 \(\psi=\prod_q\zeta_q^{\lambda_q}\) とする。これは反円分的で \(\ell\) 上で
 自明である。\(v_\ell(\zeta_q-1)\le\rho/m\) より
@@ -380,8 +384,8 @@ Gauss 付値以上である。そのため増分の上界 \(\delta\) は各因�
 ここで使う局所条件とスカラー作用は捻っても保たれる。
 従って、射影に使う可除係数 Selmer 群の長さは
 \(b_i+\epsilon_\ell\le e'_\ell\) である。
-\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L347}{捩れ係数から可除係数へ}、
-\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L196}{結晶的 Selmer 条件との比較}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L347}{捩れ係数から可除係数へ}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L196}{結晶的 Selmer 条件との比較}}
 
 一方、分岐対に付随する \(P_Y((\zeta_q^j-1)_q)\) の絶対値は、
 \(1(\Theta_\varnothing)\) の絶対値に \(\mathcal L_{\nu,u}(\xi_\iota^j;\varepsilon)\)
@@ -397,8 +401,8 @@ Gauss 付値以上である。そのため増分の上界 \(\delta\) は各因�
 最後の不等式では \(\mathrm Nw_0-1\) がレベル群の位数を割ることと
 \(4\le(4f+3)r\) を使った。これで必要な長さと \(L\) 値の局所評価が
 同じ捻りに対して得られた。
-\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L396}{群環元から \(L\) 値比を取り出す評価}、
-\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L417}{捻りの組への適用}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L396}{群環元から \(L\) 値比を取り出す評価}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L417}{捻りの組への適用}}
 
 \subsubsection{跡の合同と持ち上げ空間への射影}
 
@@ -412,7 +416,7 @@ Hecke 多項式と指定レベルでの型を持つ形式で張られる。そ�
 指定レベルでの特性多項式の型は始域の型を正規化したものに
 \((X-1)^{t'}\) を掛けた型である。捻りの分岐素点とその共役では
 \((N_x(g)-\psi_\vartheta(g)I)(N_x(g)-I)=0\) が惰性元 \(g\) に対して成り立つ。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L519}{型とガロア表現に関する仮定}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L519}{型とガロア表現に関する仮定}}
 
 \(Z\) を張る真の持ち上げの固有系を \(\mathcal X\) とする。基準レベルの
 固有系 \(x\) で、全ての \(g\) に対し
@@ -434,8 +438,8 @@ Hecke 多項式には \(\chi_W(\mathrm{Frob}_w)(\mathrm Nw)^a\)
 とくに \(l,p\) は弱い持ち上げの成分で一致する。
 また \(p\) の台は \(\mathcal X\) に含まれ、
 \(C_{\mathrm{lev}}l\) は整である。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L648}{弱い持ち上げの判定と直交射影}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1030}{型射影を含む作用素}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L648}{弱い持ち上げの判定と直交射影}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1030}{型射影を含む作用素}}
 
 基準レベルの弱い持ち上げでない固有系は有限個である。一つずつ
 \(d_{g_s}(x_s)\ne0\) となる \(g_s\) を取り、\(b_s=d_{g_s}(x_s)\) と置く。
@@ -447,7 +451,7 @@ Hecke 多項式には \(\chi_W(\mathrm{Frob}_w)(\mathrm Nw)^a\)
 弱い持ち上げで \(n_0\) に等しい。
 
 次に \(\pi\in\mathcal X\) を一つ固定し、捻りの分岐素点とは別に
-Taylor--Wiles の補助素点を取る。\(\Delta=r^8\) と置く。円分指標の像の
+Taylor--Wiles の補助素点を取る。第\ref{subsec:denominator-twists}節の以下の計算では \(\Delta=r^8\) と書く。円分指標の像の
 位相的生成元を与える元 \(a_{\mathrm{cyc}}\) と指数
 \(h_\ell\le v_\ell(C_{\mathrm{lev}})\) を、
 \(0<a<t\) に対して
@@ -473,8 +477,8 @@ Frobenius で消える偶コサイクルについて、次の惰性での値の�
 試験点に \(a_{\mathrm{cyc}}^{-1}\) を加えた個数を \(n_{\mathrm{test}}\)
 とすると、
 \((\#J+n_{\mathrm{test}})\Delta h_\ell\le\Delta^{22}h_\ell\) である。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TrianglePrimes.lean\#L624}{試験点と順序付き補助素点の構成}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L217}{スカラー惰性作用による Frobenius の選択}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/TrianglePrimes.lean\#L624}{試験点と順序付き補助素点の構成}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L217}{スカラー惰性作用による Frobenius の選択}}
 
 \(n=r'+t'\) とする。係数付値環で \(2n!(n_0C_{\mathrm{lev}}^2)^{\#J+1}\) が
 \(p_\ast=\ell^\nu\) を割るように \(\nu>0\) を選ぶ。
@@ -502,8 +506,8 @@ Frobenius で消える偶コサイクルについて、次の惰性での値の�
 \(A_\pi=1-\prod_{x\in[\pi]}(1-B/B(x))\) が求める指示関数である。
 従って \(A_\pi\delta_0\ne0\) の基準レベル成分では、
 根の列と \(H_j\) による除法の両方が成立する。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L297}{根の列と共通の多項式}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TiedTraces.lean\#L333}{剰余合同を切り出す整 Hecke 作用素}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L297}{根の列と共通の多項式}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TiedTraces.lean\#L333}{剰余合同を切り出す整 Hecke 作用素}}
 
 \paragraph{合同を測る多項式}
 \(\mathbb T[(X_j)_{j\in J}]\) において、\(\operatorname{tr}(p_\ast g)\) と
@@ -533,43 +537,19 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 各 \(\chi_a\) は \(a_{\mathrm{cyc}}^{-1}\) の作用の差の積を
 使って \(C\) 倍まで分離できる。
 
-さらに、有限個の \(g\) の組を取り、全ての \(x\) にわたる族
-\((N_x(g)-I)_x\) をその組で張る。これらの座標を使って、
-跡の合同に従う行を主成分と各指標上に作る。
-主成分 \(\pi\) での行列式 \(D_\pi\) の原点での付値は \(b_0\) 以下である。
-この評価は、族の線形関係とコサイクル関係を満たし、新しい素点と
-その共役での惰性元および \(\gamma_\pi\) で消える可除係数の
-コサイクル加群の長さから得る。その長さを \(\mathrm{sel}\) と
-局所的な結晶性のずれの和で抑える。指標の行では、先の指数の変数を
-既に掛けた後で \(X_J\) を割らない単項式を捨てる。
-同じ指数 \(a\) の補助素点に対応する \(\prod_{j:\,\operatorname{type}(j)=a}X_j\)
-を掛けた因子が残り、その乗数を \(\Gamma_a\) と書く。
-ここで \(\Gamma_a(0)\) の付値は、奇コサイクルの長さと結晶的条件の
-余長の和 \(b_a\) に、指標の分離と検出に使った \(C\) の費用を加えたもの
-以下である。
-
-主成分の行列 \(B_0\) と、指標の行を組み込んだ行列 \(B_{\mathbf i}\) から
-\((1-K)B_0+KB_{\mathbf i}\) を作る。それぞれの行が跡の関係を満たすので、
-行列式の乗数の補題を適用できる。自明指標の成分だけを
-\(C\) 倍で取り出す群環元を使い、\(\mathbf i\) について重み付きで足す。
-\(\mathcal X\) 上では、主成分の行列式 \(D_x\) に \(C c_0^{t'}\) と
-指標ごとの行列式和を掛けた形になる。
-ここで \(c_0=C^{\#s}\prod_v o_v(1)\) で、\(s\) は
+検出に使う集合 \(s\) は
 試験点、\(a_{\mathrm{cyc}}^{-1}\)、補助素点の惰性元とその共役逆元からなる
 検出集合である。\((X-1)o_v(X)\) は、Taylor--Wiles 素点を
 加える前から分岐を許した \(\ell\) 外の惰性元で、全ての \(N_x\) を殺す。
 捻りの分岐素点では \(o_v(X)=\psi_\vartheta(g)-X\) を、
 \(M\) 上の素点では \(o_v(X)=\sum_{a=0}^{C_{\mathrm{lev}}-1}X^a\) を使う。
-指標ごとの補正項からは \(X_J\) を割る単項式が出ないので、
-\(X_S\) の係数は \(S\subsetneq J\) で消える。
-\(X_J\) の係数は \(\bigl(D_x C c_0^{t'}\prod_a\Gamma_a\bigr)(0)\) であり、
-\(\pi\) での付値は
-\[
- b_0+\sum_{a=0}^{t'-1}b_a+
- t'\!\left(\sum_v v_\ell(o_v(1))+2\#s\,v_\ell(C)\right)
-       +(\#J+1)v_\ell(C)
-\]
-以下である。主成分を含む結晶的条件のずれの和は
+
+\input{sections/denominator-ribet-block}
+\input{sections/denominator-local-cost}
+\input{sections/denominator-ribet-characters}
+\input{sections/denominator-ribet-multiplier}
+
+主成分を含む結晶的条件のずれの和は
 \(r' L_\ell\)、各指標の奇部分の長さは \(v_\ell(C_{\mathrm{odd}})\) で抑える。
 \(\mathrm{ram}\) を \(Q\) での捻りの惰性付値の和の上界とする。
 その共役側も加え、\(M\) 上の素点数に \(4f\) を用いると
@@ -582,11 +562,11 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
  \label{eq:ribet-top-valuation}
 \end{equation}
 ここで \(L_\ell,e_\ell,C_{\mathrm{odd}}\) の値は次段落で明示する。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L532}{主成分の行列式とコサイクルの長さ}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L914}{指標の行列式と拘束による補正}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L892}{惰性での多項式と費用}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L597}{行列式の結合と最高係数}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L328}{局所条件と長さの代入}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L532}{主成分の行列式とコサイクルの長さ}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L914}{指標の行列式と拘束による補正}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L892}{惰性での多項式と費用}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L597}{行列式の結合と最高係数}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L328}{局所条件と長さの代入}}
 
 \paragraph{変形ノルムと分母の消去}
 補助素点 \(j\) での通常のノルム \(N_j\) は、剰余体上の
@@ -616,8 +596,8 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 \]
 と書ける。これは局所作用素の剰余群に沿った差を通常のノルムで
 因数分解し、安定化群の位数を \(C_{\mathrm{lev}}\) で払って得る。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L151}{局所一次項と跡の関係}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L232}{変形ノルムの合同}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L151}{局所一次項と跡の関係}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L232}{変形ノルムの合同}}
 
 \(n_1=n_0 C_{\mathrm{lev}}^2\) とし、\(G\) を
 \(\mathcal N\mathcal D\) の \(X_J\) の係数とする。
@@ -648,7 +628,7 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 \(d C_{\mathrm{lev}} A_\pi^{i+1}\mathcal D_Jp\) が整と分かる。
 \(A_\pi(\pi)=1\) なので、\(\pi\) での作用の付値は
 \eqref{eq:ribet-top-valuation} の上界で抑えられる。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L434}{最高係数から射影の整性を得る合同}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L434}{最高係数から射影の整性を得る合同}}
 
 \paragraph{固有値と階数 \(1\) の内積}
 真の持ち上げから \(Z\) の基底を選び、各基底元に対して上の作用素を
@@ -676,12 +656,13 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 \]
 従って固有値の積から
 \(|\det\Lambda|_\iota\ge \exp(-\dim Z\,r'c_\ell\log\ell)\)
-を得る。\leanref{clearingBound}
+を得る。
+\leanlinks{\leanref{clearingBound}}
 \(Z=I_{j,\vartheta}\) の場合は \(r'=r\) である。
 \(I_{j,\vartheta}\) は \(F_j\) の像なので \(\dim Z\le h\) となり、
 \(|\det\Lambda|_\iota\ge\exp(-hrc_\ell\log\ell)\) が従う。
-\href{\upstream/grh/src/New/Congruences/FirstOrder/HeckeStrings.lean\#L59}{対角作用素を一つにまとめる整係数結合}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1246}{安定化群と行列式の上界}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/HeckeStrings.lean\#L59}{対角作用素を一つにまとめる整係数結合}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1246}{安定化群と行列式の上界}}
 
 主対では \(r'=1\) で、射影先は持ち上げ \(\phi\) の張る直線である。
 試験形式の直交条件は、階数 \(1\) の下降の核の中にある
@@ -704,8 +685,8 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
  |\langle P\Xi,P\Xi'\rangle|_\iota
     \le\exp\bigl((c_\ell+v_\ell(C_1))\log\ell\bigr).
 \]
-\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L239}{中心移動の和と下降の核}、
-\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L272}{階数 \(1\) の射影内積}。
+\leanlinks{\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L239}{中心移動の和と下降の核}
+  \leanlinksep \href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L272}{階数 \(1\) の射影内積}}
 
 \subsubsection{素数ごとの評価の合計}
 
@@ -718,11 +699,11 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
  L_\ell=4f\cdot 10^6\,\frac{m}{k}
         \left(b\,v_\ell(M)+v_\ell\!\left((2b)!\,\Pi_b^{\Delta^3}\right)\right)
 \]
-である。\(C_{\mathrm{odd}}\) は、正の指数では奇コサイクルの長さ、
-指数 \(0\) では不分岐な準同型の長さをその付値で抑える正整数である。
-\(N_{\mathrm{cyc}}\) を \(E\) を含む円分体の原典で用いる導手、
-\(h_E\) を \(E\) の類数とすると、
-\(C_{\mathrm{odd}}\le 2^{4(N_{\mathrm{cyc}}+t+3)^{27}}h_E\) である。
+である。
+\(N_{\mathrm{cyc}}\) を \(E\) を含む円分体の底本で用いる導手、\(h_E\) を \(E\) の類数とする。
+
+\input{sections/denominator-odd-classes}
+
 前節の \(e_\ell\) は
 \[
  e_\ell=t\,v_\ell(C_{\mathrm{odd}})
@@ -732,9 +713,9 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 \((2t'\#s+\#J+1)\Delta h_\ell\) を抑える際に用いる。
 \(2v_\ell(C_{\mathrm{lev}})\) は
 \eqref{eq:ribet-top-valuation} の左辺の因子に対応する。
-\href{\upstream/grh/src/New/Congruences/LocalLoss/Basic.lean\#L114}{結晶的条件のずれの数値上界}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L70}{奇部分と分母の誤差項}、
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L105}{各誤差項の合成}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/Basic.lean\#L114}{結晶的条件のずれの数値上界}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L70}{奇部分と分母の誤差項}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L105}{各誤差項の合成}}
 
 正整数 \(A\) に対して \(\sum_{\ell\in T}v_\ell(A)\log\ell\le\log A\)
 である。ここで \(T\) は任意の有限な素数集合でよい。
@@ -776,9 +757,9 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 最後の不等式も許容データの仮定から従う。
 \(\xi_\iota\) は \(\ell\) の外に分岐するので、以上で
 正則な捻りの三条件を満たした。
-\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L86}{局所項の有限素数和}、
-\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L232}{分母の予算}、
-\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L475}{正則な族の構成}。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L86}{局所項の有限素数和}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L232}{分母の予算}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L475}{正則な族の構成}}
 
 \subsection{主対の Hecke 値とテータ微分}
 
@@ -794,10 +775,13 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 となる。これに対し有限素点の評価を直接行うため、
 \(\phi_\vartheta\) を含む直線への射影を、二つの試験形式に適用する。
 
+\input{sections/rank-one-norm}
+
 先に \(\|\phi_1\|^2\) を定数族とみなした高さを評価する。
 同じ階数で微分次数が \(0\) の臨界対に付随する持ち上げを
-\(\phi^{(0)}_1\) とする。そのノルムに整数 \(n_L\) を掛けると
-すべての有限素点で整になる。
+\(\phi^{(0)}_1\) とする。整性を得る持ち上げの因子は \(D_0=M^{2f(2u)}\) である。
+従って、安定化群の分母も含めた \(n_L=C_{\mathrm{lev}}D_0^2\) をその二乗ノルムに
+掛ければすべての有限素点で整になる。階数とレベルの大きさの仮定から \(\log n_L\le x^{33}\) である。
 \(\|\phi_1\|^2\) の高さの定義に用いる共通の因子を
 \(n_L\|\phi^{(0)}_1\|^2/\|\phi_1\|^2\) とすれば、
 有限素点からの損失を \(0\) にできる。無限素点では両ノルムの
@@ -811,9 +795,9 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
  \label{eq:untwisted-rankone-height}
 \end{equation}
 ここでノルムの評価はまず二次体 \(K\) を固定する共役について
-行われる。原典の共役の絶対値に関する補題により、
-すべての \(\mathbb C\) の自己同型について同じ評価が成立する。
-\leansrc{New/OneLift/HeckeValues/AlgebraicPartSize}{無捻りノルムの高さ}
+行われる。二次体上で非自明な自己同型は、複素共役を値に施すことで
+二次体を固定する自己同型に移せる。絶対値は変わらない。
+\leanlinks{\leansrc{New/OneLift/HeckeValues/AlgebraicPartSize}{無捻りノルムの高さ}}
 
 有限素点側で必要な微分の付値を
 \[
@@ -827,9 +811,11 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
    \le \sum_{\tau\in\Phi}s_{\mathrm{fin}}(\kappa(\tau),\tau).
  \label{eq:local-prime-total-lower}
 \end{equation}
-\leansrc{New/UpperBound/Size/Estimates}{局所素数和の合計}
+\leanlinks{\leansrc{New/UpperBound/Size/Estimates}{局所素数和の合計}}
 
 \input{sections/theta-sharpness}
+
+\input{sections/false-lift-proof}
 
 \paragraph{四つのブロックからの試験形式}
 前段で得た階数 \(12\) の指示関数と単項式を、それぞれ \(I_{y_0}\)、\(z^\alpha\)
@@ -844,11 +830,11 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 \]
 である。
 
-\(U(1)\) の主合同レベルの類群を \(\mathcal C\)、類数を \(N_{\rm cl}\)
+\(U(1)\) の主合同レベルの類群を \(\mathcal C\)、類数を \(N_\mathrm{cl}\)
 とする。安定化群は自明である。自明な類の代表元を単位元に移す
 平行移動 \(z_0\) を取り、類の指標 \(\psi\) に対して
 \[
- A_\psi=\frac1{N_{\rm cl}}\sum_{[g]\in\mathcal C}
+ A_\psi=\frac1{N_\mathrm{cl}}\sum_{[g]\in\mathcal C}
                  \psi(\det(gz_0))\,s(gz_0)
 \]
 と定める。類群の指標は、選んだ素点の外で順分岐部分が自明な
@@ -881,8 +867,8 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 従って、各 \(\ell\) 上の場所でデルタ形式の値の Weyl ゲージは \(1\) 以下である。
 四つの指標の積の条件と有限部分の列の分解を用いると、このデルタ形式と主対の
 核との内積は \(T_\alpha\) と四つのブロックの核の積になる。
-\leansrc{New/OneLift/ComparisonOperator/ExchangeData}{単項式を読む整係数ベクトル}、
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{デルタ形式による核の分解}。
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ExchangeData}{単項式を読む整係数ベクトル}
+  \leanlinksep \leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{デルタ形式による核の分解}}
 
 この形式を三つの群の類にわたり、各ブロックの規格化した持ち上げの
 値を重みとして足したものを \(\Xi\) とする。
@@ -890,23 +876,22 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 各対の分母を払う整数を重みに含める。残る法のノルムは
 \(\ell\) で単元だから、三つの類和はいずれも整性を保つ。
 擬似持ち上げと対にすると、最後のブロックの持ち上げを \(U(1)\) 上で展開し、
-二つの類和を交換して得る内側の和は周期の消滅公式の形になる。
-その公式では擬似持ち上げが下降の核と Hecke 多項式の核に属することを使う。
+二つの類和を交換する。内側の和は上のブロック周期（\nameref{par:false-lift-periods}）である。
 また主対は選んだ素点で分岐し、この指標の直交性によって超平面上の和も零になる。
 従って最後のブロックの類和は擬似持ち上げに直交し、外側の二つの類和もこれを保つ。
-\leansrc{New/OneLift/FalseLifts/PeriodsOfFalseLifts}{擬似持ち上げの周期の消滅}。
+\leanlinks{\leansrc{New/OneLift/FalseLifts/PeriodsOfFalseLifts}{擬似持ち上げの周期の消滅}}
 
 各ブロックの核と持ち上げとの内積は \(U(1)\) の点で一定であり、
 その類和が随伴関係から持ち上げの二乗ノルムになる。
 こうして三つの類和を順に取ると、各ブロックから
-階数を \(r_i\) として \(L_i/(N_{\rm cl}\mathcal V^{r_i})\) が現れる。
+階数を \(r_i\) として \(L_i/(N_\mathrm{cl}\mathcal V^{r_i})\) が現れる。
 主対の規格化には \(\mathcal V^{2u}J_\alpha\) が入り、最後に \(g\) で類和を取って
-\(N_{\rm cl} A_\psi\) が現れるので、
+\(N_\mathrm{cl} A_\psi\) が現れるので、
 \begin{equation}\label{eq:attain-test-form-identity}
- N_{\rm cl}^2\langle\Xi,\phi_\vartheta\rangle
+ N_\mathrm{cl}^2\langle\Xi,\phi_\vartheta\rangle
    =t\, L_2(1)\rho_\vartheta L_3(\psi_3)L_1(\psi_1)\mathfrak c A_\psi .
 \end{equation}
-\(N_{\rm cl}\) は整数で \(|N_{\rm cl}|_\iota\le1\) である。
+\(N_\mathrm{cl}\) は整数で \(|N_\mathrm{cl}|_\iota\le1\) である。
 \(c_0=t L_2(1)L_\ast\) と置き、上の選択による二つの下界を代入すると
 \begin{equation}
  |\langle\Xi,\phi_\vartheta\rangle|_\iota
@@ -917,7 +902,7 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 \(\exp(x^{34})\) 以下なので、\(|\sigma(L_\ast)|\le\exp(2x^{34})\) である。
 \(t\) の評価と合わせると
 \(|\sigma(c_0)|\le\exp(fmb/k+3x^{34})\le\exp(B_{\mathrm{den}})\) を得る。
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{類和の計算と試験形式の内積の下界}。
+\leanlinks{\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{類和の計算と試験形式の内積の下界}}
 
 \(\vartheta=\xi_\iota^j\) とする。\(\iota\) と
 \(\iota\circ\mathrm{conj}\) でそれぞれ \eqref{eq:test-pairing-lower} の
@@ -958,7 +943,9 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
  \le 6 B_{\mathrm{den}}-A_0.
  \label{eq:main-pair-height-lower}
 \end{equation}
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{主対の逆比の高さ}
+\leanlinks{\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{主対の逆比の高さ}}
+
+\input{sections/exchange}
 
 \subsection{一段の行列式の比較}
 
@@ -975,9 +962,9 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
  \frac{\mathcal H_j(\vartheta)}{\mathcal H_j(1)}
  \label{eq:comparison-operator-lower}
 \end{equation}
-となる。\(\mathcal H_j\) は、交換に現れる三つの Hecke 値の積である。\leanref{heckeValueProd}
-\(U_j^\circ\) は無捻りで得られる周期写像のグラム作用素の正の定数倍である。
-その周期写像は単射なので、\(\det U_j^\circ\) は零でない。
+となる。\(\mathcal H_j\) は、交換に現れる三つの Hecke 値の積である。
+\leanlinks{\leanref{heckeValueProd}}
+\input{sections/comparison-proof}
 
 \(\rho_j(\vartheta)\ne0\) である。この構成の局所的な性質は二つある。まず \(U_{j,\vartheta}\) は
 テータ持ち上げを擬似持ち上げに直交する形式に移す。次に、
@@ -987,8 +974,8 @@ Ribet の行列式の構成は、多項式 \(\mathcal D\) によって
 後者を得る。同じフレームに対する Cauchy--Schwarz の評価から、
 無捻りの作用素は、各共役でノルムを
 \(\exp(3fmb(\log b)^2)\) 倍以下にする。
-\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{三回の交換}、
-\leansrc{New/OneLift/LiftVolumeHeight}{比較作用素の構成と評価}
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{三回の交換}
+  \leanlinksep \leansrc{New/OneLift/LiftVolumeHeight}{比較作用素の構成と評価}}
 
 \(B_{j,\vartheta}\) を \(P_{j,\vartheta} U_{j,\vartheta}\) の
 \(I_{j,\vartheta}\) への制限とし、\(D_j(\vartheta)=\det B_{j,\vartheta}\)
@@ -1029,7 +1016,7 @@ Hecke 作用素の特殊化の共役に対する随伴性を使う。
  \operatorname{ht}\bigl((D_j(\xi_\iota^j)/D_j(1))_\iota\bigr)
      \le h(3C_{\mathrm{arch}}+r B_{\mathrm{den}}).
 \]
-\leansrc{New/OneLift/LiftVolumeHeight}{圧縮の行列式の有限素点・無限素点評価}
+\leanlinks{\leansrc{New/OneLift/LiftVolumeHeight}{圧縮の行列式の有限素点・無限素点評価}}
 
 三つの交換で現れる \(\rho_j(\vartheta)\) は \(N_\vartheta\) の整数冪を除くと、
 \(k/2\) 個の主対の比と \(5m\) 個の分岐対の比の積の二乗である。
@@ -1051,8 +1038,8 @@ Hecke 作用素の特殊化の共役に対する随伴性を使う。
  \label{eq:single-relative-height}
 \end{equation}
 が従う。
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Hecke 値の因数分解}、
-\leansrc{New/OneLift/LiftVolumeHeight}{一段の高さの評価}
+\leanlinks{\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Hecke 値の因数分解}
+  \leanlinksep \leansrc{New/OneLift/LiftVolumeHeight}{一段の高さの評価}}
 
 \subsection{連鎖の行列式}
 
@@ -1063,20 +1050,7 @@ Hecke 作用素の特殊化の共役に対する随伴性を使う。
 転置持ち上げを比較する。両者を入れ替える二つの経路の比較が
 交換恒等式を使う箇所である。
 
-有限環上での対応は具体的には次のようになる。列と行の添字を二組に分け、
-可逆行列 \(g\) の先頭の列からなる行列を \(C(g)\)、\(g^{-1}\) の末尾の行からなる
-行列を \(R(g)\) と書く。重み \(\Psi\) と \(\Phi\) の台をそれぞれこの形の行列に限り、
-\(\Phi(R(g))=\chi(\det g)\Psi(C(g))\) とする。
-二つの経路で、底本の指定した重さ・分岐・符号・階数を満たす核を \(K,K'\) とする。
-交換により
-\(\sum\Psi K'=(\kappa_0/c)\sum\Phi K\) を得る。
-\(|c|^2\) は剰余体の位数の冪と部分 \(L\) 値の絶対値の二乗の積で決まり、
-\(\kappa_0\) は捻りと独立である。
-この等式を点データと有限 Fourier 変換を施したデータに
-適用することで、三角形に必要な二つの交換則を得る。
-\leansrc{New/Determinant/Exchange/TheoremForPartners}{テータ積分の交換}、
-\leansrc{New/Determinant/Exchange/OneSquare}{一つの正方形での交換}、
-\leansrc{New/Determinant/Chain/ChainNorms}{三角形の交換則と単射性}
+\input{sections/chain-proof}
 
 \(c_Q(\xi)\) を
 \[
@@ -1108,11 +1082,21 @@ Hecke 作用素とする。単独の持ち上げに Rallis の公式を適用し
 空の合成から帰納すると、行 \(i\) のグラム作用素は、
 各行の最初のグラム作用素の積と \(w_0w_1^n/w_n\) に比例し、
 係数に現れる対は \(i<r'<j\le m\) である。
-\leansrc{New/Determinant/Chain/TriangleNorms}{重み付き連鎖の帰納公式}
+\leanlinks{\leansrc{New/Determinant/Chain/TriangleNorms}{重み付き連鎖の帰納公式}}
 
 行 \(0\) からの連鎖では、各行の最初のグラム作用素に Rallis の公式を適用する。
 最終レベルの指数をブロック上三角行列の数で書き直すと、
-\(w_0w_1^m/w_m\) が相殺される。この規格化の下で、
+\(w_0w_1^m/w_m\) が相殺される。実際、捻りの素点の剰余体を
+\(\mathbb F_q\) とすると、最終レベルの放物部分群の位数は
+\[
+ |\mathrm{GL}_{r}(\mathbb F_q)|\,|\mathrm{GL}_{t}(\mathbb F_q)|^m\,
+     q^{mrt+\binom{m}{2}t^2}.
+\]
+右上の各ブロックは任意の行列だからである。一段の指数に対応する
+位数は \(m=1\) の場合であり、それを \(m\) 乗して比較すると
+自由ブロックの寄与には \(q\) の冪だけが残る。
+選んだ素点では両方とも一般線型群の位数で、捻りによらない部分に入る。
+この規格化の下で、
 原典のグラム作用素の公式は
 \[
  \Theta_\xi^*\Theta_\xi
@@ -1159,12 +1143,15 @@ Hecke 作用素とする。単独の持ち上げに Rallis の公式を適用し
        \le h(b+E_4-H_0).
  \label{eq:chain-relative-height}
 \end{equation}
-\leansrc{New/Determinant/Chain/NormOfChain}{連鎖のグラム作用素と行列式の分解}
+\leanlinks{\leansrc{New/Determinant/Chain/NormOfChain}{連鎖のグラム作用素と行列式の分解}}
 
 \subsection{基底を補う形式}
 
 基底の補充には、射影 \(e_0\) を作用させる前の主レベルの空間を
-深いレベルの形式から生成する。原典では二つの格子状の図式を作り、
+深いレベルの形式から生成する。
+\input{sections/auxiliary-proof}
+
+二つの格子状の図式を作り、
 その外縁に沿う最初の経路の周期を、
 \(m^2\) 個の正方形で一回ずつ経路を曲げて、最後の経路の周期に移す。
 各曲がりでは有限行列データの和に交換恒等式を適用する。
@@ -1180,15 +1167,13 @@ Hecke 作用素とする。単独の持ち上げに Rallis の公式を適用し
 を満たす。剰余体指標の指数 \(i+j+2\) は \(2\) 以上 \(2m\) 以下であり、
 指定レベルで非自明である。したがって各 \(T_{ij}\) に現れる対も
 分岐対である。
-\leansrc{New/Determinant/AuxiliaryForms/Turns}{各曲がりの \(L\) 値比}、
-\leansrc{New/Determinant/AuxiliaryForms/DiagonalTurns}{全経路の比較}
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/Turns}{各曲がりの \(L\) 値比}
+  \leanlinksep \leansrc{New/Determinant/AuxiliaryForms/DiagonalTurns}{全経路の比較}}
 
 最後の経路の周期は、有限行列の組 \(S\) について、
-二つの半経路の持ち上げの内積を係数 \(\Psi(S)\) で足した和である。
-規格化を固定すると、\(\ell\nmid N_\xi\) のとき各辺の核の分母と
-類和の分母は、\(\xi\) に依存しない整数を掛けて払える。
-無捻りでは、核の Weyl ノルムの評価と有限和の項数から
-周期の各共役の上界が得られる。
+二つの半経路の持ち上げの内積を係数 \(\Psi(S)\) で足した和 \(\Xi\) である。
+\input{sections/path-proof}
+
 元の持ち上げの値を復元するには、双対のデルタ形式と対にする。
 双対のペアリング行列 \(D\) には、整数行列 \(C\) と正のフック数 \(H\) が
 あって \(CD=HI\) となる。すべての整数ベクトルとのペアリングが
@@ -1196,18 +1181,13 @@ Hecke 作用素とする。単独の持ち上げに Rallis の公式を適用し
 各座標が整であることがわかる。無限素点でも、ペアリングの上界を
 双対ノルムで割ることで Weyl ノルムの上界に移せる。
 
-以上により、次の定量的な形で主レベルの空間が生成される。
-深いレベルの空間から主レベルへの全射 \(s\) と定数 \(c_{\mathrm{sc}}\ne 0\)
-があり、深いレベルの空間はすべての有限素点で整で、
-各共役の値の二乗 Weyl ノルムが \(\exp(x^{99}b^2)\) 以下の形式 \(\psi\)
-で張られる。その像 \(c_{\mathrm{sc}}s(\psi)\) の持ち上げは
+以上で得た深いレベルの生成系を \(\psi\) と書く。経路の比較で生じた
+捻りに依らない測度の定数と \(D_\mathrm{path}\) を一つの因子
+\(c_{\mathrm{sc}}\ne 0\) にまとめる。その像 \(c_{\mathrm{sc}}s(\psi)\) の持ち上げは
 \(c_{\mathrm{path}}(\xi)/c_{\mathrm{path}}(1)\) を掛ければ許容素点で整である。
 無捻りでの像の値の二乗 Weyl ノルムは、
 深いレベルでの上界に \(\exp(2x^{201}b^2)\) を掛けたもの以下で、
 したがって \(\exp(x^{202}b^2)\) 以下である。
-これらの数値を伴う局所・無限素点での核の評価を
-\leansrc{New/Determinant/AuxiliaryForms/SpanningForms}{最後の経路の周期と補助形式の構成}
-から取る。
 
 この生成系をレベル群の位数倍の射影で \(V\) に送る。
 射影後も整性を保ち、無捻りの二乗ノルムに加わる対数は
@@ -1225,7 +1205,7 @@ Hecke 作用素とする。単独の持ち上げに Rallis の公式を適用し
  \le 2m^2t x_1\le b .
  \label{eq:auxiliary-factor-height}
 \end{equation}
-\leansrc{New/Determinant/Twist/LongForms}{補助形式を目標空間に射影した後の評価}
+\leanlinks{\leansrc{New/Determinant/Twist/LongForms}{補助形式を目標空間に射影した後の評価}}
 
 \begin{proposition}\label{prop:determinant-inputs}
 すべての許容データについて、\(\Theta_\xi\) は各捻り \(\xi\) に対し

@@ -1,0 +1,118 @@
+\paragraph{跡イデアルの乗数と最高係数}
+\(\mathbb T[(X_j)_{j\in J}]\) を \(S_{\mathbb T}\) と書く。
+固有系 \(x\) ごとの多項式環の直積の部分環とみなせる。
+各 \(N_x\) を並べた表現を \(N\) とし、
+\(\mathcal A_{\mathbb T}=S_{\mathbb T}[G_E]\) に係数を拡大する。
+\[
+ \mathscr I=\{u\in\mathcal A_{\mathbb T}:
+         \operatorname{tr}N(uv)\in\mathfrak a
+         \text{ for all }v\in\mathcal A_{\mathbb T}\}
+\]
+は両側イデアルである。右から掛ける場合は \(v\) に因子を吸収し、
+左から掛ける場合は跡の巡回性を使う。これには \(N\) の核が含まれる。
+拘束行 \(b\) について \(b\cdot\mathbf y\) のうち
+共通核、\(p_\ast\mathcal I_\mathrm{aug}\)、惰性と Frobenius の拘束に由来する
+項は \(\mathscr I\) に属する。残る項は \(m\rho_0\) で \(m\) は
+増大イデアルに属する。\(m\) をそのまま \(g-1\) の一次結合で表し、
+各 \(g-1\) を \(\sum_i z_i(g)(g_i-1)\) で置き換える。
+変化分は \(N\) の核に入るので、
+\(m\) を \(g_i-1\) の生成する左イデアルの元にできる。
+従って拘束行からなる正方行列 \(B\) ごとに、ある行列 \(B_1\) があって
+\[
+ B\mathbf y\equiv (B_1\mathbf y)\rho_0\pmod{\mathscr I}
+\]
+となる。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L105}{拘束行の跡イデアルによる表示}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMethod.lean\#L360}{両側の跡イデアル}}
+
+ここでブロック行列の特性多項式が \(S_{\mathbb T}\) 上にあることを使う。
+係数部分環 \(R\) 上で特性多項式を持つ行列の原像が代数を
+\(R\)-線形に張るとき、代数の全ての元について同じことが成り立つ
+という Amitsur の定理である。
+底本の議論では、任意の \(e\) に対して \(T^e=0\) の環で
+\(\det(1-T\beta)\) を考える。
+\(\gamma\) が張る元の \(R[T]\)-倍であれば
+\[
+ (1-T\beta)(1-T^{j+1}\gamma)
+   =1-T\bigl(\beta+T^j\gamma-T^{j+1}\beta\gamma\bigr).
+\]
+左辺の行列式が \(R[T]/(T^e)\) に属する。
+既に \(T^{j+1}\) 倍の元を加えられると分かっていれば、
+右辺の最後の補正を外せる。
+\(j=e\) から降下し、線形包について足し合わせ、\(j=0,\beta=0\) とする。
+\(e\) を変えれば逆特性多項式の全係数を得る。
+ここでまず群環の群元がこの条件を満たす。
+ブロック行列では一行のブロックだけが非零の行列が全体を張る。
+その行列をブロック列とブロック行の積として逆順に掛けると、
+元の対角ブロックになる。Sylvester の行列式恒等式により
+両者の特性多項式の違いは変数の冪だけである。
+そこで同じ降下をブロック行列に適用できる。
+別の係数変数 \(Y\) を加える場合は、定数行列が \(R[Y]\) 上で
+係数多項式を張るので、同じ議論が \(R[Y]\) 上で通る。
+\leanlinks{\href{\upstream/grh/src/Lib/General/LinearAlgebra/Eigenvalues.lean\#L647}{特性多項式の係数に対する降下}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMethod.lean\#L44}{ブロック行列への適用}}
+
+これを \(B-YB_1\) に適用する。すべての表現でこのブロック行列を
+読んだ行列式を \(P_B(Y)\in S_{\mathbb T}[Y]\) とする。
+Cayley--Hamilton を \(-(B-YB_1)\) の特性多項式
+\(Q(Z)=ZQ_1(Z)+P_B(Y)\) に適用すると、
+群環係数の行列 \(B'=Q_1(-(B-YB_1))\) が得られ、
+\(B'(B-YB_1)=P_B(Y)I\) が \(N\) を通した各係数で成り立つ。
+この等式を \(\mathcal A_{\mathbb T}/\mathscr I\) に移す。
+\(Y\) を \(\rho_0\) の右乗法、群環の係数を左乗法として作用させると、
+両者は結合則により可換である。
+先の行の合同から \(B-YB_1\) はこの作用で \(\mathbf y\) を殺すので、
+\(y_iP_B(\rho_0)\in\mathscr I\) が得られる。
+従って \(w\) が \(y_i=g_i-1\) の生成する左イデアルに属すれば
+\(wP_B(\rho_0)\in\mathscr I\) である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMethod.lean\#L150}{右乗法としての変数と余因子行列}}
+
+\(f_B=\operatorname{tr}N(Ku_0P_B(\rho_0))\) と置く。
+ここで \(u_0\) は添字 \(a=0\) の指標を \(C\) 倍で取り出す群環元である。
+\(f_B\) は特性多項式の係数として \(S_{\mathbb T}\) に属する。
+再び Cayley--Hamilton によって、\(w\) のある左倍は \(N\) の下で
+\(\det N(w)\) 倍の単位行列となる。
+この左倍に \(P_B(\rho_0)\) を掛ければ \(\mathscr I\) に入り、
+さらに左から \(Ku_0\) を掛けて跡を取ると
+\(f_B\det N(w)\in\mathfrak a\) となる。
+特に \(w=-\sum_i z_i(g)(g_i-1)\) は \(N\) の下で \(1-g\) と
+同じ像を持つので、\(f_B d_g\in\mathfrak a\) である。
+
+\(x\in\mathcal X\) では \(Ku_0\) は自明指標上にだけ \(C\) として作用する。
+\(\rho_0\) はその指標上で零なので、跡は \(C P_B(0)(x)\) となる。
+\[
+ B=(1-K)B_0+KB_{\mathbf i}
+\]
+は拘束行の行列であり、その主成分では \(B_0\)、指標では
+\(B_{\mathbf i}\) となる。従ってこの \(B\) に対し
+\[
+ f_B(x)= C D_x(X)c_0^{t'}
+                  \prod_{a=0}^{t'-1}\det B_{a,i(a)}.
+\]
+これを重み \(\prod_a w_{a,i(a)}\) で足して \(\mathcal D\) を作ると、
+\(d_g\mathcal D\in\mathfrak a\) となる。\(\mathcal X\) 上では
+\[
+ \mathcal D(x)=C c_0^{t'}D_x(X)\prod_a d_a(X)
+\]
+である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMethod.lean\#L470}{跡から行列式の乗数を作る手順}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L218}{主成分と指標の行の結合}}
+
+積 \(\prod_a d_a\) で、小さい \(a\) から順に \(d_a+\xi_a\) へ
+置き換える。第 \(a\) 段で加わる項には \(X_{<a}\xi_a\) が因子として
+入るので、この項は \(\mathfrak n\) に属する。
+従って \(\prod_a d_a\equiv X_J\prod_a\Gamma_a\bmod\mathfrak n\)。
+\(X_J\) を真に割る単項式の係数は零で、\(X_J\) の係数だけが
+\[
+ (C c_0^{t'}D_x\prod_a\Gamma_a)(0)
+\]
+として残る。その \(\pi\) での付値は
+\[
+ b_{\mathrm{main}}+\sum_a b_a+
+ t'\!\left(\sum_v v_\ell(o_v(1))+2\#s\,v_\ell(C)\right)
+       +(\#J+1)v_\ell(C)
+\]
+以下である。ここで \(c_0^{t'}\) の \(\#s\) の分と、
+\(\prod_a\Gamma_a\) の各 \(\#s\) の分が加わる。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/FittingBlock.lean\#L531}{補正項を積に戻したときの係数}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L651}{最高係数の付値の合成}}

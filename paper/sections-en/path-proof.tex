@@ -1,0 +1,94 @@
+\paragraph{Changing the path and its constants}
+The path datum is a function of the tuple of residue matrices on its
+edges. A change of basis at a node acts by the determinant characters
+of the edges. The datum vanishes unless the vertical columns are
+split injections. Fix the matrices outside a turn and transfer the
+data of its two edges by the inverse rows and the first columns of
+an invertible completion. Changing the completion changes the basis
+of the column frame on the right. Its determinant character cancels
+\(\chi(\det g)\) in the matching relation. Thus the transferred weight
+is independent of the completion and obeys the same transformation law.
+On the diagonal, a seesaw moves the period to
+\(Y^{j+1}_j=\widetilde Y^{j+1}_j\). Taking the adjoint of the kernel
+for the extra line applies a finite Fourier transform to its column.
+The two edges on each path now fit \eqref{eq:exchange-square}.
+After exchange, a second seesaw restores the form of the period.
+The number of summands in a coefficient grows by at most \(N_\mathrm{col}\),
+the number of possible residue columns. A completion contributes
+a root of unity, and the line Fourier transform only multiplies by
+additive-character roots of unity before summing over one column.
+All \(m^2\) turns therefore cost at most \(N_\mathrm{col}^{m^2}\) in
+term counts. The product of the nonzero denominator factors \(c_{ij}\)
+from these turns is \(c_{\mathrm{path}}\).
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/Turns}{The node transformation law after changing the completion}
+  \leanlinksep \leansrc{New/Determinant/AuxiliaryForms/DiagonalTurns}{The line on the diagonal and the composition of the turns}}
+
+\paragraph{Denominators and sizes on the final path}
+Put \(n_m=\dim X_m\) and \(d_b=b r^4\). Every diagram on the final path
+has at most \(d_b\) boxes, and every rank is at most \(2n_m\).
+The finite datum of an edge is the indicator of one residue matrix.
+To return it to standard data by finite Fourier expansion, clear
+the numbers of matrix residues at the finite level \(\pi_M^b\) and
+at the conjugate places. Factors from the twist places are units
+at \(\ell\nmid N_\xi\). A further \(M^b d\) per box clears the
+derivatives of the integral vacuum. It follows that the common
+integer
+\[
+ D_\mathrm{edge}=(M^b)^{2f(2n_m)^2}(M^b d)^{d_b}
+\]
+makes the operator on each edge preserve integrality.
+At the endpoint the ranks differ by one and the highest weights
+interlace. Expanding the highest weight vectors in branching minors
+gives an integer branching matrix. Compose this with the Weyl
+duality pairing to obtain the matrix for the endpoint pairing.
+The basis of the last column at one endpoint is multiplied by
+the \(m\)-th power of
+\(u=\overline{t_{\mathfrak m}\alpha_\mathrm{W}}/(t_{\mathfrak m}\alpha_\mathrm{W})\),
+where \(t_{\mathfrak m}\) generates \(\mathfrak m=\pi_M^bQ\) and
+\(\alpha_\mathrm{W}\) is the vacuum idele. Since \(t_{\mathfrak m}\)
+divides \(M^b N_\xi\), and \(q_1\alpha_\mathrm{W}\) and
+\(\alpha_\mathrm{W}^{-1}\) are integral, \(M^b q_1\) clears both \(u\)
+and \(u^{-1}\) at \(\ell\nmid N_\xi\). If \(e_\tau^\mathrm{last}\)
+is the absolute determinant exponent, this costs
+\(\prod_\tau(M^b q_1)^{m e_\tau^\mathrm{last}}\).
+Include the orders of the class stabilizers in one denominator
+\(D_\mathrm{end}\). Adding logarithms gives \(\log D_\mathrm{end}\le x^{98}b^2\).
+There are \(m\) edges on each side, so the common integer
+\[
+ D_\mathrm{path}=D_\mathrm{end}D_\mathrm{edge}^{2m}
+       \le \exp(x^{99}b^2)
+\]
+makes the final path sum integral. The path coefficients are sums
+of roots of unity and add no denominator.
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/LastPath}{The integer branching matrix for interlacing weights}
+  \leanlinksep \leansrc{New/Determinant/AuxiliaryForms/SpanningForms}{Clearing the final path denominators}}
+
+For the trivial twist put \(G=\exp(x^{99}b^2)\).
+Substituting \(d_b\) boxes and rank at most \(2n_m\) in the jet norm
+bound of Section~\ref{sec:upper-bound} bounds each edge's conjugate
+norm multiplier by \(G\). If \(B_-,B_+\) bound the initial squared
+norms, the endpoint norms are at most \(G^m\sqrt{B_-}\) and
+\(G^m\sqrt{B_+}\). The branching matrix has operator bound
+\((d_b^{d_b})^3\). There are \(2m+1\) nodes whose class counts are
+each at most \(G\), and at most \(N_\mathrm{col}^{m^2}N_\mathrm{mat}^{2m}\)
+root-of-unity terms, where \(N_\mathrm{mat}\) bounds the number of
+residue matrices per edge. Summing the bounds gives
+\[
+ |\sigma(\Xi)|\le
+ N_\mathrm{col}^{m^2}N_\mathrm{mat}^{2m}(d_b^{d_b})^3G^{4m+1}\sqrt{B_-B_+}
+ \le\exp(x^{200}b^2)\sqrt{B_-B_+}.
+\]
+The last inequality uses the admissible bounds for \(m,f,r,\log M\).
+When testing with a dual delta form, \(\sqrt{B_-}\) is the norm of
+its value. At infinity \(D_\mathrm{path}\) and the dual hook number
+together cost at most \(\exp(x^{201}b^2-x^{200}b^2)\).
+Division by the dual norm bounds the resulting vector norm by
+\(\exp(x^{201}b^2)\) times the initial norm.
+At deep level the class stabilizers are trivial and delta forms
+span. Use short lattice bases in the Weyl representation and
+polynomial evaluations at roots of unity to span the values on
+each class. These give integral generators whose conjugate
+squared norms are at most \(G\). Apply the surjection \(s\) to
+obtain both bounds for the auxiliary forms.
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/SpanningForms}{Class counts, term counts, and the dual estimate}
+  \leanlinksep \leansrc{New/UpperBound/Size/ShortColumns}{Spanning by short delta forms}}

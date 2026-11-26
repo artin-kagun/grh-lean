@@ -1,0 +1,89 @@
+\paragraph{Construction of the main summands}
+In rank \(r\), take a nonzero good form \(z\) with the given Hecke eigensystem on \(W_m\).
+Since \(e_0z=z\) and \(e_0\) is a sum of the idempotents of the admissible label tuples,
+one of those tuples acts nontrivially on \(z\). The isomorphism to algebraic forms intertwines
+right translation, hence also the Hecke action away from the assigned level.
+At the assigned places, principal level makes the maximal compact group act through the general
+linear group of the residue field. The nonzero tuple action shows that each constituent label
+occurs. Attach \(R\) to this algebraic eigenform by the standard local--global compatibility
+theorem. At the assigned places the label roots describe the inertia action, and at their
+conjugates the local conditions follow by conjugate duality. At the other places spherical
+compatibility gives unramifiedness, or crystallinity and the specified Hodge--Tate jumps at \(\ell\).
+The first Hecke eigenvalue and the trace of the attached representation are obtained by negating
+the next-to-leading coefficients. Local--global compatibility therefore gives
+\(\operatorname{tr}R(g)\) as the limit of the transported first Hecke eigenvalues as Frobenius
+elements tend to \(g\). The systems needed on every \(W_j\) occur on \(W_m\), by the comparison
+of good eigenspaces, which gives vanishing on \(W_j\) when the eigenspace on \(W_m\) is zero.
+The lifts of the good eigencomponents span the image of each lifting map.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L480}{Constructing the attached representation of an eigensystem}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/GaloisRepresentations/AttachedRepresentations.lean\#L641}{The labels and local conditions}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L326}{The eigensystems required for the lifts}}
+
+Write \(r'\) for the source rank, \(t'\) for the rank difference, and \(\mu\) for the
+character of the untwisted descent pair, of weight \(w\). Both ranks \(r',t'\) are odd, so
+\(A=(r'-t')/2\) is an integer. The main representation \(R_x\) is \(R\) times the avatar of
+\(x\mapsto\mu^{-1}(x/\bar x)|x|_E^A\).
+A jump \(u\) at an embedding \(\sigma\) above \(v\) thus becomes
+\(u-(A-\varepsilon_\sigma w(v))\), where \(\varepsilon_\sigma=1\) on the CM type
+and \(-1\) on its conjugate. The tame part at the finite places scales the label roots by
+the finite-field element naming the inverse tame character.
+The cyclotomic power shifts the duality exponent to \(1-t'\).
+
+In rank \(r\), expanding the \(q\)-th diagram weight gives the shifted jump
+\(\lfloor t/2\rfloor-\varepsilon_\sigma(\lambda_q+w_j)\), \(0\le q<r\).
+Here \(w_j\) is minus the weight of the character of stage \(j\), and \(\lambda_q\)
+is the corresponding source parameter. Write \(G\) for the gap in the weights.
+For \(q+1<k\), \(|\lambda_q|\le k/2\) gives \(|\varepsilon_\sigma u+w_j|\le t\).
+For \(k\le q+1\le r\), put \(i=q+2-k\). Then
+\(\lambda_q+w_j=(j-i+\tfrac12)G\), giving \(G/4\le |u|\le 2mG\).
+There are \(m\) of the latter jumps, within the bound \(rm/k\) for the number of small jumps.
+The two jumps at conjugate embeddings for the same \(q\) sum to \(2\lfloor t/2\rfloor\),
+so at most \(r\) jumps at the pair are negative.
+For rank-one main pairs the starting \(R\) is trivial, with jump \(0\), label \(X-1\),
+and first eigenvalue \(1\). A main pair \((\nu,u_0)\) of weight \(-c\) has
+\(t'=2u_0-1\) and shifted jump \(u_0-1-\varepsilon_\sigma c\).
+The range \(m<u_0\le r\), \(w_j+r-t\le c\le w_j\) gives
+\(|\varepsilon_\sigma(u_0-1-\varepsilon_\sigma c)+w_j|\le t\).
+There are no small jumps, and the sum at the conjugate pair is \(2(u_0-1)\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L143}{Bounds for the jumps in ranks \(r\) and one}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L265}{The trivial starting representation in rank one}}
+
+To obtain the full integral matrix algebra, use a level prime different from \(\ell\).
+At one assigned place above it the scaled label is primitive in rank \(r\).
+In rank one use the scaled \(X-1\) label.
+The eigenvalues at a tame inertia element \(s\) are images of label roots, and a Frobenius
+\(\phi\) conjugates \(R_x(s)\) to its \(q\)-th power, \(q=\mathrm Nw\).
+In rank \(r=3^{d+1}\) we have \(q\equiv1\pmod9\).
+Writing \(q^{3^d}=1+9h\) gives \((q^r-1)/(q^{3^d}-1)=81h^2+27h+3\).
+The quotient is divisible by \(3\) but not by \(9\),
+and exceeds \(3\), so it divides no power of a prime. Hence an \(\ell\)-power of a primitive
+\((q^r-1)\)-st root has Frobenius period \(r\), since its period cannot divide \(3^d\).
+The resulting \(\ell\)-adic eigenvalues have unit differences. Over the residue field,
+apply powers of the inverse Frobenius to a single eigenvector to obtain a basis of eigenvectors.
+Applying a linear relation among the matrices of \(\phi^{-a}s^b\), \(0\le a,b<r'\),
+to each basis vector forces, for each \(a\), a polynomial of degree less than \(r'\) to
+vanish at all \(r'\) distinct eigenvalues. These \(r'^2\) matrices are independent on reduction,
+so their determinant is a unit and they are a basis of the integral matrix algebra.
+Moreover \(\phi^{r'}\) commutes with the images of \(s,\phi\), hence with this basis, and acts
+by a scalar. The product of the roots of the primitive label has order \(q-1\) and is a common
+power of all the roots. In rank one the scaled root has the order of a power of the fixed tame
+character. Thus a power of \(s\) acts by a scalar, and the prescribed tame order makes its
+\(\ell\)-power multiples of the exponents \(1,\ldots,4r'+2\) remain separated from \(1\) on reduction.
+For the determinant estimates at the other level places and their conjugates, the roots of the
+labels have bounded orders, giving the bounds on the valuations of \(\det(R_x(s)-I)\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsAndColumnsFromLabels.lean\#L356}{Common powers and separation of label roots}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsAndColumnsFromLabels.lean\#L510}{The integral span from tame inertia and Frobenius}}
+
+Finally take the reciprocal Hecke polynomial of a lift twisted by \(\vartheta\).
+It is the product of \(\prod_{a<t'}(1-q^a\alpha X)\) and the source reciprocal polynomial
+evaluated at \(\beta X\). If \(\alpha,\alpha'\) are the normalized uniformizer values of the
+characters on the source and target, then \(\beta=q^{t'}\alpha/\alpha'\).
+The constant terms are \(1\), so the negative linear coefficient is
+\(\beta\,p(w,1)+\alpha\sum_{a<t'}q^a\).
+Normalize by \(\alpha^{-1}\) and use local Artin reciprocity to transport the character values.
+The first term is the avatar of the inverse twist times the avatar of the algebraic character above
+times \(\iota(p(w,1))\). The second consists of the values of \(\epsilon_{\mathrm{cyc}}^{-a}\)
+in the Frobenius convention used here. Local--global compatibility, continuity of the avatars,
+and Chebotarev approximation of every \(g\) by Frobenius elements give the trace formula above.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L295}{The linear coefficient and the trace at Frobenius elements}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/GaloisRepresentations/RowsFromEigensystems.lean\#L391}{Passing from Frobenius elements to every Galois element}}

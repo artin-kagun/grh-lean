@@ -31,14 +31,14 @@ automorphism groups. For the target space we have
 \end{equation}
 Equality of multiplicities identifies \(h\) with the dimension of the
 corresponding projected space on the definite space \(W_m\).
-\leanref{targetDim_eq_finrank_goodForms_spaceW}
+\leanlinks{\leanref{targetDim_eq_finrank_goodForms_spaceW}}
 On \(W_m\) the classes at principal congruence level have trivial
 automorphism groups. Their number is therefore the mass \(\mathrm{mass}_r\)
 at maximal compact level times the level index \(|\bar G|\). By Weyl's dimension
 formula, the product of the dimensions of the algebraic representations
 attached to each class is \(\deg_B\). Hence the dimension before projection
 is the right-hand side of \eqref{eq:span-dimension-mass}.
-\leanref{finrank_principalForms_spaceW}
+\leanlinks{\leanref{finrank_principalForms_spaceW}}
 
 Let \(J\) be the principal congruence level and \(\nu\) the covolume of the
 real unipotent lattice, which is independent of the class. In the coordinates
@@ -63,7 +63,8 @@ as the entrywise complex conjugate of
 \end{equation}
 Here \(F\) is the maximal totally real subfield of \(E\), \(K\) is the lattice
 stabilizer in the finite adeles, and the integral is over the product at the
-infinite places. \leanref{hasAmplitudeBlocks_scaledPoincare}
+infinite places.
+\leanlinks{\leanref{hasAmplitudeBlocks_scaledPoincare}}
 
 Let \(R_0\) be the rational Bessel subgroup, and let \(\bar R_0\subset\bar G\)
 be the reduction of its integral points. Restricting
@@ -82,7 +83,8 @@ The calculation of the terms on \(R_0\) gives
  \quad(t\in\bar R_0,\ s\in\bar G).
 \end{equation}
 Indeed, the action of \(r_\psi(t)\) on the source reindexes the terms of
-the unfolded expression. \leanref{besselTranslate_mul_left}
+the unfolded expression.
+\leanlinks{\leanref{besselTranslate_mul_left}}
 
 To bound the second moment on larger sets, group the terms in
 \eqref{eq:span-unfolded} by their correspondences attached to the isotropic
@@ -97,12 +99,13 @@ The terms included are those for which
 where \(\Delta\) is the determinant of the frame pairing matrix and
 \(\Delta'\) is its preceding leading principal minor.
 This is the normalized sum over links.
-\leanref{linkSecondMoment}
+\leanlinks{\leanref{linkSecondMoment}}
 
 We use the primitive \(5040\)-th root of unity in \(E\) and the Weil splitting
 character chosen in the formalization. The Bessel system and level constructed
 from admissible data satisfy the size and level hypotheses of the following
-three estimates. \leanref{filling}
+three estimates.
+\leanlinks{\leanref{filling}}
 
 \begin{enumerate}
 \item
@@ -114,7 +117,8 @@ multiplying by nontrivial roots of unity, then
 \end{equation}
 Section \ref{sec:span-pair-count} bounds the cross terms in the sum of squares
 and the error from truncation.
-\leanref{sqrt_secondMoment_compl_besselS_le}\leanref{secondMoment_remainingTerms_le}
+\leanlinks{\leanref{sqrt_secondMoment_compl_besselS_le}
+  \leanlinksep \leanref{secondMoment_remainingTerms_le}}
 \item
 Among the chosen places and their conjugates, take those at which the
 span of the reduced frame has a nonzero vector in common with its image
@@ -126,7 +130,8 @@ If a positive integer \(z\) is at most \(\operatorname{Meet}(s)\) for every
        \left(\frac{b^{2f}}z\right)^k D_{\mathrm{main}}.
 \end{equation}
 Section \ref{sec:span-pair-count} counts pairs in the same correspondence
-using the lattice in the intersection. \leanref{linkSecondMoment_le_of_le_meetNorm}
+using the lattice in the intersection.
+\leanlinks{\leanref{linkSecondMoment_le_of_le_meetNorm}}
 \item
 Let \(A\) be a set of chosen places above \(p_0\). For each \(w\in A\),
 specify a nonzero vector in the span of the frame at \(w\) or its conjugate.
@@ -140,13 +145,38 @@ Then
 \end{equation}
 Section \ref{sec:span-open-proof} applies Siegel's estimate and Poisson
 summation, deriving a factor \(b^{-6k}\) per fixed-vector condition from
-the local mass. \leanref{linkSecondMoment_isOpenElement_le}
+the local mass.
+\leanlinks{\leanref{linkSecondMoment_isOpenElement_le}}
 \end{enumerate}
 
 \subsection{Counting with the common lattice}\label{sec:span-pair-count}
 
 Put \(n=\varrho+1\), \(n_X=\#\{c\}\), \(\tau=b^{kf/4}\), and
-\(n_p=|\bar R_0|n_X/N^{kf}\). Group the terms of the truncated Bessel function
+\(n_p=|\bar R_0|n_X/N^{kf}\). At \(v\) write \(d_{B,v}\) for the number of
+Bessel coordinates and \(\deg_v\) for the formal degree. Set
+\(d_B=\prod_v d_{B,v}\), so \(D_X=n_Xd_B\).
+With \(\varpi\) a generator of the different, define the entry scales
+\(\lambda_{v,j}\) and the open-cell volume constant \(c_G\) by
+\[
+ \kappa_v=\frac{M\Phi_v(\varpi)}{2\pi\mathrm i},\qquad
+ \lambda_{v,j}=\frac{\kappa_v^{2(\varrho-j)}}{N},\qquad
+ c_G=\frac{\operatorname{vol}(U(k))^2}
+          {\operatorname{vol}(U(r))\operatorname{vol}(U(k-1))}.
+\]
+Use the following further constants in the orbital integrals and the
+Siegel formula.
+\[
+ \begin{split}
+ \Lambda_\ast&=\prod_v\prod_{j<n}
+                          \lambda_{v,j}^{k+2(\varrho-j)},\qquad
+ D=|\bar R_0|M^{f\varrho(2k+2\varrho+1)},\\
+ c_S&=\left(\frac{\pi^k}{(k-1)!N^k}\right)^f
+       |\operatorname{disc}(E)|^{1/4}
+       \operatorname{vol}(\widehat{\mathcal O}_E)^k,\qquad C_S=D\,n_Xc_S .
+ \end{split}
+\]
+
+Group the terms of the truncated Bessel function
 into double orbits under the integral unipotent groups. A term
 \(\gamma\) is near if there is a point \(y\) in the product at the infinite
 places such that both \(y\) and \(\gamma^{-1}y\) lie in the region of reduced
@@ -163,7 +193,7 @@ unipotent characters. The latter matching condition means equality of
 the character values of rational unipotent elements satisfying
 \(u\gamma=\gamma u'\). This set is stable under the rational unipotent
 actions on both sides.
-\leansrc{New/Spanning/Unfolding/TermStructure}{The remaining terms and rational character matching}
+\leanlinks{\leansrc{New/Spanning/Unfolding/TermStructure}{The remaining terms and rational character matching}}
 
 The lattice \(L_\gamma\) of a near term \(\gamma\) consists of the vectors
 in \(X_0\) in the lattice of class \(c\) that can be made orthogonal to the
@@ -180,7 +210,7 @@ correspondence, the two last-coordinate conditions give \(l\le i+1\).
 When \(i=0\), vanishing of one \(\mathfrak d\) implies vanishing of both, and
 then \(l=0\). The bounds on lengths and lattices for near terms give
 \(l\le n^3\) and \(1\le d\le b^{n^3 f}\).
-\leansrc{New/Spanning/RemainingTerms/Gain}{Rank and discriminant bounds for the common lattice}
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/Gain}{Rank and discriminant bounds for the common lattice}}
 
 For a term of cell rank \(j\), define \(G_\gamma\) by taking the larger of
 \(N^f\) times the normalized norm of the leading minor and the norm of
@@ -201,7 +231,7 @@ forms killing the columns before the next index in both frames take the
 same value on the next columns weighted by these two coefficients.
 Iteration gives a relation between the columns of both frames with at
 least one nonzero last coefficient.
-\leansrc{New/Spanning/Unfolding/Climbing}{Passing the coefficients of a common vector up the flags}
+\leanlinks{\leansrc{New/Spanning/Unfolding/Climbing}{Passing the coefficients of a common vector up the flags}}
 Pair this relation with the two integral lifts orthogonal to the earlier
 part of the frames. The two last columns then have a nonzero kernel.
 The resulting determinant \(\delta\) vanishes at every place counted in
@@ -209,7 +239,7 @@ The resulting determinant \(\delta\) vanishes at every place counted in
 \(\widehat{\mathcal O}_E/\delta\widehat{\mathcal O}_E\) maps onto the product
 of the residue fields at these places, so the generalized index of
 \(\delta\) is at least \(\operatorname{Meet}(s)\).
-\leansrc{New/Spanning/RemainingTerms/Cut}{The determinant at places where the frames meet}
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/Cut}{The determinant at places where the frames meet}}
 
 To obtain the comparison, split the common part of the correspondences
 into the subspace cut out by the two last-coordinate conditions and its
@@ -232,7 +262,7 @@ the two terms gives the other comparison. Multiply
 \(d\le d_\gamma^0a_{\gamma'}\) and \(d\le d_{\gamma'}^0a_\gamma\), then
 eliminate the complementary discriminants to obtain
 \eqref{eq:span-pair-gain}.
-\leansrc{New/Spanning/RemainingTerms/Gain}{Discriminant comparison for two correspondences}
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/Gain}{Discriminant comparison for two correspondences}}
 
 Fix the corank \(l\). A term of a given label in \(\bar R_0\) is
 determined by its frame modulo the level-\(M\) unipotent moves of class
@@ -268,8 +298,8 @@ near condition bounds each entry by \(b^{182n^2}\) at infinity, giving
 at most \(b^{366n^4 f}\) such matrices. Finally reduce the \(\varrho n\)
 entries of the isotropic block modulo \(M\det(B_j B_j^*)\).
 Frames in the same class coincide after a unipotent move.
-\leansrc{New/Spanning/RemainingTerms/FrameParts}{The lift equation and unipotent moves}
-\leansrc{New/Spanning/RemainingTerms/FramesOverLattice}{Congruence classes of frames over a fixed lattice}
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/FrameParts}{The lift equation and unipotent moves}
+  \leanlinksep \leansrc{New/Spanning/RemainingTerms/FramesOverLattice}{Congruence classes of frames over a fixed lattice}}
 
 For fixed \(j,B\), the number of these classes is at most
 \[
@@ -312,10 +342,10 @@ labels, and the multiplicity of pairs for each lattice gives
                             \operatorname{corank} L_{12}=l}}d^{-k}
  \le \tau^{l+2}n_p .
 \end{equation}
-\leansrc{New/Spanning/RemainingTerms/LatticesOfCorank}{Averaging lattice counts over cosets}
-\leansrc{New/Spanning/RemainingTerms/Count}{Counting pairs weighted by their common lattice}
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/LatticesOfCorank}{Averaging lattice counts over cosets}
+  \leanlinksep \leansrc{New/Spanning/RemainingTerms/Count}{Counting pairs weighted by their common lattice}}
 
-Schur's estimate for the orbit sum gives the bound
+Use the following bound for the orbit sum
 \[
  \sigma_\gamma=\tau^2\left(\frac{D_j}{n_pG_\gamma^k}\right)^{1/2},
  \qquad
@@ -326,11 +356,199 @@ Schur's estimate for the orbit sum gives the bound
 \]
 for each near representative. More precisely, for a subset of the
 remaining terms stable under both rational unipotent actions, the norm
-of its truncated
-amplitude divided by \(\nu\) is at most \(\sum_\gamma\sigma_\gamma\) over
+of its truncated amplitude divided by \(\nu\) is at most \(\sum_\gamma\sigma_\gamma\) over
 the chosen near representatives. The case \(j=\varrho+1\) is precisely
 \(\mathfrak d(\gamma)\ne0\).
-\leansrc{New/Spanning/RemainingTerms/Size}{Amplitude bound for the double-orbit sum}
+We derive this bound. Work at a fixed rank \(j\), put \(i=\min(\varrho,j)\),
+and let \(u_j\) be the absolute norm of the leading minor of order \(j\),
+divided by \(N^{2f}\) at the top rank. Set
+\(t_\gamma=\prod_v|\Phi_v(\mathfrak d(\gamma))|\), and denote the two
+isotropic-row lattice indices by \(I_+,I_-\).
+The leading minors and \(\mathfrak d\) are invariant under both
+unipotent actions, so we can treat \(t_\gamma\le N^fu_j\) and
+\(t_\gamma>N^fu_j\) separately. When the characters disagree at the
+reduction \(s\), covariance of the amplitude makes the block zero.
+
+First suppose \(t_\gamma\le N^fu_j\).
+Use reciprocal Schur weights for \(\gamma\) and \(\gamma^{-1}\).
+At an archimedean position \(y\), let \(\nu_v(\gamma,y)\) be the ratio of
+the volumes of the projections of the translated and standard frames
+onto the negative space. The Schur integral \(J(\gamma)\) integrates the
+two boxed class cutoffs, \(\|W^\flat(y)\|^2\), and
+\(\prod_v\nu_v(\gamma,y)^{-(k+i)}\).
+For \(J(\gamma^{-1})\) the classes are exchanged.
+The identity \(\nu_v(\gamma^{-1},\gamma^{-1}y)=\nu_v(\gamma,y)^{-1}\)
+shows that, after aligning the variables, the two integrands multiply
+to the square of the integrand in the amplitude majorant.
+Cauchy--Schwarz bounds the square of the majorant by
+\(J(\gamma)J(\gamma^{-1})\), and applies again over the orbit.
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/SchurTest}{The two Schur integrals with reciprocal volume ratios}}
+
+To evaluate one orbit sum, note that multiplication by a level-\(M\)
+unipotent fixing the frame changes each row of its \(X_0\) component
+by an element of \(M\) times the lattice of all isotropic rows of the
+frame product matrix. Coloring modulo \(M\) times the lattice of the
+first \(i\) rows gives at most \(I_+^k\) classes for the \(k\) rows.
+Fix \(p_0\) in one class. The \(X_0\) component of a frame in this class
+differs from that of \(p_0\) by \(ML\) times the first \(i\) rows, where the
+columns of \(L\) belong to \(\Lambda_c\cap X_0\).
+At fixed \(L\) the frames differ only in their remaining isotropic
+components. In the box their differences lie in a real vector space of
+dimension at most \(2fn\varrho\), so the packing bound for separated
+frames gives total cutoff weight at most \(\tau\) in this fiber.
+Thus the sum for one class is bounded by \(\tau\) times a kernel sum on
+\((\Lambda_c\cap X_0)^i\).
+Translate the position by Eichler unipotents and average over a
+fundamental domain of this lattice. The lattice sum unfolds to the
+kernel integral, and the domain has volume at least \(1\).
+The cutoff partition of unity transfers the positional average to the
+Schur integral with a factor of \(\nu d_B\).
+
+At one archimedean place take \(Z_i\) to be the block of the unit-frame
+product matrix for the subframe \((e_1,\ldots,e_i,z)\).
+Choose a triangular basis for the projection to the negative space,
+with change matrix \(L_0\) and leading block \(L_1\) of size \(i\).
+The last column is independent of the translation parameter \(A\), and
+the local kernel is bounded by
+\[
+ \left(\frac{2^{i+1}|\det L_0|^2}{|\det Z_i|}\right)^{k+i}
+ \det\!\bigl(G+(L_1^*A+C)^*(L_1^*A+C)\bigr)^{-(k+i)} .
+\]
+Here \(G=1+v_0v_0^*\) is positive definite, with \(v_0\) the last
+column, and \(C\) is fixed. The expression comes from writing the
+projected volume ratio in the triangular basis and taking the Gram
+matrix of the \(X_0\) differences.
+For \(k\ge7\) the Hua integral of this inverse determinant is at most
+\(|\det L_1|^{-2k}(\det G)^{-k}\) times the leading constant.
+Use \(|\det L_0|=|\det L_1||(L_0)_{i+1,i+1}|\) and the bounds
+\[
+ |\det L_0|\le\rho_\ast^{i+1},\qquad
+ |(L_0)_{i+1,i+1}|^2/\det G\le\theta^{2(j-i)}
+\]
+from the box radius \(\rho_\ast=b^{37n}\) and the cutoff radius
+\(\theta=b^{6n+2}\).
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/OneRealPlace}{The triangular basis, local kernel and Hua integral}}
+
+In passing from the rational frame to the unit frame, scale the
+Eichler parameter in row \(a\) by the conjugate of
+\(M/\operatorname{scale}_v(e_a)\).
+Write \(\delta_v\) for the absolute value of the original leading minor
+at \(v\) and \(w_v=|\kappa_v|^{\sum_{a<j}(\varrho-a)}\).
+The Jacobian factor is \(\bigl(w_v^2/(M^{2i}N^i)\bigr)^k\), and
+\(|\det Z_i|=w_v^2\delta_v/N^j\).
+The factors \(w_v\) cancel in the \(k\)-th power, and the \(i\)-th power
+uses \(w_v\ge1\). Since \(2^{i+1}\theta^{2(j-i)}\le b^{13i}\), the
+integral of one local kernel is at most
+\[
+ \left(\frac{(2\rho_\ast^2)^{i+1}N^j}{\delta_v}\right)^i
+ \left(\frac{(b^{13}/M^2)^i N^{j-i}}{\delta_v}\right)^k .
+\]
+The product of the first factors is at most \(\tau\), using
+\(\prod_v\delta_v\ge1\) and
+\((2\rho_\ast^2)^{i+1}N^j\le b^{135n^2}\).
+The product of the second factors is
+\((b^{13}/M^2)^{ikf}u_j^{-k/2}\).
+The earlier factors \(I_+^k,\tau,\nu d_B\) now give an orbit sum of
+\(J\) bounded by
+\(\nu d_B\tau^2(b^{13}/M^2)^{ikf}(I_+/\sqrt{u_j})^k\).
+
+For the inverse orbit use \(I_-\) in place of \(I_+\).
+Multiply the two bounds and set \(X=N^fu_j/(I_+I_-)\).
+The square of the sum of amplitude majorants is at most
+\[
+  \bigl(\nu d_B\tau^2(b^{13}/M^2)^{ikf}\bigr)^2(N^f/X)^k .
+\]
+With \(b^{13}/M^2\le(b^4M)^{-1}\) and \(b^{kf}=\tau^4\), removing
+\(\nu^2\tau^4/G_\gamma^k\) leaves at most \(d_B^2N^{kf}\tau^{-32i}\).
+Use \(d_B\le\tau^8\) and \(d_B N^{kf}=D_{\mathrm{id}}/n_p\).
+Below the top rank use \(i\ge1\) and \(\tau^{8-32i}\le\tau^{-16}\);
+at the top use \(\tau^8D_{\mathrm{id}}\le D_{\mathrm{main}}\).
+This gives the bound \(\nu\sigma_\gamma\).
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/SchurOrbit}{Lattice classes, averaging over a fundamental domain and the two orbit sums}}
+
+Now suppose \(t_\gamma>N^fu_j\). The cell has top rank and \(I_+=I_-=1\).
+Unfold the cut amplitude using the frame-fixing subgroup on the left
+and the full unipotent subgroup on the right.
+Choose a near representative of each double coset when one exists.
+The reduced-point indicator is a partition of unity for the remaining
+left action. Because \(\mathfrak d(\gamma)\ne0\), the frame-fixing
+subgroup and the right subgroup conjugated by \(\gamma\) have trivial
+intersection. Thus the unfolded integral per double coset has just
+the reduced-point indicator as its weight.
+Cosets without a near representative have zero cut integrand.
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/Size}{Unfolding the open-cell double cosets}}
+
+Write \(Z_v\) for the unit-frame product matrix of the representative
+and \(d_v=|\det Z_v|^2-|\det (Z_v)_{<\varrho}|^2>0\).
+For the open-cell integral use the section with Gram matrix \(Z_v\)
+obtained by translating in the group fixing the frame.
+Put \(R_v=\rho_\ast^{9n}/d_v\) and \(P_v=R_v^{45n^2}\).
+In the Gram-matrix neighborhood of radius \(P_v^{-6}\) the
+discriminant remains at least \(d_v/2\), and the inverse matrix and
+the other size parameters are bounded by \(P_v\).
+Sobolev estimation in the matrix entries and the Schur estimates for
+right derivatives of the Bessel function through order \(2n^2\)
+give the factor \(P_v^{2000n^2}d_{B,v}/\deg_v\) in the squared
+convolution norm along the section. The measure along the section
+includes \(c_G(d_v/2)^{k-1}\).
+Take the measure on the product of \(U(k)\) and the frame-fixing
+unipotent group, restricting the latter to a set \(\Omega\) of finite
+volume and normalizing to a probability measure.
+After translation the integration variables whose frame and image lie
+in the boxes belong to a compact set obtained from \(\Omega\) and a
+bounded matrix ball. Integrating \(\|W\|^2\) on this set contributes the
+volumes of the boxes of the frame coordinates and the quotient integral
+\(d_{B,v}\) of \(\|W\|^2\). The volume of \(\Omega\) cancels against the
+probability normalization, leaving the size factor
+\[
+ P_v^{2000n^2}R_v^{45n}
+        (R_vP_v^{40})^{2n^2}
+ =R_v^{93600n^4+2n^2+45n}
+ \le R_v^{10^5 n^4} .
+\]
+Consequently the measure in the squared operator bound for integrating
+the tensor of the two Bessel values has total mass at most
+\[
+ B_v=R_v^{10^5 n^4}
+      \frac{d_{B,v}^2}{\deg_v\,c_G(d_v/2)^{k-1}} .
+\]
+\leanlinks{\leansrc{New/Spanning/Bessel/SobolevBound}{Sobolev estimation on the section and Schur bounds for derivatives}
+  \leanlinksep \leansrc{New/Spanning/Bessel/OpenCellBound}{Averaging in the frame fixer and the local integral mass}}
+
+Take the tensor product of the operator estimates over \(v\).
+The test weight can depend on all places together and has absolute
+value at most \(1\). Thus a choice of translations gives uncut integral
+norm at most \((\prod_v B_v)^{1/2}\).
+After these translations the cut kernel is supported in the chosen
+compact set. Replacing the uncut kernel by the cut one costs at most
+\(\nu b^{-k^3f}/2\) per block.
+Write \(\prod_v B_v=C_{\mathrm{orb}}/t_\gamma^{10^5n^4+k-1}\).
+The product of unit-frame scales gives
+\[
+ C_{\mathrm{orb}}\le
+ \frac{2^{kf}\tau d_B^2}{\deg_B c_G^f\Lambda_\ast^2}.
+\]
+Here the upper bound \(b^{46n^2}\) and lower bound \(b^{-60n^2}\)
+for the product of scales at a place give losses absorbed by \(\tau\).
+The comparisons
+\[
+ 2^{kf}n_pM^{2\varrho fk}
+ \le\tau C_S\operatorname{vol}(\widehat{\mathcal O}_E)^n,\qquad
+ C_S\frac{\operatorname{vol}(\widehat{\mathcal O}_E)^n}{c_G^f}
+     \left(\frac{d_B}{\Lambda_\ast}\right)^2
+ \le(1+b^{-9})D_{\mathrm{main}}\deg_B\nu^2
+\]
+give \(C_{\mathrm{orb}}\le(\nu\tau^2/2)^2
+D_{\mathrm{main}}/(n_pM^{2\varrho fk})\), since \(1+b^{-9}\le2\)
+and \(8\le\tau^2\). The nonzero integral discriminant gives
+\(t_\gamma\ge1\), and \(10^5n^4+k-1\ge k\).
+Thus \((\prod_v B_v)^{1/2}\le\nu\sigma_\gamma/2\).
+The bound \(t_\gamma\le b^{270n^2f}\) for a near term and
+\(D_{\mathrm{main}}\ge n_p\) give the same bound for the cut error.
+This proves the required estimate after adding the two contributions.
+\leanlinks{\leansrc{New/Spanning/Bessel/OpenCellPairing}{The product over archimedean places and the cut error}
+  \leanlinksep \leansrc{New/Spanning/RemainingTerms/OrbitSize}{Comparison of constants on the open cell}}
+
 If \((d\eta)^2\le G_\gamma G_{\gamma'}\) and \(D\ge D_j,D_{j'}\), then
 \[
  \sigma_\gamma\sigma_{\gamma'}
@@ -362,7 +580,7 @@ Here \(C=\tau^{-10}D_{\mathrm{id}}\) suffices. For distinct correspondences,
 The last inequality uses \(2\le b\) and \(\tau=b^{kf/4}\).
 Both cases therefore fit the same bound \(C=\tau^{-10}D_{\mathrm{id}}\),
 and their total is at most \(\tau^{-9}D_{\mathrm{id}}\le b^{-kf}D_{\mathrm{id}}\).
-\leansrc{New/Spanning/RemainingTerms/Sum}{Squares for one correspondence and the cross terms}
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/Sum}{Squares for one correspondence and the cross terms}}
 
 To apply the count, split each block into one piece per correspondence
 with nonzero discriminant and a single piece of all terms with vanishing
@@ -380,14 +598,14 @@ row is at most \(q^2\). The number of rows and the inequalities
 the sum over all rows divided by \(\nu^2\) is at most
 \(b^{-40}D_{\mathrm{id}}\). This estimate compares the full and truncated
 functions on the same set of terms.
-\leansrc{New/Spanning/RemainingTerms/Size}{Row estimate for the truncation error}
+\leanlinks{\leansrc{New/Spanning/RemainingTerms/Size}{Row estimate for the truncation error}}
 On the allowed set \(\Omega\), the full amplitude for \(E_s\) equals the
 sum over the remaining terms. Outside the Bessel subgroup and the
 remaining terms, those failing the rational character matching condition
 give a vanishing sum over a stable set. Those with matching rational
 characters have a norm-one coefficient pair from the first stage, and
 their reductions lie in the excluded scalar cosets.
-\leansrc{New/Spanning/Unfolding/SquareExpansion}{The amplitude outside the Bessel subgroup}
+\leanlinks{\leansrc{New/Spanning/Unfolding/SquareExpansion}{The amplitude outside the Bessel subgroup}}
 The triangle inequality for the square root of the sum of squares and
 \(kf\ge40\) give
 \[
@@ -438,7 +656,7 @@ congruence contribution gives, for \(t+2\cdot10^9n^4\le k\),
  \mathfrak M(Z)
  \le\mu(Z)\mu(K_{\mathcal T}(g))\,\bigl(\mu(Z)+Q^{-t}\bigr).
 \end{equation}
-\leansrc{New/Spanning/Frames/FiniteShells}{The local integral estimated by denominator ideals}
+\leanlinks{\leansrc{New/Spanning/Frames/FiniteShells}{The local integral estimated by denominator ideals}}
 
 On the factor for a single \(w\in A\) and its conjugate, denote the
 integral group by \(K_w\) and the inverse image of the fixed-vector
@@ -477,7 +695,7 @@ remaining factors. This gives the same inequality with
 \(K_w,Z_w,b^{6k}\) replaced by \(K_{\mathcal T},Z,b^{6k|A|}\).
 The ratio comparison is invariant under a common rescaling of the
 product Haar measure.
-\leansrc{New/Spanning/Frames/FixedLines}{Mass ratio for each fixed-vector condition}
+\leanlinks{\leansrc{New/Spanning/Frames/FixedLines}{Mass ratio for each fixed-vector condition}}
 
 For \(Z=K_{\mathcal T}\), apply \eqref{eq:span-local-mass} with \(Q=2\)
 and \(t=n\). The inequalities \(\mu(K_{\mathcal T})\le1+2^{-n}\) and
@@ -490,7 +708,7 @@ zeroth-stage finite-place kernel by
 \begin{equation}\label{eq:span-local-zero}
  m_A=(1+b^{-6})b^{-6k|A|}.
 \end{equation}
-\leansrc{New/Spanning/MainTerm/FiniteSieveSystem}{Zeroth-stage finite-place density}
+\leanlinks{\leansrc{New/Spanning/MainTerm/FiniteSieveSystem}{Zeroth-stage finite-place density}}
 
 \paragraph{Siegel's estimate at a fixed last entry}
 Take finitely many nonzero amplitude blocks \((c,s,c',\Lambda)\) over
@@ -508,12 +726,9 @@ Weyl representative \(w(\mathbf p,t)\sigma\). Enlarge \(\mathcal T\) so
 that the elements of \(T_0\) and their inverses, \(M^{-1}\), \(N^{-1}\),
 the lattice basis and its inverse, and the class translates of each
 \(\sigma\) are integral outside \(\mathcal T\).
-\leansrc{New/Spanning/MainTerm/EnergyEstimate}{Big-cell amplitude sums and reduction to finite sets}
+\leanlinks{\leansrc{New/Spanning/MainTerm/EnergyEstimate}{Big-cell amplitude sums and reduction to finite sets}}
 
-At an infinite place \(v\), let
-\(\lambda_{v,j}=\kappa_v^{2(\varrho-j)}/N\) be the scale of entry \(j\), where
-\(\kappa_v=M\Phi_v(\varpi)/(2\pi\mathrm i)\) for the generator \(\varpi\) of the
-different. Let \(R_t(\mathbf p,\mathbf q)\) be the product of the top
+Let \(R_t(\mathbf p,\mathbf q)\) be the product of the top
 kernels at the infinite places at last entry \(t\). These are Gram kernels
 of orbital integrals with weights given by the coordinate scales and the
 densities of the preceding entries. The last-entry finite-place density
@@ -526,10 +741,7 @@ Set
 \[
  G_t=\left(\prod_v(|\Phi_v(t)|^2-N^2)\right)^{k-1}>0 .
 \]
-Write \(d_{B,v}\) for the number of Bessel coordinates at \(v\) and \(d_B\)
-for their product. With the big-cell volume constant
-\(c_G=\operatorname{vol}(U(k))^2/
-(\operatorname{vol}(U(r))\operatorname{vol}(U(k-1)))\), the weight of the
+The weight of the
 archimedean orbital integral is
 \[
  \rho_t(\mathbf p)=
@@ -546,8 +758,6 @@ of the modulus of \(p_j\) at \(\mathcal T\). This gives
  r_0=\frac{1}{d_B}\prod_v
        \left(\sqrt{c_G}\prod_{j<n}\lambda_{v,j}^{k-1+2(\varrho-j)}\right).
 \]
-Put \(D=|\bar R_0|M^{f\varrho(2k+2\varrho+1)}\) and \(C_S=D\,n_Xc_S\),
-where \(c_S\) is the constant in the Siegel sum on the sphere.
 We first sum the blocks with a common point \(x=(c,y)\).
 By \(\Psi_t(x)\) we mean evaluation at the last local vector obtained
 from \(y\) after transporting it by the inverse of the class representative.
@@ -585,27 +795,89 @@ therefore satisfies
 \[
  G_t(m_Z/D)\sum_{(c,y)=x} r_0^2\|\mathcal A\|^2\le\Psi_t(x).
 \]
-\leansrc{New/Spanning/Frames/TopFloor}{Finite quotient coordinates and the fiber pairing}
+\leanlinks{\leansrc{New/Spanning/Frames/TopFloor}{Finite quotient coordinates and the fiber pairing}}
 
-Put \(\beta_t=(t\bar t-N^2)/N\). Apply Siegel's formula for one vector in
-the definite space of rank \(k\ge3\). The test function imposes
-integrality away from \(\mathcal T\) and pulls back \(\Psi_t\) along the
-last-vector map at \(\mathcal T\). It is compactly supported, locally
-constant, and invariant under the source level. The norm \(\beta_t\)
-is totally positive. The class sum is the finite adelic norm density
-times
+Put \(\beta_t=(t\bar t-N^2)/N\). Let \(\Phi_0\) be the product of the
+indicator of integrality outside \(\mathcal T\) and the pullback of \(\Psi_t\)
+to the last vector at \(\mathcal T\).
+Then \(\Phi_0\) is nonnegative, locally constant, compactly supported and
+invariant under the finite source level group. The positive definite
+Hermitian space has rank \(k\ge3\), and \(\beta_t\) is totally positive,
+hence nonzero.
+
+The rank-one Siegel--Weil formula used here concerns the dual pair of a
+hyperbolic plane over the CM field \(E\) and this positive definite
+Hermitian space. If \(\Psi\) is the mixed-model value of a
+Schwartz--Bruhat datum \(f_0\), the mean of its theta value over the
+quotient of the unitary group by its rational points equals
+\(\Psi(0)\) plus the sum of the zero terms along the remaining rational
+isotropic lines of the plane. These zero terms are summable in operator
+norm, and the remaining lines are indexed by the slopes \(a\in E^+\)
+of the shears.
+Use the finite test \(\Phi_0\) and the archimedean Gaussian to form
+\[
+ \Psi(w)=\Phi_0(w_f)\exp\!\left(-\sum_v\|w_v\|^2\right).
+\]
+The inverse partial Fourier transform in the mixed model produces the
+corresponding Schwartz--Bruhat datum.
+
+For \(z\in\mathbb A_{E^+}\), apply the unipotent action, which multiplies
+\(\Psi(w)\) by \(\psi(zw^*w/2)\), and multiply by
+\(\psi(-z\beta_t/2)\). Average the resulting datum over a fundamental
+domain for \(E^+\backslash\mathbb A_{E^+}\).
+The domain has volume \(|\operatorname{disc}(E)|^{-1/4}\) in the chosen
+measures. Character orthogonality leaves precisely the rational vectors of
+norm \(\beta_t\) in the theta sum. Because \(\beta_t\ne0\), the term
+\(\Psi(0)\) from the exceptional line vanishes. The zero term of slope
+\(a\), by the action formula for the shear, is
+\[
+ P(a+z),\qquad
+ P(z)=\int_{\mathbb A_E^{\,k}}\Psi(w)
+             \psi\!\left(z(w^*w-\beta_t)/2\right)\,dw ,
+\]
+where we used \(\psi(a\beta_t/2)=1\).
+Summing over \(a\in E^+\) unfolds the fundamental domain, so the averaged
+sum of zero terms is
+\(\left|\operatorname{disc}(E)\right|^{1/4}\int_{\mathbb A_{E^+}}P(z)\,dz\).
+
+At an archimedean place \(v\), put \(A_v=\Phi_v(\beta_t)>0\).
+With the real character convention in use the factor at frequency \(u\) is
+\[
+ e^{2\pi\mathrm i A_v u}
+       \left(\frac{\pi}{1+2\pi\mathrm i u}\right)^k .
+\]
+The Gaussian integral in one complex coordinate is
+\(\pi/(1+2\pi\mathrm i u)\), and \((1+2\pi\mathrm i u)^{-k}\) is the
+Fourier transform of the function \(e^{-s}s^{k-1}/(k-1)!\) on
+\(s\ge0\), extended by zero. The transform is integrable for \(k\ge3\).
+Fourier inversion therefore gives
+\(\pi^k e^{-A_v}A_v^{k-1}/(k-1)!\) for the integrated factor at \(v\).
+On the selected norm the Gaussian in the theta sum is
+\(\prod_v e^{-A_v}\), which cancels from both sides.
+Right level invariance now expresses the quotient mean as the weighted
+class sum divided by the total class weight. The stabilizers at this level
+are trivial, so the total weight is \(n_X\). The class sum is consequently
+the product of
 \[
  n_X|\operatorname{disc}(E)|^{1/4}
-       \prod_v\frac{\pi^k(\Phi_v(\beta_t))^{k-1}}{(k-1)!}.
+       \prod_v\frac{\pi^k(\Phi_v(\beta_t))^{k-1}}{(k-1)!}
 \]
-\leansrc{Lib/SiegelWeil/OneVector/SiegelClassSum}{Siegel's formula at one norm}
+and the norm density obtained by integrating the finite part of \(P\)
+over the finite frequencies.
+\leanlinks{\leansrc{Lib/SiegelWeil/OneVector/SiegelClassSum}{Siegel's formula at one norm}}
 
 The norm density integrates the test function times
 \(\psi_f(u(w^*w-\beta_t)/2)\) over the finite vectors \(w\) and
-self-adjoint finite adelic frequencies \(u\). Splitting the vectors
-and frequencies by their components at \(\mathcal T\) factors the
-density into the sphere density there and an integral of Gauss sums
-from the integrality condition outside \(\mathcal T\). Write
+self-adjoint finite adelic frequencies \(u\). Split \(u\) into a remainder whose \(-\varpi u\) component at
+\(\mathcal T\) is integral and a variable obtained by dividing a skew
+variable at \(\mathcal T\) by \(-\varpi\) and extending by zero. Split \(w\) likewise into a variable supported at
+\(\mathcal T\) and a remainder integral there.
+The character of the phase contributed by the integral components of
+the two remainders at \(\mathcal T\) is \(1\), by self-duality of the
+integral lattice. The translations at \(\mathcal T\) preserve Haar
+measure. This gives the product of the sphere density at \(\mathcal T\)
+and the frequency integral of the Gauss sums on the integral lattice.
+Write
 \[
  F_{u,\Gamma}(w)=\psi_f\!\left(u(w^*w-\Gamma)/2\right),
  \qquad w\in\widehat{\mathcal O}_E^{\,k}.
@@ -640,19 +912,34 @@ frequencies is therefore bounded by
 The sum over finite-index ideals is at most
 \(1+2^{-\varrho}\le1+b^{-6}\), by comparison with the Dedekind zeta
 Euler product using \([E:\mathbf Q]\le2^{2\varrho}\).
-\leansrc{Lib/SiegelWeil/Mass}{Character orthogonality and the Gauss-sum bound by conductor}
+\leanlinks{\leansrc{Lib/SiegelWeil/Mass}{Character orthogonality and the Gauss-sum bound by conductor}}
 
-Finite-place Fourier inversion bounds the density at \(\mathcal T\)
-by the integral of the test function on the sphere
-\(\langle y,y\rangle=\beta_t\). The density \(F_t\) divides this integral by
+For the remaining factor at \(\mathcal T\), let \(\delta\) be the unit
+taking the norm coordinate to a skew coordinate and \(l_s\) the
+measure on the quadric of norm \(\delta^{-1}s\).
+For the local test \(\Psi_0\), the mass \(g(s)=\int\Psi_0\,dl_s\) is
+continuous and finite. Set \(s_0=\delta\beta_t\) in the local algebra and
+restrict the skew frequencies \(u\) to those with \(a\bar a u\) integral,
+where \(a\) is invertible in the local algebra and tends to zero.
+Character orthogonality makes the truncated integral
+\[
+ \frac{1}{\mu_\mathrm{sk}(B_a)}
+       \int_{B_a}g(s_0+s)\,d\mu_\mathrm{sk}(s),\qquad
+ B_a=\{s:\bar s=-s,\ (a\bar a)^{-1}s\text{ is integral}\}.
+\]
+The frequency cutoff and \(B_a\) are mutual annihilators with reciprocal
+measures. The average tends to \(g(s_0)\) as \(a\to0\).
+If the original frequency integral is integrable, the truncated
+integrals also tend to its value, which therefore equals the quadric
+integral. In the convention used here the integral is assigned the value
+zero in the nonintegrable case, so its norm is bounded by the
+nonnegative quadric integral in either case.
+\leanlinks{\leansrc{Lib/SiegelWeil/OneVector/FinitePlaceDensity}{Truncation and character orthogonality in finite-place inversion}}
+
+The density \(F_t\) divides the quadric integral by
 the modulus \(N^{-f}\) of \(\pi_N\). Expressing the integral in terms of
 \(F_t\) multiplies the archimedean norm factor \(N^{-f(k-1)}\) by \(N^{-f}\),
-giving
-\[
- c_S=\left(\frac{\pi^k}{(k-1)!N^k}\right)^f
-       |\operatorname{disc}(E)|^{1/4}
-       \operatorname{vol}(\widehat{\mathcal O}_E)^k.
-\]
+giving the coefficient \(c_SG_t\) with the \(c_S\) defined above.
 Summing over the distinct points \(x\) gives
 \[
  \sum_x\Psi_t(x)\le(1+b^{-6})n_X c_S G_t\,
@@ -665,7 +952,441 @@ Cancel \(G_t\), divide by \(m_Z\), and sum over \(t\) to obtain
  \le (1+b^{-6})C_S\sum_t\operatorname{Re}\sum_{\mathbf p,\mathbf q}
                          R_t(\mathbf p,\mathbf q)\frac{F_t(\mathbf p,\mathbf q)}{m_Z}.
 \end{equation}
-\leansrc{New/Spanning/MainTerm/SiegelTopBound}{Siegel's estimate for the class sum and its local densities}
+\leanlinks{\leansrc{New/Spanning/MainTerm/SiegelTopBound}{Siegel's estimate for the class sum and its local densities}}
+
+\paragraph{Local forms and integration in one coordinate}\label{par:span-local-transform}
+Let \(A\) be the local algebra. It is \(\mathbf C\) at an infinite
+place and \(\prod_{w\in\mathcal T}E_w\) at the selected finite places.
+Write \(|\cdot|_A\) for the modulus of multiplication on additive
+Haar measure and \(\psi\) for the additive character. Let \(G^{(j)}\)
+be the subgroup fixing the preceding \(j\) hyperbolic pairs, and let
+\(\theta_j\) be the measure at stage \(j\). The group measure \(d\mu(x)\)
+is the convolution of the measures \(\theta_j\) and the unipotent
+measures at successive stages. Write \(d\bar\mu_j\) for the quotient
+measure obtained by convolving \(\theta_j,\ldots,\theta_n\), and
+\(d\mu_{<j}\) for the convolution of the unipotent and stage measures
+before stage \(j\).
+
+Let \(W_\ast\) be the truncated Bessel function at infinity and the
+Bessel vector of \(Z\) at the finite places. Define the partial correlation
+\[
+ C_j^d(y,y')=\int
+  \langle W_\ast(u y),W_\ast(d u y')\rangle\,d\bar\mu_j(u).
+\]
+Let \(w_p,w_q\) be the Weyl elements for the first \(j\) entries of
+\(p,q\), and put \(d=w_q^{-1}w_p\). At a position \(x\) and a point \(y\),
+put
+\[
+ U(\sigma)=C_{j+1}^1(\sigma y,\sigma yx),\qquad
+ V(\tau)=C_{j+1}^{d}(\tau w_p^{-1}y,\tau w_p^{-1}yx).
+\]
+The local form at stage \(j\) with weight \(\omega\) is
+\begin{equation}\label{eq:span-local-form}
+ \begin{split}
+ \mathcal I_j(p,q;\omega)
+ &=h_j(p,q)\iint
+       D_j(y,x;\omega)\,d\mu_{<j}(y)d\mu(x),\\
+ D_j(y,x;\omega)
+ &=\iint \omega(\sigma\tau^{-1})U(\sigma)\overline{V(\tau)}
+                           \,d\theta_j(\tau)d\theta_j(\sigma),\\
+ h_j(p,q)&=\prod_{a<j}|p_a q_a|_A^{m_a/2},\qquad
+ m_a=k+1+2(\varrho-a-1).
+ \end{split}
+\end{equation}
+Here \(m_a\) is the rank of the vector part of the Heisenberg group
+at stage \(a\). Let \(F_\omega(x)\) be the integral of
+\(|D_j(y,x;\omega)|\) over \(y\). For \(|\omega|\le1\), integrating the
+product of the absolute integrals of \(U\) and \(V\) majorizes
+\(F_\omega\). The estimates on dyadic sets below show that this majorant
+is integrable over \(x\).
+\leanlinks{\leansrc{New/Spanning/Frames/Densities}{The local forms and their absolute majorant}}
+
+At \(j<\varrho\), give \(p,q\) a common next entry \(c\). On the big
+cell, \(\theta_j\) is the law of \(v_j(c)^{-1}u\), where \(v_j(c)\) is the
+Weyl element for this stage, \(u\) is a Heisenberg element, and \(c\) has
+density \(|c|_A^{m_j}\). This is precisely the additional factor
+\(h_{j+1}/h_j\) when the common entry is added. Make the change of
+variables \(\tau=v_j(c)^{-1}u\sigma,\ y'=u\sigma y\).
+The diagonal frame entry in \(\omega(\sigma\tau^{-1})\) is \(c\), since
+\(\sigma\tau^{-1}=u^{-1}v_j(c)\) and \(u\) fixes \(f_j\). The common
+entry leaves \(w_q^{-1}w_p\) unchanged, and the action of \(u\) drops out
+of the next partial correlation. This gives \eqref{eq:span-local-form}
+by integration over \(c\). At the last entry, disintegrate the quadric
+of the last vector by \(c=\langle f_\varrho,e\rangle\) at the finite
+places. At infinity the density of the fiber is
+\(2\pi^k\max(|c|^2-1,0)^{k-1}/(k-1)!\), giving the stated normalization
+of the orbital Gram kernel. The change to \((y,yx)\) in the two
+variables of the Gram kernel gives the product of partial correlations
+at stage \(\varrho\). If \(J_{A,j}\) denotes the normalized local form,
+then for \(0\le j\le\varrho\) we have
+\begin{equation}\label{eq:span-local-descent}
+ \int_A\psi(\xi c)\,J_{A,j+1}(p[c],q[c])\,dc
+   =c_A\mathcal I_j(p,q;x\mapsto\psi(\xi Z_{jj}(x))).
+\end{equation}
+Here \(p[c],q[c]\) replace entry \(j\), \(Z_{jj}(x)=\langle f_j,xf_j\rangle\),
+and \(c_A=m_Z^{-1}\) at the finite places and the volume normalization of
+the Gram kernel at infinity. At \(\xi=0\) the right side is
+\(J_{A,j}(p,q)\).
+\leanlinks{\leansrc{New/Spanning/Frames/Densities}{Descent through a Weyl element}
+  \leanlinksep \leansrc{New/Spanning/Frames/TopFloor}{Disintegration of the last fiber at finite places}
+  \leanlinksep \leansrc{New/Spanning/Frames/RealBandLimits}{Disintegration of the last fiber at infinity}}
+
+\paragraph{Plancherel for the two local integrals}\label{par:span-local-plancherel}
+Write \(c_\psi\) for the Plancherel constant. For the one-coordinate
+kernel \(\psi(\xi\bar v w)\), the multiplier on the squared \(L^2\) norm
+is \(c_\psi/|\xi|_A\). In these measures \(c_\psi=1\) at the finite places
+and \(c_\psi=\pi^2\) at infinity. The same multiplier can be obtained
+simultaneously in many coordinates on two stage quadrics. Use the
+basis of hyperbolic pairs and orthonormal coordinates. Reserve two
+disjoint blocks of orthonormal coordinates and put the quadric equation
+of each variable in a different block. For fixed coordinates outside
+a block, subtract their contribution from the prescribed norm and
+use the fiber measure of the remaining norm in the block. The Gram
+matrix has identity rows there, so the fiber variables on opposite
+sides are never paired.
+
+Write \(d_{\mathrm{free}}\) for the number of orthonormal coordinates
+outside the two blocks. With the other free coordinates fixed, integrate
+one fiber with its phase. The kernel in the shared orthonormal coordinates
+is \(\psi(\xi\sum_{\alpha=1}^{d_{\mathrm{free}}}\bar v_\alpha w_\alpha)\).
+Apply Cauchy--Schwarz to the fibers and Plancherel to the shared coordinates,
+then integrate the remaining coordinates. If \(\Lambda\) is the loss of
+a scale \(\Gamma\), the fibers and outer coordinates on the two supports
+of sizes \(u,v\) give factors at most \(\Lambda^{99n(u+6)}\) and
+\(\Lambda^{99n(v+6)}\), respectively. Thus the squared \(L^2\) operator
+norm on the quadrics is at most
+\begin{equation}\label{eq:span-quadric-plancherel}
+ \Lambda^{99n(u+6)+99n(v+6)}
+              (c_\psi/|\xi|_A)^{d_{\mathrm{free}}}.
+\end{equation}
+If one of the variables ranges over all stage coordinates, the same
+argument uses additive Haar measure on its block.
+\leanlinks{\leansrc{Lib/DiscreteSeries/Bruhat/FourierKernels}{The Fourier operator with disjoint fiber blocks}
+  \leanlinksep \leansrc{New/Spanning/Frames/QuadricPlancherel}{Plancherel on the stage quadrics}}
+
+First take the weight in \eqref{eq:span-local-descent}.
+Then
+\[
+ Z_{jj}(\sigma\tau^{-1})
+   =\langle \sigma^{-1}f_j,\tau^{-1}f_j\rangle.
+\]
+Where the partial correlations are nonzero, a common move in \(G^{(j)}\)
+takes the two group points to sizes \(60n^2\) and \(99n^2\). The transformed
+vectors from \(\sigma^{-1}f_j,\tau^{-1}f_j\) then have sizes at most
+\(60n^2+6\) and \(99n^2+6\), respectively. The move preserves the pairing
+and the quadric measure. At the finite places two characters agreeing
+on scalars of size at most \(200n^2\) can be interchanged in the integral
+because the pairings on these supports have that size. In the inner
+integral use \(\tau^{-1}f_j\) as the Fourier variable. Cauchy--Schwarz in
+\(\sigma\) and \eqref{eq:span-quadric-plancherel} give the bound with
+the powers of \(\Lambda\) absorbed in \(C_\Gamma=\Lambda^{10^6 n^3}\).
+
+Now take \(j=i+1\le\varrho\), weight \(1\), and unequal entries \(p_i,q_i\).
+Write \(g_0\) for the level, equal to \(g\) at the finite places and \(1\)
+at infinity. On the Heisenberg group at stage \(i\), conjugation by
+\(w_q^{-1}w_p\) multiplies the superdiagonal sum in the unipotent character
+by \(p_i/q_i\), since only the entry from stage \(i\) survives.
+Put \(\xi=g_0^{-1}(p_i^{-1}-q_i^{-1})\) and \(Y=\sigma^{-1}f_{i+1}\).
+If \(v\) is the vector coordinate of the Heisenberg element, the phase
+of the correlation is \(\psi(-g_0^{-1}(p_i/q_i-1)\langle v,Y\rangle)\).
+The section vector has the form \(Y'=\bar p_i(f_i^\vee-v+c f_i)\).
+Since \(Y\) is orthogonal to the hyperbolic pair \(f_i,f_i^\vee\), the
+phase is \(\psi(-\xi\langle Y',Y\rangle)\).
+
+The same Plancherel operator thus applies to the Heisenberg integral.
+Translate the integral by a point of its support and use a common
+move in \(G^{(i+1)}\) to bound the support. The vector scale \(p_i^{-1}\)
+and frequency \(-\xi p_i\) have product of modulus \(|\xi|_A\).
+The change of measure contributes \(|p_i|_A^{-(m_i+1/2)}\), and the
+loss in the outer coordinates is
+\(\Lambda^{100n(99n^2+999n^2+31)}\le C_\Gamma\).
+\leanlinks{\leansrc{New/Spanning/Frames/Gains}{Local estimates for a common entry and an inverse-entry difference}}
+
+In both cases, Cauchy--Schwarz in \(y\) pairs the squared correlations
+with inverse depth weights at the opposite points \(y,w_p^{-1}y\).
+The depth at a stage is the inverse volume of the set of specified
+dual coordinates of vectors short at both points with the same
+coordinates after discarding the preceding isotropic span.
+Put \(s_A=d_{\mathrm{free}}-(3n+1+m_\mathrm{hyp})\), where
+\(m_\mathrm{hyp}\) is the number of additional hyperbolic pairs in
+the local basis. Write \(w_j\) for the product of the depths of the
+first \(j\) stages to power \(-s_A\). The weighted square of the
+correlation \(C_{j+1}^d\) is \(w_j|C_{j+1}^d|^2\). Sum these terms
+over the subsequent stages to form the nonnegative integral
+\(E_j^d(x)\). At each stage, add its weighted square to the remaining
+sum and integrate against \(\theta_j\), then integrate against the
+convolution of the preceding \(\theta_a\).
+Each inverse-weight integral contributes
+\(C_\Gamma\prod_{a<j}|p_a|_A^{-(m_a+1/2)}\).
+Including the omitted earlier squares gives \(E_j^1\le E_0^1\).
+Combining the bounds in the two cases gives
+\begin{equation}\label{eq:span-local-pointwise}
+ \begin{split}
+ F_\omega(x)^2
+ &\le (c_\psi/|\xi|_A)^{d_{\mathrm{free}}}\,\mathcal E_j(x),\\
+ \mathcal E_j(x)&=
+  C_\Gamma^3\left(\prod_{a<j}|p_a|_A^{-(m_a+1/2)}\right)^2
+  E_0^1(x)E_j^d(x).
+ \end{split}
+\end{equation}
+The estimate by a deep vector below will also give decay for the
+absolute majorant, by forcing a large depth at some stage.
+\leanlinks{\leansrc{New/Spanning/Frames/Correlations}{Partial correlations and depth weights}
+  \leanlinksep \leansrc{New/Spanning/Frames/Gains}{Cauchy--Schwarz with the two weights interchanged}}
+
+\paragraph{Dyadic sets of positions and local decay}\label{par:span-local-decay}
+At the finite places an entry \(z\) has size at most \(a\) when
+\(\alpha^a z\) is integral, and the scale has loss \(\Lambda=2/|\alpha|_A\).
+At infinity the size condition is \(|z|\le L^a\), and \(\Lambda=L^2\).
+Put \(\mathcal P=\iint|\langle W_\ast(y),W_\ast(y')\rangle|^2
+\,d\bar\mu_0(y)d\bar\mu_0(y')\). The normalization for integration
+over the positions is
+\[
+ N_A=\mathcal P\,c_\psi^{d_{\mathrm{free}}\varrho}
+                    \prod_{a<\varrho}|g_0|_A^{m_a+1/2}.
+\]
+Group the positions by a dyadic height \(H=2^i\). At the finite places
+the height is the index of the common denominator ideal of the entries
+of \((x-1)/g_0\), rounded up to a power of two. At infinity it bounds
+the absolute values of the entries of \(x-1\) in the same way.
+Each set is covered by at most \(2H^{9n}\) regions where
+\((x-1)/g_0\) has size \(1\) in a scale of loss \(\Lambda'\le\Lambda H^2\).
+At the finite places the ideal zeta sum at \(m_\mathrm{hyp}-1<9n\)
+is at most \(2\), so there are at most \(2H^{9n}\) ideals of index
+at most \(H\). If the denominator ideal is \(cR\), then the scale
+\(c\bar c\) clears the matrix denominators and has loss
+\(2[R:cR]^2\le\Lambda[R:cR]^2\). At infinity one scale of size \(LH\)
+suffices if the original scale has size \(L\).
+
+On a region of positions of size \(1\), apply Cauchy--Schwarz in \(x\)
+to the product in \(\mathcal E_j\). Each \(E_j^d\) integrates a single
+correlation. Substitute \(x=y^{-1}u z\) and separate the unipotent
+part \(u\) belonging to the preceding stages. Its character on the
+correlation has modulus \(1\), allowing the depth weights to be
+integrated in \(u\). At each stage integrate the squared correlation
+in Heisenberg coordinates and bound it by a squared correlation one
+stage higher. At the top the correlation has no averaging, so the
+remaining factor for \(E_0^1\) is \(\mathcal P\). The factor for
+\(E_j^d\) is \(\mathcal P\) times the measure multiplier of left
+translation by \(d\). This multiplier is
+\(\prod_{a<j}|p_a/q_a|_A^{m_a+1}\).
+Multiplying by \(h_j(p,q)^2\prod_{a<j}|p_a|_A^{-2m_a-1}\) leaves
+\(|\prod_{a<j}q_a|_A^{-1}\), which is at most \(\Lambda^2\) by the bound
+on the inverse of the head product. It follows that on a set of height
+\(H\) where \(F_\omega^2\le B^2\mathcal E_j\),
+\[
+ h_j(p,q)\int_{\mathrm{height}\ H} F_\omega\,d\mu
+ \le B\,\Lambda^{2\cdot10^6 n^3}H^{10^5n^2}N_A .
+\]
+The additional loss on one region is \((\Lambda')^{25000n^2}\).
+The bound includes the size of the covering.
+\leanlinks{\leansrc{New/Spanning/Frames/OneFrame}{Integrating one correlation and cancelling measure factors}
+  \leanlinksep \leansrc{New/Spanning/Frames/Shells}{Integration over one dyadic set of positions}}
+
+To pass to a matrix bound, let \(Y^{(a)}\) be the orthogonal
+complement of the first \(a\) frame vectors modulo their span,
+and write the two points as \(g,g'=gx\).
+Dividing a stable vector with dual coordinate \(d_a\) by \(d_a\)
+gives a dual \(\zeta\) with \(\langle e_a,\zeta\rangle=1\).
+Its length and the discrepancy modulo \(g_0\) have size at most
+\(5\) in the comparison scale. At previous stages \(a<j\),
+Cramer's rule gives these duals with denominators from the head
+products. The hypothesis on their inverses lets the scale factor
+\(\alpha^{10n}\) clear the denominators.
+
+On the final quotient use the unipotents \(u,v\) moving the points
+into the box. The identity
+\(g^{-1}\omega-g'^{-1}v^{-1}u\omega
+=(vg')^{-1}(vg'-ug)g^{-1}\omega\), together with size \(2\) of
+\((vg'-ug)/g_0\), gives loss at most \(9\).
+To pass from \(Y^{(a+1)}\) to \(Y^{(a)}\), write
+\(\omega=\alpha_a\zeta+\omega_0\) with
+\(\alpha_a=\langle e_a,\omega\rangle\). Since \(\omega_0\) is
+orthogonal to \(e_a\), use the lift \(\omega'_0\) from the next
+quotient. Its discrepancy \(\mu\) along \(e_a\) is given by a
+difference of pairings with the duals. For a short lift \(f'\) of
+\(e_a\) at \(g'\), use \(\alpha_a\zeta'+\omega'_0-\mu f'\).
+If the short vectors have size \(c\), bounding \(\alpha_a\) costs
+\(c+3\), removing the dual component costs another \(c+1\),
+the difference of pairings costs \(c+6\), and the correction
+and additions cost \(c+2\). The loss is at most \(4c+12\).
+On the whole space apply the comparison to the columns of \(g\)
+to get the entries of \((x^{-1}-1)/g_0\). Taking the hermitian
+adjoint to pass to \(x-1\) costs \(4\), for a total at most
+\(9+(4\cdot5+12)\varrho+4\le99n\).
+\leanlinks{\leansrc{New/Spanning/Frames/Depth}{Short duals from stable vectors}
+  \leanlinksep \leansrc{New/Spanning/Frames/TwoGauges}{Recursion from quotient lengths to matrix entries}}
+
+At large heights there is a gain even for the absolute majorant.
+At the finite places suppose all the sets of dual coordinates of
+stable vectors at stages \(a\ge j\) have volume greater than
+\(\sigma^2\). In each set choose an integral \(d_a\) of modulus
+greater than \(\sigma^2\). Their common multiple
+\(C=\prod_{a\ge j}d_a\bar d_a\) has modulus at least \(\sigma^{4n}\).
+Choosing integral lifts along the frame bounds the size of
+\((x-1)/g_0\) by \(99n\) in the scale \(\alpha^{10n}C\).
+Thus \((\alpha^{10n}C)^{99n}\) is a common denominator. The generator \(c\)
+of the denominator ideal divides it, giving
+\[
+ |C|_A^{99n}\le |c|_A\Lambda^{990n^2}.
+\]
+If the right side is at most \(\sigma^{400n^2}\), this contradicts the
+lower bound \(\sigma^{396n^2}\) on the left. In that case there must be
+a vector of depth at least \(\sigma^{-2}\).
+At infinity, if \(T^{-1}\) lies in each disk of stable dual coordinates,
+then \((x-1)/g_0\) has size at most \(99n\) at scale \(T\).
+Positions outside the corresponding region force one of the disks
+to have inverse area at least \(T^2/\pi\).
+Both arguments give a depth at least \(\sigma^{-2}\) when
+\(\Lambda^{1200n^2}\le \sigma^{400n^2}H\) and \(\sigma<1\).
+\leanlinks{\leansrc{New/Spanning/Frames/FiniteDepth}{Common denominators and the depth bound}
+  \leanlinksep \leansrc{New/Spanning/Frames/RealShells}{Depth at remote archimedean positions}}
+
+Split at the first stage having the required depth and use
+Cauchy--Schwarz against its weight. This gives a factor
+\(\sigma^{s_A}\) even in the absolute majorant. Integrating an inverse
+weight in one stage costs at most \(\Lambda^{10^4 n}\), so the loss
+for these integrals and the choice of stage fits within \(C_\Gamma\).
+Write \(e^{s_A}\) for the pointwise gain from the phase.
+For \(H>\Lambda^{2400n^2}\) set
+\[
+ \tau_H=H^{-1/(800n^2)},\qquad
+ u_H=\min(1,e,\tau_H).
+\]
+For smaller heights take \(u_H=\min(1,e)\).
+If \(V_0\ge1\) bounds the measure of the near region in one stage, the
+bound on each set of positions applies with \(B=V_0u_H^{s_A}\).
+For any integer \(r_0'\) with \(r_0'+9\cdot10^7n^4\le s_A\), keep
+\(\min(1,e)^{r_0'}\) from this gain. On high sets use
+\(\tau_H^{9\cdot10^7n^4}H^{1+10^5n^2}\le1\), and on low sets use
+\(H^{1+10^5n^2}\le\Lambda^{29\cdot10^7n^4}\).
+This gives a factor \(H^{-1}\) at every height. Summing the geometric
+series and absorbing its sum \(2\) into the power of \(\Lambda\) gives
+\begin{equation}\label{eq:span-local-shell-total}
+ h_j(p,q)\int F_\omega\,d\mu
+ \le V_0\min(1,e)^{r_0'}\Lambda^{4\cdot10^8n^4}N_A .
+\end{equation}
+Taking \(e=1\) proves integrability of the absolute majorant as well.
+\leanlinks{\leansrc{New/Spanning/Frames/Gains}{Splitting at the first stage of large depth}
+  \leanlinksep \leansrc{New/Spanning/Frames/Shells}{Summing the gains from depth and frequency}}
+
+At the finite places let \(R\) be the ring of integers of \(A\), with
+\(\operatorname{vol}(R)=1\). If the absolute majorant is nonzero, the
+leading-minor constraints on its support imply that all prefix
+products of \(p,q\) are integral. Let \(B_p,B_q\) be the products
+of these prefix products for \(p,q\), respectively.
+For example, \(p_i^{-1}B_p\) is integral because it is \(B_p\) divided
+by the prefix of length \(i+1\) and multiplied by the prefix of
+length \(i\). With \(\alpha=g_0\overline{B_pB_q}B_pB_q\), multiplication
+by \(\alpha\) makes \(g_0^{-1}\), the inverses of the prefix products,
+and the inverse-entry differences integral.
+Put \(K_1=n^6\). Let \(H_{\mathcal T,j}(p)\) be the product of the
+generalized indices of the prefix products to power \(K_1/2\),
+or zero if any product is nonintegral. For \(4d\le K_1\),
+\begin{equation}\label{eq:span-local-gauge-payment}
+ \Lambda^d\le(2/|g_0|_A)^{K_1}
+                  H_{\mathcal T,j}(p)H_{\mathcal T,j}(q).
+\end{equation}
+Indeed, \(\Lambda=(2/|g_0|_A)(|B_pB_q|_A^{-1/2})^4\) and both
+bases are at least \(1\).
+
+For the Fourier transform in a common entry put \(\beta=\alpha^{200n^2}\).
+Compare valuations in each component and take a common divisor
+\(\eta\) of \(\xi,\beta\). Take \(\eta=\xi\) where \(\xi\) divides
+\(\beta\), and \(\eta=\beta\) in the other components. Then
+\(\eta-\xi\in\beta R\). The characters agree on scalars made integral
+by \(\beta\), so \(\eta\) can be used in
+\eqref{eq:span-local-pointwise}. With \(w=\beta/\eta\),
+the elements \(w,\xi w,\xi/\eta\) are integral. For unequal entries
+take \(\eta=\xi,\ w=\beta\), using the scale bounds on the inverse
+difference and \(g_0^{-1}\) to see that \(\beta\xi\) is integral.
+
+Set \(q_\xi=[R:R\cap\xi^{-1}R]\) and \(e=|\eta|_A^{-1/2}\).
+Since \(\xi/\eta\) is integral, \(e\le|\xi|_A^{-1/2}\).
+Also \(wR\subset R\cap\xi^{-1}R\), so \(|w|_A\le q_\xi^{-1}\).
+In both cases
+\[
+ \min(1,e)^2\le |w|_A/|\beta|_A
+               \le q_\xi^{-1}\Lambda^{200n^2}.
+\]
+At the finite places \(V_0\le2^{99\cdot13n}\) because the unit scale
+has loss \(2\) and the integral coordinate box has measure \(1\).
+Here \(c_\psi=1\) and the product of the stage moduli is \(u_g\), so
+\(N_A=\mathcal P u_g\). The finite Bessel vector satisfies
+\(\|W_\ast(y)\|^2u_g\le1\) and
+\(\int\|W_\ast\|^2\,d\bar\mu_0=\mu(Z)/u_g\).
+For fixed \(y\), the inner product with \(W_\ast(y')\) can be nonzero
+only in the unipotent congruence coset of \(y\), of quotient measure
+\(\mu(K_{\mathcal T}(g))/u_g\). Cauchy--Schwarz therefore gives
+\(\mathcal P u_g^2\le\mu(K_{\mathcal T}(g))\int\|W_\ast\|^2\,d\bar\mu_0\),
+and hence \(N_A\le m_Z\).
+\leanlinks{\leansrc{New/Spanning/Frames/BesselVector}{Congruence support of the pairing and finite-place normalization}}
+
+There are \(m_\mathrm{hyp}=3n+3\) hyperbolic pairs and \(k-6n-7\)
+orthonormal vectors. Removing two blocks of rank \(2m_\mathrm{hyp}+2\)
+leaves \(d_{\mathrm{free}}=k-18n-23\), so \(s_A=k-24n-27\).
+With \(K_0=k-n^7\), the inequality \(K_0+12+10^8n^4\le k\)
+gives \(K_0+12+9\cdot10^7n^4\le s_A\).
+Apply \eqref{eq:span-local-shell-total} with \(r_0'=K_0+12\),
+including \(V_0\) in the loss \(\Lambda^{10^9n^4}\).
+Substitute
+\[
+ \min(1,e)^{K_0+12}\le
+    |\xi|_A^{-K_0/2}q_\xi^{-6}\Lambda^{1200n^2}.
+\]
+Since \(4(10^9n^4+1200n^2)\le K_1\), apply
+\eqref{eq:span-local-gauge-payment} and divide by \(m_Z\).
+The right side of both local estimates is bounded by
+\begin{equation}\label{eq:span-finite-decay}
+ b^{n^9f}\frac{|\xi|_A^{-K_0/2}}{q_\xi^3}
+            H_{\mathcal T,j}(p)H_{\mathcal T,j}(q).
+\end{equation}
+Here \(q_\xi^{-6}\le q_\xi^{-3}\) and
+\((2/|g_0|_A)^{K_1}=(2M^{2f})^{K_1}\le b^{n^9f}\).
+\leanlinks{\leansrc{New/Spanning/Frames/FiniteDepth}{Choosing the scale from prefix products}
+  \leanlinksep \leansrc{New/Spanning/Frames/FiniteShells}{Fourier decay by the denominator index}
+  \leanlinksep \leansrc{New/Spanning/MainTerm/FiniteSieveSystem}{Normalization for the finite-place sieve}}
+
+At infinity the box radius is \(\rho=b^{6n+2}\),
+\(d_{\mathrm{free}}=k-5\), \(s_A=k-3n-6\), and a scale \(L\ge\rho\)
+has loss \(\Lambda=L^2\). If a prefix product has modulus above
+\(b^{60n^2}\), the local form vanishes by the bound
+\(\rho^{9n}\le b^{60n^2}\) on the leading minors on the support.
+Otherwise let \(L\) be the maximum of \(\rho\) and the inverse moduli
+of the prefixes of \(p,q\). Write \(H_{v,j}=H_{v,j}(p)H_{v,j}(q)\)
+for the product of the two archimedean head weights. Then
+\(L^{n^6}\le\rho^{n^6}H_{v,j}\).
+Set \(T_\xi=\max(1,\rho^{24}|\xi|)\).
+The square root of the gain in \eqref{eq:span-local-pointwise} is
+\((\pi/|\xi|)^{k-5}\). For \(T_\xi>1\), it is at most
+\((\pi\rho^{24})^k\rho^{9999n}T_\xi^{-s_A}\).
+Use \eqref{eq:span-local-shell-total} with
+\(V_0=(\pi\rho^{24})^k\rho^{9999n}\) and \(e=T_\xi^{-1}\).
+Write \(\lambda\) for the ratio of the quotient and group measure
+normalizations, and \(d_{B,v}\) for the number of Bessel coordinates.
+The bound \(\mathcal P\le\lambda^2d_{B,v}\) follows from orthogonality
+before truncation, since \(\int W_\ast W_\ast^*\) after truncation
+is bounded by the identity. The stage normalization is
+\(c_A=\operatorname{vol}(U(k))/(\operatorname{vol}(U(r))(\lambda d_{B,v})^2)\).
+Use \(r_0'=s_A-10^8n^4\) and collect \(\mathcal P,c_A\), and
+\(\pi^{2(k-5)\varrho}\). The normalized form is bounded by
+\[
+ c_{\mathrm{vol}}\,L^{10^9n^4}\rho^{24k}
+            T_\xi^{10^8n^4-s_A},\qquad
+ c_{\mathrm{vol}}=\pi^{(2\varrho+1)k}
+                     \frac{\operatorname{vol}(U(k))}{\operatorname{vol}(U(r))}.
+\]
+Since \(10^8n^4+K_0+6\le s_A\) and \(10^9n^4\le n^6\), this leaves
+\((\rho^{24}/T_\xi)^{K_0}T_\xi^{-6}\).
+Use \(\rho^{n^6+24n^7}\le b^{2000n^9}\) and
+\(T_\xi^{-1}\le\min(1,|\xi|^{-1})\). The right side of both
+archimedean estimates is bounded by
+\begin{equation}\label{eq:span-arch-decay}
+ c_{\mathrm{vol}}b^{2000n^9}|\xi|^{-K_0}
+                       \min(1,|\xi|^{-6})H_{v,j}.
+\end{equation}
+\leanlinks{\leansrc{New/Spanning/Frames/RealShells}{Summing the archimedean dyadic estimates}
+  \leanlinksep \leansrc{New/Spanning/Frames/RealBandLimits}{The two archimedean local estimates}}
 
 \paragraph{Removing the entries by Poisson summation}
 Let \(J_i\) be the product of the archimedean kernels and the normalized
@@ -737,7 +1458,7 @@ Together with \((bB_F^2)^3\le b^{n^9}\), this gives
  \epsilon\le b^{2002n^9f}\mathcal D_\ast,\qquad
  \mathcal D_\ast=\prod_v c_{\mathrm{vol}}\theta_v^{K_0}.
 \]
-\leansrc{New/Spanning/MainTerm/GlobalSieve}{Summing frequencies using the product formula and height}
+\leanlinks{\leansrc{New/Spanning/MainTerm/GlobalSieve}{Summing frequencies using the product formula and height}}
 
 For the head weight, each prefix product contributes its finite-place
 generalized index to power \(n^6/2\). At each infinite place, it
@@ -756,10 +1477,56 @@ give \(\prod_{j<i}q_j\ge b^{-100n^2f}\). Hence
  W_i^2\le b^{260n^9f+100n^2f}\prod_{j<i}q_j
        \le b^{400n^9f}\prod_{j<i}q_j .
 \]
-\leansrc{New/Spanning/MainTerm/GlobalSieve}{Counting prefix products and bounding head weights}
-Write \(\deg_v\) for the formal degree of the Bessel system at \(v\).
-Using \(\mathcal S_0\le\prod_v((1+b^{-10})/\deg_v)\,m_A\) and
-\(2n\le b^{n^9f}\), iterate the recurrence \(n\) times to obtain
+\leanlinks{\leansrc{New/Spanning/MainTerm/GlobalSieve}{Counting prefix products and bounding head weights}}
+To estimate its stage-zero integral, let \(W,F\) be the Bessel vector
+before and after cutting, and set
+\[
+ C_B(x)=\int\langle B(y),B(yx)\rangle\,d\bar\mu_0(y)
+ \qquad(B=W,F)
+\]
+in the quotient measure. Schur orthogonality gives
+\(\|C_W\|_2\le d_{B,v}/\sqrt{\deg_v}\).
+With \(\varepsilon_v=b^{-r^3 f}\), the cut satisfies
+\(\|F-W\|_2\le\varepsilon_v\sqrt{d_{B,v}}\) and
+\(\|F\|_2\le\|W\|_2=\sqrt{d_{B,v}}\). Consequently
+\[
+ |C_F(x)-C_W(x)|\le2\varepsilon_v d_{B,v}.
+\]
+This follows by replacing one vector at a time with \(F-W\) in the
+pairing and applying Cauchy--Schwarz to the two terms.
+
+Split the positions into the box \(C\) of scale \(b^{6r}\rho^{11n}\)
+and its complement. The box lies in the matrix-norm ball of radius
+\(B_0=b^{700nr}\), whose volume is at most
+\(B_0^{9r^2}b^{99r^2}/\deg_v\).
+From \(f\ge4000n\) and
+\(2+6300nr^3+99r^2+24\le 2r^3 f\) it follows that
+\(4\varepsilon_v^2 B_0^{9r^2}b^{99r^2}\le b^{-24}\).
+The \(L^2\) norm of \(C_F\) on \(C\) is thus at most
+\((1+b^{-12})d_{B,v}/\sqrt{\deg_v}\).
+The conversion back to the Haar measure in the local form has
+\(c_A\lambda(\lambda d_{B,v})^2\le1\), yielding a contribution of at most
+\((1+b^{-12})^2/\deg_v\) from these positions.
+
+For the remaining positions put \(T=b^{6r}\).
+Outside the box of scale \(T\rho^{11n}\), the depth estimate allows
+\(\sigma=T^{-1}\) in the gain \(\sigma^{s_A}\).
+Summing the sets of positions and restoring the normalization bounds
+this part by
+\[
+ c_{\mathrm{vol}}\rho^{10^9n^4+24k}T^{10^8n^4-s_A}
+ \le b^{-12}/\deg_v .
+\]
+The inequality uses
+\(\deg_v c_{\mathrm{vol}}\le b^{4r^2}\), \(\rho\le b^{7n}\),
+\(r=s_A+5n+5\), \(k=s_A+3n+6\) and \(s_A\ge10^{10}n^4\).
+Adding the two contributions gives
+\(((1+b^{-12})^2+b^{-12})/\deg_v\le(1+b^{-10})/\deg_v\).
+\leanlinks{\leansrc{New/Spanning/Frames/RealBandLimits}{Schur orthogonality, the cut, and the remote positions at stage zero}}
+
+Including the finite factor \eqref{eq:span-local-zero} yields
+\(\mathcal S_0\le\prod_v((1+b^{-10})/\deg_v)\,m_A\).
+Using \(2n\le b^{n^9f}\) and iterating the recurrence \(n\) times gives
 \begin{equation}\label{eq:span-sieve-sum}
  \mathcal S_n\le \left(\prod_{j<n}q_j\right)
   \left[
@@ -769,8 +1536,7 @@ Using \(\mathcal S_0\le\prod_v((1+b^{-10})/\deg_v)\,m_A\) and
 \end{equation}
 
 \paragraph{Comparison of constants}
-Let \(\Lambda_\ast\) be the product of the entry scales to powers
-\(k+2(\varrho-j)\). The formulas for \(r_0\) and the Poisson multipliers
+The formulas for \(r_0\) and the Poisson multipliers
 \(q_j\) give
 \[
  V_\ast=\frac{\prod_{j<n}q_j}{r_0^2}
@@ -800,7 +1566,7 @@ power of
 \]
 Since \(2/s_d^2\le b\), \(s_d/s_d^{2\varrho}\le1\), and
 \(x_d^{-1}\le MN\le b^{23+60n}\), this factor is at most \(b^{n^9}\).
-\leansrc{New/Spanning/MainTerm/EnergyEstimate}{Comparing the covolume and decay constants}
+\leanlinks{\leansrc{New/Spanning/MainTerm/EnergyEstimate}{Comparing the covolume and decay constants}}
 
 Put \(Y=b^{-6k|A|}D_{\mathrm{main}}\nu^2\). The admissibility inequalities
 \(d_B\le b^{2kf}\), \(b^{11kf}D_{\mathrm{id}}\le D_{\mathrm{main}}\),
@@ -836,7 +1602,7 @@ right-hand side of \eqref{eq:span-intersect} is at most
  \sum_{s\in\bar R_0G_i}\|E_s\|_{\mathrm{HS}}^2
  \leq b^{-12}D_{\mathrm{id}}.
 \end{equation}
-\leanref{secondMoment_compl_besselS_le}
+\leanlinks{\leanref{secondMoment_compl_besselS_le}}
 
 \subsection{Second moments before and after projection}
 
@@ -855,25 +1621,121 @@ For the orthogonal projection \(Q_U\) onto a subspace \(U\subset S_0\),
 To estimate the loss from projecting to the target, factor
 \(e_0=e_{p_0}e_{p_1}\) and let \(a_i(t)\) be the coefficient of \(t\) in the
 complementary projection \(1-e_{p_i}\) in \(\mathbf C[G_i]\).
-Counting the types of the finite general linear groups specified by
-polynomials and using their degrees gives
 \[
  \sum_{t\in G_i}|a_i(t)|^2=a_i(1)\leq \tfrac12 b^{-8}.
 \]
-The equality follows by comparing coefficients of the identity in the
-square of the self-adjoint idempotent. \leanref{bad_types_rare}
+The equality follows by comparing identity coefficients in the square of
+the self-adjoint idempotent. For the inequality, fix \(q=p_i\).
+At each residue field the labels are the monic squarefree polynomials
+\(c\) of degree \(r\) with nonzero constant term. Write \(\Xi_c\) for
+the character of a label. The coefficient of its idempotent at the
+identity is \(\Xi_c(1)^2/|\mathrm{GL}_r(\mathbf F_q)|\).
+To bound it from below, pair Green's product formula with the Möbius
+function supported at the identity. Adding an irreducible factor of
+degree \(d\) multiplies the pairing by \((-1)^d/(q^d-1)\).
+Indeed, moving this factor to the other side of the pairing leaves just
+the identity term in rank \(d\), where Green's cuspidal value times the
+Möbius value is \(|\mathrm{GL}_d(\mathbf F_q)|/(q^d-1)\).
+In rank \(r\) the Möbius value at the identity is \((-1)^r q^{r(r-1)/2}\),
+so
+\[
+ \Xi_c(1)\,q^{r(r-1)/2}\,B_c=|\mathrm{GL}_r(\mathbf F_q)|,\qquad
+ B_c=\prod_{P\mid c}(q^{\deg P}-1)\le q^r.
+\]
+Substituting the group order gives
+\[
+ \frac{\Xi_c(1)^2}{|\mathrm{GL}_r(\mathbf F_q)|}
+   =\frac{q^r}{B_c^2}\prod_{j=1}^r(1-q^{-j})
+   \ \ge\ m_q,\qquad m_q=\frac{1-r/q}{q^r}.
+\]
+Each factor in the product decreases its value by at most \(1/q\).
+\leanlinks{\leansrc{Lib/LocalGL/Green/TauFunctions}{Values at the identity of the Green labels}}
+
+Of the \(q^r\) monic polynomials of degree \(r\), at most
+\((1+q_2)q^{r-1}\) vanish at zero or at a \(q_2\)-th root of unity in the
+residue field. Once a root is prescribed, only the remaining polynomial
+of degree \(r-1\) can be chosen. Write a polynomial with a square factor
+as \(P^2B\) with \(P\) monic and nonconstant, and fix \(d=\deg B<r\).
+There are at most \(q^{(r-d)/2+d}\le q^{r-1}\) choices for this \(d\).
+The total weight of the polynomials surviving these two exclusions,
+with weight \(m_q\) per polynomial, is therefore at least
+\((1-(1+q_2+r)/q)(1-r/q)\ge1-\eta_q\), where
+\(\eta_q=(1+q_2+2r)/q\le1\).
+
+An element of order \(q^r-1\) has minimal polynomial of degree \(r\).
+Indeed, its degree \(d\) divides \(r\), and \(q^r-1\) divides \(q^d-1\).
+Each minimal polynomial has at most \(r\) roots, giving at least
+\(\varphi(q^r-1)/r\) such polynomials.
+If a positive integer \(A\) has \(j\) distinct prime divisors, then
+\(\varphi(A)/A\ge1/(1+j)\). For \(j\) distinct integers exceeding \(a\),
+removing the least one and applying induction gives
+\(\prod_p(1-p^{-1})\ge a/(a+j)\), which applies here with \(a=1\).
+Also \(2^j\le A\), so \(j\le2\log A\).
+For \(A=q^r-1\) this shows that the proportion of the \(q^r\) polynomials
+having a root of order \(q^r-1\) is at least
+\[
+ u_q=\frac{1}{2r(2r\log q+1)}.
+\]
+The polynomials without such a root have total weight at most
+\(1-u_q\le e^{-u_q}\) under the weight \(m_q\).
+
+Take the product over the \(f\) places. The projection retains tuples
+surviving the first two exclusions at every place and having a root of
+order \(q^r-1\) at some place. Each retained tuple gives an identity
+coefficient of at least \(m_q^f\). The complementary identity
+coefficient is thus bounded by
+\[
+ 1-(1-\eta_q)^f+e^{-fu_q}\le f\eta_q+e^{-fu_q}.
+\]
+Admissibility gives \(fu_q\ge9\log b\) and \(f\eta_q+b^{-9}\le b^{-8}/2\),
+which proves the bound for \(a_i(1)\).
+\leanlinks{\leansrc{New/Spanning/MainTerm/BadTypes}{Counting labels by square factors, roots, and primitive roots}
+  \leanlinksep \leanref{bad_types_rare}}
 
 Since \(1-e_{p_i}\) is an orthogonal projection,
 \[
  \|(1-e_{p_i})P\|_{\mathrm{HS}}^2
   =\operatorname{tr}\sum_{t\in G_i} a_i(t)\bigl(r_\psi(t)+E_t\bigr).
 \]
-The trace of the Bessel term is \(D_X\) times the reduced unipotent
-character. Since \(a_i\) is a class function, this character can be
-replaced by its conjugacy average \(\psi_U^\natural\). The bound
-\(\sum_{s\in\bar G}|\psi_U^\natural(s)|^2\le2\) and Cauchy--Schwarz
-show that the absolute value of this contribution is at most \(b^{-4}D_X\).
-\leanref{trace_besselTranslate_eq_mul_reducedChar}
+Let \(\psi_U\) be the character of the integral unipotent group read on
+its reduction and extended by zero. For \(s\in G_i\) the reduction at the
+other prime is the identity, and \(\operatorname{tr}r_\psi(s)=D_X\psi_U(s)\).
+If \(s\) has an integral unipotent lift, translating the diagonal block at
+the identity by this lift multiplies it by the value of the character.
+If there is no such lift, there are no terms in the diagonal block.
+To see this, decompose a rational Bessel element occurring in the block
+into its unipotent part and its definite part \(\delta_0\). The latter,
+conjugated by the class representative, is integral, and its reduction
+is read in the entries unaffected by the unipotent part. It reduces to
+the identity at all chosen places at the other prime \(p_j\).
+Thus \(\operatorname{tr}(\delta_0-1)\) is an algebraic integer vanishing
+at all those places. If \(d\) is the rank of the definite part, each
+conjugate of the trace has absolute value at most \(2d\), while the
+product \(p_j^f\) of the norms of the chosen places exceeds \((2d)^{2f}\).
+The trace is therefore zero. At infinity this gives
+\(\operatorname{tr}((\delta_0-1)^*(\delta_0-1))=0\), so \(\delta_0=1\)
+and the element is unipotent.
+\leanlinks{\leanref{trace_besselTranslate_eq_mul_reducedChar}}
+
+Since \(a_i\) is a class function, replace \(\psi_U\) by its conjugacy
+average \(\psi_U^\natural\). To bound the sum of squares, take
+\(K=K_{\mathcal T}\) at the chosen places and their conjugates, with the
+local character \(\chi_g\) as above, and set
+\(a(x)=\int_K\chi_g(yxy^{-1})\,d\mu(y)\).
+Surjectivity of reduction gives \(a(x_s)=\mu(K)\psi_U^\natural(s)\)
+for any lift \(x_s\) of \(s\in\bar G\), by decomposing the integral into
+reduction cosets of equal measure. The function \(a\) is constant on each
+coset \(x_sK_{\mathcal T}(g)\), and these cosets are pairwise disjoint.
+Consequently
+\[
+ \mu(K_{\mathcal T}(g))\mu(K)^2\sum_{s\in\bar G}|\psi_U^\natural(s)|^2
+ \le \mathfrak M(K)
+ \le 2\mu(K)^2\mu(K_{\mathcal T}(g)).
+\]
+The last inequality uses \(Q=2,t=n\) in \eqref{eq:span-local-mass} and
+\(\mu(K)\ge2^{-n}\). Cauchy--Schwarz and \(a_i(1)\le b^{-8}/2\) now bound
+the absolute value of the Bessel contribution by \(b^{-4}D_X\).
+\leanlinks{\leansrc{New/Spanning/Unfolding/Moments}{Local mass of the cosets and the squared conjugacy average}}
 
 For the remaining term, extend \(s\mapsto E_s\) by zero outside \(\bar R_0G_i\)
 and apply \(f(s)\mapsto\sum_t a_i(t)f(st)\). As an orthogonal projection on
@@ -889,7 +1751,7 @@ Applying this at the two primes and using the orthogonal decomposition
  \|e_0P Q_U\|_{\mathrm{HS}}^2\geq \dim U-5b^{-4}D_X
        \qquad(U\subset S_0).
 \end{equation}
-\leanref{isNearIsometry_piTensorElem_comp}
+\leanlinks{\leanref{isNearIsometry_piTensorElem_comp}}
 Taking \(U=S_0\) in \eqref{eq:span-near-isometry} gives \(h>0\).
 
 We next estimate the second moment over the full group. Put
@@ -918,7 +1780,7 @@ Since \(p_0\ge b^{10}\), the right-hand side of \eqref{eq:span-intersect}
 is at most \(C/8\). The square of the error term in
 \eqref{eq:span-cutoff} is also at most \(C/8\), so the square of the sum
 of the two square roots is at most \(C/2\). It follows that \(Q\le C\).
-\leanref{secondMoment_fixer_univ_le}
+\leanlinks{\leanref{secondMoment_fixer_univ_le}}
 
 Now suppose there is a chosen \(w\notin A\). By maximality, the sum of
 \(\beta\) over the elements fixing any specified nonzero frame vector
@@ -955,10 +1817,10 @@ this gives
 \]
 Allowing the conjugate place supplies the stabilizer condition for the
 linear forms under the contragredient of \(\pi\).
-\leanref{card_mul_sum_det_eq_zero_le}
+\leanlinks{\leanref{card_mul_sum_det_eq_zero_le}}
 The frame has length at most \(b\). Summing over the minors bounds the
 contribution from the complement of the open reductions by \(b^{-4}Q\).
-\leanref{sum_not_isOpenElement_le}
+\leanlinks{\leanref{sum_not_isOpenElement_le}}
 
 The open reductions avoid the scalar cosets, and \(r_\psi(s)=0\) there.
 Apply \eqref{eq:span-cutoff} and \eqref{eq:span-open-input} with
@@ -979,7 +1841,7 @@ Comparing the maximum to the value at \(A=\varnothing\) proves
  \sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2
     \leq (1+9b^{-4})D_{\mathrm{main}}.
 \end{equation}
-\leanref{sum_secondMoment_le}
+\leanlinks{\leanref{sum_secondMoment_le}}
 
 \subsection{From the second moment to a rank bound}
 
@@ -1017,7 +1879,7 @@ is unitary and commutes with \(e_0\), we have
  \ \leq\ \|Q_{F_1}\rho(s)P\|_{\mathrm{HS}}^2.
 \]
 Therefore \(\dim U\le(1+\alpha+3\epsilon)D_X/2\).
-\leanref{isSpread_of_second_moment}
+\leanlinks{\leanref{isSpread_of_second_moment}}
 
 The map to the quotient \(V/F_1\) has rank \(D_X-\dim U\).
 While \(\operatorname{codim}F_1>16\epsilon h\), adjoining
@@ -1038,23 +1900,48 @@ factor at most \(1-\lambda\le e^{-\lambda}\). Within
   |T|D_X\le\tfrac52\bigl(1+\log(1/(16\epsilon))\bigr)h
                \le 5h\log(1+2b^2).
 \]
-\leanref{IsSpread.exists_few_le_finrank_iSup_range}
+\leanlinks{\leanref{IsSpread.exists_few_le_finrank_iSup_range}}
 
 \subsection{Restriction to the ramified source}
 
-Write \(N=\pi_N\overline{\pi_N}\), and for each \(w\mid\pi_N\) let \(z_w\)
-be the finite adelic scalar action chosen in the formalization.
-The space \(S\) consists of the elements killed by \(\sum_{j=0}^{N-2}z_w^j\)
-for every \(w\). Since \(z_w^{N-1}=1\), the rank of this averaging operator
-equals the dimension of the fixed space of \(z_w\).
-The level generated by adjoining \(z_w\) has index at least \(N-1\) over
-the original level. The class automorphism groups at both levels are
-trivial, so the fixed space has dimension at most \(D_X/(N-1)\).
-As there are \(f\) places \(w\mid\pi_N\), this gives
+Write \(N=\pi_N\overline{\pi_N}\). For \(w\mid\pi_N\), lift a generator
+of the residue-field multiplicative group to a local unit.
+Take the norm-one finite idele with that component at \(w\), its inverse
+conjugate at the conjugate place, and \(1\) elsewhere.
+Write \(z_w\) for the action of its scalar matrix.
+Reduction at \(w\) shows that the powers lying in the source level
+are precisely those divisible by \(N-1\), so \(z_w^{N-1}=1\).
+There are therefore \(N-1\) distinct cosets of the scalar powers,
+and the level \(K_w\) generated by adjoining the scalar has index at
+least \(N-1\) over the source level \(K_{\mathrm{src}}\).
+
+A form fixed by \(z_w\) is fixed by \(K_w\).
+The level \(K_w\) lies in the chosen level, so the freeness proved by
+the trace comparison above applies. Hence each \(K_w\)-class has
+\([K_w:K_{\mathrm{src}}]\) classes at level \(K_{\mathrm{src}}\) above it.
+They are given by the cosets of \(K_{\mathrm{src}}\) in \(K_w\), and
+an identification between cosets would give a nontrivial class
+stabilizer. The archimedean space per class has the same dimension
+at the two levels. Thus the fixed space has dimension at most
+\(D_X/(N-1)\).
+\leanlinks{\leanref{finrank_ker_one_sub_scalingGenerator_le}}
+
+Set \(h_0=N-1\) and \(A_w=\sum_{j=0}^{h_0-1}z_w^j\).
+Since \(A_w(1-z_w)=1-z_w^{h_0}=0\) and the actions commute,
+the image of \(\prod_{w\mid\pi_N}(1-z_w)\) lies in every \(\ker A_w\).
+Conversely, if \(A_w\phi=0\) for all \(w\), then
+\(\prod_w(h_0-A_w)\phi=h_0^f\phi\).
+Each \(h_0-A_w=\sum_{j=0}^{h_0-1}(1-z_w^j)\) is divisible by \(1-z_w\),
+so division by \(h_0^f\ne0\) puts \(\phi\) in the image of
+\(\prod_w(1-z_w)\). This image is therefore \(S\).
+The dimension of the kernel of a product is at most the sum of the
+kernel dimensions of its factors. Indeed, the map from \(\ker(AB)\)
+to \(\ker A\) given by \(B\) has kernel \(\ker B\), and induction applies.
+There are \(f\) places \(w\mid\pi_N\), with \(f\le b\) and \(N-1\ge b^9\).
+It follows that
 \[
  \operatorname{codim}_{S_0} S\le \frac{f}{N-1}D_X\le b^{-8}D_X.
 \]
-\leanref{finrank_ker_one_sub_scalingGenerator_le}
 
 Restricting each map to \(S\) loses at most the dimension of the image
 of a complement of \(S\). Since all the normalizing scalars are nonzero,
@@ -1065,4 +1952,5 @@ of a complement of \(S\). Since all the normalizing scalars are nonzero,
 \]
 Adding the earlier codimension bound \(2h/b^2\) gives a codimension
 at most \(4h/b^2\). This and \(\dim S\le D_X\) prove the two inequalities
-in Theorem~B. \leanref{enough_forms}
+in Theorem~B.
+\leanlinks{\leanref{enough_forms}}

@@ -1,0 +1,118 @@
+\paragraph{拘束行と主成分の行列式}
+全ての表現を共通の係数離散付値環 \(\mathcal O\) 上の格子で実現し、
+持ち上げの固有系では主成分と指標の直和の格子を使う。
+実際、\(\overline{\mathbb Q}_\ell\) 上で主成分の行列環と \(t'\) 個の体の積に値を
+取る表現を組み、その対角実現を考える。その跡は \(N_x\) の跡に一致する。
+この表現の像が張る代数は半素である。\(yU(g)y=0\) が全ての \(g\) で成り立つと、
+主成分の格子は全整行列環を張るので、主成分では \(U(g)\) の代わりに
+任意の行列を入れられる。行列単位 \(E_{ba}\) を入れると \(y_{ab}^2=0\) となる。
+一変数の成分では \(g=1\) を代入して同じ結論を得る。
+他方、\(N_x\) の像の張る代数上の跡形式は付随表現の定理により非退化である。
+従って標数 \(0\) の代数閉体上の Brauer--Nesbitt の定理を適用できる。
+詳しくは、二つの表現を組にした像が張る代数は、各成分に上の判定を適用して半単純となる。
+その Wedderburn 分解の各単純因子で階数一の冪等元の像の跡を比較すると、
+二つの表現でそれぞれの単純加群の重複度が等しくなる。
+従って \(N_x\) は対角実現と共役であり、求める整格子が得られる。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L402}{跡の一致から主成分と指標の直和の格子へ}}
+
+以下 \(\rho\) は \(\pi\) の捻られた主成分、\(\gamma=\gamma_\pi\)、
+\(a_{\mathrm c}=a_{\mathrm{cyc}}^{-1}\) とする。記号 \(v_{\mathcal O}\) は
+一様化元の付値が \(1\) となる付値であり、この規約の長さを
+\(v_{\mathcal O}(\ell)\) で割ると \(v_\ell\) に対応する長さになる。
+\(\mathcal S=\mathcal O[(X_j)_{j\in J}]\)、\(\mathcal A=\mathcal S[G_E]\) とし、
+\(g\in G_E\) を \(\mathcal A\) の基底元にも用いる。
+
+全ての固有系 \(x\) を並べた族 \((N_x(g)-1)_x\) の
+\(\mathcal O\)-線形包は有限生成である。
+これを生成する有限個の \(g_i\) を、添字集合 \(I\) で並べる。
+後で使う旧惰性元と検出点もこの列に入れる。
+\(z(g)=(z_i(g))_{i\in I}\in\mathcal O^I\) を
+\[
+ (N_x(g)-1)_x=\sum_{i\in I} z_i(g)(N_x(g_i)-1)_x
+\]
+を満たすように選ぶ。行 \(b\in\mathcal A^I\) に対して
+\(b\cdot\mathbf y=\sum_i b_i(g_i-1)\) と書く。
+\(\mathcal I_\mathrm{aug}\) を \(\mathcal A\) の増大イデアルとし、
+\[
+ c_\gamma=(\zeta_\pi-1)^{-1},\qquad n_\gamma=c_\gamma(\gamma-1),
+ \qquad \rho_0=n_\gamma+(1-n_\gamma)(a_{\mathrm c}-1)
+\]
+と置く。 \(\rho\) は \(\rho_0\) を単位行列に移し、
+指標 \(\chi_a\) は \(\rho_0\) を \(\chi_a(a_{\mathrm c})-1\) に移す。
+
+\(N_\mathrm{row}\) を、\(b\cdot\mathbf y\) が次の四つで生成される左イデアルに
+入る行の加群とする。
+全ての \(N_x\) で零になる元、\(p_\ast\mathcal I_\mathrm{aug}\)、
+新素点の拘束 \(\tau-1-X_jH_j(\phi)(\phi-1)\) とその共役逆元側の拘束、
+および \(\mathcal I_\mathrm{aug}\rho_0\) である。
+行 \(z(g)\) の値は全ての \(N_x\) の下で \(g-1\) と同じになる。
+従って次の行は \(N_\mathrm{row}\) に属する。
+\[
+ \begin{gathered}
+ z(gh)-z(g)-g z(h),\qquad z(g_i)-\mathbf e_i,\qquad
+ \sum_g\theta_g z(g)\quad
+     \left(\sum_g\theta_g (N_x(g)-1)=0\text{ for all }x\right),\\
+ p_\ast b\quad (b\in\mathcal A^I),\qquad
+ z(\tau)-X_jH_j(\phi)z(\phi).
+ \end{gathered}
+\]
+最初の三種はどの \(N_x\) でも零になる。
+最後の行を \(\mathbf y\) に作用させると、全ての \(N_x\) において拘束そのものになる。
+さらに \(u_\gamma=c_\gamma z(\gamma)+(1-n_\gamma)z(a_{\mathrm c})\) は
+\(\mathbf y\) に作用させると、全ての \(N_x\) で \(\rho_0\) と同じになる。
+従って任意の \(g\) に対して \((g-1)u_\gamma\in N_\mathrm{row}\) である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L175}{拘束行と余境界を固定する関係}}
+
+\(\pi\) の主成分で \(X=0\) と置く準同型を
+\(\varrho_0\colon\mathcal A\to M_{r'}(\mathcal O)\) とする。
+主成分の像が全行列環を張るため、\(\varrho_0\) は全射である。
+\(K_{\mathcal O}=\operatorname{Frac}(\mathcal O)\) とし、
+すべての行 \(b\in N_\mathrm{row}\) で
+\(\sum_i\varrho_0(b_i)w_i=0\) となる
+\(w_i\in(K_{\mathcal O}/\mathcal O)^{r'}\) を取る。
+\(z_w(g)=\sum_i z_i(g)w_i\) と置く。
+上の最初の三種の行から、\(z_w\) は \(\rho\) のコサイクルで、
+\(z_w(g_i)=w_i\) であり、全ての \(N_x(g)-1\) の間の線形関係を満たす。
+拘束を \(X=0\) で読むと \(z_w(\tau)=0\) である。
+\((\gamma-1)u_\gamma\) を読むと \(z(\gamma)\) と同じ行になるので
+\(z_w(\gamma)=0\) である。実際 \(\rho(\gamma)-1=(\zeta_\pi-1)I\)
+であり、\(1-n_\gamma\) は \(\rho\) の下で零である。
+従って \(w\mapsto z_w\) は、行を消す加群からこの可除係数の
+コサイクル加群への単射である。後述の局所比較を含む、この加群の
+正規化した長さの上界を \(b_{\mathrm{main}}\) とする。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/FittingBlock.lean\#L619}{拘束行を消す加群からコサイクルへ}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L539}{主成分への特殊化}}
+
+行を消す加群の長さを行列式へ移すため、
+\(v_\ell(p_{\mathrm{row}})>b_{\mathrm{main}}\) となる \(p_{\mathrm{row}}\in\mathcal O\) の冪を取る
+（例えば一様化元の \(v_{\mathcal O}(\ell)b_{\mathrm{main}}+1\) 以上の冪）。
+\(d=\#I\cdot r'\) とし、ブロック行 \((\varrho_0(b_i))_{i\in I}\)
+の \(r'\) 本の行の総和を \(\sigma(b)\in\mathcal O^d\) とする。
+\(\sigma(N_\mathrm{row})\) は個々の行も含む。実際、行列単位
+\(E_{cc}\) を \(\mathcal A\) に持ち上げて行に左から掛ければ
+\(\sigma\) は第 \(c\) 行だけを取り出す。そこで
+\[
+ L=p_{\mathrm{row}}\mathcal O^d+\sigma(N_\mathrm{row})
+\]
+を考える。これは \(p_{\mathrm{row}}\mathcal O^d\) を含む全階数の行格子である。
+Smith 標準形を用いると、\((\mathcal O/p_{\mathrm{row}})^d\) における
+\(L\) の消滅部分の長さは \(\operatorname{length}(\mathcal O^d/L)\) に等しい。
+この消滅部分は成分ごとに \(p_{\mathrm{row}}\) で割って \(K_{\mathcal O}/\mathcal O\) に
+移すと上の加群に入る。従って \(L\) の基底を行とした行列 \(\mathcal M\) は
+\(v_\ell(\det\mathcal M)\le b_{\mathrm{main}}\) を満たす。
+各行を \(\sigma(b)\) で置き換えても行列は \(p_{\mathrm{row}}\) を法として等しいので、
+\(v_\ell(p_{\mathrm{row}})>b_{\mathrm{main}}\) により行列式の付値は変わらない。
+
+行を \(r'\) 本ずつまとめる。第 \(c\) 行にだけ \(1\) が並ぶ
+\(r'\) 次行列 \(F_c\) を \(\mathcal A\) に持ち上げ、
+対応する \(b\) に掛けて \(c\) について足せば、
+特殊化後の第 \(c\) 行が所定の \(\sigma(b)\) であるブロック行が得られる。
+こうして \(N_\mathrm{row}\) の行からなる \(I\) 次行列 \(B_0\) を得る。
+その主成分での行列式を \(D_x(X)\) と書くと
+\begingroup\postdisplaypenalty=10000
+\[
+ v_\ell(D_\pi(0))=v_\ell(\det\mathcal M)\le b_{\mathrm{main}} .
+\]
+\leanlinks{\href{\upstream/grh/src/Lib/General/Algebra/BlockFittingBound.lean\#L31}{DVR 上の行格子とブロック行の持ち上げ}
+  \leanlinksep \href{\upstream/grh/src/Lib/General/Algebra/BlockFittingBound.lean\#L152}{可除係数から有限商への移行}}
+\endgroup

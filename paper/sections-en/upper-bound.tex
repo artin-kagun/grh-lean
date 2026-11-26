@@ -56,7 +56,7 @@ Apply this identity from \(j=m-1\) down to \(0\).
 The pairing with the test form \(x_m\) becomes the integral of
 \(\mathcal P\phi\) against the successive descents of \(\overline{x_m}\).
 Rapid decrease gives the absolute convergence used in this step.
-\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{Transpose of the lift and absolute convergence}.
+\leanlinks{\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{Transpose of the lift and absolute convergence}}
 
 Let \(R_j\) be the Bessel subgroup for the grading of \(Y_j\).
 The initial function \(\mathcal W_0\) on \([R_0]\) extends the
@@ -79,7 +79,7 @@ Thus
                    \mathcal W_{j+1}(h)z(h)\,dh .
  \end{aligned}
 \]
-\leansrc{New/UpperBound/Seesaw/UnfoldingStages}{One step of the Bessel-period unfolding}.
+\leanlinks{\leansrc{New/UpperBound/Seesaw/UnfoldingStages}{One step of the Bessel-period unfolding}}
 
 At the first step, decompose the support at principal level \(J_M\)
 into the classes \(\Omega_0=J_M/J_{\xi,0}\).
@@ -103,8 +103,143 @@ weighted decomposition, and the finite sum runs over
 \(\prod_{j<m}\Omega_j\).
 The first multiplicity is \(1\), and each other multiplicity
 divides a power of \(\mathrm NQ(\xi)\), the norm of the twist modulus.
-\leansrc{New/UpperBound/Seesaw/IntegralAsCosetSum}{Orbital weights and the volume of the level}.
-\leansrc{New/UpperBound/Seesaw/Cut}{Finite classes and their multiplicities}.
+\leanlinks{\leansrc{New/UpperBound/Seesaw/IntegralAsCosetSum}{Orbital weights and the volume of the level}
+  \leanlinksep \leansrc{New/UpperBound/Seesaw/Cut}{Finite classes and their multiplicities}}
+
+\emph{Choosing finitely many orbits.}
+We prove the lattice bounds used to construct this cut.
+Let \(q\) be the quotient of the generating ideles of the twisted
+and principal moduli. It has uniformizer valuation at each prime
+of the twist modulus and is a unit elsewhere. Let
+\(\Lambda_j^+(x)\) be the projection of the lattice of \(x\) to the
+graded string, and \(\Lambda_j^-(x)\) its intersection with the
+string. At \(x=1\) these are the standard lattices, and the
+projection and intersection are dual under the Hermitian pairing.
+If \(\mathcal W_j(a,x)\ne0\), each lattice on the finite Bessel
+orbit that is closed under projection to each grade, at a point
+\(rx\), satisfies
+\begin{equation}\label{eq:upper-cut-lattices}
+  \overline q^{\,j}\Lambda_j^-(1)\subseteq\Lambda_j^-(r x)
+             \subseteq q^{-j}\Lambda_j^-(1).
+\end{equation}
+
+Every orbit has a point with a graded lattice.
+Take a basis matrix \(B\) for the lattice in Hermite form for
+the grading flag, so that \(B,B^{-1}\) do not lower grades.
+The matrix \(J\) of the Hermitian form pairs degree \(\ell\)
+only with degree \(-\ell\). The matrices \(H=B^\ast J B\) and
+\(H^{-1}\) satisfy \(H_{uv}=0\) when the sum of the degrees of
+\(u,v\) is positive, and \((H^{-1})_{uv}=0\) when the sum is negative.
+Only their degree-zero parts contribute to the degree-zero part
+of the product. In particular, the degree-zero part \(H^{(0)}\) of
+\(H\) is integral invertible. Integral Hermitian orthonormalization and Witt
+extension give an integral invertible \(n\) fixing the basis
+vectors of nonnegative degree with \(n^\ast H n=H^{(0)}\).
+Indeed, choose an orthonormal frame for \(H^{(0)}\) and read the
+nonnegative columns of both bases in orthonormal coordinates.
+They have integral left inverses and the same Gram matrix,
+so an integral unitary matrix identifies the two sets of columns.
+In \(n-1=H^{-1}(Hn-H)\), the fixed nonnegative columns and the
+equality of the nonnegative rows of \(Hn\) and \(H^{(0)}\) imply that
+\(n-1\) raises grades. If \(B_0\) is the degree-zero part of \(B\),
+then \(BnB_0^{-1}\) is unitary and differs from the identity by a
+grade-raising matrix. Its inverse carries the lattice to the
+graded lattice spanned by \(B_0\).
+The integral Witt extension used here applies because \(E\)
+contains a primitive root of unity of order \(5040\) and the
+columns to be identified have integral left inverses.
+\leanlinks{\leansrc{Lib/Weil/Periods/GradedLattice}{Graded frames and the unipotent orbit}}
+
+Prove \eqref{eq:upper-cut-lattices} by induction on \(j\).
+The initial orbit contains a point of the principal level,
+so use the standard lattice. If \(\mathcal W_{j+1}\ne0\), there
+is a point of the unfolded integral where the preceding function
+and the new constant term are both nonzero.
+Write \(T_j\) for the finite string map of the two graded spaces
+and \(b_\xi\) for the generating idele of the translation modulus
+of the datum. This datum is fixed by translations by integral
+vectors multiplied by \(b_\xi\).
+Indeed, the denominator of each translation in its finite Fourier
+expansion is cleared by \(\overline b_\xi\), and the Heisenberg
+commutator is trivial by self-duality of the integral lattice.
+
+For a translation-invariant function, the mean over positive-degree
+maps forces the negative-degree frequency of a nonzero constant term
+to lie in the lattice dual to the translation lattice.
+Here, with \(\alpha\) the idele making the standard lattice self-dual,
+the negative-degree part of an integral map \(W\) between the two
+lattices must equal \((\overline b_\xi/\alpha)T_j\).
+Indeed, the frequency of a nonzero zero term belongs to the sum of
+the dual lattice and the orthogonal complement of the positive-degree
+maps. Quotienting by that complement keeps the negative-degree
+entries. In lattice frames \(B,B'\) the dual-lattice condition says
+that \(W=B' I B^{-1}\) with \(I\) integral.
+The finite Bessel actions do not lower grades. Their degree-zero
+actions fix the strings, and \(T_j\) vanishes on the definite part
+of degree zero. Thus taking graded representatives leaves the
+lowest-degree part, of degree \(-1\), unchanged.
+That part of \(W\) gives
+\[
+   (\overline q/a_\mathrm{id})T_j\Lambda_j^+(r x)
+          \subseteq\Lambda_{j+1}^-(r' x').
+\]
+Here \(a_\mathrm{id}\) is the idele giving the scale of the standard
+string lattices, with
+\(\overline b_\xi/\alpha=\overline q/a_\mathrm{id}\) and
+\(T_j\Lambda_j^+(1)=a_\mathrm{id}\Lambda_{j+1}^-(1)\).
+\leanlinks{\leansrc{New/UpperBound/Seesaw/Frequency}{The frequencies of a nonzero constant term}}
+
+Dualizing the upper inclusion in the preceding stage gives
+\(\overline q^{\,j}\Lambda_j^+(1)\subseteq\Lambda_j^+(r x)\).
+The map above therefore proves the lower inclusion in the next stage.
+Dualizing this lower bound gives \(q^{j+1}\Lambda_{j+1}^+(r'x')
+\subseteq\Lambda_{j+1}^+(1)\).
+For the standard lattice the quotient \(\Lambda^+(1)/\Lambda^-(1)\)
+occurs only in the middle of the string and has length at most \(1\)
+at each place above \(N\).
+If the upper inclusion fails, some \(q^{j+1}y\) with
+\(y\in\Lambda^-(r'x')\) generates this quotient at one of these places.
+There \(q,\overline q\) are units, so
+\(\Lambda^+(r'x')\subseteq\Lambda^-(r'x')\) and the lattice splits
+between the definite part and the string.
+The string then has odd length and \(j+1\) is even.
+The scalar at that prime acting only on the definite part preserves
+the lattice, and the lower level at \(N\) is maximal, so it fixes
+the evaluated datum. The even-stage double-lift identity and
+covariance move this scalar back to the source.
+The ramified input has the form \((1-\rho(z_w))\eta\), so its two
+terms cancel with this datum, contradicting \(\mathcal W_{j+1}\ne0\).
+\leanlinks{\leansrc{New/UpperBound/Seesaw/UnfoldingStages}{The frequency induction and the ramification vanishing}}
+
+There are only finitely many possibilities for \(\Lambda_j^-\)
+in \eqref{eq:upper-cut-lattices}, since they correspond to
+submodules of a fixed finite quotient.
+Lattices with the same intersection with the string are carried
+to each other by the unitary group of the definite part.
+Reading a basis of the common intersection in the two integral
+frames gives matrices with integral left inverses and the same
+Gram matrix, to which integral Witt extension applies again.
+Where \(q,\overline q\) are units, the intersection is the standard
+one, so the representatives can be supported on the twist modulus
+and its conjugate. Thickening this finite set by \(J^\circ_j\) gives
+a compact set. In its image modulo \(J_{\xi,j}\), choose one
+representative per orbit and saturate under
+\(R_j(\mathbb A_f)\cap J^\circ_j\) to obtain \(\Omega_j\).
+\leanlinks{\leansrc{Lib/Weil/Periods/LatticeBounds}{Finiteness of the orbits with bounded lattices}}
+
+Let \(Z\) be the stabilizer of a representative \(xJ_{\xi,j}\) in
+\(R_j(\mathbb A_f)\). Its multiplicity is \([Z:Z\cap J^\circ_j]\).
+For \(z\in Z\), write \(z=xu x^{-1}\) with \(u\in J_{\xi,j}\).
+At the twist primes \(u\equiv1\), and taking powers of the residue
+characteristic improves the congruence by binomial expansion.
+Raising to a sufficiently large power of \(\mathrm NQ(\xi)\)
+makes the conjugate integral there, and the support of the
+representative ensures integrality elsewhere.
+Thus every element of the finite quotient of \(Z\) by the normal
+core of \(Z\cap J^\circ_j\) has order dividing a power of
+\(\mathrm NQ(\xi)\). Cauchy's theorem then shows that its order,
+and hence the multiplicity, divides a power of \(\mathrm NQ(\xi)\).
+\leanlinks{\leansrc{New/UpperBound/Seesaw/Cut}{The denominator of the stabilizer index}}
 
 \emph{Decomposing the kernels in pairs.}
 Fix the outer variables and take the product of two consecutive
@@ -132,7 +267,7 @@ of the two definite theta kernels, so the two integrals give the
 matrix coefficient of their composite lift.
 Density of Fock polynomials and continuity of the integrals give the
 identity for the infinite component used here.
-\leansrc{New/UpperBound/Seesaw/UnfoldingStages}{Product of constant terms and the definite double integral}.
+\leanlinks{\leansrc{New/UpperBound/Seesaw/UnfoldingStages}{Product of constant terms and the definite double integral}}
 
 The infinite and finite factors in this calculation transform separately.
 The infinite weight of the twist is fixed. The infinite factor therefore
@@ -167,7 +302,7 @@ is \(c_0\) times the pairing with the restricted upper lift for the datum
 \]
 Since the equality holds for every test form \(x_m\), it identifies
 the lifts themselves.
-\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{Top branching map and equality of the two chains}.
+\leanlinks{\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{Top branching map and equality of the two chains}}
 
 \emph{Clearing the denominators of the finite data.}
 Set \(\mathsf B=M^{f n_m^2}\), with \(n_j=\dim_E X_j\).
@@ -186,7 +321,7 @@ classes contributes at most \(\mathsf B\). Thus
 The level actions permute the tuples of classes and preserve their
 multiplicities. This gives joint invariance of \(\mathcal A_\xi\)
 under the intermediate levels of the upper chain.
-\leansrc{New/UpperBound/Seesaw/GoodDatum}{Finite Fourier expansion of the glued data}.
+\leanlinks{\leansrc{New/UpperBound/Seesaw/GoodDatum}{Finite Fourier expansion of the glued data}}
 
 If \(c_0C/\mathsf B^{2m}\ne0\), take it for \(c_{\mathrm{ss}}\) and
 put \(\Psi_\xi(t)=\mathsf B^{2m}r_t\).
@@ -205,7 +340,8 @@ multiplication by \(\overline{\pi_M}\) makes them integral at places
 prime to \(\mathrm NQ(\xi)\).
 The coefficients are integral at the same places. For the trivial twist,
 \(\sum_t|\sigma(\Psi_1(t))|\le\mathsf B^{3m}=M^{3fmn_m^2}\).
-The glued tensor is jointly invariant under the intermediate levels.\leanref{exists_isAdmissibleCombination_seesawDatum}
+The glued tensor is jointly invariant under the intermediate levels.
+\leanlinks{\leanref{exists_isAdmissibleCombination_seesawDatum}}
 
 For the estimates on the composite lift, expand each gluing as a
 finite sum modulo \(N\). Each term adds the last column \(-y/N\) to
@@ -215,7 +351,7 @@ the same integrality condition on the coefficients.
 The translations may have denominators at \(N\). For the trivial
 twist the sum of the absolute values of the coefficients is at most
 \(\exp(x^{60})\).
-\leansrc{New/UpperBound/Divisibility/ChainDatumExpansion}{Expansion of the glued tensor}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ChainDatumExpansion}{Expansion of the glued tensor}}
 
 After projection, the lift is a sum of right translates of \(L_\xi z\).
 For a principal-level form \(z\) and a finite adelic point \(u\) of \(U(Y_m)\),
@@ -239,7 +375,7 @@ form has pointwise norm at most \(|\overline G|^2\exp(B/2)\).
 For the trivial twist the number of classes is at most \(\exp(x^{30})\).
 Squaring the pointwise estimate and summing over classes gives an upper
 bound of \(\exp(B+x^{99})\).
-\leansrc{New/UpperBound/Size/ArchimedeanSize}{Integrality and norm estimates for the projection}.
+\leanlinks{\leansrc{New/UpperBound/Size/ArchimedeanSize}{Integrality and norm estimates for the projection}}
 
 \subsection{Theta derivatives and contributions from the finite places}
 
@@ -265,8 +401,8 @@ Let \(p\) be nonsplit. Fix a \(p\)-adic embedding and write its images in
 \(\rho_p=v_p(\pi_p)/(q-1)\). Let \(\theta\) denote the theta series of
 the CM elliptic curve, and let \(y=z+O(z^2)\) be the normalized local
 parameter. For the chosen point \(t\) of order two, the translated
-coordinate \(x_{\rm CM}(z)=\wp(z+t)-\wp(t)\) belongs to
-\(\mathcal O[[y]]\) and satisfies \(x_{\rm CM}=z^2+O(z^3)\).
+coordinate \(x_\mathrm{CM}(z)=\wp(z+t)-\wp(t)\) belongs to
+\(\mathcal O[[y]]\) and satisfies \(x_\mathrm{CM}=z^2+O(z^3)\).
 
 \emph{Rescaling the formal parameter.}
 Complex multiplication by an integer of \(K\) preserves
@@ -288,7 +424,7 @@ The order of vanishing of this series in the residue field equals the
 inseparable degree of \([\pi_p]\), which is at most its degree \(q\).
 The linear term reduces to zero, and there are no terms of degrees
 \(2,\ldots,q-1\). Hence \(b_1\) is a unit.
-\leansrc{Lib/CM/FormalGroup/InseparableDegree}{Reduction and inseparable degree of the CM action}.
+\leanlinks{\leansrc{Lib/CM/FormalGroup/InseparableDegree}{Reduction and inseparable degree of the CM action}}
 
 Choose \(\varpi^{q-1}=-\pi_p/b_1\) and put \(Y(z)=\varpi^{-1}T(\varpi z)\).
 Then \(v_p(\varpi)=\rho_p\), and substitution in the preceding identity gives
@@ -311,15 +447,15 @@ For any \(H\in\mathcal O[[y]]=\mathcal O[[T]]\), substituting
 \(T(\varpi z)=\varpi Y(z)\) shows that \(H(\varpi z)\in\mathcal O[[z]]\).
 Even before rescaling, the coefficients of \(H\) in degrees below \(q\)
 are integral, since \(T=z+O(z^q)\).
-\leansrc{Lib/CM/FormalGroup/FormalParameter}{Construction and congruence of the formal parameter}.
+\leanlinks{\leansrc{Lib/CM/FormalGroup/FormalParameter}{Construction and congruence of the formal parameter}}
 
 \emph{The exponent in one variable.}
 Put \(g=-\log\theta\). Pullback by \([\pi_p]\) makes \(\theta\) an even
 section of degree \(q\) and preserves integrality at torsion points.
 The expansion of even sections gives
-\(\theta(\pi_p z)=\theta(z)^qR(x_{\rm CM}(z))\) with \(2\deg R<q\),
+\(\theta(\pi_p z)=\theta(z)^qR(x_\mathrm{CM}(z))\) with \(2\deg R<q\),
 where the inequality is strict because \(q\) is odd.
-\leansrc{Lib/CM/Integrality/IntegralSections}{Polynomial expansion of even sections}.
+\leanlinks{\leansrc{Lib/CM/Integrality/IntegralSections}{Polynomial expansion of even sections}}
 This identity gives
 \begin{equation}\label{eq:upper-frobenius}
  q g(z)-g(\pi_p z)=\pi_p H_2,\qquad H_2\in\mathcal O[[y]].
@@ -328,9 +464,9 @@ To see this, write \(g_n=[z^n]g\). We have \(g_0=g_1=0\) and
 \(\pi_p g_n\in\mathcal O\) for \(n<q\).
 For \(n=2\), this follows from the integrality of \(\sqrt{-d}\,g_2\)
 and \(v_p(\sqrt{-d})\le v_p(\pi_p)\).
-\leansrc{Lib/CM/Integrality/LogTheta}{Integrality of the quadratic coefficient of the theta logarithm}.
-For \(n>2\), the identity \(g''=g''(0)+x_{\rm CM}\) gives
-\(n(n-1)g_n=[z^{n-2}]x_{\rm CM}\). The right-hand side is integral
+\leanlinks{\leansrc{Lib/CM/Integrality/LogTheta}{Integrality of the quadratic coefficient of the theta logarithm}}
+For \(n>2\), the identity \(g''=g''(0)+x_\mathrm{CM}\) gives
+\(n(n-1)g_n=[z^{n-2}]x_\mathrm{CM}\). The right-hand side is integral
 if \(n<q\), and then \(v_p(n(n-1))\le1\) in the inert case and
 \(v_p(n(n-1))=0\) in the ramified case.
 Since \(q=\pi_p^2\) or \(q=-\pi_p^2\),
@@ -339,14 +475,14 @@ Since \(q=\pi_p^2\) or \(q=-\pi_p^2\),
 It follows that all coefficients of \(\exp(qg-g(\pi_p z))-1\) in degrees
 below \(q\) are divisible by \(\pi_p\). Indeed,
 \(v_p(j!)\le(j-1)/(p-1)\le (j-1)v_p(\pi_p)\) for \(j\ge1\), and the
-exponent has constant term zero. The exponential is \(R(x_{\rm CM})\).
-The first term of \(x_{\rm CM}^i\) is \(z^{2i}\), so comparison of the
+exponent has constant term zero. The exponential is \(R(x_\mathrm{CM})\).
+The first term of \(x_\mathrm{CM}^i\) is \(z^{2i}\), so comparison of the
 coefficients in degree \(2i\), starting at \(i=0\), yields
-\(R-1\in\pi_p\mathcal O[X]\). Hence \(R(x_{\rm CM})=1+\pi_p H\) with
+\(R-1\in\pi_p\mathcal O[X]\). Hence \(R(x_\mathrm{CM})=1+\pi_p H\) with
 \(H\in\mathcal O[[y]]\) and \(H(0)=0\).
 The logarithm belongs to \(\pi_p\mathcal O[[y]]\), since its \(j\)-th term
 has scalar \(\pi_p^j/j\in\pi_p\mathcal O\).
-\leansrc{New/Derivatives/FormalGroup/FrobeniusCongruence}{Frobenius congruence for the theta logarithm}.
+\leanlinks{\leansrc{New/Derivatives/FormalGroup/FrobeniusCongruence}{Frobenius congruence for the theta logarithm}}
 
 Let \(g^\flat\) be the part in degrees \(p+1\bmod(q-1)\).
 Write \(i_0\) for the least nonnegative representative of this class.
@@ -359,7 +495,7 @@ The integrality of the theta transformation under the CM action gives
 This follows by passing to the limit of the transformation at CM integers
 and their norms, using the pair \((\zeta^{-1},\zeta^{-(p+1)})\), and
 replacing the variable by \(\zeta z\).
-\leansrc{Lib/CM/FormalGroup/FormalParameter}{Theta transformation at roots of unity}.
+\leanlinks{\leansrc{Lib/CM/FormalGroup/FormalParameter}{Theta transformation at roots of unity}}
 Multiplying these identities over all \(\zeta\) gives
 \(\exp(g^\flat-g)^{q-1}\in\mathcal O[[y]]\) by the averaging formula
 for this degree class. The \((q-1)\)-st root with constant term \(1\)
@@ -416,7 +552,7 @@ In the inert case all coefficients \(\lambda_{e,\nu}\) equal \(\lambda\).
 In the ramified case \(\lambda_{0,0}=\lambda/2\),
 \(\lambda_{0,\nu}=\lambda\) for \(\nu>0\), and \(\lambda_{e,\nu}=2\lambda\)
 for \(e>0\).
-\leansrc{New/Derivatives/FormalGroup/Exponent}{Construction and coefficient congruence of the one-variable exponent}.
+\leanlinks{\leansrc{New/Derivatives/FormalGroup/Exponent}{Construction and coefficient congruence of the one-variable exponent}}
 
 \emph{The multivariable theta product.}
 Suppose that the vectors \(u_i\) are integral at all primes above \(p\)
@@ -465,7 +601,8 @@ multiplied by \(c_\varpi\) is integral because
 Multiplying this factor by \(\prod_i W_1(L_i(z))^{\mu_i}\)
 and the integral series in the \(y(L_i(z))\) rescaled at \(\varpi z\)
 gives \(W\). Each coefficient of the exponent receives only finitely
-many contributions.\leanref{exists_hasNormalForm}
+many contributions.
+\leanlinks{\leanref{exists_hasNormalForm}}
 
 \paragraph{Differentiation along products of minors}
 For a polynomial \(Q\), write \(J_Q(F)=(Q(\partial)F)(0)\).
@@ -504,7 +641,7 @@ the source rank when \(n<n'\). The determinant factor is a nonzero
 polynomial over the residue field, and the standard-filling basis
 is linearly independent over that field. Hence the reductions of the
 \(B_I\) are linearly independent.
-\leansrc{New/Derivatives/Divisibility/Count}{Expansion of the Schur matrix in the standard-filling basis}.
+\leanlinks{\leansrc{New/Derivatives/Divisibility/Count}{Expansion of the Schur matrix in the standard-filling basis}}
 
 Put \(\alpha_I=J_{P_{I'I}}(F)\). If all \(\alpha_I\) vanish, the bound is
 immediate. Otherwise choose \(|\alpha_{I_0}|_p\) maximal. The reduction
@@ -514,7 +651,8 @@ is nonzero and lift its coordinates to \(\mathcal O\).
 At the resulting \(Y\), the norm of
 \(J_{Q_Y}(F)=\sum_I\alpha_I B_I(Y)\) is \(|\alpha_{I_0}|_p\).
 A lower bound on \(v_p(J_{Q_Y}(F))\) for all integral \(Y\) thus
-gives the same lower bound for every Schur derivative entry.\leanref{exists_norm_schurJet_le_norm_jet_minorProd}
+gives the same lower bound for every Schur derivative entry.
+\leanlinks{\leanref{exists_norm_schurJet_le_norm_jet_minorProd}}
 
 \emph{Congruences on the directions.}
 Let \(N_{\tau h}\) be the number of columns of height \(h<n'\).
@@ -607,7 +745,8 @@ once for each column of that height, so
  \end{aligned}
 \]
 This establishes \eqref{eq:upper-direction-pairing} for all the pairs
-that are subject to it, simultaneously.\leanref{exists_newDirection_dvd}
+that are subject to it, simultaneously.
+\leanlinks{\leanref{exists_newDirection_dvd}}
 
 \emph{The valuation bound by the chain rule.}
 Introduce variables \(s_{\tau h k b}\) and put
@@ -627,12 +766,12 @@ The exempt pairs also vanish by this factor.
 
 Let \(Q_*(s)\) be the product of the determinants
 \(\det(s_{\tau h k b})\) on the rows \(b\) chosen by \(I'\) and
-directions \(k<h\) for each column. Let \(W_{\rm ch}\) be the sum of
+directions \(k<h\) for each column. Let \(W_\mathrm{ch}\) be the sum of
 \(w_{\tau h b}\) over the boxes, using the row index \(b\) of each box.
 The chain rule gives
 \begin{equation}\label{eq:upper-minor-chain-rule}
  J_{Q_*}\bigl(F(\varpi z(s))\bigr)
- = \varpi^B p^{W_{\rm ch}}\!
+ = \varpi^B p^{W_\mathrm{ch}}\!
     \left(\prod_{\tau,h<n'}(\det g_{\tau h})^{N_{\tau h}}\right)J_{Q_Y}(F).
 \end{equation}
 In one column, the derivative matrix along the new directions is the
@@ -650,13 +789,14 @@ has integral coefficients through degree \(B\).
 Equations \eqref{eq:upper-legendre} and \eqref{eq:upper-minor-chain-rule} give
 \begin{equation}\label{eq:upper-jet}
  \begin{aligned}
- v_p(J_{Q_Y}(F))+W_{\rm ch}
+ v_p(J_{Q_Y}(F))+W_\mathrm{ch}
    &\ge \gamma_p B-v_p(\pi_p)\mathcal D_p(A)\\
    &\quad{}-f n_{j+1}^3\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr),\\
  \gamma_p&=\frac1{p-1}-\rho_p .
  \end{aligned}.
 \end{equation}
-Here \(B\) includes the boxes of marked columns.\leanref{norm_jet_minorProd_le_of_charges}
+Here \(B\) includes the boxes of marked columns.
+\leanlinks{\leanref{norm_jet_minorProd_le_of_charges}}
 For the positive exponents one has
 \(\gamma_p=v_p(\pi_p)\sum_{e\in I_p}p^{-e}\).
 Subtracting the deductions for \(e>0\) in \(\mathcal D_p(A)\) from
@@ -723,7 +863,7 @@ In units of \(a/(mp)\), the error per place is at most \(2\) from
 comparing the positive parts, \(2\) from the ramified-prime deduction,
 and \(1\) from the logarithmic error in differentiation.
 The condition \(5\le(\log b)^2\) absorbs these errors.
-\leanref{le_divisibilityBound}
+\leanlinks{\leanref{le_divisibilityBound}}
 
 \paragraph{The local kernel and its lattice}
 The local kernel of a lift \(X_j\to X_{j+1}\) uses Schwartz data on
@@ -743,7 +883,7 @@ along the linear forms given by placing \(v_i/b_0\) in each coordinate
 in turn. The associated Weil vector \(F_0\) has theta value \(1\),
 and its theta function has the prescribed signed periods along
 \(b_0\mathfrak a_0\) in each coordinate.
-\leansrc{New/Derivatives/Vacuum/TightFrames}{Construction of the theta product from a tight frame}.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/TightFrames}{Construction of the theta product from a tight frame}}
 
 Apply finite Fourier inversion for this sublattice to express the
 integral vacuum as a sum of translates of \(F_0\).
@@ -760,7 +900,7 @@ integral vacuum and the scalar factors of the Heisenberg action.
 The coefficients are therefore integral at \(p\).
 The translation points lie in the standard lattice after
 multiplication by \(b_0\).
-\leansrc{New/Derivatives/Vacuum/StandardDataProducts}{Finite Fourier inversion for the vacuum and its denominators}.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/StandardDataProducts}{Finite Fourier inversion for the vacuum and its denominators}}
 
 Apply this expansion to each translate in the standard datum.
 The composition law for the Heisenberg action adds the translation
@@ -769,7 +909,7 @@ Each resulting translate of \(F_0\) can be represented by a
 rational point \(\gamma\) inducing the same action on \(F_0\),
 with \(a_0\gamma\) in the lattice in each coordinate for some
 integer \(a_0\) prime to \(p\).
-\leansrc{New/Derivatives/Vacuum/StandardDataProducts}{Choosing rational translation representatives}.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/StandardDataProducts}{Choosing rational translation representatives}}
 Each shift \(t_i\) in the theta product for \(\gamma\) satisfies
 \(a_0 b_0 t_i\in\Omega_0\mathcal O_K\).
 Indeed, the shift is \(-\Omega_0/b_0\) times the Hermitian pairing
@@ -785,7 +925,7 @@ Since \(k_0 t_i\) is a period, the one-variable translated theta
 series after pullback by \([k_0]\) is the product of \(\theta(z)^{k_0^2}\)
 and an element of \(\mathcal O[[y]]\). Here the pulled-back
 section has degree \(k_0^2\).
-\leansrc{Lib/CM/Integrality/IsogenyIntegrality}{Pullback of the theta series translated by a torsion point}.
+\leanlinks{\leansrc{Lib/CM/Integrality/IsogenyIntegrality}{Pullback of the theta series translated by a torsion point}}
 Since \(k_0\) was chosen simultaneously for all terms, the finite sum
 has the common factor \(\prod_i\theta(u_i^\ast z)^{k_0^2}\).
 The remaining factor lies in the ring of integral series in the
@@ -805,7 +945,72 @@ Replacing \(z\) by \(cz\) in \eqref{eq:upper-normal} preserves the
 integrality of \(W(cz)\) and multiplies the exponent coefficients by
 \(c^{(p^e+1)p^\nu}\). The kernel therefore has the same normal form
 at its prescribed scale.
-\leansrc{New/Derivatives/Vacuum/Divisibility}{Normalization and integrality of the theta series of the local kernel}.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/Divisibility}{Normalization and integrality of the theta series of the local kernel}}
+
+\emph{Weil action and integrality at an arbitrary prime.}
+Write \(L=\widehat{\mathcal O}_E^{\,n}\) for the finite standard lattice,
+\(T_x\) for finite Heisenberg translation normalized with the lattice
+semicharacter, and \(\Delta_f(g)\) for the multiplier of a finite
+unitary element \(g\). The probability average of \(T_y\) over \(L\)
+is the orthogonal projection to the vacuum line, and the projection of
+\(\omega(g^{-1})v_\mathrm{vac}\) is \(\Delta_f(g)^{-1}v_\mathrm{vac}\).
+Acting by \(\omega(g)\) on the average and carrying \(T_y\) to \(T_{gy}\)
+gives \(\omega(g)v_\mathrm{vac}=\Delta_f(g)\int_L T_{gy}v_\mathrm{vac}\,dy\).
+Changing \(y\) by an element of \(L\cap g^{-1}L\) leaves the translated
+vacuum unchanged. The added translation lies in \(L\), and the phase
+in its composition is trivial by the normalization of the lattice
+semicharacter. Each coset has measure
+\([L:L\cap g^{-1}L]^{-1}=|\Delta_f(g)|^{-2}\), and
+\(\Delta_f(g^{-1})=\overline{\Delta_f(g)}\). Therefore
+\begin{equation}\label{eq:upper-finite-vacuum}
+ \omega(g)T_xv_\mathrm{int}=
+ \Delta_f(g^{-1})^{-1}\,T_{gx}
+       \sum_{y\in L/(L\cap g^{-1}L)}T_{gy}v_\mathrm{int}.
+\end{equation}
+\leanlinks{\leansrc{Lib/Weil/Construction/VacuumProjections}{Projection to the vacuum and the finite lattice sum}}
+
+Let \(\delta\ne0\) be an integer of \(K\). The standard data of level
+\(\delta\) at a prime \(p\) are linear combinations over the valuation
+ring of \(T_xv_\mathrm{int}\) with \(\delta x\) integral above \(p\).
+If \(g,g^{-1}\) are integral above \(p\), then so are \(\delta gx\) and
+\(\delta gy\). The factor \(\Delta_f(g^{-1})\) is a \(p\)-adic unit.
+Indeed, it is the value of a finite algebraic character on the
+determinant of a frame for \(L\cap gL\). Above \(p\) that lattice is
+\(L\), so the local determinant valuations are zero. The valuation of
+the character value is a weighted sum of those local valuations.
+The phases in compositions of finite Heisenberg translations are
+roots of unity. Thus \eqref{eq:upper-finite-vacuum} preserves the module
+of standard data.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/JetIntegrality}{Stability of standard data under Weil action}
+  \leanlinksep \leansrc{New/UpperBound/Seesaw/AdmissibleCombinations}{Valuation of the finite multiplier}}
+
+The same theta product construction applies for general \(\delta\).
+The degree of \([\delta]\) is \(D=\delta\overline\delta\). At scale
+\(\overline\delta d\,\mathrm{jetScale}\) the Taylor series is the product
+of \(\prod_i\theta(d\nu_i z)^{D m_i}\) and an integral series in
+\(y(d\nu_i z)\). The linear forms \(\nu_i\) are obtained by multiplying
+the frame coordinates by the period factor, which clears their
+denominators. Put \(g_\mathrm{CM}=-\log\theta\) and adjoin
+\(\theta(d\nu_i z)\) and \(g_\mathrm{CM}'(d\nu_i z)\) to the ring of
+integral series. Every element has integral constant term.
+Upon differentiation in \(z_b\), \(y'\) is an integral series in
+\(y\), and \(\theta'=-\theta g_\mathrm{CM}'\) is a product of the adjoined
+generators. Also \(g_\mathrm{CM}''(z)=g_\mathrm{CM}''(0)+X(z)\), where \(X\)
+is an integral series in \(y\) and \(\sqrt{-d}\,g_\mathrm{CM}''(0)\) is
+integral. Thus the derivative of \(g_\mathrm{CM}'(d\nu_i z)\) is
+\(\nu_{i,b}(d g_\mathrm{CM}'')(d\nu_i z)\), which also lies in the ring.
+The Leibniz rule then gives integral constant terms after any
+number of derivatives. Returning to scale \(c\,\mathrm{jetScale}\)
+bounds the absolute value of a homogeneous differential operator
+of degree \(l\), with integral coefficients, by
+\begin{equation}\label{eq:upper-all-prime-jets}
+ \left|c/(\overline\delta d)\right|_p^{\,l}.
+\end{equation}
+For example, if \(p\ne d,N\) is prime to the norm of the twist
+modulus, the integral chain data use \(\delta=\overline{\pi_M}\),
+\(c=\pi_M\), for which this bound is \(1\).
+\leanlinks{\leansrc{New/Derivatives/Vacuum/Divisibility}{The theta product at its prescribed scale and integrality at all primes}
+  \leanlinksep \leansrc{New/UpperBound/Divisibility/LocalDivisibility}{The level of the standard data in this application}}
 
 \emph{The bound in lattice coordinates.}
 Use the standard-filling basis of each Weyl module.
@@ -846,10 +1051,10 @@ is the last entry of the target weight.
 The operator norm is bounded by the largest absolute value of an
 entry, so it suffices to bound these factors times the corresponding
 Schur derivative.
-\leansrc{New/UpperBound/Kernels/ThetaLiftGauge}{Twisted Weil action and the kernel bound in lattice coordinates}.
+\leanlinks{\leansrc{New/UpperBound/Kernels/ThetaLiftGauge}{Twisted Weil action and the kernel bound in lattice coordinates}}
 
 For unmarked standard data, take \(d_\ast=1\), so the row factors
-are all \(1\). In \eqref{eq:upper-jet}, put \(W_{\rm ch}=0\),
+are all \(1\). In \eqref{eq:upper-jet}, put \(W_\mathrm{ch}=0\),
 extend the deductions to all \(e\), and relax the error term by
 replacing the floor of the logarithm by the logarithm.
 Each entry has valuation at least \(D_{p,j}(\varnothing)\).
@@ -859,7 +1064,7 @@ Consequently
  \le p^{-D_{p,j}(\varnothing)}\|\eta\|_g
 \end{equation}
 for all \(g,h,\eta\).
-\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{Valuation of the kernel for one lift}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{Valuation of the kernel for one lift}}
 
 \emph{Adding valuations through the chain.}
 Let \(\psi_{t,j}\) be the datum in step \(j\), and suppose its kernel
@@ -882,7 +1087,7 @@ the level actions to the data preserves joint invariance.
 The final restriction to \(Y_m\subset X_m\) uses an integral branching
 matrix and the \(p\)-adic unit \(\overline{\pi_N}\) when \(p\ne N\).
 It preserves the bound.
-\leansrc{New/UpperBound/Divisibility/ChainValuation}{Finite class sum and restriction bounds for the chain}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ChainValuation}{Finite class sum and restriction bounds for the chain}}
 
 \subsection{Colength at the finite places}
 
@@ -946,7 +1151,7 @@ Among the finite places of \(E\) induced by \(\Phi_a\) and their conjugates,
 one can select one place from each conjugate pair to obtain a full
 marking \(\Lambda\). If \(A\) is the set of infinite places inducing
 places in \(\Lambda\), then \(C_p(A)=0\).
-\leanref{exists_isFullMark}
+\leanlinks{\leanref{exists_isFullMark}}
 
 Put \(r_p=\lceil\log_p m\rceil\) and \(\nu_p=r_pf(n_m+r_p)\).
 For \(w\in\Lambda\), let \(a_w\) be \(a\) times the number of members of
@@ -988,7 +1193,7 @@ The sum over boxes is therefore at most
 \(\sum_{w\in\Lambda}a_w+r_p\sum_{\tau\in A}r_\tau\).
 Subtracting \(D_{p,j}(A)\) gives the upper bound on the loss
 for the kernel on the neighboring lattices.
-\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{Weight factors and powers of \(p\) for the neighboring lattices}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{Weight factors and powers of \(p\) for the neighboring lattices}}
 
 \emph{Transferring the Hecke operators into the data.}
 Let \(C_{\boldsymbol x,j}\) be the composite of the first \(j\) lifts
@@ -996,7 +1201,7 @@ with the translation tuple \(\boldsymbol x\). For \(w\in\Lambda\),
 write \(Q_w=z_w^2\) for the order of its residue field, with
 \(z_w=p^{h_w}\) and \(2h_w\le f\). Denote the Hecke operator on
 \(X_j\) of index \(i\) by \(T_{w,i}^{(j)}\).
-Write \(t_{\rm rk}+1\) for the rank increment \(n_{j+1}-n_j\).
+Write \(t_\mathrm{rk}+1\) for the rank increment \(n_{j+1}-n_j\).
 The character of the twist is unramified at this place, and the
 local datum is the vacuum. For the Hecke polynomial
 \[
@@ -1005,27 +1210,27 @@ local datum is the vacuum. For the Hecke polynomial
 the identity for an unramified theta lift \(L_j\) is
 \begin{equation}\label{eq:upper-hecke-polynomial}
  {\cal H}_{w,j+1}(U)L_j
-    =R_j(U)L_j{\cal H}_{w,j}(z_w^{t_{\rm rk}+1}U).
+    =R_j(U)L_j{\cal H}_{w,j}(z_w^{t_\mathrm{rk}+1}U).
 \end{equation}
 Here \(\chi_{w,j+1}\) is the value of the base change of the lifting
 character at a uniformizer of \(w\), and
-\(R_j(U)=\prod_{0\le k\le t_{\rm rk}}(1-Q_w^k z_w^{n_j}\chi_{w,j+1}U)\).
+\(R_j(U)=\prod_{0\le k\le t_\mathrm{rk}}(1-Q_w^k z_w^{n_j}\chi_{w,j+1}U)\).
 The equality of the sums of the character weights above \(w\) and
 \(\overline w\) makes \(\chi_{w,j+1}\) a \(p\)-adic unit.
 Hence \(R_j\in\mathcal O[U]\) and \(R_j(0)=1\).
-\leansrc{Lib/Weil/Unramified/HeckeTransfer}{Hecke polynomial identity for the unramified theta lift}.
+\leanlinks{\leansrc{Lib/Weil/Unramified/HeckeTransfer}{Hecke polynomial identity for the unramified theta lift}}
 
 Multiply \eqref{eq:upper-hecke-polynomial} by \(R_j^{-1}\in\mathcal O[[U]]\)
 and compare coefficients of \(U^i\).
-Then \(z_w^{(t_{\rm rk}+1)i}Q_w^{\binom{i}{2}}L_j T_{w,i}^{(j)}\)
+Then \(z_w^{(t_\mathrm{rk}+1)i}Q_w^{\binom{i}{2}}L_j T_{w,i}^{(j)}\)
 is an integral linear combination of \(T_{w,i'}^{(j+1)}L_j\)
 for \(i'\le i\).
-The prefactor is \(p^{h_w i(t_{\rm rk}+i)}\).
-For \(i\le r_p\le t_{\rm rk}\), it divides \(p^{f r_p t_{\rm rk}}\),
+The prefactor is \(p^{h_w i(t_\mathrm{rk}+i)}\).
+For \(i\le r_p\le t_\mathrm{rk}\), it divides \(p^{f r_p t_\mathrm{rk}}\),
 since \(2h_w\le f\). Paying this power of \(p\) at each step thus
 keeps the transfer integral and preserves the upper bound \(r_p\)
 on the index. Iterate through \(j+1\) steps and multiply by the
-remaining power of \(p\), using \((j+1)f r_p t_{\rm rk}\le\nu_p\).
+remaining power of \(p\), using \((j+1)f r_p t_\mathrm{rk}\le\nu_p\).
 This gives \(p\)-integral coefficients \(c_{w,i}\) with
 \begin{equation}\label{eq:upper-hecke-transfer}
  \sum_{i\le r_p}c_{w,i}\,T_{w,i}^{(j+1)}C_{\boldsymbol x,j+1}
@@ -1033,7 +1238,7 @@ This gives \(p\)-integral coefficients \(c_{w,i}\) with
 \end{equation}
 The identity holds on forms spherical at \(w\), and its coefficients
 are independent of \(\boldsymbol x\).
-\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{Iterating the Hecke transfer through the lifts}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{Iterating the Hecke transfer through the lifts}}
 
 Apply the operator on the left of \eqref{eq:upper-hecke-transfer}
 to the datum and multiply by \(p^{a_w-\nu_p}\).
@@ -1058,14 +1263,15 @@ for each \(w\). Hence the total loss in step \(j\) is at most
   |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau-D_{p,j}(A).
 \]
 Commutation with the levels preserves joint invariance of the data
-in the chain, so these losses can be summed over the steps.\leanref{gaugeLe_scaledHeckeOperator_pow}
+in the chain, so these losses can be summed over the steps.
+\leanlinks{\leanref{gaugeLe_scaledHeckeOperator_pow}}
 
 The cost at the marked places satisfies
 \[
  |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau
  \le \frac{\ell_p}{m}+|\Phi_a\cap A|\frac a{x_1}.
 \]
-\leansrc{New/UpperBound/Divisibility/MarkedPrimes}{Cost at marked places}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/MarkedPrimes}{Cost at marked places}}
 At an exceptional prime \(v_p(\pi_p)=1\), so the terms involving
 \(a/x_1\) cancel, and the loss per step is at most
 \((2\ell_p-G_p)/m\).
@@ -1081,7 +1287,7 @@ colength of \(T_wM_\iota+p^{j_p}M_\iota\) divides \(p^{c_w}\) for some
 \[
   c_w\le\left(\frac{12a_w}{mp}+\frac{j_p}{m^2f}\right)\dim S_0 .
 \]
-\leansrc{New/UpperBound/Divisibility/MarkOperator}{Elementary divisors of the normalized Hecke operator}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/MarkOperator}{Elementary divisors of the normalized Hecke operator}}
 To see the numerical bound, the places of \(\Phi_a\) inducing
 \(w\) or \(\overline w\) form one orbit under \(-p^{o_0}\).
 Let its length be \(2u_w\) and put \(P_p=p^{o_0}\).
@@ -1089,22 +1295,490 @@ Order the embeddings of the orbit into the valuation ring, composing with
 complex conjugation on the conjugate side. Successive embeddings are
 related by the \(P_p\)-power map modulo \(p\). The even embeddings induce
 \(w\), so \(a_w=au_w\).
-The elementary-divisor theorem for a Frobenius cycle factors the Hecke operator on the lattice classes into a restriction
-to residue classes and a pairing of matrices, and compares the
-colengths of the images of these matrices.
-For the coordinate model and numerical conditions
+The required scale conditions are
 \[
  \begin{gathered}
   0<r_p\le k/2,\qquad a^4\le P_p^{2u_w},\qquad \theta_0=(m^2f)^{-1},\\
   (2u_w k\log(P_p^{2u_w})/\theta_0)^5 P_p^{3r_p}\le a
  \end{gathered}
 \]
-the bound per coordinate is \(3C_{\mathrm{div}}+\theta_0j_p\), where
-\(C_{\mathrm{div}}=2u_wa(P_p^{-2r_p}+r_p^2/(kP_p))\).
-\leansrc{New/UpperBound/ElementaryDivisors/ElementaryDivisorTheorem}{Elementary divisors for a Frobenius cycle}.
-For the present Hecke operator, the hypotheses follow from its coordinate
-model and the scale conditions.
-\leansrc{New/UpperBound/Divisibility/MarkOperator}{Application of the elementary-divisor theorem}.
+Put \(C_{\mathrm{div}}=2u_wa(P_p^{-2r_p}+r_p^2/(kP_p))\).
+\leanlinks{\leansrc{New/UpperBound/Divisibility/MarkOperator}{Verification of the scale conditions}}
+
+In this coordinate model let \(\mathcal O\) be the \(p\)-adic valuation
+ring and \(W\) the local ring at \(w\). Put \(n_\mathrm{cyc}=2u_w\),
+\(P_p=p^{o_0}\), \(q_w=P_p^{n_\mathrm{cyc}}\), \(\varpi^2=p\), and
+\(c_0=k^2\log_p q_w\).
+Call each position in the cycle a letter, and let \(\mathcal B\) be the
+set of monomials of degree \(a\) in the \(k\) variables of each letter.
+The action \(\rho_\mathrm{cyc}(g)\) on coefficients uses the image of
+\(g\in\mathrm{GL}_k(W)\) at even letters and the image of its inverse
+transpose at odd letters. Count variable indices from \(0\).
+Write \(\operatorname{depth}(\beta)\) for the degree in the variables
+with \(b\ge r_p\) at even letters and \(b<r_p\) at odd letters, and put
+\(\Delta=\operatorname{diag}(\varpi^{\operatorname{depth}(\beta)})\).
+The scaling of the variables by the block diagonal matrix of the Hecke
+operator is \(\Delta^2\).
+
+Write \(X\) for the representatives of lattice classes and \(H\) for
+a basis of the remaining coefficient factor. An edge is specified by
+its terminus and a coset of the two-block parahoric subgroup.
+Write \(g_e\) for the change of basis at the origin, \(\gamma_e\)
+for the change at the terminus, and \(u_e\in\mathrm{GL}_H(\mathcal O)\)
+for the transition on the other factor. In the parahoric subgroup,
+entries in a shallow row and a deep column are divisible by \(p\),
+so \(\Delta\rho_\mathrm{cyc}(g)\Delta^{-1}\) is integral on the subgroup.
+Thus the intermediate lattice of each edge is independent of the
+basis representative. The dual edges also run once through the
+pairs of an origin and a parahoric coset there. Indeed, equal
+origins and cosets give equal terminus classes under the rational
+transitions. Triviality of the level stabilizer gives equality of
+the edges, and the two finite sets have equal cardinality.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/HeckeEdges}{Cosets at both ends and coordinates of the Hecke matrix}}
+
+Let \(J,J'\) be the restriction matrices from the origins and the
+dual origins to the intermediate lattices.
+At an edge they apply \(\Delta\rho_\mathrm{cyc}(g_e^{\mathsf t})\)
+and \(\Delta\rho_\mathrm{cyc}(\gamma_e)\), respectively.
+Use the inverse multinomial coefficients as diagonal pairing
+weights in each letter and clear denominators by \(p^{c_0}\).
+Write \(b_\beta\) for the product of these weights over the letters.
+The product \(b'_\beta\) of the multinomial coefficients satisfies
+\(b_\beta b'_\beta=p^{n_\mathrm{cyc}c_0}\).
+Expanding the linear substitutions by the multinomial theorem makes
+the action of a matrix adjoint to that of its transpose in this pairing.
+With \(B_\mathrm{ed}=\operatorname{diag}(b_\beta)\) we get, at each edge,
+\[
+ (\Delta\rho_\mathrm{cyc}(\gamma_e))^{\mathsf t}B_\mathrm{ed}
+       \Delta\rho_\mathrm{cyc}(g_e^{\mathsf t})
+   =(\rho_\mathrm{cyc}(g_e)\Delta^2\rho_\mathrm{cyc}(\gamma_e))^{\mathsf t}B_\mathrm{ed}.
+\]
+Thus the Hecke operator on inputs multiplied by \(B_\mathrm{ed}\) is
+the operator \(A_\mathrm{ed}\) that restricts by \(J\), applies
+\(u_e\otimes B_\mathrm{ed}\) at each edge, and sums from the dual edges
+by \(J'^{\mathsf t}\).
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/ElementaryDivisorTheorem}{Factorization of the Hecke action through the edges}}
+
+Take elementary divisors at both ends and write
+\(J=Qd_\mathrm{ed}\), \(J'=Q'd'_\mathrm{ed}\). The matrices \(Q,Q'\) have
+integral left inverses and their images are the saturations,
+by powers of \(\varpi\), of the two restriction images.
+With \(D_\mathrm{ed}=|X|\,|H|\,|\mathcal B|\), the product
+\(\det(d_\mathrm{ed})\det(d'_\mathrm{ed})\) divides
+\(p^{\lfloor C_{\mathrm{div}}D_\mathrm{ed}\rfloor}\).
+The count uses the depth of monomials. If an elementary divisor
+\(t_i\) of the restriction fails to divide \(\varpi^\delta\),
+every \(\mathrm{GL}_k(W)\)-translate of its basis column has zero
+coefficients at depths at most \(\delta\) in the residue field.
+Indeed, a unit coefficient in such a position would force \(t_i\)
+to divide \(\varpi^{\operatorname{depth}(\beta)}\), and hence
+\(\varpi^\delta\).
+The reduced basis columns are linearly independent, so the number
+of these divisors is bounded by the sum of the dimensions of the
+spaces whose translates have only terms of depth at least
+\(\delta+1\).
+
+For this dimension count give a deep variable \(v=(b,s)\) weight
+\(P_p^{-2r_p}\) if \(b\ge2r_p\), and \(P_p^{-1}\) if \(b<2r_p\).
+The other variables have weight \(0\).
+Every nonzero form whose translates all have depth at least
+\(\delta+1\) has a monomial of weighted degree at least \(\delta+1\).
+For the interpolation argument, treat the shallow variables as
+coefficients in a rational function field.
+More precisely, write \(k=2r_p+\ell_\mathrm{ed}\). In row \(b<r_p\)
+use column \(b+r_p\) and columns \(k-l\) for \(1\le l\le\ell_\mathrm{ed}\).
+A matrix \(U\) with arbitrary residue entries in these positions
+satisfies \(U^2=0\), so \((1+U)^{-1}=1-U\).
+The substitutions use \(1-U\) at even letters and \(1+U^{\mathsf t}\)
+at odd letters. They carry a deep variable \(X_v\) to \(X_v-z_v\),
+where \(z_v\) is a linear form in the entries of \(U\). Its
+coefficients are the shallow variables in the corresponding rows
+at even letters and the negatives of the shallow variables in the
+corresponding columns at odd letters. The depth condition thus
+gives the prescribed order of vanishing at \(z\).
+
+Let \(\kappa_v\) be the reciprocal of the weight of a deep variable.
+The \(P_p^j\)-th power of \(z_v\) for a variable of letter \(s\)
+is the linear form with coefficients raised to the same power,
+now in the residue entries read at letter \(s+j\).
+For each letter \(i\) the powers below \(\kappa_v\) recover all
+residue entries. For a fixed column \(k-l\), take the \(r_p\)
+integers \(0\le j<2r_p\) with \(i-j\) even. They give an
+\(r_p\)-by-\(r_p\) system with coefficients given by \(P_p^j\)-th
+powers of shallow variables. Its determinant is nonzero, since
+the different row powers make the terms of the determinant
+distinct monomials. This recovers the entries in column \(k-l\).
+Now use \(j=0\) and the linear form containing the entry in
+column \(b+r_p\) of row \(b\). Subtract the entries already found
+and divide by the nonzero coefficient of that entry.
+Thus \(z\) determines the residue entries, and the number of
+distinct points is \(q_w^{r_p(\ell_\mathrm{ed}+1)}\).
+This equals \(\prod_v\kappa_v\), since each variable index is deep
+at half the letters. The same recovery expresses \(z_v^{\kappa_v}\)
+as \(G_v(z)\) for a polynomial \(G_v\) of weight less than \(1\).
+
+Set \(\psi_v=X_v^{\kappa_v}-G_v\), which vanishes at every point.
+Weighted division by \(X_v^{\kappa_v}=\psi_v+G_v\) writes any
+polynomial as a linear combination of \(X^\eta\psi^\gamma\)
+with \(\eta_v<\kappa_v\).
+Giving \(\psi_v\) weight \(1\), the term using \(\psi_v\)
+preserves weight and lowers the remaining exponent. The term
+using \(G_v\) strictly decreases the weight.
+The Chinese remainder theorem gives arbitrary Taylor coefficients
+of degree less than \(\delta+1\) at all points. The products with
+\(|\gamma|<\delta+1\) span this coefficient space, and the number
+of such products equals its dimension because the number of
+points is \(\prod_v\kappa_v\). They are therefore linearly
+independent in the coefficient space.
+A polynomial of weight less than \(\delta+1\) uses only these
+products. It vanishes if it vanishes to the prescribed order at
+all points.
+It follows that projection to coefficients
+of weight at least \(\delta+1\) is injective.
+After summing over \(\delta\), each monomial is counted at most
+its weight. The mean exponent of each variable is \(a/k\), and
+the sum of weights is at most
+\(n_\mathrm{cyc}(kP_p^{-2r_p}+r_p^2/P_p)\).
+The mean weight is therefore at most \(C_{\mathrm{div}}\).
+Each end costs at most \(C_{\mathrm{div}}D_\mathrm{ed}\) powers of
+\(\varpi\), giving the stated bound in powers of \(p\) for both ends.
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/Edges}{Saturation of the intermediate lattices and the elementary-divisor count}
+  \leanlinksep \leansrc{New/UpperBound/ElementaryDivisors/Depth}{Counting the orders of vanishing of all translates}}
+
+For the middle matrix, put \(c=5n_\mathrm{cyc}c_0\) and \(t=3kc\).
+Let \(C_\mathrm{ed}\) be the module of forms whose translates by the
+block diagonal subgroup have coefficients divisible by \(\varpi^c\)
+whenever the defect along the boundary root \((r_p-1,r_p)\)
+at some letter exceeds \(3t\).
+The defect is
+\[
+ \beta_i(u_i)+\frac{\displaystyle\sum_s
+   P_p^{(s-i)\bmod n_\mathrm{cyc}}\bigl(\beta_s(u_s)-\beta_s(\bar u_s)\bigr)}
+                      {q_w-1},
+\]
+where \(u_s=r_p,\ \bar u_s=r_p-1\) at even \(s\), and the two are
+interchanged at odd \(s\).
+A form in all intermediate lattices satisfies these conditions.
+
+Here is the root calculation that gives the additional divisibility.
+Fix a letter \(i\), and write \(X_s,Y_s\) for the two root variables,
+with \(Y_s\) the deep one. Put \(P_s=P_p^{(s-i)\bmod n_\mathrm{cyc}}\).
+Suppose the variable weights \(c(X_s),c(Y_s)\) have increments in
+\([1/2,1]\), that valuation plus weight is at least \(l+c\cdot\beta\)
+in every translate by the root subgroup, and that the original
+coefficient of exponent \(\beta\) is indivisible by \(\varpi^{l+1}\).
+Then the defect of \(\beta\) is nonpositive.
+
+Introduce \(T\), set \(Y_i\mapsto X_i,\ X_i\mapsto T^{q_w}X_i\),
+and in the other letters set
+\[
+ (X_s,Y_s)\longmapsto
+ \bigl(T^{q_wP_s}X_s-\epsilon_s T^{P_s}Y_s,\;
+                  Y_s-\epsilon_s X_s\bigr),
+\]
+where \(\epsilon_s=-1\) when \(s\) and \(i\) have the same parity
+and \(1\) otherwise. Fix all variables outside the root.
+Read the coefficient of the monomial of exponent \(\beta\) with
+\(Y_i\) identified with \(X_i\), modulo \(\varpi^{l+1}\), as a
+polynomial \(A_\beta(T)\). Set
+\[
+ d_\beta=q_w\sum_sP_s\beta_s(X_s),\qquad
+ e_\beta=q_w\beta_i(Y_i)+\sum_{s\ne i}P_s\beta_s(Y_s).
+\]
+At infinity give \(T\) weight \(-\lambda\), and raise the weight of
+\(X_s\) to \(c(X_s)+q_wP_s\lambda\), where
+\(\lambda=(c(Y_i)-c(X_i))/q_w>0\).
+The main terms preserve the original weight and the cross terms
+strictly increase it. In fact \(P_s\lambda\le1/5\), and
+\(q_wP_s\lambda\ge2\) for \(s\ne i\).
+Only the main terms contribute to the coefficient of \(T^{d_\beta}\).
+It is the original coefficient of \(\beta\).
+Higher-degree coefficients have too little weight to survive
+reduction. Thus \(A_\beta\ne0\) and \(\deg A_\beta\le d_\beta\).
+
+At a finite element \(z\) of \(W\), use the root-subgroup matrix
+\(\left(\begin{smallmatrix}0&1\\-1&\pm z\end{smallmatrix}\right)\),
+with the minus sign at even \(i\) and the plus sign at odd \(i\).
+When \(T\) is shifted by \(\iota_i(z)\), comparison with the swap of
+the root variables gives errors whose coefficients have the form
+\[
+ (T+\iota_i(z))^{P_p^j}-T^{P_p^j}-\iota_{i+j}(z).
+\]
+These are divisible by \(p=\varpi^2\).
+For the finite calculation give \(T\) weight \(+\lambda\) and
+lower the weight of \(Y_i\) to \(c(Y_i)-q_w\lambda\) and that of
+\(Y_s\), \(s\ne i\), to \(c(Y_s)-P_s\lambda\).
+The signed swapped main terms have at least the original weights,
+and the two powers of \(\varpi\) in the Frobenius error cover
+the possible weight decrease, at most \(1+P_s\lambda\).
+Consequently coefficients of degree below \(e_\beta\) after shifting
+vanish modulo \(\varpi^{l+1}\).
+Distinct residue classes give unit differences, so the \(e_\beta\)-th
+powers of the \(q_w\) distinct linear factors \(T-\iota_i(z)\) are
+pairwise comaximal and all divide \(A_\beta\).
+It follows that \(q_we_\beta\le d_\beta\). The defect equals
+\((e_\beta-d_\beta/q_w)/(q_w-1)\), which is nonpositive.
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/RootLemma}{Substitution in the root subgroup and the count of roots}}
+
+Subtracting one third of the defect from the depth gives new
+weights with increments in \([1/2,1]\) along the root.
+If valuation plus the new weight were below the required bound,
+choose a term that minimizes this sum among the root-subgroup
+translates. Its defect is nonpositive by the calculation just
+given, so valuation plus its original depth is also below the
+bound, contrary to integrality in the intermediate lattices.
+A large defect therefore gives the stated gain of one third of
+the defect in the valuation.
+If \(\varpi^{c-1}h\in C_\mathrm{ed}\), the reduction of \(h\) belongs to
+the space \(S_\mathrm{ed}\) given by the same coefficient vanishing
+conditions over the residue field. For the parahoric index
+\(I_\mathrm{par}\), one has
+\[
+ I_\mathrm{par}\dim S_\mathrm{ed}\le(1+\theta_0)|\mathcal B|.
+\]
+The packed polynomial is \(\sum_\eta X^{\widetilde\eta}F_\eta(X^h)\).
+For \(\widetilde\eta\) take the representative of \(\eta\) obtained
+by adding \(h(k-\lfloor\sum_b\eta_{b,s}/h\rfloor)\) to the
+boundary variable \(b=r_p-1\) in each letter \(s\).
+The degree divided by \(h\) then lies in \([a+k,a+k+1]\) in
+each letter. Terms of distinct residue classes do not overlap.
+Since \(h\) is a power of \(q_w\), raising to the \(h\)-th power
+commutes with the linear substitutions without changing the
+letter embedding. The boundary defect from the original form
+is at most \(3t\). The contribution from \(\widetilde\eta\), after
+division by \(h\), is at most \(2(k+1)\), giving a bound of \(4t\).
+
+Give variable \(b\) height \(b\) in even letters and \(-b\) in
+odd letters. A nonzero term of least height among the translates
+by the block diagonal subgroup satisfies the root estimate at
+every simple root within the blocks. The lower Iwahori subgroup
+and its inverse preserve the height filtration, so its action
+is invertible on the lowest nonzero part. Thus it suffices to
+read the translates by representatives of the flags.
+Let \(\mu=(P_p^{2(r_p-1)},\ldots,P_p^2,1,0,\ldots,0)\).
+Take \(\eta_0\) to have value \((P_p^2-1)\mu\) in the even
+letters and zero in the odd ones. Substitution in the defect
+formula gives at most \(-1\) at the boundary, nonpositive
+defect at the other roots, and degree at most \(P_p^{2r_p}-1\)
+in each letter. Divide the nonzero term's exponent by \(h\)
+and add \(4t\eta_0\). The result lies in the cone of nonpositive
+defect at all the simple roots. The map reading the coefficients
+at these lattice points for all flag representatives is
+injective, since the preceding least term detects every
+nonzero packed polynomial. Dividing the lattice count by
+\(h^{kn_\mathrm{cyc}}\) and taking the limit gives the volume of
+the cone cut by intervals of length \(1\) for the degrees.
+
+To compute this volume, change coordinates to
+\(\beta_{b,s}=\pm(P_p\nu_{b,s+1}-\nu_{b,s})\), taking the plus sign
+in even letters and the minus sign in odd letters.
+Nonpositive defect and \(\beta\ge0\) are the interlacing
+conditions between \(\nu_s\) and \(P_p\nu_{s+1}\), with their
+order determined by the sign. For two decreasing lists, the
+determinant of the matrix of inequality indicators is \(1\)
+when the two lists interlace and \(0\) otherwise.
+An entry \(1\) below the top of the first column gives two
+identical rows. Otherwise expanding the first column reduces
+the calculation to the shorter lists.
+Multiplying these determinants over the letters gives a signed
+sum of all permutations giving positive steps. The signs of
+the permutations sorting a block cancel in the two adjacent
+determinants. Integrate this pointwise identity and change
+variables by each linear step map. Moving the permutation
+twists to the final letter shows that the part of the absolute
+Jacobian depending on the permutations is
+\(|\det(1-\tau/q_w)|\), with \(\tau\) their product around the cycle.
+Consequently the volume ratio depends only on \(k,q_w\), and
+can be computed with one letter and a positive sign.
+In that case the cone is \(\beta_b\ge q_w\beta_{b+1}\).
+For \(d_b=(q_w^{b+1}-1)/(q_w-1)\), the triangular map
+\(\beta_b\mapsto d_b(\beta_b-q_w\beta_{b+1})\) makes the cone a
+nonnegative orthant. It preserves the sum of the coordinates
+because \(d_{b+1}=1+q_wd_b\). The volume ratio is therefore
+\((\prod_b d_b)^{-1}\), the reciprocal of the number of all flags.
+The product of the number of flags inside the blocks and
+\(I_\mathrm{par}\) is at most the number of all flags, so it
+cancels this factor in the estimate.
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/PieriCone}{The interlacing determinant and the volume of the cone}}
+The increase in the degrees by at most \(4tP_p^{2r_p}\) costs a factor
+at most \(1+\theta_0\), since
+\(8n_\mathrm{cyc}ktP_p^{2r_p}\le\theta_0 a\).
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/Edges}{Defect along the boundary root and the coefficient congruences}
+  \leanlinksep \leansrc{New/UpperBound/ElementaryDivisors/DefectCount}{Dimension estimate by flags and lattice points}}
+
+Construct the averaging matrix as follows. Introduce matrix
+variables \(Z_j\), one per letter, and put \(\ell=n_\mathrm{cyc}/2\).
+For each row of the substitution at letter \(s\), use \(\ell\)
+factors in a shallow row and \(\ell+1\) in a deep row.
+The factors are the matrices \(Z_{s-d}\) raised entrywise to
+\(P_p^d\), multiplied in decreasing order of \(d\). Read the
+chosen row of the product in even letters and of its transposed
+adjugate in odd letters. Tensor the degree-\(a\) symmetric
+powers of the resulting matrices over the letters.
+At \(Z_j=1\) for all \(j\), the operator is the identity.
+
+The linear functional applied in copy \(j\) uses row weights
+\(\rho=e_{r_p}-e_{r_p-1}\) and kills monomials of row weight above
+\(2tP_p^\ell\). The degree in one copy is at most
+\(D=n_\mathrm{cyc}ka(\ell+2)P_p^\ell\), and the hypotheses give
+\(D+k<q_w\). Map a polynomial \(G\) in degree \(d\le D\)
+to an operator \(G^\sharp\) on \((\mathcal O^k)^{\otimes d}\).
+Its entry for tensor indices \(\boldsymbol i,\boldsymbol j\)
+is the coefficient of \(\prod_\nu Z_{j_\nu i_\nu}\) times
+\(p^{c_0}\) divided by its multinomial coefficient, with
+off-block terms set to zero.
+The full trace is \(p^{c_0}\) times the degree-\(d\) evaluation
+of \(G\) at \(1\), since each diagonal monomial occurs with
+its multinomial multiplicity.
+Let \(U_+\) be the span of the block diagonal orbits of the
+basis tensors of high weight.
+Evaluations at the group points span the degree-\(d\) Schur algebra.
+Indeed, multiplying a homogeneous form vanishing on their reductions
+by the degree-\(k\) block determinant gives a form of degree
+\(d+k<q_w\) vanishing at every residue point. This form is zero,
+so the span lifts by Nakayama's lemma.
+Thus \(G^\sharp\) preserves \(U_+\), and we can subtract its trace
+on \(U_+\) from its full trace.
+Conjugation preserves both traces. For a monomial of high row
+weight the image is contained in \(U_+\), so the trace difference
+vanishes. If the coefficients of high row weight in all
+conjugates of \(G\) belong to a given ideal, \(G^\sharp\)
+carries \(U_+\) into that ideal times \(U_+\), and the
+restricted trace belongs to the ideal. Summing over \(d\) gives
+the required linear functional.
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/InvariantAverage}{The conjugation-invariant average constructed by traces}}
+
+Apply these functionals in all copies except \(Z_j\).
+Diagonal conjugation kills monomials of unequal row and column
+weights, since it multiplies them by a nontrivial weight
+character and the functionals are invariant.
+Therefore row and column weights balance in every other copy.
+The weight and valuation calculation for a coefficient that
+survives modulo \(\varpi^c\) shows that the defect of the output
+monomial at \(j+\ell\) differs by at most \(t=3kc\) from the
+row weight in \(Z_j\) divided by \(P_p^\ell\).
+Use both signs \(\varepsilon=\pm1/2\).
+For the valuation bound, let \(j\) be the retained copy, put
+\(N_c=n_\mathrm{cyc}\), and write \(P=P_p,\ q_w=P^{N_c},\
+u_0=1/(2P^\ell)\). The entry \((Z_h)_{bc}\) has weight
+\[
+ \omega(h,b,c)=\varepsilon P^{-\ell}
+ \begin{cases}
+ \rho_b & (h=j),\\
+ q_w^{-1}P^{(h-j)\bmod N_c}(\rho_b-\rho_c) & (h\ne j).
+ \end{cases}
+\]
+The Gauss filtration compares the sum of a monomial's weight and
+its coefficient's \(\varpi\)-adic valuation. At factor \(d\), the
+conjugated entry and the original entrywise \(P^d\)-th power differ
+by a multiple of \(p=\varpi^2\) by the Frobenius congruence.
+Every monomial in the entry has weight at least \(-1\), and the
+original \(P^d\)-th power has weight at most \(1\). Thus valuation
+\(2\) pays for the weight difference. The conjugated entry has
+level at least \(P^d\omega(s-d,b,c)\).
+
+For index \(b\) at stage \(d\) of letter \(s\), put
+\[
+ A_{s,d,b}=\varepsilon\,P^{-\ell}\rho_b
+                 q_w^{-1}P^{d+(s-d-j)\bmod N_c}.
+\]
+The level \(P^d\omega(s-d,b,c)\) equals
+\(A_{s,d+1,b}-A_{s,d,c}\) except when \(s-d=j\), in which case the
+difference is at most \(u_0\) in absolute value. In each matrix
+product term the intermediate \(A_{s,d,b}\) cancel, and
+\(|A_{s,0,b}|\le u_0\). Thus row \(b\) of a product of
+\(m'\le\ell+1\) factors has level at least
+\(A_{s,m',b}-(\ell+2)u_0\). For an odd letter the cofactor is a sum
+of products over the other rows. Since \(\sum_b A_{s,m',b}=0\),
+this reverses the sign of the row weight. For both parities the
+loss is at most \(k(\ell+2)u_0\). Substituting \(m'=\ell+1\) on
+deep rows and \(m'=\ell\) on shallow rows makes the signed
+final term equal to the weight of that variable in the defect
+times \(\varepsilon(1-q_w^{-1})\). The row exponents in each
+symmetric power add these levels. Multiplying over the letters
+gives the loss in the coefficient bound below.
+
+If the weight across all the matrix
+variables is \(D_\nu\) and the output defect is \(D_\beta\),
+the coefficient is divisible by
+\[
+ \varpi^{\left\lceil
+      \varepsilon\bigl((1-q_w^{-1})D_\beta-D_\nu\bigr)
+      -n_\mathrm{cyc}ka(\ell+2)/(2P_p^\ell)
+                 \right\rceil_+}.
+\]
+The last correction is at most \(1/2\) and
+\(|q_w^{-1}D_\beta|\le1\). For a surviving coefficient this
+gives \(|D_\beta-D_\nu|\le2c+2\le t\).
+With one copy left, balancing makes \(D_\nu\) its row weight
+divided by \(P_p^\ell\).
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/FrobeniusFactors}{The Frobenius products and the weight estimate}}
+
+If the defect is above \(3t\), a surviving term has row weight
+above \(2tP_p^\ell\), so the functional kills it.
+This gives \(\mathrm{Av}\,h\in C_\mathrm{ed}\).
+If instead the row weight is above \(2tP_p^\ell\), a surviving
+coefficient has output defect above \(t\). Pair with a form in
+all intermediate lattices. The transpose adjointness reads
+this coefficient from a block diagonal translate of that
+form, where the root estimate gives divisibility by \(\varpi^c\).
+Hence replacing one functional by \(p^{c_0}\) times evaluation
+at the identity changes the pairing by zero modulo \(\varpi^c\).
+Repeating for all letters gives, for \(h'\) in all intermediate
+lattices,
+\[
+ \langle\mathrm{Av}\,h,h'\rangle
+      \equiv p^{n_\mathrm{cyc}c_0}\langle h,h'\rangle\pmod{\varpi^c}.
+\]
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/AveragingMap}{Averaging and the congruence for the pairing}}
+
+Take a left inverse \(R'\) with \(R'Q'=1\) and put
+\(A_0=Q'^{\mathsf t}\operatorname{diag}_e(u_e\otimes B_\mathrm{ed})\).
+In the opposite direction \(B_0\) applies \(R'^{\mathsf t}\), then
+\(u_e^{-1}\) and \(\mathrm{Av}\operatorname{diag}(b'_\beta)\) at
+each edge. In \(A_0B_0\) the \(u_e\) cancel, and the congruence yields
+\[
+ A_0 B_0\equiv p^{2n_\mathrm{cyc}c_0}I\pmod{\varpi^c}.
+\]
+Indeed, replacing \(\mathrm{Av}\) by \(p^{n_\mathrm{cyc}c_0}\) times
+the identity leaves \(b_\beta b'_\beta=p^{n_\mathrm{cyc}c_0}\)
+and \(R'Q'=1\).
+
+Take \(R Q=1\) and the elementary divisors of the projection of
+\(B_0\) to \(\ker R\). In addition to the columns of \(Q\), keep
+the basis columns \(e_i\) in the complement for which the nonzero
+divisor \(s_i\) divides \(\varpi^{c-1}\).
+Since the images of \(Q,B_0\) lie in \(C_\mathrm{ed}\) at each edge,
+the \(\varpi^{c-1}\) multiples of these columns do also.
+Their reductions are independent and take values in \(S_\mathrm{ed}\).
+There are \(|H|\,|X|\,I_\mathrm{par}\) coefficient-indexed edges.
+The bound on \(I_\mathrm{par}\dim S_\mathrm{ed}\) therefore leaves at most
+\(\theta_0D_\mathrm{ed}\) additional columns.
+The other elementary divisors are multiples of \(\varpi^{c-1}\).
+Consequently the target multiplied by \(p^{2n_\mathrm{cyc}c_0}\) lies
+in the sum of the image of \(A_0Q\) and the span of the additional
+\(A_0e_i\), modulo \(\varpi^{c-1}\).
+Since \(c-1>4n_\mathrm{cyc}c_0\) and \(\varpi\) lies in the maximal
+ideal, Nakayama's lemma applied to the image of the finitely
+generated module multiplied by \(p^{2n_\mathrm{cyc}c_0}\) removes
+the term modulo \(\varpi^{c-1}\).
+
+Return to \(A_\mathrm{ed}=d'_\mathrm{ed}{}^{\mathsf t}(A_0Q)d_\mathrm{ed}\).
+The two determinants cost at most \(C_{\mathrm{div}}D_\mathrm{ed}\),
+and the power \(p^{2n_\mathrm{cyc}c_0}\) costs \(2n_\mathrm{cyc}c_0D_\mathrm{ed}\).
+For the colength modulo \(p^{j_p}\), each extra vector may be
+replaced by its \(p^{j_p}\) multiple, costing at most
+\(\theta_0j_pD_\mathrm{ed}\) in total.
+The scale assumptions give \(n_\mathrm{cyc}c_0\le C_{\mathrm{div}}\),
+so the colength exponent is at most
+\((3C_{\mathrm{div}}+\theta_0j_p)D_\mathrm{ed}\).
+Map the bound through the surjection from coefficient vectors onto
+\(M_\iota\). Since \(A_\mathrm{ed}\) is the Hecke operator applied to
+inputs multiplied by \(B_\mathrm{ed}\), its image maps into
+\(T_w M_\iota\). Triviality of the class stabilizers identifies the
+dimension \(D_\mathrm{ed}\) of the coefficient model with \(\dim S_0\).
+\leanlinks{\leansrc{New/UpperBound/ElementaryDivisors/ElementaryDivisorTheorem}{Colength from a near inverse and its passage through the coordinate model}}
+
 From \(m\le p^{r_p}\) and \(p\le P_p\) one gets
 \(P_p^{-2r_p}\le1/(mp)\). From \(mr_p^2\le k\) and \(p\le P_p\) the
 second term is at most \(1/(mp)\) as well.
@@ -1128,14 +1802,179 @@ colength exponent of \(Y^mM_\iota+p^{j_p}M_\iota\) is bounded above by
 Intersecting with \(S\) preserves this bound because the original family
 can be taken in \(S\) and its linear combinations then remain in \(S\).
 
-Finally, for \(p=N\), take the submodule on which
-\(\mathrm{Up}^{m/2}\phi\) is integral in the modified standard lattice.
-Its colength exponent is at most \(mfb\dim S_0\).
-\leansrc{New/UpperBound/Divisibility/ColengthAtLevel}{Colength at the level prime}.
-The ramification condition expresses each glued pair of lifts as a
-composite of \(\mathrm{Up}\) and direct lifts. On this submodule the
-resulting valuation is at least \(-2mfb\).
-\leansrc{New/UpperBound/Divisibility/ValuationAtLevel}{Valuation at the level prime}.
+\paragraph{Lattices and colength at the level prime \(N\)}
+Take \(p=N\). Let \(\Sigma_N\) be the set of conjugates of the primes
+induced by the infinite places through the fixed valuation embedding.
+It contains one place from each conjugate pair above \(N\), and each
+place has residue field \(\mathbb F_N\).
+On \(X_j\), let \(L_j\) use the last basis vector multiplied by \(N\)
+at the places of \(\Sigma_N\) dividing \(\pi_N\), and the standard basis
+elsewhere. Write \(\delta_j\) for the finite adelic point giving this basis.
+Let \(\delta_j^\vee\) be the product of \(\delta_j\) with the point
+multiplying the last coordinate by \(N^{-1}\) throughout \(\Sigma_N\).
+We write the finite action in the bases of \(L_j\).
+Put \(A_N=\prod_{w\in\Sigma_N}\mathbb F_N\), and write \(e_*\) for the
+last basis vector and \(\psi_N\) for the fixed additive character on \(A_N\).
+For a column vector \(y\) with \(y_*\in A_N^\times\), take an integral
+invertible \(k_y\) whose last column and row reduce to \(y\) and
+\(y^{\mathsf t}\). Multiply the identity matrix with last column
+replaced by \(y\) by the identity matrix with last row replaced by
+\(y_*^{-1}y^{\mathsf t}\). The factors have determinants \(y_*,1\),
+and their product has the required column and row. Lift this
+residue matrix to an integral invertible matrix.
+With \(D_j^-\) multiplying only the last coordinate by \(N^{-1}\),
+and \(\rho_j^{(N)}\) the right action in these coordinates, the operator is
+\[
+ \mathrm{Up}_j=\rho_j^{(N)}(D_j^-)
+     \sum_{y_* \in A_N^\times}\psi_N(y_*)\,\rho_j^{(N)}(k_y).
+\]
+The sum ranges over all columns over \(A_N\) with the indicated last entry.
+This action preserves the source level. In the bases of \(L_j\) the
+local level fixes \(e_*\) modulo \(N\). Conjugating a level element
+by \(D_j^-\) to move it inside the sum gives a matrix with last row
+\(e_*^{\mathsf t}\) modulo \(N\).
+It therefore permutes \(y\) while preserving its last entry.
+Matrices with the same last column differ on the right by an
+element of the stabilizer of \(e_*\), so this permutation carries
+each term to the corresponding term of the sum.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/SetupAtLevel}{Lattices and operators at the level prime}}
+
+On the source, write \(\mathscr M,\mathscr M^L,\mathscr M^\vee\) for
+the modules integral for the standard lattice, \(\delta_0\), and
+\(\delta_0^\vee\), respectively.
+The weight action of \((\delta_0^\vee)^{-1}\) is integral diagonal and
+the source determinant exponent is zero. Thus
+\(\mathscr M\subseteq\mathscr M^\vee\).
+Use weak approximation to multiply each class representative \(c\)
+on the left by a rational point so that \(c\delta_0^\vee\) is integral
+and \(c\delta_0\) is the point multiplying the last coordinate by \(N\)
+throughout \(\Sigma_N\), followed by an integral point.
+At these representatives the values of \(\mathscr M^\vee\) are integral.
+Multiplying the coordinate of a filling \(I\) by
+\(N^{\sum_\tau\deg_*(I_\tau)}\) makes it integral for \(\delta_0\),
+where \(\deg_*\) counts the entries equal to the index of \(e_*\).
+Covariance under rational points and integrality of the level
+conjugated by \(\delta_0\) give the same criterion at all other points.
+The determinant of this diagonal change shows that the colength from
+\(\mathscr M^\vee\) to \(\mathscr M^L\) divides \(N^{\nu_N}\), where
+\[
+ \nu_N=\sum_{c,I}\sum_\tau\deg_*(I_\tau).
+\]
+The total degrees in each of the \(k\) coordinates are equal.
+Indeed, the determinant of the representation of a diagonal matrix
+doubling just one coordinate is \(2\) raised to that coordinate's
+total degree, and permuting coordinates conjugates such matrices.
+The total degree of each filling at one place is at most \(a\).
+The class stabilizers are trivial, so the number of pairs \((c,I)\)
+is \(\dim S_0\). It follows that \(k\nu_N\le fa\dim S_0\).
+
+The right translation \(g_y\) in a term of \(\mathrm{Up}_0\) satisfies
+\(g_y\delta_0=\delta_0^\vee u_y\) with \(u_y\) integral invertible.
+It carries a form in \(\mathscr M^L\) into \(\mathscr M^\vee\), and
+\(\psi_N(y_*)\) is a unit. Hence
+\(\mathrm{Up}_0\mathscr M^L\subseteq\mathscr M^\vee\).
+In taking the preimage of \(\mathscr M^L\) under \(\mathrm{Up}_0^i\),
+pay \(\nu_N\) once for the initial comparison and once for each
+additional preimage. In detail, for a family already satisfying
+\(\mathrm{Up}_0^i\phi\in\mathscr M^L\), apply the colength matrix
+for \(\mathscr M^\vee\) and \(\mathscr M^L\) to the family
+\(\mathrm{Up}_0^{i+1}\phi\), and use the same matrix on the original family.
+Thus the colength for \(i\) applications divides \(N^{(i+1)\nu_N}\).
+Since \((m/2+1)a\le mbk\), the exponent for \(i=m/2\) is at most
+\(mfb\dim S_0\).
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ColengthAtLevel}{Diagonal exponents and preimages under \(\mathrm{Up}\)}}
+
+\emph{Changing the glued data into direct data.}
+In the bases of \(L_j\), the direct lift uses the indicator of the
+integral matrices whose last column reduces to \(e_*\).
+In these same bases a glued pair sums over middle columns
+\(y\in A_N^{n_{2i+1}}\). In the first step take the indicator for
+last column \(y\), and in the second step use the additive character
+of the pairing of the last row with \(y\).
+This is the finite Fourier expansion of the two shifts
+\(-y/N,-\overline y/N\) in the gluing.
+There is also a target right action \(\rho_{2i+2}^{(N)}(D_{2i+2}^-)\)
+and a product of character values from the change of bases.
+The latter consists of determinant character factors on the source at
+\(\Sigma_N\cap\{w\mid\pi_N\}\) and on the target at its complement.
+Precisely one of these factors contributes at each \(\tau\).
+The character weight is at most \(2b\) there, so the product
+has \(N\)-adic absolute value at most \(N^{2fb}\).
+
+At each \(w\in\Sigma_N\), the ramification condition writes the input
+as \((1-\rho(z_w))\eta\), with \(z_w\) an integral unit scalar
+reducing to \(1\) at the other places. Indeed, the unit average is zero
+at \(w\), and its reduction kernel acts trivially, so the image of
+\(1-\rho(z_w)\) for a generator of the cyclic residue unit group
+contains this input. A term with \(y\) zero at \(w\) therefore
+vanishes, because its indicator is invariant under \(z_w\) and
+covariance for integral invertible matrices cancels the two terms.
+Every remaining \(y\) is nonzero at each place, and an integral
+invertible matrix carries \(e_*\) to \(y\) after reduction.
+Its action on the first lift is canceled by the paired character on the
+second. The sum is therefore the number of primitive columns times
+the direct first lift followed by the lift with datum \(\psi_N\)
+of the last corner entry.
+
+The same ramification argument eliminates all terms where this
+corner entry is a nonunit. Sorting the datum by last columns lets
+one move the \(k_y\) to the target and obtains \(\mathrm{Up}\) after
+the direct lift. Sorting by last rows lets one move \(k_y\) to the source.
+In this case move \(D_{j+1}^-\) through the lift with last row fixed.
+The corresponding rescaling of the last row and column in the matrix
+variables gives the indicator for last column \(e_*\), with scalar
+\[
+ \gamma_j
+   =\frac{\chi_{j+1,n_{j+1}}(D_j^+)}
+           {\chi_{j+1,n_j}(D_{j+1}^+)},\qquad D_j^+=(D_j^-)^{-1}.
+\]
+Here \(\chi_{j+1,r}(g)=\chi_{j+1}(\det g)|\det g|^{-r/2}\), with
+\(\chi_{j+1}\) the base change of the lifting character.
+The two values have the same determinant, so their ratio is the
+ratio of the determinant absolute-value factors. Since
+\(n_{j+1}\ge n_j\), it has \(N\)-adic absolute value at most \(1\).
+This proves the formula for moving \(\mathrm{Up}\) through the direct
+lift toward the source. Both operations commute with unit scalars and
+preserve ramification. Moving one factor \(\mathrm{Up}\) per pair to
+the source by induction gives the \(m\) direct lifts of
+\(\mathrm{Up}_0^{m/2}\phi\). The multiplier is the product of the
+change-of-basis character values, the numbers of primitive columns,
+and the factors \(\gamma_j\) from the commutations.
+The primitive counts are integers and \(|\gamma_j|_N\le1\).
+Hence the full multiplier has \(N\)-adic absolute value at most
+\((N^{2fb})^{m/2}=N^{mfb}\).
+\leanlinks{\leansrc{New/UpperBound/Objects/LiftLawsModuloN}{Vanishing by ramification and the two-step operator identity}}
+
+\emph{The valuation of a direct lift.}
+Expand the direct indicator on the standard lattices by finite Fourier
+expansion. The denominator divides \(N^{2fn_jn_{j+1}}\), and the
+translations have at most simple poles at the primes conjugate to
+\(\Sigma_N\). Let \(c\in\mathbb F_N\) be the reduction of
+\((1+\sqrt{-d})/2\) at the induced primes. Subtract an integer
+representative of \(c\) to obtain a CM integer \(\delta\).
+It clears these poles, and \(\overline\delta d\) is a unit in the
+valuation embedding. Indeed, the reduction of \(\overline\delta\)
+is \(1-2c\), whose square is \(-d\), and \(N\nmid d\).
+Thus, after clearing the Fourier denominator, the estimate for
+integral theta derivatives applies at scale \(\pi_M/(\overline\delta d)\),
+which has \(N\)-adic absolute value at most \(1\).
+Since \(2n_jn_{j+1}\le b\), putting back the denominator costs at most
+\(fb\) in one direct lift. Rewriting in the changed lattices gives the
+same bound from the local norm for \(L_j\) to that for \(L_{j+1}\).
+The direct indicator is fixed by the level fixing the last basis
+vector modulo \(N\), so the bounds compose in the finite class sum.
+
+If \(\mathrm{Up}_0^{m/2}\phi\) is integral for \(L_0\), these \(m\)
+steps cost at most \(mfb\). The change-of-basis and transfer multiplier
+adds at most \(mfb\), for a total loss at most \(2mfb\).
+At the last step the change of weight norm from \(L_m\) cancels
+the branching factor \(\prod_\tau\tau(\overline{\pi_N})^{-u_\tau}\).
+Indeed, \(\lvert\tau(\overline{\pi_N})\rvert_N=\lvert N\rvert_N\)
+at precisely the embeddings where the last coordinate is multiplied
+by \(N\), and it is a unit elsewhere.
+The valuation in the standard lattice on \(Y_m\) is therefore
+at least \(-2mfb\).
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ValuationAtLevel}{Fourier expansion of the direct data and the final restriction}}
 Intersecting with \(S\) preserves the colength bound.
 Since \(G_N=0\), this proves \eqref{eq:upper-local} in all cases.
 
@@ -1151,7 +1990,8 @@ For the term \(p=N\), use \(c=1\) and
 At most four terms correspond to a given \(c\), from
 \(N,mc-1,c,mc+1\). Thus the sum is at most
 \(16fa(\log b)^2\log x_1(1+\log x_1)\), which is bounded by \(E_3\)
-by the scale conditions. \leanref{sum_allowedLoss_mul_log_le}
+by the scale conditions.
+\leanlinks{\leanref{sum_allowedLoss_mul_log_le}}
 
 \subsection{Archimedean norms and normalization}
 
@@ -1170,7 +2010,7 @@ Indeed, the unitary factors preserve the Gram norm, and for the
 diagonal factor the highest weight gives the exponents \(l_{j,\tau,i}\).
 The sum of the squared singular values is the sum of squared
 absolute values of the entries of \(Z_\tau\).
-\leansrc{Lib/GLn/SchurModule/SchurNorm}{Singular-value bound for the Schur matrix}.
+\leanlinks{\leansrc{Lib/GLn/SchurModule/SchurNorm}{Singular-value bound for the Schur matrix}}
 
 Put \(\lambda=a+1\), \(u=\log(M/\Omega)\), and \(v=u+1/\lambda\).
 Taking the term of degree \(l\) in the exponential series gives
@@ -1186,9 +2026,164 @@ Thus the Schur polynomial satisfies a growth bound with factor
 In the conjugated Gaussian integral, the scalar multiplying the
 variables has squared modulus \(M/\Omega\).
 
-The conjugated derivative is a Gaussian integral of the Schur
-polynomial, with its places permuted, against a conjugate
-translated vacuum. With \(s_j=f n_j n_{j+1}\) complex variables \(y\),
+\emph{Conjugating the vacuum and the Weil action.}
+Suppose that \(\sigma\) fixes \(K\). Apply CM reciprocity for theta
+functions to the theta function at the chosen half period of
+\(\Omega_0\mathcal O_K\). The conjugate curve has area
+\(|\Omega_\sigma|^2\sqrt d/2\). There is a finite idele \(\beta_\sigma\)
+such that, for a rational shift \(u\in K\), the \(\sigma\)-conjugate
+of the Taylor series of the shifted theta function is the Taylor
+series on the conjugate curve after a shift by \(\Omega_\sigma u'\).
+Here one may use any \(u'\in K\) sufficiently close to \(\beta_\sigma u\).
+This comparison holds for the whole Taylor series at once.
+\leanlinks{\leansrc{Lib/CM/ChowlaSelberg}{CM reciprocity for the theta function at the half period}}
+
+Write \(\mathscr H_f\) for the span of the finite translates of the
+vacuum. In every coordinate, use the frame \(\zeta^i/q_1\), with
+\(\zeta^i\) running over the \(q_1\)-th roots of unity and with each
+factor taken \(q_1\) times, to form a theta product \(F\).
+Its value at the origin is \(1\), so at least one coefficient of
+the finite Fourier projection onto the vacuum is nonzero.
+Dividing by that coefficient expresses the vacuum as a combination
+of finite translates of \(F\). Hence those translates span
+\(\mathscr H_f\). Form the corresponding product \(F'\) on the conjugate
+curve. For a rational translation vector \(\gamma\), choose an element
+of \(K\) close enough to \(\beta_\sigma\) by weak approximation to
+apply reciprocity simultaneously in all frame coordinates.
+Finite translations of \(F'\) are locally constant, so the same rational
+choice evaluates its translate by \(\beta_\sigma\gamma\).
+Density of \(E^n\) in the finite adeles and local constancy on both
+sides extend the comparison to every finite translate.
+
+Let \(b_\sigma\) be the image of \(\beta_\sigma\) in \(E\)'s finite
+adeles. With the places permuted, the conjugate jets of the translate
+of \(F\) by \(x\) are the jets of the translate of \(F'\) by
+\(b_\sigma x\) at scale
+\(t_\sigma=\sigma(\mathrm{periodFactor})\sqrt{2\pi/\sqrt d}/\Omega_\sigma\).
+The area and the normalization of the period factor give
+\(|t_\sigma|^2=\Omega^{-1}\). Since the scale is nonzero, a vanishing
+Taylor series makes the entire function zero. The values of its
+finite translates vanish as well, by density of rational translates
+and local constancy. The Taylor series thus determines the vector
+in \(\mathscr H_f\). This defines a \(\sigma\)-semilinear map
+\(L_\sigma:\mathscr H_f\to\mathscr H_f\) realizing conjugation on jets.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/IntegralVacuum}{Translation and conjugation of the theta product}}
+
+Let \(\psi_f\) be the self-dual finite additive character. Take \(F,F'\)
+in rank \(1\) and choose a sufficiently divisible positive integer
+\(c\) so that translations by \(c\) and \(b_\sigma c\) fix \(F\) and
+\(F'\), respectively. Write \(z=cx\) and compare translations by \(2x\)
+and \(2x+c\). The Heisenberg product expresses the two sides as scalar
+multiples of the same nonzero Taylor series. Cancelling it gives
+\(\sigma\psi_f(z)=\psi_f(b_\sigma\overline b_\sigma z)\).
+It follows that \(L_\sigma\) carries translation by \(x\) to translation
+by \(b_\sigma x\), including for the normalized operators \(T_x\).
+Since the integral adeles are self-dual, \(z\) is integral if and only
+if \(b_\sigma\overline b_\sigma z\) is integral.
+Thus \(b_\sigma\overline b_\sigma\) is a unit of the integral adeles.
+Write \(b_\sigma=u_\sigma a_\sigma\) with \(u_\sigma\overline u_\sigma=1\)
+and \(a_\sigma\) a unit of the integral adeles. At conjugation-invariant
+places \(b_\sigma\) itself is a unit. At a split pair, one can place
+the norm in one of the two components to choose \(a_\sigma\).
+
+After composing \(L_\sigma\) on the left with \(\omega(u_\sigma)^{-1}\),
+translation by \(x\) becomes translation by \(a_\sigma x\).
+The vacuum line, fixed by integral translations, is therefore preserved.
+In \eqref{eq:upper-finite-vacuum}, multiplication by \(a_\sigma\)
+permutes the cosets, and \(\sigma\) fixes the lattice index
+\(|\Delta_f(g)|^2\). First on the vacuum, then on its translates, this
+gives \(L_\sigma\omega(g)=(\sigma(\Delta_f(g))/\Delta_f(g))\omega(g)L_\sigma\).
+Restoring the central \(\omega(u_\sigma)\) leaves the identity valid.
+The square of the multiplier ratio is
+\(\upsilon(\det g)/\sigma(\upsilon(\det g))\), where \(\upsilon\) is
+the splitting character restricted to the norm-one ideles.
+The numerator and denominator have modulus \(1\), so the multiplier
+ratio has modulus \(1\).
+\leanlinks{\leansrc{Lib/Weil/DualPair/GaloisLaw}{Conjugation of finite translations and the Weil action}}
+
+\emph{A uniform bound for values of the vacuum.}
+In a definite space of rank \(n\), put \(v=\rho(y)\omega(g)v_\mathrm{vac}\).
+The squared modulus of its theta value is
+\(\sum_{\gamma\in E^n}\langle v,\rho(\gamma)v\rangle\).
+Translation by \(y\) introduces only a phase of modulus \(1\).
+Hence the absolute value of each summand equals the absolute value of
+the vacuum in the moved space. The support consists of rational
+vectors whose finite coordinates, read at the moved point and divided
+by \(\alpha\), are integral. There the value is bounded by
+\(\exp(-\pi\|z(\gamma)\|^2/\sqrt d)\), with \(z(\gamma)\) denoting
+the archimedean coordinates at the moved point.
+The value of the rational Hermitian form belongs to the fractional
+ideal generated by \(\alpha\bar\alpha\). Multiplying this ideal by the
+relative different gives an integral ideal, so the trace to \(K\)
+belongs to \(\mathcal O_K\). This trace is real and equals
+\(\|z(\gamma)\|^2\), which is therefore an integer. Applying this
+to differences shows that the archimedean points are separated
+by distances of at least \(1\).
+
+In real dimension \(D_{\mathbb R}\le2q_1n\), disjoint balls of radius
+\(1/2\) around the points of norm at most \(r\) lie in the ball of
+radius \(r+1/2\). The volume ratio is \((1+2r)^{D_{\mathbb R}}\).
+Put \(u(\gamma)=\exp(\|z(\gamma)\|)\). For \(r\ge1\) the number of
+points with \(u\le r\) is at most \((3r)^{D_{\mathbb R}}\).
+Substituting this count in the integral representation of
+\(u^{-D_{\mathbb R}-1}\) bounds the sum by
+\(3^{D_{\mathbb R}}(D_{\mathbb R}+1)\le3^{D_{\mathbb R}}e^{D_{\mathbb R}}\).
+Completing the square gives
+\[
+ e^{-\pi\|z\|^2/\sqrt d}\le
+ e^{\sqrt d(D_{\mathbb R}+1)^2}\exp\bigl(-(D_{\mathbb R}+1)\|z\|\bigr).
+\]
+Inserting these estimates in the sum of matrix coefficients and taking
+the square root bounds each value of \(\omega(g)v_\mathrm{vac}\) by
+\(\exp((2d+6)(q_1n+1)^2)\).
+\leanlinks{\leansrc{New/UpperBound/Kernels/JetConjugatesAndBounds}{Trace integrality and the packing bound for the vacuum}}
+
+Also \(L_\sigma(v_\mathrm{int})=A_\sigma\omega(u_\sigma)v_\mathrm{vac}\)
+for some \(A_\sigma\). Constant terms of the translated jets identify
+its values at finite points with conjugates of the values of
+\(v_\mathrm{int}\) at finite points. In rank \(1\), \(v_\mathrm{int}\) can be
+chosen to be a sum of at most \(q_1^{2f}\) translates of \(F\).
+Each term is a phase of modulus \(1\) times a product of \(q_1^2\)
+CM torsion values. Reciprocity sends the conjugates to torsion values
+on conjugate curves of the same discriminant. There are finitely many
+such curves up to similarity, and the modulus of the Gaussian-weighted
+theta function is bounded on each fundamental domain. This gives
+\(\exp(Cq_1^2)\) in rank \(1\), and the product of coordinate factors
+gives \(\exp(Cq_1^2n)\) in rank \(n\). The Hilbert norm on the finite
+part is bounded by the supremum of the moduli at finite points, so this
+also bounds \(|A_\sigma|\), the coefficient of a unit vacuum.
+Combining \(q_1^2n\le(q_1n+1)^2\) with the conjugation law for the
+Weil action yields the uniform bound with exponent
+\(C_{q_0,d}(q_1n+1)^2\) on the conjugated data of every finite translate
+of a finite Weil image of \(v_\mathrm{int}\).
+\leanlinks{\leansrc{New/Derivatives/Vacuum/IntegralVacuum}{Values of the integral vacuum at finite points and the Hilbert norm}
+  \leanlinksep \leansrc{New/UpperBound/Kernels/JetConjugatesAndBounds}{Uniform bound on the conjugated data}}
+
+The Gaussian integral used here has the following form.
+Let \(Q\) be a Schur matrix entry and \(Q_\sigma\) its polynomial
+after applying \(\sigma\) to the coefficients and permuting the
+infinite places. For the scaled theta Taylor series of a finite
+datum \(F\), one has
+\begin{align*}
+ \sigma\!\left(Q(\partial)F_{c\,\mathrm{jetScale}}(0)\right)
+  =\int Q_\sigma\!\left(\sigma(c)t_\sigma\bar y\right)
+       e^{-\sum|y|^2/2}(L_\sigma F)(y_\infty)
+       \prod_b \frac{dA(y_b)}{\pi}.
+\end{align*}
+Here \(y_\infty\) is the adelic vector with Fock coordinate \(y\)
+and finite component zero.
+Indeed, the coefficient of \(z^\beta\) is the theta value of
+the integrated monomial Fock vector against the finite datum
+times the scale to the power \(|\beta|\), divided by \(\beta!\).
+The corresponding term of \(Q(\partial)\) cancels this factorial.
+In the definite space the monomial Fock vector has value
+\(\bar y^\beta e^{-\sum |y|^2/2}\).
+The theta functional passes through the integral, so summing the
+monomials gives the stated identity. At the prescribed scale
+\(c=\pi_M\), use \(|\sigma(c)t_\sigma|^2=M/\Omega\).
+\leanlinks{\leansrc{Lib/Weil/Construction/ThetaJets}{Derivatives and the normalization of the Fock vectors}}
+
+With \(s_j=f n_j n_{j+1}\) complex variables \(y\),
 put \(R=\sum|y|^2/(2\lambda+2)\).
 The factor \(\exp(\lambda R)\) from polynomial growth times
 \(\exp(-\sum|y|^2/2)\) from the vacuum is \(\exp(-R)\).
@@ -1197,15 +2192,16 @@ coordinate, so the integral of this Gaussian is \((2\lambda+2)^{s_j}\).
 It suffices to use the integral representation for conjugates fixing
 \(K\), since composing with complex conjugation preserves the
 absolute values for the other conjugates.
-\leansrc{New/UpperBound/Kernels/JetConjugatesAndBounds}{Gaussian integral and the row factorials}.
+\leanlinks{\leansrc{New/UpperBound/Kernels/JetConjugatesAndBounds}{Gaussian integral and the row factorials}}
 
 The logarithmic constant from the bound on the conjugate of
-the integral vacuum is \(\mathrm{const}(P)(q_1 n_j n_{j+1}+1)^2\).
+the integral vacuum is \(C_{q_0,d}(q_1 n_j n_{j+1}+1)^2\).
 The sum of this constant, \(s_j\log(2\lambda+2)\), and
 \((2\lambda)^{-1}\sum_{\tau,i}l_{j,\tau,i}\) is at most \(x^{50}\)
 by the bound \(2a\) on the row lengths and the scale conditions.
 Thus a single lift increases the norm by at most
-\(\exp(x^{50}+U_j/2)\) for every conjugate.\leanref{sqrt_weylNormSq_jetMap_le}
+\(\exp(x^{50}+U_j/2)\) for every conjugate.
+\leanlinks{\leanref{sqrt_weylNormSq_jetMap_le}}
 
 The principal contributions to the row lengths are \(a\,1_{\Phi_a}(\tau)\)
 in the first row and \(\kappa(\tau)\) in each of the next \(k-1\) rows.
@@ -1220,7 +2216,7 @@ The scale conditions give
  \le m\left\{|\Phi_a|s_\infty(a)+k\sum_\tau s_\infty(\kappa(\tau))\right\}
          +\frac{E_3}{2}.
 \end{equation}
-\leanref{sum_rowSizeSum_le}
+\leanlinks{\leanref{sum_rowSizeSum_le}}
 
 In the expansion of the glued tensor for the trivial twist, each step
 has at most \(\exp(x^{30})\) classes, and the sum of the absolute values
@@ -1241,7 +2237,7 @@ also multiplies by \(\prod_\tau\tau(\overline{\pi_N})^{-u_\tau}\).
 Since \(\pi_N\overline{\pi_N}=N\), this factor has squared absolute value
 \(N^{-\sum_\tau u_\tau}\) at every conjugate. The exponent therefore
 decreases by at least \((|\Phi_a|a-fmr^8)\log N\).
-\leansrc{New/UpperBound/Divisibility/ChainValuation}{The final restriction}.
+\leanlinks{\leansrc{New/UpperBound/Divisibility/ChainValuation}{The final restriction}}
 
 The remainder is
 \(\mathcal R=\sum_{\tau\in\Phi_a}(s_{\mathrm{fin}}(a,\tau)-s_{\mathrm{main}})\),
@@ -1278,7 +2274,7 @@ All conjugated values of \(B_{1,\Psi}\phi\) then have squared norms at most
 \begin{equation}\label{eq:upper-arch}
   \exp\!\left(B+H_0-m\mathcal R+2\sum_p G_p\log p+E_3\right).
 \end{equation}
-\leanref{weylNormSq_restrictedChain_le}
+\leanlinks{\leanref{weylNormSq_restrictedChain_le}}
 
 \paragraph{A common rational normalization}
 Put \(g_p=\lfloor G_p-\varepsilon_p\rfloor\) and set
@@ -1323,7 +2319,7 @@ The archimedean constant for the short bases is \(C=6(q_1d)(fk)^2\).
 At all places together, columns of height less than \(k\) contain at
 most \(fa\) boxes. The squared-norm bound is then \(C^{6(fk+fa)}\).
 Admissibility gives \(4^f C^{6(fk+fa)}\le\exp(E_3)\).
-\leanref{span_isShort_eq_top}
+\leanlinks{\leanref{span_isShort_eq_top}}
 
 Let \(z_w\) be the generator of the scalar action at a specified place
 \(w\) above \(N\). The image of \(\prod_w(1-z_w)\) is \(S\).

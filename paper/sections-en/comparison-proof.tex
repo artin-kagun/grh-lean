@@ -1,0 +1,159 @@
+\paragraph{Three exchanges and the removal of the twist}
+Apply the exchange of Section~\ref{sec:exchange-proof} to kernels whose real
+data are products of determinants. The real vectors obtained by exchange
+can then be replaced with explicit polynomials. Split the positive coordinates
+as \(\mathbb C^p\oplus\mathbb C^{d_+}\), with standard frame \((I_p\ \ 0)\).
+For \(z\in U(1)\) act by \(z^{-2}\) on the first \(p\) coordinates,
+by \(z^{-1}\) on the next \(d_+\), and by \(z^{-1}I_{d_+}\) on the partner.
+With the determinant factors in the Weil action included, all variables
+outside the last square block acquire positive degree in \(z\). The circle
+average is consequently evaluation with those variables set to zero.
+A determinant-weighted average over \(U(d_+)\) selects the component with
+\(P(kg)=\det(k)^aP(g)\), spanned by \(\det^a\).
+The identity holds first for unitary translates of the standard frame.
+Polarization gives it for products with arbitrary auxiliary rows.
+This allows the exchange to use the determinants of stacked rows and the
+explicit matched polynomial on the column side. Density extends the
+averaging argument from polynomials to Fock vectors under the continuous
+functionals in the two integrals.
+\leanlinks{\leansrc{New/Determinant/Exchange/ExplicitMatching}{Circle averaging, projection onto determinant powers, and polarization}}
+
+Set \(c=\chi_M^j\vartheta\), a character of weight zero. The fixed
+character \(\chi_M\) has residue-field order greater than \(8m\) at the
+chosen places. The first exchange uses a definite space \(J\) of rank
+\(m\) and the zero space as partners, with finite data \(\chi\circ\det\)
+and \(1\). Integration on the zero space gives a constant, so a scalar
+makes the square-kernel class sum on \(J\) equal to \(1\). Its squared
+modulus is proportional to \(L_*(m/2;c\upsilon^{m/2})^{-1}\).
+Here \(L_*(u;\nu')\) denotes \eqref{eq:exchange-lstar} with character \(\nu'\).
+Conjugate this identity for use as a kernel from \(J^{\mathrm{opp}}\).
+In the second exchange, let \(S_0\) have signature \((2m,m)\).
+The central space is \(J\perp S_0\), and its partners are the definite
+space of rank \(3m\) and \(J^{\mathrm{opp}}\).
+The kernel on the large side splits into the kernels for \(J\) and \(S_0\),
+so the preceding class sum removes the \(J\) factor.
+The remaining form \(\phi^\circ\) is the lift of \(1\) from \(J^{\mathrm{opp}}\)
+to \(S_0\), independent of the twist. The second exchange contributes
+an additional \(L_*(m;c^{-1}\upsilon^m)^{-1}\) to the squared modulus.
+The determinant character from the change of finite variables cancels
+that in the Weil action, giving standard finite level for \(\phi^\circ\).
+The real reproducing identity gives holomorphy and rapid decrease.
+To see nonvanishing, let \(v\) be the Fock vector given by the
+\(2m\)-th power of the determinant in the negative block at each place.
+On the compact real group of \(J^{\mathrm{opp}}\), the determinant from the
+block action cancels the factor in the Weil action. Thus
+\(\langle v,\omega(u,1)v\rangle=\langle v,v\rangle\).
+The reproducing identity with the finite vacuum would make its average
+zero if the lift vanished. Since \(v\ne0\) and the volume is positive,
+this is impossible.
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{The square-kernel class sum and the twist-independent lift}}
+
+For the third exchange use the central space obtained by adjoining
+the standard positive \(E^{3m}\) to
+\[
+ W'=W_j\perp(E^j)^{\mathrm{opp}}\perp E^{3m-j}\perp E^{6m+1}.
+\]
+The large partner \(V''\) is definite of the same rank \(r+9m+1\)
+as \(W'\), and the small partner is \(S_0\). The half-difference of
+ranks is \(z_*=(r+6m+1)/2=7m/2+k/2\).
+For the finite datum use the trace character specified by a matrix
+\(\Lambda\). Average it over \(\mathrm{GL}_{3m}\) modulo \(\pi_M^2\)
+to make it invariant under right changes of basis in \(E^{3m}\).
+Sum this exchange over the classes of \(E^{3m}\) and insert the result
+of the first two exchanges. Dividing by the order of the finite group
+leaves the integral \(F_i(g)\) of \(\phi^\circ\) against the remaining
+kernel. Here \(i\) records \(\Lambda\), an auxiliary class, and the fixed
+rows. On the row side, integrating the square block turns the double
+class sum into the theta series \(\Xi_{\vartheta,i}\) on \(W_j\)
+with column data. Thus
+\begin{equation}\label{eq:comparison-period-factor}
+ c'_\vartheta\Xi_{\vartheta,i}=C_i F_i,\qquad
+ |c'_\vartheta|^2=C'/\mathcal H_j(\vartheta).
+\end{equation}
+Each \(C_i\) is a nonzero normalization independent of the twist.
+The three factors of \(\mathcal H_j\) are \eqref{eq:exchange-lstar} at
+\(m/2,m,z_*\), with the inverses of
+\(\nu_-=\upsilon^{-m/2}\chi_M^{-j}\),
+\(\nu_+=\upsilon^{-m}\chi_M^j\), and
+\(\nu_*=\mu_j^0\upsilon^{j+(t-11m-1)/2}\) after multiplication by
+\(\vartheta^{-1},\vartheta,\vartheta\), respectively.
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{The third exchange and the three critical pairs}
+  \leanlinksep \leansrc{New/OneLift/ComparisonOperator/FirstFactors}{Normalization of the first block's class sum}}
+
+\paragraph{Gluing and the period map}
+Use \(V_j=V''\perp V^\circ\). The glued lattice is generated by pairs of
+standard inclusion columns, the sublattice in \(V''\) on which the rows
+specified by \(\Lambda\) vanish modulo \(\pi_M\), and \(\pi_M\) times the
+lattice of \(V^\circ\). For a basis matrix \(A\), \(\pi_M A^{-1}\) is
+integral. Rewriting the congruence on lift columns in this lattice
+separates it into finitely many conditions modulo \(\pi_M^2\).
+For each condition the Weil kernel factors, and the adjoint of the
+Cartan product separates the pairing of values. Using
+\(\Xi_{\vartheta,i}\) and the kernel \(\theta^\circ\) for \(V^\circ\),
+take the two class sums first. For \(f\in F_j\) and a tuple \(z=(z_i)\)
+one obtains
+\[
+ c'_\vartheta\langle z,G_{j,\vartheta}^*u_{j,\vartheta} f\rangle
+    =\sum_i d_i\int_{[U(W_j)]}
+      f(g)F_i(g)\langle z_i,\theta^\circ(g,\cdot)\rangle\,dg .
+\]
+The nonzero \(d_i\) are the fixed normalization factors from the
+level indices and \eqref{eq:comparison-period-factor}. Let \(T\) be the
+map defined by the right side.
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/GluedForms}{The glued lattice and the product decomposition of the kernel}
+  \leanlinksep \leansrc{New/OneLift/ComparisonOperator/GluingMaps}{The inner-product formula for the period map}}
+
+Injectivity of \(T\) follows from a kernel approximation. Embed \(W_j\)
+in the space with padded signs and use the product \(P\) of minors in
+matrix variables of the same sign. Its Fock matrix coefficient \(c_P\)
+has \(c_P(1,1)>0\), and unitarity and Cauchy--Schwarz bound it everywhere.
+Take a peak \(g_1\) of \(\phi^\circ\), where \(\phi^\circ(g_1)\ne0\).
+With the determinant weight \(a(h')\) on the real group set
+\[
+ F_0(h)=\int_{U(S_0)(E_\infty)}
+            \phi^\circ(g_1h')\,c_P(h',h)\,a(h')\,dh'.
+\]
+Holomorphic reproduction gives \(F_0(1)=J_0\phi^\circ(g_1)c_P(1,1)\),
+where \(J_0>0\) is the integral of the squared modulus of the relevant
+real minors. As in Section~\ref{sec:spanning}, finite data isolate the
+term from the specified rational columns, and a lattice sum bounds
+the other terms. For the polynomial of degree at most \(b^{3/2}\),
+the approximation applies at points \(g\) with first minimum at least
+\((5b^{24})^{-1/2}\). Put \(n_*=2ft^3\). The error in the kernel is at most
+\[
+ b^{-20n_*}c_P(1,1)(\|h'\|_{\mathrm{op}}\|h\|_{\mathrm{op}})^{6n_*}.
+\]
+Integrating against \(\phi^\circ(g_1h')a(h')\) contributes a factor
+at most \(2b^{n_*}J_0|\phi^\circ(g_1)|\), by the integral of the real minors.
+Hence some linear combination \(F=\sum_i z_i' F_i\) satisfies
+\[
+ |F(gh)-F_0(h)|\le 2b^{-19n_*}|F_0(1)|\,\|h\|_{\mathrm{op}}^{6n_*}.
+\]
+If \(Tf=0\), then all the lifts to \(V^\circ\) of \(fF_i\) vanish.
+Finite level and the weight gaps ensure that, if \(f\ne0\), the first
+minimum at a peak of \(\bar f\) is at least \((5b^{24})^{-1/2}\).
+Applying the reproducing formula to the vanishing lifts at such a peak,
+and inserting the error bound, gives
+\[
+ |F_0(1)|\le (4b^{n_*}+1)\,2b^{-19n_*}|F_0(1)|.
+\]
+The coefficient on the right is less than \(1\) since \(b^{n_*}>10\).
+As \(F_0(1)\ne0\), this proves that \(T\) is injective.
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ProductsSpan}{Kernel approximation and reproduction separate the periods}}
+
+We now have \(G_{j,\vartheta}^*u_{j,\vartheta}=(c'_\vartheta)^{-1}T\).
+Let \(a_j\) be the product of the finite level group order and the square
+of the hook number appearing in the comparison operator.
+Then \(U_j^\circ=a_j|c'_1|^{-2}T^*T\) is positive definite.
+Equation~\eqref{eq:comparison-period-factor} gives
+\[
+ u_{j,\vartheta}^*U_{j,\vartheta}u_{j,\vartheta}
+   =a_j\,|c'_\vartheta|^{-2}T^*T
+   =\frac{\mathcal H_j(\vartheta)}{\mathcal H_j(1)}\,U_j^\circ .
+\]
+For a false lift, its descent vanishes, and the ramified character kills
+the hyperplane sums from nonprimitive columns. Pulling the form back by
+\(G_{j,\vartheta}^*\) therefore makes every pairing with the \(V^\circ\)
+kernel in the period formula vanish. Thus \(U_{j,\vartheta}u_{j,\vartheta} f\)
+is orthogonal to the false lifts.
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/GluingMaps}{Orthogonality to false lifts and injectivity of the period map}}

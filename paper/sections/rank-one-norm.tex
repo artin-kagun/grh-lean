@@ -1,0 +1,61 @@
+\(d_\tau=c(\tau)-u\)、\(J=\sum_\tau d_\tau\) とし、規格化前の持ち上げを
+\(\widetilde\phi_\vartheta\) と書く。これは真空核を \(U(1)\) の類にわたって
+足したもので、指定素点での \(U(1)\) のレベル指数を掛けている。
+階数 \(1\) の内積公式では、レベル外の真空行列係数の和を
+レベルの局所質量、無限素点の内積、および商の体積に掛ける。
+\(S\) を指定素点と捻りの素点およびそれらの共役とすると、真空係数の和は
+\[
+ \frac{L^S(u,(\nu\vartheta)^{-1})}{\zeta_{E^+}(2u)}
+    \prod_{w\ \text{at\ level}}(1-q_w^{-2u})^{-1}.
+\]
+積の添字は共役を加える前の素点である。共役を合わせた符号の Euler 因子が
+\(\zeta_{E^+}(2u)\) の因子を与えるためである。
+
+指定素点で列の剰余が一つに固定されると、平均二乗は \(q_w^{-2u}\) で、
+標的でのレベル指数は \(q_w^{2u}-1\) である。上式の取り除いた因子を
+戻す係数も掛けると、これらの積は \(1\) になる。
+捻りの素点では、列の指定成分が単元である割合は \((q_w-1)/q_w\) であり、
+その成分の指標は絶対値 \(1\) を持つ。直線の安定化群の指数
+\((q_w^{2u}-1)/(q_w-1)\) を使うと
+\[
+ \frac{q_w-1}{q_w}\,
+ \frac{q_w^{2u}-1}{q_w-1}\,
+ (1-q_w^{-2u})^{-1}=q_w^{2u-1}.
+\]
+始域のレベル指数は \(\prod_{w\ \mathrm{chosen}}(q_w-1)\) である。
+ブロック質量の分母にこの指数が一度入り、
+持ち上げの規格化で指数の二乗が入るので、指数が一つ残る。
+無限素点の Fock 内積は \(\prod_\tau d_\tau!\) を与え、
+行列係数の積分は Weyl 空間 \(\mathcal W\) の次元の因子を与える。
+従って商体積を \(\zeta_{E^+}(2u)\) で割った定数を \(A_u\) として
+\[
+ \|\widetilde\phi_\vartheta\|^2
+ = A_u \prod_{w\ \mathrm{chosen}}(q_w-1)\,
+     \prod_\tau d_\tau!\,\dim\mathcal W\,
+     L^S(u,(\nu\vartheta)^{-1})\,N_\vartheta^{2u-1}.
+\]
+\(\phi_\vartheta\) に移る真空と微分の規格化は \(\vartheta\) によらない。
+従って比では消え、絶対値を取って \eqref{eq:main-pair-norm} になる。
+\leanlinks{\leansrc{New/OneLift/HeckeValues/CharacterLiftNorm}{階数 \(1\) のノルムの局所因子}
+  \leanlinksep \leansrc{New/OneLift/HeckeValues/TwistedRatio}{捻りによるノルムの比}}
+
+\(\sigma\in\operatorname{Aut}(\mathbb C/K)\) を固定して、
+無捻りの二乗ノルムを共役する。
+内積の二つの引数には \(\sigma\) と
+\(\mathrm{conj}\circ\sigma\circ\mathrm{conj}\) がそれぞれ作用する。
+二つは \(E\) の無限素点を同じように置換するので、
+各次数 \(d_\tau\) は置換されるだけである。
+共役した二つの持ち上げを同じ有限類の和に戻す際に現れる
+レベル指標の乗数は、内積では互いに逆になり相殺する。
+ノルムには共通の真空因子と、微分の規格化に由来する
+\(M^J\Omega^{-J}\) が残る。従って共役した二乗ノルムについて
+\[
+ \log|\sigma(\|\phi_1\|^2)|
+   =c_{u,\sigma}+\sum_\tau s_\infty(d_\tau)+
+      \log\dim\mathcal W^\sigma+\log|L^S(u,\nu_\sigma^{-1})|
+\]
+と書ける。ここで \(c_{u,\sigma}\) は階数と \(\sigma\) だけで決まる。
+\(u\ge2\) なので Euler 積の対数の絶対値は \(4f\) 以下である。
+次元は \(1\) 以上であり、全ての次数が零なら次元は \(1\) である。
+従って最後の二項の和は常に \(-4f\) 以上で、次数零の場合には \(4f\) 以下でもある。
+\leanlinks{\leansrc{New/OneLift/HeckeValues/AlgebraicPartSize}{二つの共役と微分次数の規格化}}

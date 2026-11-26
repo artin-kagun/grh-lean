@@ -73,7 +73,8 @@
 \]
 \eqref{eq:lambda-dirichlet} を代入すると \eqref{eq:prime-transform} を得る。
 \(s=1\) では分子が消える。\(s=\rho\ne1\) では、整関数の対数微分の留数が
-零点の位数に等しいことを \eqref{eq:log-derivative} に適用する。\leanref{integral_primeRemainder}
+零点の位数に等しいことを \eqref{eq:log-derivative} に適用する。
+\leanlinks{\leanref{integral_primeRemainder}}
 \end{proof}
 
 \subsection{二次捻りの選択}
@@ -131,7 +132,8 @@ Euler 積により \(\RePart s>1\) には零点がない。
 \(L(s,\chi)=0\) なら \(\Psi(s)=-\Gamma_j(s)^2\) である。
 \(\Gamma_j\) の絶対値は \(1/2\le\RePart s\le1,\ |\ImPart s|\le H\) で
 正の下界を持つから、十分大きな \(T\) について零点の存在は
-\(J(\chi,T)>T^{2\eta}\) を強制する。\leanref{eventually_rpow_lt_thetaTailIntegral}
+\(J(\chi,T)>T^{2\eta}\) を強制する。
+\leanlinks{\leanref{eventually_rpow_lt_thetaTailIntegral}}
 
 次に \(n^\circ\) を \(n\) の奇数部分とし、\(|\alpha_n|\le1\) に対して
 \(c_v(n)=\alpha_n(-v/n^\circ)\) とおく。ここでは括弧内は Jacobi 記号である。
@@ -159,7 +161,8 @@ Jacobi 指標に適用し、対数因子を吸収して指標和を
 \]
 Cauchy--Schwarz の不等式の後に \(du/u\) で積分すると
 \(\sum_{v\le T^2}J(c_v,T)\ll_\eta T^{2+\eta}\) となる。
-\(\theta_{\mu c_v}\) の項には \(\alpha_n\mu(n)\) を使う。\leanref{sum_thetaTailIntegral_le}
+\(\theta_{\mu c_v}\) の項には \(\alpha_n\mu(n)\) を使う。
+\leanlinks{\leanref{sum_thetaTailIntegral_le}}
 
 \(d\equiv7\pmod8\) では二次相互法則と \((2/d)=1\) により
 \((n/d)=(-d/n^\circ)\) である。各 \(\psi\bmod q\) を導く原始指標を
@@ -172,7 +175,8 @@ Cauchy--Schwarz の不等式の後に \(du/u\) で積分すると
 
 もし剰余類内のすべての素数がこのような零点を持てば、
 この個数評価から \(\sum_{p\equiv d_0\bmod q}(\log p)/p\) が収束する。
-これは既約剰余類における同級数の発散に反する。\leanref{zero_density_quadTwist}
+これは既約剰余類における同級数の発散に反する。
+\leanlinks{\leanref{zero_density_quadTwist}}
 \end{proof}
 
 \subsection{片側評価が与える零点の排除}
@@ -207,7 +211,8 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 \(\lim_{\sigma\downarrow\sigma_c}(\sigma-\sigma_c)A(\sigma)\)
 で正となる。実際、この極限は非負な実数であり、単純極なので零ではない。
 矛盾から \(\sigma_c\le\beta\) である。積分が正則な半平面
-\(\RePart s>\beta\) では \(K/(s-\beta)-A(s)\) も正則である。\leanref{IsPolar.landau}
+\(\RePart s>\beta\) では \(K/(s-\beta)-A(s)\) も正則である。
+\leanlinks{\leanref{IsPolar.landau}}
 \end{proof}
 
 \begin{proposition}\label{prop:one-sided-criterion}
@@ -229,7 +234,8 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 仮定により十分大きな \(v\) で \(U(v)\le e^{(\beta-1)v}\) が成り立つ。
 補題 \ref{lem:landau} から留数は \(\rho\) で零である。
 分母は零でなく、\(\nu(\rho)\) は非負の零点位数の和なので各項が零である。
-\(\rho\ne1\) では \(L^\circ\) の非零性は \(L\) の非零性を含意する。\leanref{LFunction_ne_zero_of_primeRemainder_le}
+\(\rho\ne1\) では \(L^\circ\) の非零性は \(L\) の非零性を含意する。
+\leanlinks{\leanref{LFunction_ne_zero_of_primeRemainder_le}}
 \end{proof}
 
 \subsection{固定法に対する素数定理}
@@ -278,7 +284,7 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 \(\RePart z\ge 1-1/(2\mathcal L)\)、\(|z|\le2e^\mathcal L\) では、
 半径 \(1/(2\mathcal L)\) の円にこの評価を使うと
 \(|f_\chi'(z)|\le2\mathcal L^3\) である。
-\leansrc{Lib/Analytic/PrimeNumberTheorem/LFunctionGrowth}{部分和、三線定理および導関数の評価}。
+\leanlinks{\leansrc{Lib/Analytic/PrimeNumberTheorem/LFunctionGrowth}{部分和、三線定理および導関数の評価}}
 
 次に \(\eta=\mathcal L^{-25}\) とし、\(v=\sigma+it\) で
 \(\sigma\ge1+\eta\)、\(|v|\le3e^\mathcal L/2\) とする。
@@ -310,14 +316,15 @@ Euler 積の対数を展開すると、\(p\nmid Q\) の各素数冪の係数に
 \(L^\circ(s,\chi)=s^{\delta_\chi}f_\chi(s)\) に戻したとき、
 対数微分に加わる \(\delta_\chi/s\) の絶対値は \(2\) 以下であるから
 \eqref{eq:uniform-log-derivative} が従う。
-\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{零点のない領域の証明}。
+\leanlinks{\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{零点のない領域の証明}}
 \end{proof}
 
 法 \(Q\) が固定されていれば、すべての指標について \(f_\chi(1)\ne0\) であり、
 連続性から、十分大きな \(\mathcal L\) で補題の \(1\) の近くでの仮定が満たされる。
 主指標では \(f_\chi(1)\) は極の留数であり、非主指標では
 Dirichlet の \(L(1,\chi)\ne0\) を使う。固定法の零点のない領域については
-\cite[第11章]{mv} も参照されたい。\leanref{eventually_norm_logDeriv_entireL_le}
+\cite[第11章]{mv} も参照されたい。
+\leanlinks{\leanref{eventually_norm_logDeriv_entireL_le}}
 
 \begin{lemma}\label{lem:fixed-modulus-pnt}
 固定した奇素数 \(d\) と \((d,q)=1\) なる正整数 \(q\) について、
@@ -347,7 +354,7 @@ Dirichlet の \(L(1,\chi)\ne0\) を使う。固定法の零点のない領域に
 \(F(s)=G_q(s)/s\) は
 \(\RePart s\ge1-\mathcal L^{-26}\)、\(|s|\le e^{\mathcal L}\) で正則で、
 \(|F(s)|\le 2(4\mathcal L^{25}+1)\le\mathcal L^{26}\) を満たす。
-\leanref{eventually_norm_logDerivMean_div_le}
+\leanlinks{\leanref{eventually_norm_logDerivMean_div_le}}
 
 \(u\) を大きく取り、
 \(k=\lfloor u^{2B+4}\rfloor,\ H=(k+1)/u,\ \mathcal L=(2B+5)\log u\)、
@@ -375,5 +382,6 @@ Cauchy の評価に \(H/(H+\eta)\le e^{-\eta/(2H)}\) を使うと
 \]
 十分大きな \(u\) では \(\mathcal L^{52}\le u\)、\(4H\le u^{2B+5}\)、
 \(u^{3B+7}\le e^{\sqrt{u}/2}\) であり、したがって \(|A|\le u^{-B-1}\)。
-\(|U(u)|\le53u^{-B-1}\le u^{-B}\) とおき \(u=\log y\) とすればよい。\leanref{eventually_abs_le_inv_pow_of_transform}
+\(|U(u)|\le53u^{-B-1}\le u^{-B}\) とおき \(u=\log y\) とすればよい。
+\leanlinks{\leanref{eventually_abs_le_inv_pow_of_transform}}
 \end{proof}

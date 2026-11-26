@@ -8,7 +8,7 @@ controls both the denominators of projections onto spaces of theta lifts
 and the Hecke \(L\)-values that enter the comparison. These two bounds
 give a determinant ratio at each stage and then a ratio for the full chain.
 
-\subsection{Choosing twists and clearing projection denominators}
+\subsection{Choosing twists and clearing projection denominators}\label{subsec:denominator-twists}
 
 Set \(r=\dim_E Y_0\) and \(t=5r\), and write \(W_j,V_j\) for the
 Hermitian spaces of ranks \(r,r+t\), respectively, used in the comparison
@@ -16,7 +16,7 @@ at stage \(j\). Let \(F_j\) be the image of \(e_0\) on the forms of
 principal level on \(W_j\). After projection, the multiplicity of each
 Hecke eigensystem at split places away from the level is the same on
 \(W_j\) and \(Y_0\). In particular, \(\dim_{\mathbb C} F_j=h\).
-\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{Equality of multiplicities}.
+\leanlinks{\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{Equality of multiplicities}}
 
 A twist \(\xi\) is an automorphic character of \(U(1)\) of weight \(0\) at
 the infinite places. Write \(Q_\xi\) for its set of ramified places.
@@ -48,7 +48,7 @@ part equal to that of the character at stage \(j\), and with
 \(-w_j(\tau)\) is the weight of that stage's character. For a main pair,
 we decompose the associated space of rank \(2u\) into four blocks of
 ranks \(12,4,4,2u-20\).
-\leansrc{New/Determinant/Twist/FitTwists}{Critical pairs and main pairs}.
+\leanlinks{\leansrc{New/Determinant/Twist/FitTwists}{Critical pairs and main pairs}}
 
 Write \(u_{j,\vartheta}\) for the theta lift on \(F_j\) and
 \(P_{j,\vartheta}\) for the orthogonal projection onto its image
@@ -57,7 +57,7 @@ the Hecke polynomial operator at the value associated with the lift at
 stage \(j\). The false lifts at \(w\) form the intersection of the kernel
 of this operator, the image of \(e_0\), and \(I_{j,\vartheta}^{\perp}\).
 Orthogonality to false lifts means orthogonality at every such \(w\).
-\leansrc{New/OneLift/TestedForms}{Definition of false lifts}.
+\leanlinks{\leansrc{New/OneLift/TestedForms}{Definition of false lifts}}
 
 Put
 \[
@@ -125,7 +125,9 @@ input for twisting. Each carries the conjugate duality
 \(R_i^c\simeq R_i^\vee(1-t')\), the specified Hodge--Tate jumps and
 inertial types at the level, and the property that its image spans the
 full matrix algebra over sufficiently large coefficient rings.
-\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/SelmerHypotheses.lean\#L434}{Conditions on the main summands}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/GaloisRepresentations/SelmerHypotheses.lean\#L434}{Conditions on the main summands}}
+
+\input{sections-en/denominator-main-summands}
 
 Take stable lattices \(T_i\) in the \(R_i\) over a common coefficient
 discrete valuation ring \(\mathcal O\), and write \(\rho_i\) for their
@@ -160,8 +162,8 @@ Thus \(b_i\le c\). Put \(M_0=c+2\), and let
 ordinary length convention. Choose the coefficient ring so that its
 residue field has more than \(2re+1\) elements. Then \(b_i+1<M_0\) for
 every \(i\), and the residue field allows the choices below.
-\href{\upstream/grh/src/New/Congruences/Selmer/MainSummands.lean\#L294}{Local conditions on the lattices and their error terms},
-\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L304}{Choice of a common coefficient ring}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/MainSummands.lean\#L294}{Local conditions on the lattices and their error terms}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L304}{Choice of a common coefficient ring}}
 
 For each ramified pair and sign, take a norm-compatible system of
 group ring elements \(\Theta_{Q'}\). At the empty set the
@@ -177,7 +179,9 @@ Choose an integer \(M_1\) with \(b_Y+1<M_1\) for all the systems.
 Prescribing \(\rho_i(g_0),\rho_i(g_0^{-c})\) modulo \(\ell^{M_0}\)
 and \(\varrho_Y(g_0)\) modulo \(\ell^{M_1}\) specifies an open
 neighborhood of \(g_0\).
-\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L312}{Norm-compatible systems for ramified pairs}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L312}{Norm-compatible systems for ramified pairs}}
+
+\input{sections-en/denominator-stickelberger}
 
 When choosing auxiliary primes \(Q\), equip each \(q\in Q\) with
 a Frobenius element \(\phi_q\), an inertial element \(\tau_q\), and
@@ -194,7 +198,7 @@ a prescribed finite set of places reduce to \(\ell^A\)-th powers.
 Under this condition a discrete logarithm on the residue field
 descends to idele classes and gives the anticyclotomic character
 through \(z/\bar z\).
-\href{\upstream/grh/src/New/Congruences/Selmer/AuxiliaryPrimes.lean\#L102}{Anticyclotomic characters at auxiliary primes}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/AuxiliaryPrimes.lean\#L102}{Anticyclotomic characters at auxiliary primes}}
 For each later prime \(q\ne q_0\), require
 \(\lambda_{q_0}(\phi_q)=1\) and \(\lambda_{q'}(\phi_q)=0\)
 for \(q'\ne q_0\). These prescriptions enter the calculations
@@ -258,11 +262,11 @@ as a bound for the length modulo \(\ell^{M_0}\). Now release the ties at
 \(q_0,\bar q_0\). By the Frobenius congruence, the increase is bounded
 by \(b_i^{\mathrm{first}}\), so the length with the remaining ties
 is at most \(b_i\).
-\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L63}{Linear algebra for choosing the slope},
-\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L527}{Descent at all torsion depths},
-\href{\upstream/grh/src/New/Congruences/Selmer/Count.lean\#L519}{Length comparison with the dual group},
-\href{\upstream/grh/src/New/Congruences/Selmer/Mirror.lean\#L659}{From dual cocycles to maps into the conjugate dual},
-\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L247}{Cost of releasing the first ties}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L63}{Linear algebra for choosing the slope}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Descent.lean\#L527}{Descent at all torsion depths}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Count.lean\#L519}{Length comparison with the dual group}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Mirror.lean\#L659}{From dual cocycles to maps into the conjugate dual}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L247}{Cost of releasing the first ties}}
 
 \subsubsection{Polynomial specialization and the choice of one character}
 
@@ -283,7 +287,7 @@ matrix and take its maximal minors. The least valuation of the
 minors at any specialization is the length of the torsion module.
 A minor attaining the minimum at the chosen point gives the
 length there and an upper bound at every other point.
-\href{\upstream/grh/src/New/Congruences/Selmer/OneSystem.lean\#L434}{Minors of the cocycle equations}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/OneSystem.lean\#L434}{Minors of the cocycle equations}}
 Keep the ties away from \(q_0,\bar q_0\)
 and restrict a polynomial with equality at the origin to the line
 \(X_{q_0}=Y,\ X_q=s_{i,q}Y\ (q\ne q_0)\). Call the restriction
@@ -311,7 +315,7 @@ Choose \(y\) of valuation \(\rho\) with residue avoiding cancellation
 of the terms of least valuation. The evaluation then attains this
 Gauss valuation. This gives a point \(x_i\) with all coordinate
 valuations at least \(\rho\) and \(v_\ell(P_i(x_i))\le b_i+s_0\rho\).
-\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L291}{Determinant polynomials and divisibility along the line}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L291}{Determinant polynomials and divisibility along the line}}
 
 For the group ring element \(\Theta_Q\), take the integral polynomial
 \(P_Y\) obtained by evaluating at \(\prod_q(1+X_q)^{\lambda_q}\),
@@ -332,7 +336,7 @@ Thus the congruence preserves the terms of lowest valuation, and the
 power of \(1+Y\) leaves the valuation unchanged. This gives a point
 \(x_Y\) with all coordinate valuations at least \(\rho\) and
 \(v_\ell(P_Y(x_Y))\le b_Y+s_0\rho\).
-\href{\upstream/grh/src/New/Congruences/Selmer/StickelbergerLine.lean\#L477}{Bounds for the Euler factors from the norm relation}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/StickelbergerLine.lean\#L477}{Bounds for the Euler factors from the norm relation}}
 
 The polynomials have separate points attaining their bounds. To pass
 to a common character, average over roots of unity. Start with a
@@ -352,7 +356,7 @@ For \(\alpha\in R_h\), the linear coefficient of
 \((1+\alpha+Y)^{\ell^h}-1\) has valuation \(h\), so its Gauss
 valuation of radius \(1\) is at most \(h+1\). It follows that
 \[
- \sum_{\zeta\ {\rm primitive}}
+ \sum_{\zeta\ \mathrm{primitive}}
          \min\{v_\ell(\zeta-1-\alpha),1\}\le h+1 .
 \]
 There are \(1/\rho_h\) choices of \(\zeta\). Sum over \(\alpha\), then
@@ -393,8 +397,8 @@ every polynomial and every \(j\) satisfy
  v_\ell\bigl(P((\zeta_q^j-1)_q)\bigr)
        \le b_P+s_0\rho+\epsilon_\ell/2\le b_P+\epsilon_\ell .
 \]
-\href{\upstream/grh/src/New/Congruences/Selmer/RootsOfUnity.lean\#L294}{Averaging over roots of unity and specializing coordinates},
-\href{\upstream/grh/src/New/Congruences/Selmer/GeneralTheorem.lean\#L318}{Simultaneous choice for powers of the character}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/RootsOfUnity.lean\#L294}{Averaging over roots of unity and specializing coordinates}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/GeneralTheorem.lean\#L318}{Simultaneous choice for powers of the character}}
 
 Set \(\psi=\prod_q\zeta_q^{\lambda_q}\). This is anticyclotomic and
 trivial above \(\ell\). Since \(v_\ell(\zeta_q-1)\le\rho/m\),
@@ -419,8 +423,8 @@ trivial above \(\ell\) and at the old inertial element \(\gamma_i\),
 so the local conditions and scalar action used here persist under
 twisting. The Selmer group with divisible coefficients used for
 projection has length at most \(b_i+\epsilon_\ell\le e'_\ell\).
-\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L347}{Passage from torsion to divisible coefficients},
-\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L196}{Comparison with the crystalline Selmer conditions}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/Line.lean\#L347}{Passage from torsion to divisible coefficients}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L196}{Comparison with the crystalline Selmer conditions}}
 
 For a ramified pair, the norm of \(P_Y((\zeta_q^j-1)_q)\) is the
 norm of \(1(\Theta_\varnothing)\) times the norm of
@@ -437,8 +441,8 @@ obtain
 The last inequality uses that \(\mathrm Nw_0-1\) divides the order
 of the level group and \(4\le(4f+3)r\). Both the Selmer-length bound
 and the local \(L\)-value bound now hold for the same twist.
-\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L396}{Estimate extracting the \(L\)-value ratio from the group ring element},
-\href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L417}{Application to the family of twists}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L396}{Estimate extracting the \(L\)-value ratio from the group ring element}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/TwistingTheorem.lean\#L417}{Application to the family of twists}}
 
 \subsubsection{Trace congruences and projection onto the lifts}
 
@@ -455,7 +459,7 @@ type at the chosen level is the normalized source type times
 \((X-1)^{t'}\). At the ramified places of the twist and their conjugates,
 the inertial elements \(g\) satisfy
 \((N_x(g)-\psi_\vartheta(g)I)(N_x(g)-I)=0\).
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L519}{Hypotheses on types and Galois representations}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L519}{Hypotheses on types and Galois representations}}
 
 Let \(\mathcal X\) be the systems of genuine lifts spanning \(Z\).
 Call a base-level system \(x\) a weak lift if
@@ -479,8 +483,8 @@ consists of false lifts. Since \(e_c\) is self-adjoint, \(l-p\) is
 also orthogonal to this part. In particular, \(l,p\) agree on
 the weak-lift components. Moreover \(p\) is supported on
 \(\mathcal X\), and \(C_{\mathrm{lev}}l\) is integral.
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L648}{Detection of weak lifts and the orthogonal projection},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1030}{The operator with the type projection}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L648}{Detection of weak lifts and the orthogonal projection}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1030}{The operator with the type projection}}
 
 There are finitely many base-level systems that are not weak lifts.
 For each choose \(g_s\) with \(d_{g_s}(x_s)\ne0\) and put
@@ -493,7 +497,7 @@ The element \(\delta_0\) vanishes on the base-level systems that
 are not weak lifts and equals \(n_0\) on the weak lifts.
 
 Fix \(\pi\in\mathcal X\) and take Taylor--Wiles auxiliary primes in
-addition to the ramified places of the twist. Put \(\Delta=r^8\).
+addition to the ramified places of the twist. For the rest of Section~\ref{subsec:denominator-twists}, write \(\Delta=r^8\).
 Choose \(a_{\mathrm{cyc}}\) whose cyclotomic character topologically
 generates its image, and an exponent \(h_\ell\le v_\ell(C_{\mathrm{lev}})\)
 with \(\epsilon_{\mathrm{cyc}}(a_{\mathrm{cyc}})^a-1\mid\ell^{h_\ell}\)
@@ -522,8 +526,8 @@ conditions and Kummer extensions giving these primes.
 If \(n_{\mathrm{test}}\) is the number of test points including
 \(a_{\mathrm{cyc}}^{-1}\), then
 \((\#J+n_{\mathrm{test}})\Delta h_\ell\le\Delta^{22}h_\ell\).
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TrianglePrimes.lean\#L624}{Construction of the test points and ordered auxiliary primes},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L217}{Choice of Frobenius via scalar inertia}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/TrianglePrimes.lean\#L624}{Construction of the test points and ordered auxiliary primes}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L217}{Choice of Frobenius via scalar inertia}}
 
 Write \(n=r'+t'\) and choose \(\nu>0\) such that
 \(2n!(n_0C_{\mathrm{lev}}^2)^{\#J+1}\) divides \(p_\ast=\ell^\nu\)
@@ -558,8 +562,8 @@ Writing \([\pi]\) for the class, the indicator is
 \(A_\pi=1-\prod_{x\in[\pi]}(1-B/B(x))\).
 The root string and divisibility by \(H_j\) therefore both hold
 on base-level systems where \(A_\pi\delta_0\ne0\).
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L297}{The root string and the common polynomial},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TiedTraces.lean\#L333}{The integral Hecke element cutting out the congruence class}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L297}{The root string and the common polynomial}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TiedTraces.lean\#L333}{The integral Hecke element cutting out the congruence class}}
 
 \paragraph{The polynomial measuring congruences}
 In \(\mathbb T[(X_j)_{j\in J}]\) let \(\mathfrak a\) be the ideal
@@ -595,49 +599,20 @@ The products of the pairwise differences of
 the actions of \(a_{\mathrm{cyc}}^{-1}\) separate the characters
 up to the factor \(C\).
 
-Take finitely many \(g\) whose families \((N_x(g)-I)_x\) span
-the module of all these families. Their coordinates give rows
-satisfying the trace congruences on the main blocks and the
-characters. On the main block of \(\pi\) the row determinant
-\(D_\pi\) has valuation at the origin at most \(b_0\). This bound
-comes from the length of the module of cocycles with divisible
-coefficients satisfying the linear relations among the families
-and vanishing at the new inertial elements, their conjugates,
-and \(\gamma_\pi\). Its length is bounded by the Selmer allowance
-\(\mathrm{sel}\) and the local crystalline defect.
-On the character rows discard the monomials that do not divide
-\(X_J\) after multiplication by the variables of earlier exponents.
-The factor that remains for exponent \(a\) is a multiple of
-\(\prod_{j:\,\operatorname{type}(j)=a}X_j\). Write \(\Gamma_a\)
-for the multiplier. The valuation of \(\Gamma_a(0)\) is bounded
-by the sum \(b_a\) of the length of the odd classes and the
-colength of the crystalline condition, plus the cost in powers
-of \(C\) of separation and detection.
-
-For the block matrix \(B_0\) and a matrix \(B_{\mathbf i}\) of
-character rows, form \((1-K)B_0+KB_{\mathbf i}\). Since each row
-satisfies the trace relations, the determinant multiplier lemma
-applies. Use a group-ring element selecting the trivial character
-with factor \(C\), and take the weighted sum over \(\mathbf i\).
-On \(\mathcal X\) the result is \(D_x\) times \(C c_0^{t'}\)
-times the product of the character determinant sums.
-Here \(c_0=C^{\#s}\prod_v o_v(1)\), where \(s\) consists of the
+The set of detecting elements \(s\) consists of the
 test points, \(a_{\mathrm{cyc}}^{-1}\), the new inertial generators,
 and their inverse conjugates. The polynomials \((X-1)o_v(X)\)
 annihilate every \(N_x\) on the inertial elements away from \(\ell\)
 at which ramification is already allowed before the Taylor--Wiles
 primes are added. At a place of twist ramification use
 \(o_v(X)=\psi_\vartheta(g)-X\). For the places above \(M\) use
-\(o_v(X)=\sum_{a=0}^{C_{\mathrm{lev}}-1}X^a\). The error terms of the character sums
-supply no monomials dividing \(X_J\), so the coefficients at \(X_S\)
-vanish for \(S\subsetneq J\). The coefficient of \(X_J\) is
-\(\bigl(D_x C c_0^{t'}\prod_a\Gamma_a\bigr)(0)\), with valuation at
-\(\pi\) at most
-\[
- b_0+\sum_{a=0}^{t'-1}b_a+
- t'\!\left(\sum_v v_\ell(o_v(1))+2\#s\,v_\ell(C)\right)
-       +(\#J+1)v_\ell(C).
-\]
+\(o_v(X)=\sum_{a=0}^{C_{\mathrm{lev}}-1}X^a\).
+
+\input{sections-en/denominator-ribet-block}
+\input{sections-en/denominator-local-cost}
+\input{sections-en/denominator-ribet-characters}
+\input{sections-en/denominator-ribet-multiplier}
+
 The sum of the crystalline defects, including the main block,
 is at most \(r'L_\ell\), and the length for each odd character
 module is at most \(v_\ell(C_{\mathrm{odd}})\). Let \(\mathrm{ram}\)
@@ -654,11 +629,11 @@ the resulting estimate is
  \label{eq:ribet-top-valuation}
 \end{equation}
 The constants \(L_\ell,e_\ell,C_{\mathrm{odd}}\) are specified below.
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L532}{The main-block determinant and the length of the cocycles},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L914}{The character rows and their tied corrections},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L892}{Annihilating polynomials at inertia and their cost},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L597}{Combining the determinants and extracting the top coefficient},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L328}{Substituting the local conditions and lengths}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L532}{The main-block determinant and the length of the cocycles}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetMatrices.lean\#L914}{The character rows and their tied corrections}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L892}{Annihilating polynomials at inertia and their cost}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetLemma.lean\#L597}{Combining the determinants and extracting the top coefficient}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L328}{Substituting the local conditions and lengths}}
 
 \paragraph{The deformed norm and cancellation of denominators}
 At auxiliary prime \(j\) the ordinary norm \(N_j\) is the sum of
@@ -693,8 +668,8 @@ operators \(Y_S\):
 This follows by factoring the difference of a local operator along
 the residue group through the norm and using \(C_{\mathrm{lev}}\)
 to clear the stabilizer orders.
-\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L151}{The local first-order term and its trace relations},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L232}{The deformed norm congruence}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L151}{The local first-order term and its trace relations}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L232}{The deformed norm congruence}}
 
 Set \(n_1=n_0 C_{\mathrm{lev}}^2\) and let \(G\) be the coefficient
 of \(X_J\) in \(\mathcal N\mathcal D\). From
@@ -726,7 +701,7 @@ operator multiplied by \(n_1^{i+1}\). Cancel this nonzero scalar.
 It follows that \(d C_{\mathrm{lev}} A_\pi^{i+1}\mathcal D_Jp\)
 is integral. Since \(A_\pi(\pi)=1\), the valuation of the scalar
 action at \(\pi\) is bounded by \eqref{eq:ribet-top-valuation}.
-\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L434}{The congruence giving integrality of the projection}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/AuxiliaryPrimeTie.lean\#L434}{The congruence giving integrality of the projection}}
 
 \paragraph{Eigenvalues and the rank-one pairing}
 Choose a basis of \(Z\) among the genuine lifts and run the
@@ -757,12 +732,12 @@ Since \(1\le r'\le r,\ t'\le t\) and \(\mathrm{sel},\mathrm{ram}\le e'_\ell\),
 \]
 The product of the eigenvalues gives
 \(|\det\Lambda|_\iota\ge \exp(-\dim Z\,r'c_\ell\log\ell)\).
-\leanref{clearingBound}
+\leanlinks{\leanref{clearingBound}}
 For \(Z=I_{j,\vartheta}\) we have \(r'=r\).
 Since \(I_{j,\vartheta}\) is the image of \(F_j\), its dimension is
 at most \(h\), giving \(|\det\Lambda|_\iota\ge\exp(-hrc_\ell\log\ell)\).
-\href{\upstream/grh/src/New/Congruences/FirstOrder/HeckeStrings.lean\#L59}{Combining diagonal operators with integral coefficients},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1246}{Stabilizer orders and the determinant bound}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/HeckeStrings.lean\#L59}{Combining diagonal operators with integral coefficients}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/DenominatorBound.lean\#L1246}{Stabilizer orders and the determinant bound}}
 
 For a main pair \(r'=1\), and the projection is onto the line
 spanned by the lift \(\phi\). The orthogonality condition on test
@@ -789,8 +764,8 @@ of \(\mu C_1\) and use \(P=P^\ast\) to obtain
  |\langle P\Xi,P\Xi'\rangle|_\iota
     \le\exp\bigl((c_\ell+v_\ell(C_1))\log\ell\bigr).
 \]
-\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L239}{The sum of central translates and the descent kernel},
-\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L272}{The pairing of rank-one projections}.
+\leanlinks{\href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L239}{The sum of central translates and the descent kernel}
+  \leanlinksep \href{\upstream/grh/src/New/OneLift/HeckeValues/CentralAction.lean\#L272}{The pairing of rank-one projections}}
 
 \subsubsection{Summing the bounds over primes}
 
@@ -803,12 +778,10 @@ The bound for the crystalline defect is
  L_\ell=4f\cdot 10^6\,\frac{m}{k}
         \left(b\,v_\ell(M)+v_\ell\!\left((2b)!\,\Pi_b^{\Delta^3}\right)\right).
 \]
-The positive integer \(C_{\mathrm{odd}}\) bounds by its valuation
-the length of the odd classes at positive exponents and the
-length of the unramified homomorphisms at exponent \(0\).
-For \(N_{\mathrm{cyc}}\) the conductor of the cyclotomic field
-containing \(E\) used in the proof, and \(h_E\) the class number of \(E\),
-one has \(C_{\mathrm{odd}}\le 2^{4(N_{\mathrm{cyc}}+t+3)^{27}}h_E\).
+Let \(N_{\mathrm{cyc}}\) be the conductor of the cyclotomic field containing \(E\) used in the proof, and let \(h_E\) be the class number of \(E\).
+
+\input{sections-en/denominator-odd-classes}
+
 The error \(e_\ell\) of the preceding subsection is
 \[
  e_\ell=t\,v_\ell(C_{\mathrm{odd}})
@@ -817,9 +790,9 @@ The error \(e_\ell\) of the preceding subsection is
 The coefficient \((4t+1)\Delta^{22}+\Delta\) is used to bound
 \((2t'\#s+\#J+1)\Delta h_\ell\), and \(2v_\ell(C_{\mathrm{lev}})\)
 accounts for the factor on the left of \eqref{eq:ribet-top-valuation}.
-\href{\upstream/grh/src/New/Congruences/LocalLoss/Basic.lean\#L114}{Numerical bound for the crystalline defect},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L70}{Odd classes and the denominator error},
-\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L105}{Combination of the error terms}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/Basic.lean\#L114}{Numerical bound for the crystalline defect}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L70}{Odd classes and the denominator error}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L105}{Combination of the error terms}}
 
 For any positive integer \(A\) and any finite set \(T\) of primes,
 \(\sum_{\ell\in T}v_\ell(A)\log\ell\le\log A\).
@@ -862,9 +835,9 @@ Also \(C_1\le\exp(x^{30})\). With
 The last inequality again follows from admissibility. The character
 \(\xi_\iota\) is ramified away from \(\ell\), so all three conditions
 for regular twists are satisfied.
-\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L86}{Finite sums of the local bounds},
-\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L232}{The denominator budget},
-\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L475}{Construction of the regular family}.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L86}{Finite sums of the local bounds}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L232}{The denominator budget}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FitTwistsExist.lean\#L475}{Construction of the regular family}}
 
 \subsection{Hecke values and theta derivatives for main pairs}
 
@@ -879,10 +852,14 @@ formula for the character lift at the two twists gives
 To estimate the ratio at finite places, we project two test forms onto the
 line spanned by \(\phi_\vartheta\).
 
+\input{sections-en/rank-one-norm}
+
 First, consider the height of \(\|\phi_1\|^2\) as a constant family.
 Let \(\phi^{(0)}_1\) be the lift corresponding to a critical pair of the
-same rank and derivative order \(0\). Its squared norm becomes integral
-at every finite place after multiplication by an integer \(n_L\).
+same rank and derivative order \(0\). The factor making its values integral is
+\(D_0=M^{2f(2u)}\). Thus \(n_L=C_{\mathrm{lev}}D_0^2\) clears the
+denominators of the squared norm, including the stabilizer factors.
+The rank and level bounds give \(\log n_L\le x^{33}\).
 Choose \(n_L\|\phi^{(0)}_1\|^2/\|\phi_1\|^2\) as the common multiplier
 in the height bound for \(\|\phi_1\|^2\). This makes the finite-place
 contribution zero. At infinity, the two logarithmic squared norms have
@@ -897,9 +874,9 @@ together with \(\log n_L\) is bounded by \(B_{\mathrm{den}}\), giving
  \label{eq:untwisted-rankone-height}
 \end{equation}
 The norm estimate is first proved for conjugations fixing the quadratic
-field \(K\). The lemma on absolute values under conjugation extends it
-to every field automorphism of \(\mathbb C\).
-\leansrc{New/OneLift/HeckeValues/AlgebraicPartSize}{Height of the untwisted norm}.
+field \(K\). For an automorphism acting nontrivially on \(K\), compose its
+values with complex conjugation. This fixes \(K\) and preserves absolute values.
+\leanlinks{\leansrc{New/OneLift/HeckeValues/AlgebraicPartSize}{Height of the untwisted norm}}
 
 Write the required finite-place valuation bound for the theta derivative as
 \[
@@ -915,9 +892,11 @@ of primes,
    \le \sum_{\tau\in\Phi}s_{\mathrm{fin}}(\kappa(\tau),\tau).
  \label{eq:local-prime-total-lower}
 \end{equation}
-\leansrc{New/UpperBound/Size/Estimates}{Sum of local prime contributions}.
+\leanlinks{\leansrc{New/UpperBound/Size/Estimates}{Sum of local prime contributions}}
 
 \input{sections-en/theta-sharpness}
+
+\input{sections-en/false-lift-proof}
 
 \paragraph{The test form from four blocks}
 Write \(I_{y_0}\) and \(z^\alpha\) for the rank \(12\) indicator and monomial
@@ -933,11 +912,11 @@ the previous normalization
 \]
 
 Let \(\mathcal C\) be the class group at the chosen principal level of \(U(1)\)
-and \(N_{\rm cl}\) its cardinality. The stabilizers are trivial.
+and \(N_\mathrm{cl}\) its cardinality. The stabilizers are trivial.
 Translate by \(z_0\) so that the representative of the trivial class moves
 to the identity. For each character \(\psi\) of the classes put
 \[
- A_\psi=\frac1{N_{\rm cl}}\sum_{[g]\in\mathcal C}
+ A_\psi=\frac1{N_\mathrm{cl}}\sum_{[g]\in\mathcal C}
                  \psi(\det(gz_0))\,s(gz_0).
 \]
 Characters of the class group pull back to weight-zero automorphic
@@ -974,8 +953,8 @@ most \(1\) at every place above \(\ell\).
 The product of the characters and the decomposition of the finite column
 give its pairing with the main kernel as \(T_\alpha\) times the product
 of the four block kernels.
-\leansrc{New/OneLift/ComparisonOperator/ExchangeData}{An integral vector reading off the monomial},
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Factoring the kernel against the delta form}.
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ExchangeData}{An integral vector reading off the monomial}
+  \leanlinksep \leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Factoring the kernel against the delta form}}
 
 Sum the delta form over the three groups' classes with weights from
 the corresponding normalized lifts to obtain \(\Xi\).
@@ -985,24 +964,23 @@ and the remaining modulus norm is a unit at \(\ell\).
 Thus all three sums preserve integrality.
 When pairing with a false lift, expand the lift on the last block as
 a sum over \(U(1)\) and interchange the two class sums.
-The inner sum vanishes by the period identity, which uses the descent
-kernel and the Hecke polynomial kernel defining the false lift.
+The inner sum is the block period proved above (\nameref{par:false-lift-periods}).
 The main pair is ramified at the chosen places, so character orthogonality
 also kills the hyperplane sums in the hypotheses of that identity.
 The last block's class sum is therefore orthogonal to false lifts,
 and the outer class sums preserve orthogonality.
-\leansrc{New/OneLift/FalseLifts/PeriodsOfFalseLifts}{Vanishing of the periods of false lifts}.
+\leanlinks{\leansrc{New/OneLift/FalseLifts/PeriodsOfFalseLifts}{Vanishing of the periods of false lifts}}
 
 The pairing of each block kernel with its lift is constant on \(U(1)\).
 By adjointness its class sum is the squared norm of the lift.
-Summing over the three blocks in turn gives a factor \(L_i/(N_{\rm cl}\mathcal V^{r_i})\) for each block of rank \(r_i\). The main lift is normalized by
+Summing over the three blocks in turn gives a factor \(L_i/(N_\mathrm{cl}\mathcal V^{r_i})\) for each block of rank \(r_i\). The main lift is normalized by
 \(\mathcal V^{2u}J_\alpha\). Its final class sum over \(g\) contributes
-\(N_{\rm cl} A_\psi\). Therefore
+\(N_\mathrm{cl} A_\psi\). Therefore
 \begin{equation}\label{eq:attain-test-form-identity}
- N_{\rm cl}^2\langle\Xi,\phi_\vartheta\rangle
+ N_\mathrm{cl}^2\langle\Xi,\phi_\vartheta\rangle
    =t\, L_2(1)\rho_\vartheta L_3(\psi_3)L_1(\psi_1)\mathfrak c A_\psi .
 \end{equation}
-Since \(N_{\rm cl}\) is an integer, \(|N_{\rm cl}|_\iota\le1\).
+Since \(N_\mathrm{cl}\) is an integer, \(|N_\mathrm{cl}|_\iota\le1\).
 Put \(c_0=t L_2(1)L_\ast\). Using the two lower bounds from the choices above,
 \begin{equation}
  |\langle\Xi,\phi_\vartheta\rangle|_\iota
@@ -1013,7 +991,7 @@ All conjugates of the normalized algebraic values of derivative order zero
 have absolute value at most \(\exp(x^{34})\).
 Thus \(|\sigma(L_\ast)|\le\exp(2x^{34})\), and the bound on \(t\) gives
 \(|\sigma(c_0)|\le\exp(fmb/k+3x^{34})\le\exp(B_{\mathrm{den}})\).
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Class sums and the lower bound for the pairing}.
+\leanlinks{\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Class sums and the lower bound for the pairing}}
 
 Take \(\vartheta=\xi_\iota^j\). Choose test forms \(\Xi,\Xi'\)
 as in \eqref{eq:test-pairing-lower} at \(\iota\) and
@@ -1056,7 +1034,9 @@ Adding the bounds and using \(x_1\le B_{\mathrm{den}}\) gives
  \le 6B_{\mathrm{den}}-A_0.
  \label{eq:main-pair-height-lower}
 \end{equation}
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Height of the inverse ratio for a main pair}.
+\leanlinks{\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Height of the inverse ratio for a main pair}}
+
+\input{sections-en/exchange}
 
 \subsection{Comparing determinants at a single stage}
 
@@ -1075,10 +1055,9 @@ Three exchanges of theta integrals give a positive-definite operator
  \label{eq:comparison-operator-lower}
 \end{equation}
 Here \(\mathcal H_j\) is the product of the three Hecke values that enter
-the exchanges. \leanref{heckeValueProd}
-The operator \(U_j^\circ\) is a positive scalar multiple of the Gram
-operator of the untwisted period map. This map is injective, so
-\(\det U_j^\circ\ne0\).
+the exchanges.
+\leanlinks{\leanref{heckeValueProd}}
+\input{sections-en/comparison-proof}
 
 The ratio \(\rho_j(\vartheta)\) is nonzero. The operator \(U_{j,\vartheta}\)
 carries theta lifts into forms orthogonal to the false lifts and preserves
@@ -1089,8 +1068,8 @@ The level integer clears the denominators of their pairings.
 The Cauchy--Schwarz estimate for the same frame shows that the untwisted
 operator increases the norm by at most \(\exp(3fmb(\log b)^2)\) at every
 conjugate.
-\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{The three exchanges},
-\leansrc{New/OneLift/LiftVolumeHeight}{The comparison operator and its bounds}.
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{The three exchanges}
+  \leanlinksep \leansrc{New/OneLift/LiftVolumeHeight}{The comparison operator and its bounds}}
 
 Let \(B_{j,\vartheta}\) be the restriction of
 \(P_{j,\vartheta}U_{j,\vartheta}\) to \(I_{j,\vartheta}\) and put
@@ -1132,7 +1111,7 @@ Using \(D_j(1)\) as common multiplier gives
  \operatorname{ht}\bigl((D_j(\xi_\iota^j)/D_j(1))_\iota\bigr)
      \le h(3C_{\mathrm{arch}}+rB_{\mathrm{den}}).
 \]
-\leansrc{New/OneLift/LiftVolumeHeight}{Finite and Archimedean bounds for the compressed determinant}.
+\leanlinks{\leansrc{New/OneLift/LiftVolumeHeight}{Finite and Archimedean bounds for the compressed determinant}}
 
 Up to an integer power of \(N_\vartheta\), the ratio \(\rho_j(\vartheta)\)
 in the three exchanges is the square of the product of the ratios for
@@ -1155,8 +1134,8 @@ The admissible data satisfy
    \le h\big(E_4/m-kA_0\big).
  \label{eq:single-relative-height}
 \end{equation}
-\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Factorization of Hecke values},
-\leansrc{New/OneLift/LiftVolumeHeight}{Height bound for a single stage}.
+\leanlinks{\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Factorization of Hecke values}
+  \leanlinksep \leansrc{New/OneLift/LiftVolumeHeight}{Height bound for a single stage}}
 
 \subsection{The determinant of the chain}
 
@@ -1167,23 +1146,7 @@ that add a block on the right are paired with transposed lifts that
 remove a block on the left. Comparing the two paths obtained by switching
 the order of these operations uses the exchange identity.
 
-The matching over a finite ring works as follows. Split the row and column
-indices into two groups. For an invertible matrix \(g\), write \(C(g)\)
-for its first columns and \(R(g)\) for the last rows of \(g^{-1}\), with
-the sizes specified by the split. The weights \(\Psi,\Phi\) are supported
-on matrices of these respective forms and satisfy
-\(\Phi(R(g))=\chi(\det g)\Psi(C(g))\).
-Let \(K,K'\) be the kernels along the two paths, subject to the formal
-proof's weight, ramification, signature, and rank conditions.
-The exchange gives \(\sum\Psi K'=(\kappa_0/c)\sum\Phi K\).
-The value \(|c|^2\) is determined by the product of powers of residue-field
-cardinalities and squared absolute values of partial \(L\)-values.
-The scalar \(\kappa_0\) is independent of the twist.
-Applying the identity to point data and to their finite Fourier transforms
-gives the two exchange laws needed for the triangle.
-\leansrc{New/Determinant/Exchange/TheoremForPartners}{Exchange of theta integrals},
-\leansrc{New/Determinant/Exchange/OneSquare}{Exchange across one square},
-\leansrc{New/Determinant/Chain/ChainNorms}{Exchange laws and injectivity for the triangle}.
+\input{sections-en/chain-proof}
 
 Write \(c_Q(\xi)\) for
 \[
@@ -1221,12 +1184,22 @@ composition, the Gram operator for row \(i\) is a scalar multiple of the
 product of the Gram operators of the first arrows in the successive rows.
 The scalar includes \(w_0w_1^n/w_n\) and the contributions from pairs
 \(i<r'<j\le m\).
-\leansrc{New/Determinant/Chain/TriangleNorms}{Recurrence for the weighted chain}.
+\leanlinks{\leansrc{New/Determinant/Chain/TriangleNorms}{Recurrence for the weighted chain}}
 
 For the chain starting in row \(0\), apply Rallis's formula to the
 Gram operator of the first arrow in each row. Expressing the final level
 index by a count of block upper triangular matrices cancels
-\(w_0w_1^m/w_m\). With this normalization the Gram operator is
+\(w_0w_1^m/w_m\). Indeed, at a twist place with residue field
+\(\mathbb F_q\), the final parabolic has order
+\[
+ |\mathrm{GL}_{r}(\mathbb F_q)|\,|\mathrm{GL}_{t}(\mathbb F_q)|^m\,
+     q^{mrt+\binom{m}{2}t^2}.
+\]
+Every block above the diagonal is arbitrary. The one-step count
+is the case \(m=1\). In comparing its \(m\)-th power to the final
+count, the free blocks leave only a power of \(q\).
+At the chosen places the corresponding group orders are independent
+of the twist. With this normalization the Gram operator is
 \[
  \Theta_\xi^*\Theta_\xi
        = c(\xi)c_Q(\xi)^m \prod_{j=1}^m R_j(\xi^j),
@@ -1276,13 +1249,15 @@ the inverse of the parenthesized factor evaluated at \(\xi_\iota\), and
        \le h(b+E_4-H_0).
  \label{eq:chain-relative-height}
 \end{equation}
-\leansrc{New/Determinant/Chain/NormOfChain}{The chain's Gram operator and determinant factorization}.
+\leanlinks{\leansrc{New/Determinant/Chain/NormOfChain}{The chain's Gram operator and determinant factorization}}
 
 \subsection{Forms for completing a basis}
 
 To complete a basis, we span the space of principal-level forms before
-applying \(e_0\) using forms of deep level. The formal proof uses two
-grids. It transfers the period of the initial path along their boundary
+applying \(e_0\) using forms of deep level.
+\input{sections-en/auxiliary-proof}
+
+Use two grids and transfer the period of the initial path along their boundary
 to the period of the final path, making one turn in each of the \(m^2\)
 squares. At each turn it applies the exchange identity to a sum over
 finite matrix data. At a turn on the diagonal it first identifies the
@@ -1298,16 +1273,14 @@ The resulting nonzero scalar \(c_{\mathrm{path}}(\xi)\) satisfies
 The exponent of the tame character is \(i+j+2\), between \(2\) and \(2m\),
 so the tame part is nontrivial at every chosen level place. Thus the
 pairs in each \(T_{ij}\) are ramified.
-\leansrc{New/Determinant/AuxiliaryForms/Turns}{The \(L\)-value ratio for a turn},
-\leansrc{New/Determinant/AuxiliaryForms/DiagonalTurns}{Comparison of the full paths}.
+\leanlinks{\leansrc{New/Determinant/AuxiliaryForms/Turns}{The \(L\)-value ratio for a turn}
+  \leanlinksep \leansrc{New/Determinant/AuxiliaryForms/DiagonalTurns}{Comparison of the full paths}}
 
-The final path period sums the inner product of the lifts along the two
+The final path period \(\Xi\) sums the inner product of the lifts along the two
 half-paths over tuples \(S\) of finite matrices, with coefficient \(\Psi(S)\).
-With the normalization fixed, an integer independent of \(\xi\) clears the
-denominators of the kernels along the edges and of the class sums when
-\(\ell\nmid N_\xi\). For the trivial twist, the Weyl norm bounds for the
-kernels and the number of summands give a bound for every conjugate of
-the period. To recover the values of the original lift, pair it with dual
+\input{sections-en/path-proof}
+
+To recover the values of the original lift, pair it with dual
 delta forms. For the matrix \(D\) of the dual pairing there are an integral
 matrix \(C\) and a positive hook number \(H\) with \(CD=HI\).
 If the pairing against each integral vector lies in \(H\) times the
@@ -1316,19 +1289,14 @@ that each coordinate of the original value is integral. At infinity, dividing
 the bound for the pairing by the norm of the dual vector gives the Weyl
 norm bound.
 
-This gives a quantitative spanning result for the principal-level space.
-There is a surjection \(s\) from the deep-level space to the principal-level
-space and a constant \(c_{\mathrm{sc}}\ne0\). The deep-level space is
-spanned by forms \(\psi\) integral at every finite place and with all
-conjugates of their values of squared Weyl norm at most \(\exp(x^{99}b^2)\).
+Write \(\psi\) for the spanning family at the deep level. Combine the
+twist-independent measure factors and \(D_\mathrm{path}\) in a single
+factor \(c_{\mathrm{sc}}\ne0\).
 For each \(\psi\), scaling the lift of \(c_{\mathrm{sc}}s(\psi)\) by
 \(c_{\mathrm{path}}(\xi)/c_{\mathrm{path}}(1)\) makes it integral at
 admissible places. For the trivial twist, the squared Weyl norms of the
 lift's values are bounded by the deep-level bound times
 \(\exp(2x^{201}b^2)\), hence by \(\exp(x^{202}b^2)\).
-These are the local and Archimedean kernel estimates used in the
-construction.
-\leansrc{New/Determinant/AuxiliaryForms/SpanningForms}{The final path period and construction of auxiliary forms}.
 
 Send this spanning family to \(V\) by the projection multiplied by
 the order of the level group. The scaled projection preserves
@@ -1348,7 +1316,7 @@ Equation \eqref{eq:turn-ratio-lower} and the bounds for ramified pairs give
  \le 2m^2t x_1\le b.
  \label{eq:auxiliary-factor-height}
 \end{equation}
-\leansrc{New/Determinant/Twist/LongForms}{Bounds for auxiliary forms after projection to the target}.
+\leanlinks{\leansrc{New/Determinant/Twist/LongForms}{Bounds for auxiliary forms after projection to the target}}
 
 \begin{proposition}\label{prop:determinant-inputs}
 For all admissible data, \(\Theta_\xi\) is injective for each twist \(\xi\).

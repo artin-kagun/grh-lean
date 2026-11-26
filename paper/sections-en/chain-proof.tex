@@ -1,0 +1,112 @@
+\paragraph{The two exchanges in the triangle}
+Each block has length \(t\). The sum of the ranks at the two interval
+nodes equals that of the two intermediate nodes, whose rank difference
+is \(2t\). The numbers of negative signs satisfy the same additive
+relation. The character for the exchange is the quotient of
+\(\eta_i\xi^i\) and \(\eta_j\xi^j\). At the chosen places the
+\((j-i)\)-th power of the fixed character is nontrivial, and at the twist
+places all powers with \(1\le j-i\le m\) ramify.
+Thus the points entering \(L_*\) in the exchange are \(1,\ldots,t\).
+\leanlinks{\leansrc{New/Determinant/Chain/ChainNorms}{Checking the ranks, signs, and characters}}
+
+To pass from point data to standard inclusions, work over the finite
+residue ring \(R\). Let \(a',b'\) be the widths of the two completing
+blocks and \(n'\) the height of the variable upper block. For a weight
+\(p\) on \(n'\times a'\) matrices, use on the opposite side the datum
+\[
+ p_\mathrm{next}\begin{pmatrix}\eta&s\\0&I_{b'}\end{pmatrix}
+     =p(-\eta)/|R|^{n'b'}
+\]
+and set it to zero elsewhere. With \(w=\binom{\eta}{0}\), the matrices
+\((w\ \ I)\) and \(\binom{I}{-w}\) are the inverse-row and first-column
+blocks of a common invertible completion. Counting the bases of the
+two corresponding frames gives factors
+\(|\mathrm{GL}_{n'+b'}(R)|\) and \(|\mathrm{GL}_{a'}(R)|\).
+The upper shear \(\begin{psmallmatrix}I&s\\0&I\end{psmallmatrix}\) has
+determinant \(1\) and preserves the kernel value. Average over \(s\) and
+sum over \(\eta\) to obtain the stated weight.
+For the reversed edge use the finite Fourier transform of the same
+identity. Expanding it, the sums over the shear coordinates impose
+the corresponding block-product conditions by additive orthogonality.
+The remaining square block gives the matrix Gauss sum of a primitive
+determinant character. Its modulus at the identity and the size of
+the residue ring give the additional factors. Together with
+\eqref{eq:exchanged-integrals}, this leaves \(L_*\) and modulus powers
+as the twist-dependent absolute values for the adjoint exchange.
+\leanlinks{\leansrc{New/Determinant/Chain/SquareLaw}{Shear averaging and finite Fourier transform for the inclusions}
+  \leanlinksep \leansrc{New/Determinant/Chain/ChainNorms}{The two commutation relations in the triangle}}
+
+\paragraph{The Gram form of a single lift}
+The lift from rank \(r\) to rank \(r+t\) satisfies \(2r<r+t\).
+The inner product formula in this range writes the product of the
+two theta kernels as a single kernel on \(W_j\perp W_j^{\mathrm{opp}}\).
+The Siegel--Weil expansion of this kernel is a sum over maximal
+isotropic subspaces. The finite datum is supported where both blocks
+of \(r\) columns are the specified primitive inclusions. Hence the
+surviving isotropic subspaces project isomorphically onto both sides:
+they are the graphs of rational isometries. Their zero slices are Weil
+matrix coefficients. Unfolding the sum over graphs into the integral
+over rational points gives the pairing of the forms with right
+translations weighted by these coefficients.
+\leanlinks{\leansrc{Lib/SiegelWeil/RallisInner/Doubling}{The doubled kernel and the graph terms}}
+
+At the chosen level and the twist places the primitive inclusions
+give the block datum. Its matrix coefficient integrates to the level
+average times the mass of the datum, so on level-fixed forms the
+average is the identity. The integral of the real matrix coefficient
+is a fixed nonzero constant by reproduction for the corresponding
+discrete series types. At the remaining finite places the unramified
+vacuum coefficients give the translation series \(R_j\).
+For a coset representative \(g\) supported away from the level and
+twist places and their conjugates, its coefficient is
+\((\chi_{V_j}(\det g)m_f(g)^{r+t})^{-1}\),
+where \(m_f\) is the finite vacuum multiplier and \(\chi_{V_j}\) is the
+character for the partner space.
+
+The identity coset contributes the identity operator. Let \(a_w\)
+be the count of neighbouring steps at an unramified place, weighted
+by \(q_w^{-(r+t)/2}\). Since \(2r<r+t\), the places together with their
+conjugates can be grouped so that the sum of weights in each group
+is at most \(1/3\). All nonidentity terms in the series for such a
+group have total coefficient modulus at most
+\(\sum_{k\ge1}(1/3)^k=1/2\).
+If the series sends a bounded \(f\) to zero, then
+\(\|f\|_\infty\le\|f\|_\infty/2\), so \(f=0\).
+Absolute convergence and factorization over disjoint sets of places
+give injectivity of \(R_j\). If the lift of \(f\) is zero, use \(R_j f\)
+as the test form in the Gram identity to obtain \(\|R_j f\|^2=0\).
+This proves injectivity of each individual lift.
+\leanlinks{\leansrc{Lib/SiegelWeil/RallisInner/SharpData}{Level averaging and the inner product formula}
+  \leanlinksep \leansrc{Lib/SiegelWeil/UnramifiedSeries/RallisSeries}{Injectivity of the vacuum-coefficient series}}
+
+The algebraic-form inner product is the Petersson product times the
+level index and the dimension of the Weyl module. The index cancels
+the denominator of the mass of the prescribed columns.
+At a twist place \(w\) the projection onto the rank-\(r\) block and the
+free block of width \(t\) give \((\mathrm Nw)^{rt}\).
+Counting invertible blocks by
+\(|\mathrm{GL}_n(\mathbb F_q)|=q^{n^2}\prod_{s=1}^n(1-q^{-s})\)
+gives the remaining ratio \(\prod_{t<s\le t+r}(1-(\mathrm Nw)^{-s})\).
+Thus the twist-dependent scalar is \(c_Q(\xi)\) below.
+\leanlinks{\leansrc{New/Determinant/Norms/AdjointThetaLift}{The finite mass and the Weyl module dimension}}
+
+To compare the good spaces on \(W_j\) and \(Y_0\), use their common
+finite groups and infinite parameters. Only the signatures differ.
+For each good label tuple there is a primitive label at a split
+place above \(p_0\). Its central idempotent is attached to a cuspidal
+character of the finite general linear group, so the local constant
+terms along proper parabolics vanish. The trace comparison for
+cuspidal test functions applies. At an auxiliary place, descend
+to the stabilizer of a line and use its Hecke operator to impose a
+simple zero of the characteristic polynomial over the residue field.
+The determinant of this operator counts the spherical vectors and
+returns the trace identity at the original level.
+For a spherical Hecke operator \(T\), the traces of \(T^n\) coincide.
+Newton's identities give equal characteristic polynomials and
+determinants. Finitely many commuting semisimple operators separate
+the eigensystems. Taking traces of interpolating polynomials that
+select individual eigensystems gives equality of their multiplicities.
+The sum \(R_j\) acts as one spherical Hecke operator on the two spaces,
+so its determinant can be taken on the good space for \(Y_0\).
+\leanlinks{\leansrc{Lib/Adelic/TraceFormula/CuspidalComparison}{The line stabilizer and comparison for cuspidal test functions}
+  \leanlinksep \leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{Equality of Hecke eigensystem multiplicities}}

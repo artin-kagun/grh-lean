@@ -1,0 +1,233 @@
+\paragraph{結晶的条件を課す費用}
+\(\ell\) 上の各素点 \(v\) で分解群 \(\Gamma_v\) を取り、
+\(d_v=[G_{\mathbb Q_\ell}:\Gamma_v]\) とする。ここでは分解群を
+\(G_{\mathbb Q_\ell}\) 内の開部分群として読む。
+局所格子の類 \(\mathcal C_v\) は、周期環 \(B_{\max}\) で張る周期の
+不変性、Hodge--Tate 跳躍の集合、および惰性作用を殺す多項式で定める。
+\(v\nmid M\) では結晶的とし、惰性の多項式の条件は空である。
+\(v\mid M\) では潜在的結晶性とし、指定された型のどの表現にも
+共通な惰性の多項式を条件にする。跳躍の集合には全ての \(N_x\) の
+共通の跳躍を使う。従って全ての \(N_x\) の格子がこの類に入る。
+また \(\pi\) の格子から各直和成分への分解により
+主成分と Tate 指標の格子も同じ類に入り、類の跳躍はこれらの
+成分の実際の跳躍で尽くされる。捻りの逆指標は \(\Gamma_v\) で
+自明なので、主成分の跳躍は捻る前のものを使える。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L757}{局所格子の共通の類}}
+
+格子 \(L\) の結晶的コサイクル \(Z_f(L)\) は、\(B_{\max}\otimes L\)
+で余境界になるコサイクルである。
+\(\delta_v(L)\) を、\(Z_f(L^\vee(1))\) のうち
+\(\mathcal C_v\) の格子の結晶的コサイクルとカップ積を取って
+余境界になるものを除いた商の正規化した長さとする。
+ここで組合せは有限係数で取り、
+法 \(\ell^u\) で同変な線形形式のうち、持ち上げた形式の
+余境界を \(\ell^u\) で割ったものが結晶的になるものを用いる。
+
+\((N_x(g)-1)_x\) の線形関係を保つ \(\mathcal O/\ell^u\) 係数の
+コサイクル \(c\) を一つ取る。族の張る部分加群を \(L_0\) とすると、
+\((N_x(g)-1)_x\mapsto c(g)\) が \(L_0\) 上の同変線形写像となる。
+同変性は \(N_x(h)(N_x(g)-1)=(N_x(hg)-1)-(N_x(h)-1)\) と
+コサイクル則から従う。\(\mathcal B=\prod_x M_n(\mathcal O)\) とする。
+Artin--Rees の補題を有限 \(\mathcal O\)-加群
+\(L_0\subseteq\mathcal B\) と主イデアル \((\ell^u)\) に適用すると、
+十分大きな \(k_0\) で
+\(L_0\cap\ell^{u k_0}\mathcal B\subseteq \ell^u L_0\) になる。
+従って写像を \(\ell^{u k_0}\mathcal B\) 上で零として延長できる。
+そのグラフは行列族の第一成分に単射で、各列への射影を合わせると
+\(N_x\) の局所格子の直和に同変に単射となるので、\(\mathcal C_v\) に入る。
+\(g\mapsto (N_x(g)-1)_x\) をグラフに取ったコサイクルは
+\(\ell^{u k_0}\) 倍すれば \(\ell^{u k_0}(I)_x\) の余境界になる。
+よって結晶的であり、第二成分は \(c\) の局所制限である。
+
+第二成分の写像を格子間の線形写像 \(q\) に持ち上げると、
+その余境界 \(gq-q\) は \(\ell^u\) で割れ、割った
+コサイクルは \(B_{\max}\) 上で余境界である。
+この \(q\) で移した評価組合せは従って上の有限係数の組合せの一つである。
+局所 Tate 双対性を、\(\Gamma_v\) の有限加群 \(L/\ell^u L\) と
+その Tate 双対に適用する。結晶的な類の直交補空間が双対側の結晶的な
+類になることを使うと、上で得たコサイクルの結晶的な像での商の位数は
+\(Z_f(L^\vee(1))\) の直交部分での商の位数を割る。
+ここでは、係数環上の評価を \(\mathbb Z_\ell\)-値の完全組合せに
+するため、\(\mathcal O\) の \(\mathbb Z_\ell\)-双対の生成元と合成する。
+位数の除法は長さの不等式になる。
+整格子の結晶的コサイクルの還元像は、その全ての線形関係を満たす
+有限係数のコサイクルに含まれるから、同じ上界が線形関係を
+課すことによる余長にも適用される。
+全ての \(v\mid\ell\) で条件を課す余長は個々の余長の和以下である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/Basic.lean\#L386}{コサイクルのグラフと Artin--Rees}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/LocalLoss/TateDualBound.lean\#L101}{有限係数の双対性と余長}}
+
+局所の双対側の長さを数える。\(L\) の階数を \(n_L\) とし、
+\(q_L=1\) を主成分、\(q_L=t\) を指標に対応させる。
+\(\operatorname{def}_\ell=L_\ell/(4f)\) と書けば、使う評価は
+\[
+ \delta_v(L)\le d_v n_L\operatorname{def}_\ell/q_L .
+\]
+\(v\mid M\) のときは、惰性スペクトルから消滅多項式として
+\(X^{\operatorname{lcm}_{1\le i\le r}(\ell^i-1)}-1\) と
+次数高々 \((r+t)r\) の \(\mathbb Z_\ell\) 上のモニック多項式が得られる。
+\(\ell\equiv1\) が導手を法として成り立つため、同じ \(v\) の係数埋め込みでは
+\(E\) の複素埋め込みは同一である。
+対向する跳躍の区間とこの消滅多項式を使う馴分岐の周期計算では、
+\[
+ k_\mathrm{tame}=3r^2((r+t)r+1)^2+150(\Delta^2+4t+2)
+\]
+乗の \(\ell\) が結晶的コサイクルを直交部分に送る。
+結晶的コサイクルの階数は Bloch--Kato の次元公式により
+\(2d_v n_L\) 以下なので、長さは \(2d_v n_L k_\mathrm{tame}\) 以下である。
+データの大きさの仮定と \(v_\ell(M)\ge1\) により
+\(2k_\mathrm{tame}\le\operatorname{def}_\ell/q_L\) である。
+
+\(v\nmid M\) では \(H=\Delta\) と置き、\(b_{\mathrm{sm}}\) を小さい方の重み、
+\(j\) を該当する持ち上げの添字とする。\(Q_0=kt\)、\(\eta=H^2+1\)、\(W=4t\)、
+\(\delta=2jH+H-2t\) とおく。跳躍の近い区間は \([-\eta,\eta]\) であり、
+遠い区間は \(b+\delta\) または \(b_{\mathrm{sm}}+\delta\) から幅 \(W\) の区間に
+埋め込みに応じた符号を掛けて得る。実際、持ち上げの重み \(w_j\) から \(2t\)
+を引いたものが遠い区間の始点である。Tate 双対 \(u\mapsto-u-1\) では
+元の遠い跳躍は区間の両端から \(t\) 以上内側にあるため、符号を反転した
+同じ幅に入る。主成分で負の跳躍は \(-H/2\) 以下であり、
+近い区間の双対跳躍は高々 \(\mu=\lfloor n_Lm/(kq_L)\rfloor\) 個である。
+指標では唯一の双対跳躍 \(-a-1\) が \([-\eta,0]\) に入る。
+
+Kummer チャート \(W(\mathbb F_{\ell^{f_v}})[[z]]\subset A_{\inf}\) の分岐指数を
+\(e_v\) と書くと \(e_v f_v=d_v\)、\(e_v\le H\) である。剰余体単元の
+Teichmüller 代表で係数埋め込みをまとめ、各単元に属する跳躍を読む。
+\(\ell\) が円分導手を割らない場合はチャートが不分岐で、この代表が
+\(E\) の埋め込みを決める。割る場合は \(\ell\le Q_0\) であり、
+大きい重みを持つ埋め込みの符号は共通である。
+\(\ell\le Q_0\) では、大きい重みの素点から出発して、Frobenius の軌道で長さ
+\(J_0=\lfloor\log_\ell H^3\rfloor\) 以下の間隔を二回続けて
+大きい重みの素点に当たることはない。これは重みを \(b\) に設定した場所の
+選び方を係数埋め込みに移したものである。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineDefect.lean\#L217}{Kummer チャートでの重みと埋め込みの対応}}
+
+\(\lambda=v_\ell((2b)!\Pi_b^{H^3})\)、\(K_0=\lfloor2\lambda/Q_0\rfloor\) とする。
+\((2b)!\) の付値より \(2b<\ell(\lambda+1)\) であり、
+除法より \(2\lambda<(K_0+1)Q_0\) である。
+
+\begin{itemize}
+\item \(\ell\le Q_0\) では、重みの大小条件とこの二式から
+\(2(b+\delta)<H^2K_0\) を得る。小さい方の遠い区間も
+\([-2b_{\mathrm{sm}},2b_{\mathrm{sm}}]\) に含める。
+チャートの不同指数上界を \(d=0\) (\(e_v=1\)) または \(v_\ell(e_v)+1\) とすると、
+\[
+ \begin{split}
+ 2e_v(b+\delta+10b_{\mathrm{sm}})&\le
+       \ell^{J_0+1}\,2K_0,\\
+ 20(J_0+1+d)\,2b_{\mathrm{sm}}+
+       \lfloor\log_\ell(2(b+\delta+10b_{\mathrm{sm}}))\rfloor&\le K_0 .
+ \end{split}
+\]
+第一式には \(\ell^{J_0+1}\ge H^3\)、第二式には
+\(J_0+1+d\le H\) と \(41 b_{\mathrm{sm}} H\le K_0\) を使う。
+この入力で、後続 \(J_0\) 個が小さい重みの単元を切断点に取る。
+疎性により \(2J_0+1\) ステップ以内に切断点があり、分岐があるときは
+符号一定、分岐がないときは \(10\ell^{J_0}\,2b_{\mathrm{sm}}\le b+\delta\)
+が遠い区間の比較に使える。切断点での周期環の余核を消す費用と、
+そこからの延長を比較する費用を合成した cup 積の指数は
+\(10^3(2K_0+(J_0+1)K_0)\le10^4K_0m\) である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L333}{小さい素数における指数の比較}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Lifting/CutExponentBounds.lean\#L805}{疎な重みに対する切断点と cup 積}}
+
+\item \(\ell>Q_0\)、\(\lambda\ge H^3\) では不分岐で \(\ell\ge7\) である。
+上の二式と大小条件により
+\(b+\delta<K_0\ell^2\)、\(2(b_{\mathrm{sm}}+\delta)<K_0\ell\)、
+\(W+4\eta\le K_0\) を得る。
+大きい重みが次に来る単元の位置に
+\(\max(\lfloor(b+\delta)/\ell\rfloor-7K_0,0)\) の極のずらしを許し、
+他ではずらさない。ずらしが遠い区間の始点未満の位置を切断点とする。
+大きい重みの位置と、小さい重みが次に来る位置は切断点なので、
+一つ前か二つ前が切断点である。これにより cup 積の指数は
+\[
+ 10^4\bigl(K_0+\lfloor\log_\ell(2(b+\delta+W+4\eta))\rfloor\bigr)
+ \le 10^4K_0m
+\]
+となる。両場合で、この冪倍が直交部分に入り、結晶的コサイクルの階数
+\(2d_v n_L\) 以下を掛けて余長を抑える。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L425}{大きい素数で損失が大きい場合の指数}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Lifting/CutExponentBounds.lean\#L991}{任意の配置に対する切断点と cup 積}}
+
+\item \(\ell>Q_0\)、\(\lambda<H^3\) では、
+\((b-30H^3,b+30H^3]\) に \(\ell\) の倍数があれば
+\(\Pi_b^{H^3}\) から付値 \(H^3\) が出るので矛盾する。また
+\(2b<\ell(\lambda+1)\) と重みの大小より \(\ell\ge9b_{\mathrm{sm}}\) となる。
+従って \(A=2(\lambda+1)\) とおくと、半径 \(6(A+\eta+W)\) の
+\(0\) と遠い区間の両符号の始点の近傍に \(\ell\) の非零倍数はない。
+遠い区間の上端に \(\eta\) を足した値は \((\ell-3)A\) 以下である。
+この条件の下で、一つの単元ごとに所定の深さで延長を持つ定数の部分加群を取り、
+その引き戻しを全単元で交わらせる。cup 積が余境界になる部分の余長は
+\(11d_v(\mu(A+1)+n_L(W+1))\) 以下である。これは近い跳躍に \(A+1\)、
+全跳躍に \(W+1\) の長さを数え、係数埋め込みごとに加えた値である。
+指標で全双対跳躍が \([-\eta,0]\) にある場合、または主成分で
+\(\lambda<\lfloor H/5\rfloor\) のため両側が \([-A,0)\) を避ける場合は
+余長が零となる。残る主成分では \(A+1\le6\lambda\)、\(W+1\le K_0\)
+を使う。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Lifting/FewLowJumps.lean\#L945}{指定の深さを持つ定数の部分加群}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L458}{非倍数条件と小さい損失での余長}}
+\end{itemize}
+
+いずれも局所次数 \(d_v\) で割った上界は
+\[
+ 10^5\bigl(n_L m\lfloor 2\lambda/(kt)\rfloor+\mu\lambda\bigr)
+ \le 3\cdot 10^5\,n_L m\lambda/(kq_L)
+ \le n_L\operatorname{def}_\ell/q_L.
+\]
+最後の比較では \(1\le q_L\le t\) を用いた。
+\(\sum_{v\mid\ell}d_v\le 2f\) で、全成分について
+\(\sum n_L/q_L=r'+t'/t\le2r'\) だから、必要な
+双対側のずれの全体は \(r'L_\ell\) 以下になる。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineDefect.lean\#L487}{馴分岐と結晶的の場合の代入}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/LocalLoss/CrystallineCocycles.lean\#L571}{結晶的周期計算の三つの場合}}
+
+主成分の拘束行を消すコサイクルは、全ての \(N_x(g)-1\) が零になる
+惰性では零になる。Taylor--Wiles 素点とその共役では新しい惰性元で
+零であり、これらの素点で主成分は不分岐だから、
+この零条件は惰性群全体での消滅を意味する。
+従って、この加群にさらに結晶的条件を課したものは、
+\(\ell,M,Q,\bar Q\) でだけ分岐を許し \(\gamma\) で消える Selmer 群に入る。
+\(\ell^u\)-捩れ係数では、結晶的な部分の長さが \(\mathrm{sel}\) 以下、
+余長が主成分の \(\sum_v\delta_v(L)\) 以下である。
+全ての \(u\) に同じ上界があるので、可除係数を取っても上界は同じである。
+実際、一様に長さが抑えられた増大列の合併は同じ長さ以下である。
+これが \(b_{\mathrm{main}}\) の内訳である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/RibetElement.lean\#L198}{主成分の可除係数の長さ}}
+
+\paragraph{指標のコサイクルの符号と長さ}
+指標のコサイクルでは旧惰性元での消滅により、分岐は
+\(\ell\) と新素点およびその共役に限られる。
+\(A_a\) は、\(a=0\) なら \(\ell\) 上の惰性群、
+\(a>0\) なら \(\ell\) 上の分解群のうち円分指標の核に属する元の集合である。
+Bloch--Kato の Tate 捻りの計算では、
+自明指標の結晶的類は不分岐で、\(\mathcal O(-a)\) の
+\(a>0\) の結晶的類は有理係数で余境界である。
+従って指定された元では整係数のコサイクルが消え、その線形関係を
+満たす有限係数のコサイクルも消える。
+よって \(A_a\) 上での消滅を課す費用は結晶的条件の余長以下である。
+
+新素点の \(\tau_j,\phi_j\) とその共役は係数に自明に作用する。
+コサイクル則により \(c(g^{-c})=-c(g^c)\) であるから、
+\(c(\tau_j)=c(\tau_j')\) は \(c^+=c+c\circ c_E\) の
+\(\tau_j\) での消滅と同値である。ここで \(c_E(g)=g^c\) である。
+Frobenius についても同様である。
+従って先行する値の一致を \(c^+\) に移せば、
+順序付き補助素点の偶部分への条件から
+\(C(c(\tau_j)-c(\tau_j'))=0\) が従う。
+
+全ての新惰性でも消える部分は \(\ell\) の外で不分岐である。
+従って \(\gamma\) でも消え、
+\(d_\chi c(a_{\mathrm c})=0\) となる。ただしこの段落では
+\(d_\chi=\chi_a(a_{\mathrm c})-1\) とする。
+\(a=0\) なら \(A_0\) の条件も合わせて至る所で不分岐な準同型となる。
+\(a>0\) では \(c\mapsto c\circ c_E-c\) が奇部分への写像である。
+その核の \(c\) は偶である。\(j\in J_a\) で \(c^+(\phi_j)=0\)
+と仮定したので、試験点 \(u\) での値と対応する Frobenius の値の関係から
+\(4c(u)=0\) である。また \(d_\chi c(a_{\mathrm c})=0\) である。
+従って \(4d_\chi c\) は試験点と \(a_{\mathrm c}\) で消え、
+検出性により零になる。\(4d_\chi^2\mid C\) なので、この核は
+\(C\) で殺される。これで \(C\)-捩れを除いた長さは奇部分の
+長さ以下となる。以上から \(b_a\) は、結晶的条件の余長と奇部分の
+長さの和で取れる。さらに全ての新惰性、試験点、
+\(a_{\mathrm c}\) で消えるコサイクルは、不分岐性と検出性だけで零となる。
+これが \(s\) による検出性である。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/FirstOrder/TateTwistCocycles.lean\#L156}{偶部分の核と奇部分への写像}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/FirstOrder/TraceRelations.lean\#L560}{拘束行のコサイクルに対する適用}}

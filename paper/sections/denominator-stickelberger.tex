@@ -1,0 +1,80 @@
+\paragraph{分岐対の群環値 \(L\) 系}
+分岐対 \(p=(\nu,u)\) と符号 \(\delta\) を固定する。
+指数集合を \(E_Y=\{u\}\) (\(u\ge2\)) または \(\{0,1\}\) (\(u=1\)) とし、
+それぞれ \(j_0=0,1\) とする。複素数値の測度 \(F\) は次の類和で構成される。
+
+\(u\ge2\) では \(U(1)\) から \(U(2u)\) への持ち上げを使う。
+法 \(Q'\) を固定し、始域の指定主合同レベルの類代表と
+\(Q'\) 上の剰余体単元の持ち上げを組み合わせた点を \(g_a\) とする。
+法 \(Q'\) の指標 \(\tau\) による持ち上げは、その法で自明指標を用いた核の
+各 \(g_a\) での値に \(\tau(\det g_a)^{-1}\) を掛けて足したものである。
+両引数を展開すると、二乗ノルムは
+\[
+ \sum_{a,b}\tau(\det(g_b/g_a))\,K_{a,b}
+\]
+となる。\(K_{a,b}\) は終域の類代表における、捻り前の二つの核の Gram 対の類和である。
+核を一様な分母 \(D_p\) で整にし、類和の重みの分母を \(C_{\mathrm{lev}}\) で払うと、
+\(C_{\mathrm{lev}}D_p^2K_{a,b}\) は \(\mathrm NQ'\) と互いに素な素数で整となる。
+\(\mathrm NQ'\) の \(2u-1\) 乗で割ってもこの整性は保たれる。
+この係数で \(F\) を定める。\(\tau=1\) での非消滅と
+\(F(\xi)/F(1)=\mathcal L_{\nu,u}(\xi;1)\) は、階数一の鋭い内積公式を適用し、
+共通因子を消去して得る。法に \(v,\bar v\) を加えるときの変化は、
+収束域 \(u\ge2\) の Euler 積からその二因子を除く計算である。
+\leanlinks{\href{\upstream/grh/src/New/OneLift/HeckeValues/AlgebraicPartIntegrality.lean\#L280}{核の二重類和と測度の整性}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/ClassSums.lean\#L92}{収束域での Euler 因子と \(L\) 値比}}
+
+\(u=1\) では、固定分裂指標 \(\upsilon\) を掛けた
+\(\nu\tau\upsilon\) の \(U(2)\) 上の行列式周期を \(\Lambda(\tau)\) とする。
+標準レベルの類代表と法の剰余群の元を組み合わせた点 \(g\) において、
+核の捻り依存性は \(\tau(\det g)\) の因子に限られる。
+重み多項式は斉次であり、合理点を左から掛けて各 \(g\) を考えている素数の上で
+整に移せる。従って同じ斉次次数に対応する尺度 \(D'_p\) で核を一様に整にでき、
+類和の重みを払った \(C_{\mathrm{lev}}D'_p\Lambda(\tau)\) は整な係数の指標和になる。
+その二乗絶対値を \(F\) とする。係数を共役し、指標評価点を逆にして
+元の指標和と掛けるので、二乗絶対値も測度である。
+第一点での周期恒等式は、捻りに依存しない定数倍の \(|\Lambda(\xi)|^2\) を、
+指定素点と法のノルムの積に \(|L(1,(\nu\xi)^{-1})|^2\) を掛けた値に等置する。
+\(\xi=1\) と比べて
+\(F(\xi)=F(1)\mathrm NQ'\,\mathcal L_{\nu,1}(\xi;1)^2\) を得る。
+法への一素点追加は周期を \((1-X)(1-qX)\) 倍する。
+\(q=\mathrm Nv\)、\(X^{-1}\) は階数二の正規化した一様化元での指標値である。
+その共役を掛けると、指数 \(0,1\) と二つの符号の Euler 因子が現れる。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/ClassSums.lean\#L169}{第一点の周期、測度の整性、Euler 因子}}
+
+両場合に、法 \(Q'\) における測度を
+\(F(\tau)=\sum_j\alpha_j\tau(u_j)\) と書く。
+各 \(u_j\) は、ある有限イデール \(y_j\) の \(y_j/\overline{y_j}\) と
+同じ有限成分を持つ。これは各成分の Hilbert の定理 90 であり、
+重み零の指標の値は無限成分に依存しない。
+\(u_j\) の代わりに有限類群の \(\operatorname{divStar}(y_j^{-\delta})\) の類を用いて
+\[
+ \Theta_{Q'}=\sum_j\iota(\alpha_j)\,[\operatorname{divStar}(y_j^{-\delta})]
+\]
+とする。補助法で \(\ell\nmid\mathrm NQ'\) なので係数は整である。
+類上では \(\operatorname{divStar}(y)\) は \(y/\bar y\) の像を表す。
+\(\tau^{-1}\) の Galois 指標での評価は Artin 写像により
+各点で \(\iota(\tau(u_j)^\delta)\) を与えるので、
+\(\psi_\tau(\Theta_{Q'})=\iota(F(\tau^\delta))\) である。
+空集合では \(1(\Theta_\varnothing)=\iota(F(1))\ne0\) となる。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L155}{有限類群への移行と指標による評価}}
+
+\(\varrho_Y\) は \(\nu^{-\delta}\) の基底変換の \(\ell\) 進指標である。
+\(v\) を法に加える際、もとの法の指標を逆指標の \(\ell\) 進指標として実現し、
+\(v\) と \(\bar v\) では不分岐であることを使う。
+\(\varrho_Y(\phi_v)\psi_\tau(\phi_v)\) は、
+\((\nu\tau^\delta)\) の基底変換の \(v\) での一様化元における値の
+\(\delta\) 乗を \(\iota\) で移したものである。二つの符号で掛けるため、
+\(\delta\) は Euler 因子の積を変えない。この計算が系のノルム関係を与える。
+真の捻り \(\xi\) に対しては
+\(F(\xi^\delta)=F(1)(\mathrm NQ')^{j_0}\mathcal L_{\nu,u}(\xi;\delta)^{j_0+1}\) である。
+法のノルムは \(\ell\) 進単元だから、評価の絶対値の式に残る指数は \(j_0+1\) となる。
+
+\(w_0\) では \(g_0\) は剰余体単元群の生成元を持ち上げた単元の Artin 像である。
+\(\nu\) の馴指標はここで非自明であり、\(\varrho_Y(g_0)\ne1\) かつ
+\(\varrho_Y(g_0)^{\mathrm Nw_0-1}=1\) である。
+根の幾何級数の式より、位数が \(n\) を割る非自明な根 \(\zeta\) について
+\(v_\ell(\zeta-1)\le v_\ell(n)\) である。実際、\(\zeta\) の位数が \(d\) なら
+\(d=\prod_{i=1}^{d-1}(1-\zeta^i)\) で、他の因子もすべて整である。
+よって \(\#E_Y\le2\) と合わせて
+\(b_Y-v_\ell(1(\Theta_\varnothing))\le4v_\ell(\mathrm Nw_0-1)\) を得る。
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L236}{Euler 因子と \(g_0\) での基準付値}}

@@ -1,0 +1,149 @@
+\paragraph{三回の交換と捻りの消去}
+第 \ref{sec:exchange-proof} 節の交換を、無限部分が行列式の積である核に使う。
+この場合は、交換で得た実ベクトルを明示的な多項式に移せる。
+正の座標を \(\mathbb C^{p}\oplus\mathbb C^{d_+}\) に分け、
+標準フレームを \((I_p\ \ 0)\) とする。円周 \(z\in U(1)\) 上で
+最初の \(p\) 座標に \(z^{-2}\)、次の \(d_+\) 座標に \(z^{-1}\) を作用させ、
+相手側には \(z^{-1}I_{d_+}\) を作用させる。行列式指標を込みにした作用を平均すると、
+多項式の変数は最後の正方ブロックだけが残る。実際、他の変数には
+正の \(z\) 次数がつくため、円周平均はそれらを零にした値に等しい。
+次に \(U(d_+)\) で行列式指標を掛けて平均すると、
+\(P(kg)=\det(k)^aP(g)\) の形を満たす成分だけが残る。
+この多項式の空間は \(\det^a\) が張る。等式はまず標準フレームの
+ユニタリ移動について成り立ち、極化で任意の補助行の積に延びる。
+これにより、行を重ねた行列式の積と、その対応する列側の多項式に
+交換を適用できる。Fock 空間では多項式が稠密なので、
+連続な汎関数に対する平均も同じ計算で求まる。
+\leanlinks{\leansrc{New/Determinant/Exchange/ExplicitMatching}{円周平均、行列式成分への射影と極化}}
+
+\(c=\chi_M^j\vartheta\) を重さ零の指標とする。ここで \(\chi_M\) は選んだ素点での
+固定指標であり、その剰余体指標の位数は \(8m\) より大きい。
+第一の交換では階数 \(m\) の正定値空間 \(J\) と零空間を相手にし、
+有限データ \(\chi\circ\det\) と定数 \(1\) を対応させる。
+零空間上の積分は定数なので、\(J\) 上の正方核の類和を定数 \(1\) に
+できる。その係数の絶対値の二乗は、指標から独立な定数を除いて
+\(L_*(m/2;c\upsilon^{m/2})^{-1}\) である。ここで \(L_*(u;\nu')\) は
+\eqref{eq:exchange-lstar} の指標を \(\nu'\) に替えたものを表す。
+共役して \(J^{\mathrm{opp}}\) からの核として使う。
+第二の交換では \(S_0\) を符号 \((2m,m)\) の空間とし、
+\(J\perp S_0\) を中心、階数 \(3m\) の正定値空間と \(J^{\mathrm{opp}}\) を相手にする。
+左辺の核が \(J\) と \(S_0\) の核に分かれるので、先の類和を代入して
+\(J\) を消去できる。得られる関数は \(J^{\mathrm{opp}}\) 上の定数 \(1\) の
+\(S_0\) への持ち上げ \(\phi^\circ\) であり、捻りに依らない。
+係数にはさらに \(L_*(m;c^{-1}\upsilon^m)^{-1}\) が加わる。
+指標の有限部分が消えるのは、有限データの変数変換の行列式指標と
+Weil 作用の指標が互いに逆だからである。こうして
+\(\phi^\circ\) は標準有限レベルで固定され、実型の再生公式によって
+正則で急減少する。非消滅を見るために、負ブロックの行列式の
+\(2m\) 乗からなる Fock ベクトル \(v\) を取る。
+\(U(J^{\mathrm{opp}})(E_\infty)\) はコンパクトであり、
+このブロックへの作用の行列式と Weil 作用の因子が相殺するので、
+\(\langle v,\omega(u,1)v\rangle=\langle v,v\rangle\) である。
+有限部分を真空とした再生公式によれば、持ち上げが零なら
+この行列係数の実群平均も零になる。しかし \(v\ne0\) かつ平均する群の
+体積は正である。
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{正方核の類和と捻りに依らない持ち上げ}}
+
+第三の交換では
+\[
+ W'=W_j\perp(E^j)^{\mathrm{opp}}\perp E^{3m-j}\perp E^{6m+1}
+\]
+に標準正定値の \(E^{3m}\) を加えた空間を中心にする。
+大きい相手 \(V''\) は \(W'\) と同じ階数 \(r+9m+1\) の正定値空間、
+小さい相手は \(S_0\) である。従って半階数差は
+\(z_*=(r+6m+1)/2=7m/2+k/2\) になる。
+有限データには行列 \(\Lambda\) が指定するトレース指標を使う。
+これを \(\pi_M^2\) を法とする \(\mathrm{GL}_{3m}\) で平均して、
+\(E^{3m}\) の基底を右から変えても値が変わらないようにする。
+交換を \(E^{3m}\) の類について足し、第二の交換までの結果を代入すると、
+有限平均の群の位数で割ったあと、\(\phi^\circ\) と残りの核の積分
+\(F_i(g)\) が残る。添字 \(i\) は \(\Lambda\) と補助類と固定行の選択である。
+行側の二重類和は、正方ブロックを積分して列データに直せば
+\(W_j\) 上のテータ級数 \(\Xi_{\vartheta,i}\) になる。従って
+\begin{equation}\label{eq:comparison-period-factor}
+ c'_\vartheta\Xi_{\vartheta,i}=C_i F_i,\qquad
+ |c'_\vartheta|^2=C'/\mathcal H_j(\vartheta)
+\end{equation}
+である。\(C_i\) は零でない、捻りに依らない規格化定数である。
+\(\mathcal H_j\) の三因子は \(z=m/2,m,z_*\) での
+\eqref{eq:exchange-lstar} であり、順に
+\(\nu_-=\upsilon^{-m/2}\chi_M^{-j}\)、\(\nu_+=\upsilon^{-m}\chi_M^j\) と
+\(\nu_*=\mu_j^0\upsilon^{j+(t-11m-1)/2}\) を
+\(\vartheta^{-1},\vartheta,\vartheta\) 倍した指標の逆数である。
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{第三の交換と三つの臨界対}
+  \leanlinksep \leansrc{New/OneLift/ComparisonOperator/FirstFactors}{第一ブロックの類和の規格化}}
+
+\paragraph{貼り合わせと周期写像}
+\(V_j=V''\perp V^\circ\) を使う。貼り合わせる格子は二つの標準包含列の組、
+\(V''\) で \(\Lambda\) の指定する行が \(\pi_M\) で零になる格子、
+および \(\pi_M\) 倍した \(V^\circ\) の格子で生成される。
+基底行列 \(A\) に対して \(\pi_M A^{-1}\) が整である。
+持ち上げの列の合同をこの格子で書き直すと、
+\(\pi_M^2\) を法とする有限個の条件に分かれる。
+各条件では Weil 核が二つのブロックの核の積になり、Cartan 積の随伴で
+二つの値を別々に対にできる。
+そこで \(\Xi_{\vartheta,i}\) と \(V^\circ\) 上の核 \(\theta^\circ\) を使い、
+各ブロックで先に類和を取る。\(f\in F_j\)、試験形式の組 \(z=(z_i)\) に対し、
+\[
+ c'_\vartheta\langle z,G_{j,\vartheta}^*u_{j,\vartheta} f\rangle
+    =\sum_i d_i\int_{[U(W_j)]}
+      f(g)F_i(g)\langle z_i,\theta^\circ(g,\cdot)\rangle\,dg
+\]
+となる。非零の \(d_i\) はレベルの指数と \eqref{eq:comparison-period-factor} の
+規格化から来る固定定数である。この右辺で定まる写像を \(T\) とする。
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/GluedForms}{接合格子と核の積への分解}
+  \leanlinksep \leansrc{New/OneLift/ComparisonOperator/GluingMaps}{周期写像の内積表示}}
+
+\(T\) が単射であることも核の近似から示す。
+符号を補った空間に \(W_j\) を埋め、同符号の行列変数の小行列式の積を \(P\) とする。
+この Fock ベクトルの自己行列係数 \(c_P\) は \(c_P(1,1)>0\) で、
+ユニタリ性と Cauchy--Schwarz によって有界である。
+\(\phi^\circ\) のピーク \(g_1\) での値は零でない。実群上の行列式の重みを \(a(h')\) とし、
+\[
+ F_0(h)=\int_{U(S_0)(E_\infty)}
+            \phi^\circ(g_1h')\,c_P(h',h)\,a(h')\,dh'
+\]
+と置く。正則型の再生公式で \(F_0(1)=J_0\phi^\circ(g_1)c_P(1,1)\) となる。
+\(J_0\) は対応する実小行列式の二乗の積分なので正である。
+第 \ref{sec:spanning} 節と同様に、移した格子が十分離れていれば
+有限データで指定した有理列の寄与を残し、残りの項を格子点の和で抑えられる。
+ここでは \(P\) の次数が \(b^{3/2}\) 以下であり、最短ベクトルが
+\((5b^{24})^{-1/2}\) 以上の点 \(g\) でこの近似を使う。
+\(n_*=2ft^3\) とすると核の誤差は
+\[
+ b^{-20n_*}c_P(1,1)(\|h'\|_{\mathrm{op}}\|h\|_{\mathrm{op}})^{6n_*}
+\]
+以下である。この誤差を \(\phi^\circ(g_1h')a(h')\) と積分すると、
+実小行列式の積分から \(2b^{n_*}J_0|\phi^\circ(g_1)|\) の係数を得る。
+よってある線型結合 \(F=\sum_i z_i'F_i\) が
+\[
+ |F(gh)-F_0(h)|\le 2b^{-19n_*}|F_0(1)|\,\|h\|_{\mathrm{op}}^{6n_*}
+\]
+を満たす。もし \(Tf=0\) なら、全ての \(i\) について
+\(fF_i\) を \(V^\circ\) へ持ち上げたものは零である。
+その核の再生公式により、\(\bar f\) のピークでこの近似を使うと
+\[
+ |F_0(1)|\le (4b^{n_*}+1)\,2b^{-19n_*}|F_0(1)|
+\]
+を得る。実際、有限レベルと正則型の重みの差から、
+\(\bar f\) が零でなければピークでの最短ベクトルは
+\((5b^{24})^{-1/2}\) 以上であり、上の誤差を再生核に入れて積分できる。
+右辺の係数は \(b^{n_*}>10\) から \(1\) 未満であり、
+\(F_0(1)\ne0\) に反する。従って \(T\) は単射である。
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/ProductsSpan}{周期写像を分離する核の近似と再生}}
+
+こうして \(G_{j,\vartheta}^*u_{j,\vartheta}=(c'_\vartheta)^{-1}T\) である。
+\(a_j\) を比較作用素に掛けたレベル群の位数とフック数の二乗の積とすると、
+\(U_j^\circ=a_j|c'_1|^{-2}T^*T\) は正定値である。
+\eqref{eq:comparison-period-factor} により
+\[
+ u_{j,\vartheta}^*U_{j,\vartheta}u_{j,\vartheta}
+   =a_j\,|c'_\vartheta|^{-2}T^*T
+   =\frac{\mathcal H_j(\vartheta)}{\mathcal H_j(1)}\,U_j^\circ.
+\]
+擬似持ち上げに対しては、下降の核に入ることと、非原始列からの
+超平面和が分岐指標の直交性で消えることを使う。
+その形式を \(G_{j,\vartheta}^*\) で引き戻すと、
+\(T\) の内積表示に現れる \(V^\circ\) の核とのペアリングがどれも零になる。
+したがって \(U_{j,\vartheta}u_{j,\vartheta} f\) は擬似持ち上げに直交する。
+\leanlinks{\leansrc{New/OneLift/ComparisonOperator/GluingMaps}{擬似持ち上げの直交性と周期写像の単射性}}

@@ -11,7 +11,7 @@ Its set of ramified places \(Q_\xi\) is disjoint from the places above \(MN\)
 and from its conjugate. For each \(1\le j\le m\), the power \(\xi^j\) is ramified
 at every place of \(Q_\xi\). We say that \(\xi\) is admissible at \(\ell\) if the
 norm \(N_\xi\) of its modulus is coprime to \(\ell\).
-\leansrc{New/Reduction/Data/LevelAndTwists}{Twists and admissibility}.
+\leanlinks{\leansrc{New/Reduction/Data/LevelAndTwists}{Twists and admissibility}}
 
 \begin{editorialnote}
 The index \(\iota\) specifies both the prime and the field isomorphism.
@@ -39,11 +39,12 @@ the first argument, apply \(\rho_{\mathrm W}(A^{\mathsf T})\) to it and
 both resulting vectors have integral coordinates. Since
 \(\rho_{\mathrm W}(A^{\mathsf T})^{\mathsf T}G\rho_{\mathrm W}(A^{-1})=G\),
 the pairing computed in these integral coordinates equals the
-\(\iota\)-image of the original pairing. \leanref{gramForm_mem_embValRing}
+\(\iota\)-image of the original pairing.
+\leanlinks{\leanref{gramForm_mem_embValRing}}
 For the trivial twist, take as coordinates the values at class
 representatives in the standard Weyl basis. The inner product in these
 coordinates has a positive-definite matrix with rational entries.
-\leanref{Data.targetLattice}
+\leanlinks{\leanref{Data.targetLattice}}
 
 \begin{definition}
 A vector \(y\in V\) is integral at \(\iota\) if \(\Theta_\xi y\) lies in
@@ -68,7 +69,8 @@ of the lifted family \(y\), computed with these coordinates and this inner
 product, is at most \(e^c\) for every \(\sigma\), we say that the logarithm of
 the squared covolume is at most \(c\). In particular, if
 \(\|\Theta_1 y_i\|_\sigma^2\le e^B\) for every \(i,\sigma\), then Hadamard's
-inequality gives the bound \(c=nB\). \leanref{IndexLe}
+inequality gives the bound \(c=nB\).
+\leanlinks{\leanref{IndexLe}}
 
 \subsection{The product formula for heights}
 
@@ -96,7 +98,7 @@ mapped by a suitable isomorphism to any transcendental element of
 are countable, and their complement is dense, so there are transcendental
 elements of arbitrarily large absolute value. The extension of the
 isomorphism is the one used in the algebraicity criterion.
-\leanref{isAlgebraic_of_norm_complexToCp_le}
+\leanlinks{\leanref{isAlgebraic_of_norm_complexToCp_le}}
 
 Set \(Q=\operatorname{Nm}_{\mathbb Q(H)/\mathbb Q}H\) and
 \(n_H=[\mathbb Q(H):\mathbb Q]\). Then \(Q\ne0\). Writing \(Q\) as a product
@@ -113,7 +115,7 @@ Thus \(C\ge0\). In particular, if the constant family \(z\ne0\) has height
 at most \(C\) and \(|\sigma z|\le e^{C'}\) for every \(\sigma\), then
 \(C+C'\ge0\). Indeed, the constant family \(z^{-1}\) has height at most
 \(C'\) with multiplier \(H=z\), and the two families have product \(1\).
-\leanref{HeightLe.nonneg_of_one}
+\leanlinks{\leanref{HeightLe.nonneg_of_one}}
 
 \subsection{The Gram determinant of a basis}
 
@@ -192,5 +194,5 @@ and \(\sigma\), respectively. Each has squared norm at most
 
 Injectivity of \(\Theta_1\) gives \(\Delta_1(w)\ne0\). Combining its height
 and Archimedean bounds by the product formula proves \eqref{eq:gram-product}.
-\leanref{covolume_add_index_nonneg}
+\leanlinks{\leanref{covolume_add_index_nonneg}}
 \end{proof}

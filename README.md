@@ -2,13 +2,13 @@
 
 ## 日本語
 
-ディリクレ L 関数の一般化リーマン予想の形式証明を、`grh/`（元のREADMEでいう readable edition）に沿って日本語で記述しました。
+ディリクレ L 関数の一般化リーマン予想の形式証明を、`grh/`（元のREADMEでいう readable edition）に沿って日本語で記述しました。PDF に証明の概説と、青字の Lean 参照を収録しています。
 
 [論文PDF](paper/grh-ja.pdf) · [証明の概説](paper/OVERVIEW.md) · [原稿と組版手順](paper/README.md)
 
 ## English
 
-An exposition of the formal proof of Dirichlet GRH, following the readable edition in `grh/`.
+An exposition of the formal proof of Dirichlet GRH, following the readable edition in `grh/`. The PDF includes a proof overview and links to the Lean source.
 
 [Paper PDF](paper/grh-en.pdf) · [Proof overview](paper/OVERVIEW.en.md) · [Sources and build instructions](paper/README.en.md)
 

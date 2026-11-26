@@ -1,0 +1,80 @@
+\paragraph{The group-ring \(L\)-value system for a ramified pair}
+Fix a ramified pair \(p=(\nu,u)\) and a sign \(\delta\).
+The exponent set \(E_Y\) is \(\{u\}\) for \(u\ge2\) and \(\{0,1\}\) for \(u=1\).
+Put \(j_0=0,1\) in the two cases. The complex measure \(F\) is constructed from class sums.
+
+For \(u\ge2\), use the lift from \(U(1)\) to \(U(2u)\). Fix \(Q'\), and take points \(g_a\)
+obtained by combining representatives for the source classes at the assigned principal level with
+lifts of residue-field units at \(Q'\). For a character \(\tau\) of modulus \(Q'\), the lift is the
+sum of the kernel values at the \(g_a\) for the trivial character of that modulus, each multiplied
+by \(\tau(\det g_a)^{-1}\). Expanding the two arguments of the Gram pairing gives the squared norm
+\[
+ \sum_{a,b}\tau(\det(g_b/g_a))\,K_{a,b}.
+\]
+Here \(K_{a,b}\) is the class sum on the target of the Gram pairings of the two untwisted kernels
+at fixed class representatives. A uniform scale \(D_p\) makes each kernel integral.
+Clearing the orders of the class stabilizers with \(C_{\mathrm{lev}}\) makes
+\(C_{\mathrm{lev}}D_p^2 K_{a,b}\) integral at primes prime to \(\mathrm NQ'\).
+Dividing by \((\mathrm NQ')^{2u-1}\) preserves this integrality. These are the coefficients
+of \(F\). The sharp rank-one inner product formula gives nonvanishing for \(\tau=1\)
+and, by cancellation of the fixed factors, \(F(\xi)/F(1)=\mathcal L_{\nu,u}(\xi;1)\).
+When the modulus is enlarged at \(v\), the change removes the factors at \(v,\bar v\)
+from the Euler product in the convergence range \(u\ge2\).
+\leanlinks{\href{\upstream/grh/src/New/OneLift/HeckeValues/AlgebraicPartIntegrality.lean\#L280}{The double class sum and integrality of the measure}
+  \leanlinksep \href{\upstream/grh/src/New/Congruences/Selmer/ClassSums.lean\#L92}{Euler factors and the ratio in the convergence range}}
+
+For \(u=1\), let \(\Lambda(\tau)\) be the determinant period on \(U(2)\) for
+\(\nu\tau\upsilon\), where \(\upsilon\) is the fixed splitting character.
+At points \(g\) obtained from standard classes and the residue group of the level,
+twisting the kernel introduces the factor \(\tau(\det g)\).
+The weight polynomial is homogeneous, and at any prime in question a rational translate
+makes \(g\) integral. The scale \(D'_p\) for that homogeneous degree therefore makes the
+kernel integral, and \(C_{\mathrm{lev}}D'_p\Lambda(\tau)\) is a character sum with integral
+coefficients after clearing the class-sum weights.
+Take its squared absolute value for \(F\). This is again a measure, by multiplying the
+character sum with the sum obtained by conjugating the coefficients and inverting the
+evaluation points. The period identity at \(1\) equates a fixed nonzero multiple of
+\(|\Lambda(\xi)|^2\) to the product of the norms of the assigned and auxiliary places
+times \(|L(1,(\nu\xi)^{-1})|^2\) with the indicated Euler factors omitted.
+Comparison with \(\xi=1\) gives \(F(\xi)=F(1)\mathrm NQ'\,\mathcal L_{\nu,1}(\xi;1)^2\).
+Adding a place multiplies the period by \((1-X)(1-qX)\), with \(q=\mathrm Nv\) and \(X^{-1}\)
+the normalized rank-two uniformizer value. Multiplication by the complex conjugate gives the
+Euler factors with exponents \(0,1\) and both signs.
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/ClassSums.lean\#L169}{The period at \(1\), integrality of the measure and the Euler factors}}
+
+In both cases write \(F(\tau)=\sum_j\alpha_j\tau(u_j)\) at modulus \(Q'\).
+By Hilbert 90 at the finite components, each \(u_j\) has the same finite part as
+\(y_j/\bar y_j\) for a finite idele \(y_j\). Characters of weight zero ignore the infinite components.
+Use the finite class of \(\operatorname{divStar}(y_j^{-\delta})\) in place of the point \(u_j\).
+Then
+\[
+ \Theta_{Q'}=\sum_j\iota(\alpha_j)\,[\operatorname{divStar}(y_j^{-\delta})].
+\]
+Here \(\operatorname{divStar}(y)\) denotes the class of \(y/\bar y\).
+The coefficients are integral since \(Q'\) is auxiliary and \(\ell\nmid\mathrm NQ'\).
+Evaluation on the Galois character of \(\tau^{-1}\) gives
+\(\iota(\tau(u_j)^\delta)\) at each point, by the Artin map.
+Thus \(\psi_\tau(\Theta_{Q'})=\iota(F(\tau^\delta))\), and
+\(1(\Theta_\varnothing)=\iota(F(1))\ne0\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L155}{Passage to the finite class group and character evaluation}}
+
+The character \(\varrho_Y\) is the avatar of the base change of \(\nu^{-\delta}\).
+For the norm relation at \(v\), realize a character of the smaller modulus as the avatar of an
+inverse tame character, unramified at \(v,\bar v\).
+Then \(\varrho_Y(\phi_v)\psi_\tau(\phi_v)\) is the transported \(\delta\)-th power of the
+uniformizer value at \(v\) of the base change of \(\nu\tau^\delta\).
+The product with both signs makes the exponent \(\delta\) immaterial to the Euler factor.
+This gives the norm relation of the system. For a genuine twist \(\xi\),
+\(F(\xi^\delta)=F(1)(\mathrm NQ')^{j_0}\mathcal L_{\nu,u}(\xi;\delta)^{j_0+1}\).
+The modulus norm is a unit, so only \(j_0+1\) remains as the exponent of the ratio
+in the norm of the evaluated group-ring element.
+
+At \(w_0\), the element \(g_0\) is the Artin image of a unit lifting a generator of the
+residue-field unit group. The tame character of \(\nu\) is nontrivial there, so
+\(\varrho_Y(g_0)\ne1\) and \(\varrho_Y(g_0)^{\mathrm Nw_0-1}=1\).
+For a nontrivial root of unity \(\zeta\) whose order \(d\) divides \(n\),
+the identity \(d=\prod_{i=1}^{d-1}(1-\zeta^i)\) shows that
+\(v_\ell(\zeta-1)\le v_\ell(n)\), since all the other factors are integral.
+As \(\#E_Y\le2\), this proves
+\(b_Y-v_\ell(1(\Theta_\varnothing))\le4v_\ell(\mathrm Nw_0-1)\).
+\leanlinks{\href{\upstream/grh/src/New/Congruences/Selmer/LValueSystems.lean\#L236}{The Euler factors and the reference valuation at \(g_0\)}}

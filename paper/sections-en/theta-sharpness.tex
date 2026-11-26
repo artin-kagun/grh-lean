@@ -7,13 +7,91 @@ most \(F(\ell)+v_\ell(t)\). The coefficient includes \(l!\) and the integral
 vacuum normalization. The scalar \(t\ne0\) is independent of the finite place
 and all its conjugates have absolute value at most \(\exp(fmb/k)\).
 
-Let \(\alpha_{\rm W}\) be the idele in the Weil representation and
-\(\mathfrak a_0=E\cap\alpha_{\rm W}\widehat{\mathcal O}_E\) the associated lattice.
-Take vectors \(w_i\) in \(\mathfrak a_0\) with multiplicities \(c_i\ge6fb\)
-so that \(\sum_i c_i\tau(w_i)\overline{\sigma(w_i)}=M\delta_{\tau\sigma}\)
-at all embeddings \(\tau,\sigma\).
-We use the \leansrc{New/Derivatives/Vacuum/ShortVectors}{construction of the frame in the lattice},
-which also gives, at each \(\ell\), a linear form whose coefficients are all units.
+Let \(\alpha_\mathrm{W}\) be the idele in the Weil representation and
+\(\mathfrak a_0=E\cap\alpha_\mathrm{W}\widehat{\mathcal O}_E\) the associated lattice.
+We construct lattice vectors \(w_i\) with multiplicities \(c_i\ge6fb\) such that
+\begin{equation}\label{eq:attain-frame}
+ \sum_i c_i\tau(w_i)\overline{\sigma(w_i)}=M\delta_{\tau\sigma}.
+\end{equation}
+For every \(\iota\) we will also need one \(w_i\) whose conjugate coordinates are
+all units after multiplication by the period factor.
+
+Set \(\zeta=\zeta_{q_1}\), \(P_\zeta(X)=\Phi_{q_1}(X)\),
+\(D_\zeta=P_\zeta'(\zeta)\), and \(\beta=(1+\sqrt{-d})/2\).
+The defining condition of the lattice is that \(D_\zeta w\) be integral at
+the places dividing \(\beta\) and \(w\) be integral elsewhere.
+The lattice is closed under multiplication by \(\mathcal O_E\) and the
+action of \(\operatorname{Gal}(E/K)\).
+The product \(D_\zeta\alpha_\mathrm{W}\overline{\alpha_\mathrm{W}}\) is a unit at
+every finite place, so \(D_\zeta w\overline{w'}\) is integral for
+\(w,w'\in\mathfrak a_0\). The inverse different then gives
+\(\operatorname{Tr}_{E/K}(w\overline{w'})\in\mathcal O_K\).
+In particular \(\nu(w)=\sum_{\tau\in\Phi}|\tau(w)|^2\) is a nonnegative
+rational integer.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/TightFrames}{Integrality of the Hermitian pairing on the lattice}}
+
+Let \(j_0=\lceil\log_2 q_1\rceil\) and write
+\(P_\zeta(X)/(X-\zeta)=\sum_{i<f}a_iX^i\).
+Set \(u_i=\bar\beta^{j_0}a_i/D_\zeta\).
+At places dividing \(\beta\), multiplication by \(D_\zeta\) makes \(u_i\)
+integral. Elsewhere \(\beta\) is a unit and
+\(D_\zeta\mid q_1\mid(\beta\bar\beta)^{j_0}\) makes
+\(\beta^{j_0}u_i\) integral. The second divisibility holds because every prime
+dividing \(q_1\) divides \(\beta\bar\beta=(d+1)/4\) and its exponent in \(q_1\)
+is at most \(j_0\). Thus \(u_i\in\mathfrak a_0\).
+The coefficients of the Lagrange interpolation polynomials at the
+conjugates of \(\zeta\) give the trace-dual bases \(a_i/D_\zeta\) and
+\(\zeta^i\). Multiplying the two embedding matrices and using
+\(\overline{\sigma(\zeta^{-i})}=\sigma(\zeta)^i\) gives
+\[
+ \sum_{i<f}\tau(u_i)\overline{\sigma(\zeta^{-i})}
+     =\bar\beta^{j_0}\delta_{\tau\sigma}.
+\]
+\leanlinks{\leansrc{New/Derivatives/Vacuum/ShortVectors}{The trace-dual cyclotomic basis and lattice membership}}
+
+The powers \(\zeta^{-k'}\), \(0\le k'<q_1\), give a frame with bound \(q_1\).
+For distinct embeddings, the ratio of the images of \(\zeta\) is a
+nontrivial \(q_1\)-th root of unity, so the sum of its powers is zero.
+The same calculation gives frame bound \(q_1\nu(u_i)\) for the orbit
+\(\zeta^{k'}\rho(u_i)\), with \(0\le k'<q_1\) and
+\(\rho\in\operatorname{Gal}(E/K)\).
+Take the union of these families and replace each pair
+\(\zeta^{-i},u_i\) by \(\zeta^{-i}+u_i\).
+The cross terms are scalar by the trace-dual relation and its adjoint.
+The resulting frame bound is
+\[
+ h=q_1\Bigl(1+\sum_{i<f}\nu(u_i)\Bigr)+\beta^{j_0}+\bar\beta^{j_0}.
+\]
+At a place above \(p\mid q_1\), one of \(\beta,\bar\beta\) reduces to \(0\)
+and the other to \(1\). Hence \(h\equiv1\pmod p\).
+The vector \(\zeta u_{f-1}\) belongs to none of the replaced pairs and
+remains in the family.
+
+The coefficients of \(P_\zeta(X)=\Phi_{q_0}(X^{q_1/q_0})\) have absolute value
+at most \(2^{q_0}\). Division by the linear factor gives
+\(|\tau(a_i)|\le q_1\,2^{q_0}\).
+Since \(|\tau(D_\zeta)|\ge1\) and \(|\beta|\le d\), we have
+\[
+ 0<h\le q_1\Bigl(1+q_1 f(d^{j_0}q_1\,2^{q_0})^2\Bigr)+2d^{j_0}\le b .
+\]
+The first inequality uses that \(h\) is a nonnegative integer coprime to \(q_1\).
+The last uses \(j_0\le q_0+3s+10\) and the scale of the admissible data.
+With \(R=\lceil6fb\rceil\) we have \(M\ge q_1h+R(q_1+h)\).
+Choose \(0\le B<q_1\) with \(Bh\equiv M-R(q_1+h)\pmod{q_1}\).
+Then \(M-R(q_1+h)-Bh=Aq_1\) with \(A\ge0\).
+Use \(A+R\) copies of each power of \(\zeta\) and \(B+R\) copies of each
+member of the frame with bound \(h\). The resulting family satisfies
+\eqref{eq:attain-frame}.
+
+If \(\beta\) is a unit at the place induced by the conjugate embedding
+of \(\tau\), the period factor is a unit and we can take \(w_i=1\).
+This condition is independent of \(\tau\) because the embeddings in
+\(\Phi\) agree on \(K\). In the other case \(\bar\beta\) is a unit and
+\(\zeta u_{f-1}=\zeta\bar\beta^{j_0}/D_\zeta\) has the absolute value of
+\(D_\zeta^{-1}\). The period factor has the absolute value of \(D_\zeta\),
+so this choice of \(w_i\) gives a unit in every normalized coordinate.
+\leanlinks{\leansrc{New/Derivatives/Vacuum/ShortVectors}{Adjusting the frame bound and obtaining unit coefficients}}
+
 Denote by \(\mu_i\) the linear form with coefficients the conjugate embeddings
 of \(w_i\) multiplied by the period normalization, and put
 \(\Theta=\prod_i\theta(\mu_i z)^{c_i}\). Let \(H\) range over integral series in
@@ -32,7 +110,7 @@ for the theta function under integer multiplication by taking coefficientwise
 limits for \(\delta\in\mathbb Z_\ell\). Thus \(\prod_c\Theta(\delta_c z)\)
 is a unit in the ring of \(H\)'s. Its constant term is \(1\), so its inverse
 expands in the same ring.
-\leansrc{New/Derivatives/Sharpness/LeastValuation}{The unit from the six theta factors}.
+\leanlinks{\leansrc{New/Derivatives/Sharpness/LeastValuation}{The unit from the six theta factors}}
 
 At every order \(N\), there is an integral series in \(y\) with
 \(N\)-th derivative at zero of absolute value at least \(\ell^{-\gamma_\ell N}\).
@@ -47,14 +125,14 @@ At \(N=q_\ell^e\), the \(N\)-th coefficient of the scaled formal parameter
 is \(1\) in the residue field. Section~\ref{sec:upper-bound} gives the scaling
 for nonsplit primes. For a split prime the same congruence holds with
 \(q_\ell=\ell\), \(\rho_\ell=1/(\ell-1)\).
-\leansrc{Lib/CM/FormalGroup/FormalParameter}{The formal parameter congruence at every prime}.
+\leanlinks{\leansrc{Lib/CM/FormalGroup/FormalParameter}{The formal parameter congruence at every prime}}
 Undoing the scaling and multiplying by \(N!\), with
 \(v_\ell(N!)\le(N-1)/(\ell-1)\), gives \(D_N\ge\ell^{-\gamma_\ell(N-1)}\).
 Repeated first differentiation using the formal group law gives \(D_j\le1\).
 For a fixed \(n\), write \(N=n\lfloor N/n\rfloor+(N\bmod n)\) and let
 \(N=q_\ell^e\) tend to infinity. Submultiplicativity then yields
 \(D_n\ge\ell^{-\gamma_\ell n}\).
-\leansrc{New/Derivatives/Sharpness/OneCurve}{Derivative bound in one variable}.
+\leanlinks{\leansrc{New/Derivatives/Sharpness/OneCurve}{Derivative bound in one variable}}
 
 Substitute the form \(\mu_i\) with unit coefficients in a series realizing
 the bound for order \(|\nu|\). The multinomial expansion gives a coefficient
@@ -103,7 +181,7 @@ The right side is at most \(-|j|\) since
 \((\ell+1)|j|\le|\nu'+\nu''|\). Also
 \(v_\ell(\nu'!)\le|\nu'|/(\ell-1)\) and \(|\nu''|=|j|\), so
 \(v_\ell(\nu'!\nu''!)+V_6(\nu'+\nu'')\le\gamma_\ell|\nu'+\nu''|-|j|\).
-\leansrc{New/Derivatives/Sharpness/Couplings}{Differentiation at endpoints and the lowest term}.
+\leanlinks{\leansrc{New/Derivatives/Sharpness/Couplings}{Differentiation at endpoints and the lowest term}}
 
 Put \(L=\lceil6b/k\rceil\), \(l_\tau^-=\max(l_\tau-L,0)\), and
 \(B_\tau=(l_\tau^-+1)\cdots(l_\tau^-+L)\).
@@ -175,7 +253,7 @@ For the first inequality the scales in Section~\ref{sec:data} give
 \((l_0+1)a/x_1\le b/(k\ell)\). The last counts multiples of \(\ell\)
 in \(L\) consecutive integers. This proves \eqref{eq:attain-twelve}
 at every prime.
-\leansrc{New/Derivatives/Sharpness/Cases}{The factorial comparison in the three cases}.
+\leanlinks{\leansrc{New/Derivatives/Sharpness/Cases}{The factorial comparison in the three cases}}
 
 \paragraph{Transfer to a coefficient of the theta kernel}
 To extract the coefficient in \eqref{eq:attain-twelve}, the ultrametric
@@ -187,7 +265,7 @@ is a product of theta sections. The frame identity makes the twelvefold
 product the theta series of a vector \(U\) in the Heisenberg model on
 adelic \(12\times1\) matrices. Its finite values are integral, and it
 is invariant under signed translations by \(\pi_M\mathfrak a_0^{12}\).
-\leansrc{New/Derivatives/Sharpness/BoundAttained}{Transfer from theta sections to the Heisenberg model}.
+\leanlinks{\leansrc{New/Derivatives/Sharpness/BoundAttained}{Transfer from theta sections to the Heisenberg model}}
 
 Let \(I_{y_0}\) be the vacuum with indicator of the residue class \(y_0\)
 modulo \((\pi_M)\) in its finite part.
@@ -200,16 +278,16 @@ coefficients. For the linear map \(\Lambda\) taking a coefficient,
 the ultrametric inequality thus gives some \(y_0\) for which
 \(|\Lambda(I_{y_0})|_\iota\ge|M^{12f}v_0\Lambda(U)|_\iota\).
 Include the integral vacuum normalization in \(\Lambda\), and fix a nonzero
-value \(v_{\rm int}\) of the integral vacuum. By \eqref{eq:attain-twelve},
+value \(v_\mathrm{int}\) of the integral vacuum. By \eqref{eq:attain-twelve},
 with
 \[
- t=M^{12f}v_{\rm int}\prod_\tau B_\tau^2 ,
+ t=M^{12f}v_\mathrm{int}\prod_\tau B_\tau^2 ,
 \]
 some normalized coefficient of \(I_{y_0}\), multiplied by \(l!\), has
 valuation at most \(F(\ell)+v_\ell(t)\).
-Since \(B_\tau\le(2b+L)^L\) and all conjugates of \(v_{\rm int}\) have
+Since \(B_\tau\le(2b+L)^L\) and all conjugates of \(v_\mathrm{int}\) have
 modulus at most \(\exp(12C_{q_0,d}q_1^2)\), the bound
 \(12f\log M+2fL\log(2b+L)+12C_{q_0,d}q_1^2\le fmb/k\) gives the
 required bound on the conjugates of \(t\). The choice is independent
 of \(\iota\).
-\leansrc{New/Derivatives/Sharpness/BoundAttained}{Indicator coefficients and the bounds for conjugates}.
+\leanlinks{\leansrc{New/Derivatives/Sharpness/BoundAttained}{Indicator coefficients and the bounds for conjugates}}
