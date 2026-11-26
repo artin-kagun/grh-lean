@@ -1,0 +1,386 @@
+\section{ポアンカレ 写像による生成}\label{sec:spanning}
+
+\begin{theorem}[生成定理 B]\label{thm:spanning}
+目標空間 \(V\) の次元 \(h\) は正である。さらに、有限集合 \(T\subset\bar G\) で
+\[
+  |T|\dim S\leq 5h\log(1+2b^2),\qquad
+  \dim\sum_{g\in T}\mathfrak p_g S\geq (1-4/b^2)h
+\]
+を満たすものがある。
+\end{theorem}
+
+ポアンカレ 級数が張る空間を調べるには、有限レベル群による平行移動の間の内積を評価する。
+以下では、まず全始域 \(S_0\) を使い、最後に分岐条件を課す。
+\(Y_0\) 上の主合同レベルの形式全体を \(\mathcal H\) とし、\(\bar G\) のユニタリ作用を
+\(\rho\colon\bar G\to U(\mathcal H)\) とする。\(V=e_0\mathcal H\) への直交射影
+\(e_0\) はこの作用と可換である。
+\(D_X=\dim S_0>0\) と置く。絶対値による作用素の評価には、底本の双剰余類と
+Bessel 座標で \(S_0\) に入る内積を用いる。以下、作用素のノルムを Hilbert--Schmidt
+ノルム \(\|\cdot\|_{\mathrm{HS}}\) とする。
+
+\subsection{展開式と二次モーメントの局所化}
+
+無限素点で選んだ Bessel 系の形式次数の積を \(\deg_B\)、階数 \(r\) の標準エルミート
+格子の種の質量を \(\mathrm{mass}_r\) とする。ここで種の質量は、格子の同型類を
+自己同型群の位数の逆数で重み付けした和である。目標空間について
+\begin{equation}\label{eq:span-dimension-mass}
+ h\leq |\bar G|\deg_B\,\mathrm{mass}_r
+\end{equation}
+が成り立つ。実際、底本の多重度一致により \(h\) は定符号空間 \(W_m\) 上の
+対応する射影像の次元に等しい。\(W_m\) 上では主合同レベルにおける類の
+自己同型群が自明なので、類の個数は最大コンパクトレベルでの質量
+\(\mathrm{mass}_r\) にレベルの指数 \(|\bar G|\) を掛けたものになる。
+各類に付随する代数表現の次元の積は、Weyl の次元公式により \(\deg_B\) に等しい。
+したがって、射影前の空間の次元は \eqref{eq:span-dimension-mass} の右辺である。
+ここで用いる多重度一致と定符号での次元公式は、それぞれ
+\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{\texttt{targetDim\_\allowbreak eq\_\allowbreak finrank\_\allowbreak goodForms\_\allowbreak spaceW}} と
+\leansrc{New/Spanning/SecondMoment/SpanningTheorem}{\texttt{finrank\_\allowbreak principalForms\_\allowbreak spaceW}} による。
+
+\(J\) を主合同レベル、\(\nu\) を類によらない実ユニポテント格子の余体積とする。
+ポアンカレ 写像を底本の座標で \((\operatorname{vol}(J)\nu)^{-1/2}\) 倍したものを
+\(P\colon S_0\to\mathcal H\) と書き、
+\[
+ P_s=P^*\rho(s)P \qquad(s\in\bar G)
+\]
+と置く。\(c,c'\) を \(U(X_0)\) 上の始域の類、\(h_c,h_{c'}\) をその代表の \(U(Y_0)\) での像、
+\(W\) を Bessel 関数、\(\beta_c,\beta_{c'}\) を類の切断関数とする。
+\(P_s\) の \((c,c')\) ブロックは、次の行列の成分ごとの複素共役になる。
+\begin{equation}\label{eq:span-unfolded}
+ \frac1\nu
+ \sum_{\substack{\gamma\in U(Y_0)(F)\\
+       h_c^{-1}\gamma h_{c'}\in K,\
+       \operatorname{red}(h_c^{-1}\gamma h_{c'})=s}}
+ \int
+    \beta_c(y)\beta_{c'}(\gamma^{-1}y)\,
+    W(y)W(\gamma^{-1}y)^*\,dy .
+\end{equation}
+ここで \(F\) は \(E\) の最大総実部分体、\(K\) は有限アデールでの格子安定化群であり、
+積分は無限素点の積にわたる。これは ポアンカレ 級数の内積を展開した
+\leansrc{New/Spanning/SecondMoment/SpanningTheorem}{\texttt{hasAmplitudeBlocks\_\allowbreak scaledPoincare}}
+である。
+
+有理点の Bessel 部分群を \(R_0\)、その整点の還元像を \(\bar R_0\subset\bar G\) とする。
+\eqref{eq:span-unfolded} を \(\gamma\in R_0\) に限ると、\(\bar R_0\) 上の
+ユニタリ表現 \(r_\psi\) を \(\bar G\) に零で延長した作用素が得られる。
+\[
+  E_s=P_s-r_\psi(s),\qquad
+  D_{\mathrm{id}}=|\bar R_0|D_X,\qquad
+  D_{\mathrm{main}}=\frac{D_X^2}{\deg_B\,\mathrm{mass}_r}.
+\]
+\(\bar G=G_0\times G_1\) と書く。\(G_i\) は \(p_i\) の上で選んだ素点での局所因子の積で、
+\(\bar G\) の部分群としても扱う。\(R_0\) 上の項の計算では
+\begin{equation}\label{eq:span-equivariance}
+ P_t=P_1r_\psi(t),\qquad E_{ts}=r_\psi(t)E_s
+ \quad(t\in\bar R_0,\ s\in\bar G)
+\end{equation}
+を得る。これは \(r_\psi(t)\) が始域で作用し、展開式の項を移し替えることによる。
+\leansrc{New/Spanning/Unfolding/Moments}{\texttt{besselTranslate\_\allowbreak mul\_\allowbreak left} と
+\texttt{HasAmplitudeBlocks} の同変性}を参照。
+
+広い範囲の二次モーメントを評価する際には、\eqref{eq:span-unfolded} の項を、
+Bessel フレームの等方部分 \(I\) に付随する対応ごとにまとめる。
+項 \(\gamma\) の対応は、\(I\) と \(\gamma I\) の両方に直交する \(y\) に対し、
+\(y\) と \(\gamma^{-1}y\) の \(I^\perp/I\) での像を組にした部分空間である。
+以下、\(\mathcal L(\Omega)\) を、二つの類、還元 \(s\in\Omega\)、この対応を固定して
+切断した Bessel 関数の振幅を合計し、その二乗ノルムを足した値を \(\nu^2\) で割った
+ものとする。この和には、フレーム積の行列式 \(\Delta\) とその一つ手前の首座小行列式
+\(\Delta'\) に対し
+\(\operatorname{termDisc}(\gamma)
+   =\Delta\overline{\Delta}-N^2\Delta'\overline{\Delta'}\ne0\)
+の項を入れる。これは底本の
+\leansrc{New/Spanning/RemainingTerms/Size}{\texttt{linkSecondMoment}} の正規化である。
+
+以下では \(E\) に原始 \(5040\) 乗根と底本が選ぶ Weil 表現の分裂指標があることを用いる。
+許容データから作る Bessel 系とレベルに対し、底本は三つの評価を与える。
+この Bessel 系が評価の大きさとレベルに関する仮定を満たすことは
+\leansrc{New/Spanning/Unfolding/FillingAdmissible}{\texttt{filling} の \texttt{IsAdmissible} インスタンス}
+で確認される。
+
+\begin{enumerate}
+\item
+\(\Omega\) が非自明な \(1\) の冪根による \(\bar R_0\) の剰余類と交わらなければ、
+\begin{equation}\label{eq:span-cutoff}
+ \Bigl(\sum_{s\in\Omega}\|E_s\|_{\mathrm{HS}}^2\Bigr)^{1/2}
+ \leq \mathcal L(\Omega)^{1/2}+b^{-15}D_{\mathrm{id}}^{1/2}.
+\end{equation}
+Bessel 部分群の外の項を整理する際、整ユニポテント群の左右作用で安定な和のうち、
+指標の一致条件を満たさない部分は指標の直交性で消える。残った項の振幅の二乗和を展開すると、
+判別式がともに非零で同じ対応に属する組は \(\mathcal L(\Omega)\) に入り、残りの組の寄与は
+\(b^{-kf}D_{\mathrm{id}}\le b^{-40}D_{\mathrm{id}}\) 以下である。
+切断前の Bessel 関数への復帰は二乗和の平方根で
+\(b^{-20}D_{\mathrm{id}}^{1/2}\) を加える。
+双方を合わせると \eqref{eq:span-cutoff} になる。
+\leansrc{New/Spanning/Unfolding/SquareExpansion}{\texttt{sqrt\_\allowbreak secondMoment\_\allowbreak compl\_\allowbreak besselS\_\allowbreak le}}
+と \leansrc{New/Spanning/RemainingTerms/Sum}{\texttt{secondMoment\_\allowbreak remainingTerms\_\allowbreak le}}
+を用いる。
+\item
+選んだ素点とその共役のうち、還元したフレームの張る空間が自己の \(s\) による像と
+非零の共通ベクトルをもつところのノルムの積を \(\operatorname{Meet}(s)\) とする。
+正整数 \(z\) が \(\Omega\) 上で \(\operatorname{Meet}(s)\) 以下なら
+\begin{equation}\label{eq:span-intersect}
+ \mathcal L(\Omega)\leq
+       \left(\frac{b^{2f}}z\right)^k D_{\mathrm{main}} .
+\end{equation}
+同じ対応をもつ項の組に対する、共通部分の格子を用いた計数である。
+用いる宣言は
+\leansrc{New/Spanning/RemainingTerms/Sum}{共通部分のノルムによる二次モーメント評価}
+に依拠する。
+\item
+\(p_0\) の上の選んだ素点の集合 \(A\) で、各 \(w\in A\) について
+フレームの張る空間の非零ベクトルを \(w\) またはその共役で指定し、
+\(s\) がこれらを固定するとする。そのような \(s\) の部分群を \(\Gamma_A\) と書く。
+\(p_0\) の上の選んだ素点のうち少なくとも一つで、フレーム積の正の位数の真の首座
+小行列式がすべて非零になる \(s\) を開な還元と呼ぶ。
+\(\Omega_A\subset\Gamma_A\) を開な還元の集合とすると
+\begin{equation}\label{eq:span-open-input}
+ \mathcal L(\Omega_A)\leq (1+b^{-4})b^{-6k|A|}D_{\mathrm{main}}.
+\end{equation}
+この場合、還元で小行列式が非零なので有理点でも非零となり、該当する項は
+Bessel 二重剰余類の大細胞に属する。底本では、Siegel の評価で類ごとの振幅の
+二乗和を局所密度の正の核で上から抑え、各素点の篩と Poisson 和公式でその核を評価する。
+固定条件一つにつき \(b^{-6k}\) を得る計算を含め、
+\leansrc{New/Spanning/MainTerm/EnergyEstimate}{\texttt{linkSecondMoment\_\allowbreak isOpenElement\_\allowbreak le}} を用いる。
+\end{enumerate}
+
+\(\bar R_0G_i\) の元は、もう一方の素数の上で \(\bar R_0\) の元に一致する。
+従って、その素数の上の \(f\) 個の素点とその共役のすべてでフレームが交わり、
+\(z\) を当該素数の \(2f\) 乗に取れる。また、この集合は
+非自明な \(1\) の冪根による \(\bar R_0\) の剰余類と交わらない。
+各 \(p_j^2\geq M/b\) とデータの評価
+\(D_{\mathrm{main}}\le (M/b^6)^{kf}D_{\mathrm{id}}\) を使うと、
+\eqref{eq:span-intersect} の右辺は \(b^{-3kf}D_{\mathrm{id}}\) 以下である。
+許容条件 \(kf\geq 40\) と \(b\ge 1000\) の下で \eqref{eq:span-cutoff} は
+\begin{equation}\label{eq:span-bessel-near}
+ \sum_{s\in\bar R_0G_i}\|E_s\|_{\mathrm{HS}}^2
+ \leq b^{-12}D_{\mathrm{id}}
+\end{equation}
+を与える。この導出と冪根による剰余類の除外は
+\leansrc{New/Spanning/Unfolding/SquareExpansion}{\texttt{secondMoment\_\allowbreak compl\_\allowbreak besselS\_\allowbreak le}}
+で行われる。
+
+\subsection{射影の前後の二次モーメント}
+
+\eqref{eq:span-equivariance} と \eqref{eq:span-bessel-near} を
+\(\bar R_0\) に制限すると、\(\|E_t\|_{\mathrm{HS}}=\|P^*P-1\|_{\mathrm{HS}}\)
+であることから
+\begin{equation}\label{eq:span-gram-isometry}
+ \|P^*P-1\|_{\mathrm{HS}}^2\leq b^{-12}D_X.
+\end{equation}
+部分空間 \(U\subset S_0\) への直交射影を \(Q_U\) とすれば、
+\[
+ \|P Q_U\|_{\mathrm{HS}}^2
+ = \dim U+\operatorname{tr}\bigl(Q_U(P^*P-1)\bigr)
+ \geq \dim U-b^{-6}D_X.
+\]
+目標への射影による損失を評価するため、\(e_0=e_{p_0}e_{p_1}\) と分解し、
+\(a_i(t)\) を \(\mathbf C[G_i]\) の補射影 \(1-e_{p_i}\) の係数とする。
+底本は、有限一般線形群の多項式で指定した型の数とその次数を使って
+\[
+ \sum_{t\in G_i}|a_i(t)|^2=a_i(1)\leq \tfrac12 b^{-8}
+\]
+を得る。等号は群環の自己共役な冪等元を二乗し、単位元の係数を比較して従う。
+不等号には
+\leansrc{New/Spanning/SecondMoment/SpanningTheorem}{\texttt{bad\_\allowbreak types\_\allowbreak rare}} を用いる。
+
+\((1-e_{p_i})\) は直交射影だから
+\[
+ \|(1-e_{p_i})P\|_{\mathrm{HS}}^2
+  =\operatorname{tr}\sum_{t\in G_i} a_i(t)\bigl(r_\psi(t)+E_t\bigr).
+\]
+Bessel 項のトレースは \(D_X\) 倍の還元ユニポテント指標の値である。
+\(a_i\) が類関数なのでこの指標を共役平均 \(\psi_U^\natural\) で置き換えられる。
+\(\sum_{s\in\bar G}|\psi_U^\natural(s)|^2\le2\) という底本の評価と
+Cauchy--Schwarz の不等式から、その寄与の絶対値は \(b^{-4}D_X\) 以下となる。
+用いた指標の跡公式と平均の評価は
+\leansrc{New/Spanning/Unfolding/Moments}{\texttt{trace\_\allowbreak besselTranslate\_\allowbreak eq\_\allowbreak mul\_\allowbreak reducedChar} と
+\texttt{sum\_\allowbreak norm\_\allowbreak reducedCharMean\_\allowbreak sq\_\allowbreak le}} である。
+
+残る項には、関数 \(s\mapsto E_s\) を \(\bar R_0G_i\) の外で零として、
+\(f(s)\mapsto\sum_t a_i(t)f(st)\) を作用させる。この作用は
+\(\ell^2(\bar G)\) 上の直交射影なので、二乗和を増やさない。
+\(s\in\bar R_0\) での値は \eqref{eq:span-equivariance} により
+\(r_\psi(s)\sum_t a_i(t)E_t\) である。従って \eqref{eq:span-bessel-near} を
+\(|\bar R_0|\) で割ると
+\(\|\sum_t a_i(t)E_t\|_{\mathrm{HS}}^2\le b^{-12}D_X\) となる。
+そのトレースの絶対値は \(b^{-6}D_X\le b^{-4}D_X\) である。
+これを二つの素数で適用し、直交射影の分解
+\(1-e_{p_0}e_{p_1}=(1-e_{p_0})+e_{p_0}(1-e_{p_1})\) を用いると
+\(\|(1-e_0)P\|_{\mathrm{HS}}^2\le4b^{-4}D_X\) を得る。よって
+\begin{equation}\label{eq:span-near-isometry}
+ \|e_0P Q_U\|_{\mathrm{HS}}^2\geq \dim U-5b^{-4}D_X
+       \qquad(U\subset S_0).
+\end{equation}
+以上は \leansrc{New/Spanning/Unfolding/Moments}{\texttt{isNearIsometry\_\allowbreak piTensorElem\_\allowbreak comp}}
+の議論である。\eqref{eq:span-near-isometry} で \(U=S_0\) とすれば \(h>0\) を得る。
+
+次に、全群上の二次モーメントを求める。\(\beta(s)=\|P_s\|_{\mathrm{HS}}^2\) とし、
+\(X_t=\rho(t)PP^*\rho(t)^*\) と置く。跡の巡回性により
+\[
+ \langle X_t,X_u\rangle_{\mathrm{HS}}=\beta(t^{-1}u).
+\]
+したがって \(\beta\) は正定値型であり、\(\beta(s)\leq\beta(1)\) である。
+\eqref{eq:span-gram-isometry} から
+\(\beta(1)\le(1+b^{-6})^2D_X\le2D_X\) も得る。
+
+ベクトルの指定も動かし、有限個の選択の中で
+\[
+ b^{6k|A|}\sum_{s\in\Gamma_A}\beta(s)
+\]
+が最大となる \(A\) とベクトルを取る。\(Q=\sum_{s\in\Gamma_A}\beta(s)\) とする。
+まず \(A\) が \(p_0\) の上の選んだ素点全体である場合を考える。
+\(C=b^{-6kf}D_{\mathrm{main}}\) と置く。整アデールのスカラー倍による
+\(\bar R_0\) の剰余類の合併には
+高々 \(M^f|\bar R_0|\) 元しかない。そこでの寄与は \(2 M^fD_{\mathrm{id}}\) 以下で、
+底本のパラメータ比較 \(8 M^f D_{\mathrm{id}}\le b^{-6kf}D_{\mathrm{main}}\)
+により \(C/2\) 以下である。残りの元では \(z=p_0^f\) を取れ、
+\eqref{eq:span-intersect} の右辺は、\(p_0\ge b^{10}\) により \(C/8\) 以下になる。
+\eqref{eq:span-cutoff} の誤差項の二乗も \(C/8\) 以下なので、
+平方根の和の二乗は \(C/2\) 以下である。よって \(Q\le C\) を得る。
+\leansrc{New/Spanning/Unfolding/MomentBounds}{\texttt{secondMoment\_\allowbreak fixer\_\allowbreak univ\_\allowbreak le}} を参照。
+
+次に \(w\notin A\) を一つ取れるとする。最大性により、\(w\) またはその共役で
+指定した任意の非零フレームベクトルを固定する元に限ると、\(\beta\) の和は
+\(b^{-6k}Q\) 以下になる。これを使って \(w\) での退化小行列式を数える。
+剰余体の位数を \(p_0\)、その上での \(\Gamma_A\) の行列表現を \(\pi\) とする。
+第 \(\ell\) 首座小行列式を
+\(\det Z_s\)、\(Z_s=A_1^{\mathsf T}\pi(s)A_0\) と書く。
+\(A_0\) の列はフレームの最初の \(\ell\) 本、\(A_1\) の列はそれに対応する線形形式である。
+非自明な加法指標 \(\psi\) の直交性により
+\[
+ p_0 \sum_{\det Z_s=0}\beta(s)
+ \le \sum_{s\in\Gamma_A}\beta(s)\#\{y:y^{\mathsf T}Z_s=0\}
+ = \sum_{y\in\mathbf F_{p_0}^\ell}\frac{1}{p_0^\ell}
+    \sum_{v\in\mathbf F_{p_0}^\ell}\ \sum_{s\in\Gamma_A}
+        \psi(y^{\mathsf T}Z_s v)\beta(s).
+\]
+\(y=0\) と \(v=0\) に由来する寄与の和は \(2Q\) 以下である。
+\(y,v\ne0\) の和には、点指示関数の正規直交基底と加法指標の正規直交基底を用いる。
+具体的には、\(\pi(s)A_0v\) に対応する点指示関数と、
+\(\pi(s)^{-\mathsf T}A_1y\) に対応する正規化指標の関数を、それぞれ \(X_s\) と
+テンソル積にして \(s\) で足す。各和のノルムの二乗は
+\(|\Gamma_A|\) と対応する固定部分群上の \(\beta\) の和との積である。
+双方の内積を展開すると上式の内側の指標和が
+\(|\Gamma_A|p_0^{-r/2}\) 倍されて現れる。従って Cauchy--Schwarz の不等式により
+指標和の実部は \(p_0^{r/2}b^{-6k}Q\) 以下である。
+以上と \(p_0^{\ell+r/2}\le b^{6k}\) から
+\[
+  \sum_{\det Z_s=0}\beta(s)
+  \le p_0^{-1}\bigl(2+p_0^{\ell+r/2}b^{-6k}\bigr)Q
+  \le 3b^{-10}Q .
+\]
+ここで共役素点を許したのは、\(\pi\) の反傾表現で線形形式を固定する条件も得るためである。
+フレームの長さは \(b\) 以下なので、小行列式の和を取って
+開な還元の補集合の寄与は \(b^{-4}Q\) 以下となる。
+\leansrc{New/Spanning/SecondMoment/PositiveType}{\texttt{card\_\allowbreak mul\_\allowbreak sum\_\allowbreak det\_\allowbreak eq\_\allowbreak zero\_\allowbreak le}} と
+\leansrc{New/Spanning/Unfolding/MomentBounds}{\texttt{sum\_\allowbreak not\_\allowbreak isOpenElement\_\allowbreak le}} を参照。
+
+開な還元にはスカラー倍の剰余類が含まれず、\(r_\psi(s)=0\) である。
+\eqref{eq:span-cutoff} と \eqref{eq:span-open-input} を適用し、
+\(D_{\mathrm{id}}\le b^{-6k|A|}D_{\mathrm{main}}\) と
+\(b^{-15}\le\tfrac12 b^{-4}\) を使うと、開な還元の寄与の平方根は
+\((1+b^{-4})(b^{-6k|A|}D_{\mathrm{main}})^{1/2}\) 以下になる。
+両方の寄与を合わせると
+\[
+ Q \leq (1+4b^{-4})b^{-6k|A|}D_{\mathrm{main}}+b^{-4}Q,
+ \qquad
+ Q\leq (1+9b^{-4})b^{-6k|A|}D_{\mathrm{main}}.
+\]
+最後の不等式には \((1-u)(1+9u)\ge1+4u\) を \(u=b^{-4}\) に適用した。
+全素点を取った場合にもこの評価が成り立つ。
+最大性を \(A=\varnothing\) に対して使えば、結論は
+\begin{equation}\label{eq:span-second-moment}
+ \sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2
+    \leq (1+9b^{-4})D_{\mathrm{main}}
+\end{equation}
+となる。これが \leansrc{New/Spanning/Unfolding/MomentBounds}{\texttt{sum\_\allowbreak secondMoment\_\allowbreak le}}
+の最大化の議論である。
+
+\subsection{二次モーメントから階数へ}
+
+\(\epsilon=(8b^2)^{-1}\) と置く。\eqref{eq:span-dimension-mass} と
+\eqref{eq:span-second-moment} から \(\deg_B\,\mathrm{mass}_r\) が消え、
+\(9b^{-4}\le\epsilon\) より
+\begin{equation}\label{eq:span-moment-comparison}
+ \frac{h}{|\bar G|}\sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2
+    \leq (1+\epsilon)D_X^2 .
+\end{equation}
+任意の部分空間 \(U\subset S_0\) について、
+\eqref{eq:span-near-isometry} も \(\|e_0P Q_U\|_{\mathrm{HS}}^2\geq\dim U-\epsilon D_X\)
+と書ける。
+
+\(F_1\subset V\) を部分空間とし、\(\alpha=\dim F_1/h\) とする。
+\(Q_{F_1}\) を \(\mathcal H\) での \(F_1\) への直交射影とすると、二次モーメントから
+\begin{align*}
+ \frac1{|\bar G|}\sum_{s\in\bar G}\|Q_{F_1}\rho(s)P\|_{\mathrm{HS}}^2
+ &\leq
+ \left(\dim F_1\cdot
+        \frac1{|\bar G|}\sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2\right)^{1/2}\\
+ &\leq \sqrt{\alpha(1+\epsilon)}D_X
+ \leq \frac{1+\alpha+\epsilon}{2}D_X.
+\end{align*}
+第1行は \(Q_{F_1}\) と \(\sum_s X_s\) の Hilbert--Schmidt 内積への
+Cauchy--Schwarz の不等式である。実際、
+\(\|\sum_s X_s\|_{\mathrm{HS}}^2=|\bar G|\sum_s\beta(s)\) となる。
+よってある \(s\) で、この平均以下の値を取る。
+\(B_s=e_0\rho(s)P\colon S_0\to V\) と置き、
+\(U=B_s^{-1}(F_1)\) とする。\(U\) 上では \(B_s=Q_{F_1}\rho(s)P\) であり、
+\(\rho(s)\) はユニタリで \(e_0\) と可換なので
+\[
+ \dim U-\epsilon D_X
+ \ \leq\ \|e_0P Q_U\|_{\mathrm{HS}}^2
+ \ \leq\ \|Q_{F_1}\rho(s)P\|_{\mathrm{HS}}^2 .
+\]
+従って \(\dim U\le(1+\alpha+3\epsilon)D_X/2\) となる。
+\leansrc{New/Spanning/SecondMoment/FewTranslates}{\texttt{isSpread\_\allowbreak of\_\allowbreak second\_\allowbreak moment}}
+に対応する。
+
+商 \(V/F_1\) への写像の階数は \(D_X-\dim U\) である。
+したがって \(\operatorname{codim}F_1>16\epsilon h\) の間は
+\(\operatorname{im}B_s\) を加えるたびに、欠けている次元の少なくとも
+\(2D_X/(5h)\) の割合が埋まる。実際、
+\[
+ \frac{1-\alpha-3\epsilon}{2}D_X
+ \ge \frac25(1-\alpha)D_X
+ \qquad (1-\alpha>16\epsilon).
+\]
+この割合を \(\lambda=2D_X/(5h)>0\) とする。
+\(F_1=0\) での増加は高々 \(h\) なので \(\lambda\le1\) である。
+欠ける割合が \(16\epsilon\) を超える限り上の選択を続ければ、
+各段階で余次元が \(1-\lambda\le e^{-\lambda}\) 倍以下となる。
+よって \(\lceil\lambda^{-1}\log(1/(16\epsilon))\rceil\) 段階以内に
+余次元は \(16\epsilon h=2h/b^2\) 以下になる。使った集合 \(T\) は
+\[
+  |T|D_X\le\tfrac52\bigl(1+\log(1/(16\epsilon))\bigr)h
+               \le 5h\log(1+2b^2)
+\]
+を満たす。これが
+\leansrc{New/Spanning/SecondMoment/FewTranslates}{\texttt{IsSpread.exists\_\allowbreak few\_\allowbreak le\_\allowbreak finrank\_\allowbreak iSup\_\allowbreak range}}
+の選び方である。
+
+\subsection{分岐条件を課した始域}
+
+\(N=\pi_N\overline{\pi_N}\) とし、\(w\mid\pi_N\) ごとに
+\(z_w\) を底本が取る有限アデールのスカラー作用とする。
+\(S\) は、どの \(w\) についても \(\sum_{j=0}^{N-2}z_w^j\) によって零になる部分空間である。
+\(z_w^{N-1}=1\) なので、この平均作用素の階数は \(z_w\) の固定空間の次元に等しい。
+\(z_w\) を加えて生成したレベルの指数は \(N-1\) 以上であり、両レベルで類の
+自己同型群が自明である。そのため固定空間の次元は \(D_X/(N-1)\) 以下となる。
+\(w\mid\pi_N\) は \(f\) 個なので
+\[
+ \operatorname{codim}_{S_0} S\le \frac{f}{N-1}D_X\le b^{-8}D_X.
+\]
+このレベルの指数の計算は
+\leansrc{New/UpperBound/Size/ShortColumns}{\texttt{finrank\_\allowbreak ker\_\allowbreak one\_\allowbreak sub\_\allowbreak scalingGenerator\_\allowbreak le}}
+に従う。
+
+各写像を \(S\) に制限すると、\(S\) の補空間の像一つ分ずつ次元を失う。
+正規化のスカラーはいずれも非零なので
+\(\operatorname{im}(B_s|_S)=\mathfrak p_sS\) であり、失う次元は高々
+\[
+   |T|\operatorname{codim}_{S_0}S
+   \le 5b^{-8}\log(1+2b^2)h\le 2h/b^2.
+\]
+先に得た \(2h/b^2\) と合わせた余次元が \(4h/b^2\) 以下であること、
+および \(\dim S\le D_X\) が生成定理 B の二つの不等式を与える。
+底本での結論は
+\leansrc{New/Reduction/ShortAndEnough}{\texttt{enough\_\allowbreak forms}} である。

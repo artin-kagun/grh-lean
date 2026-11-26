@@ -1,0 +1,523 @@
+\section{捻りによる行列式の評価}
+\label{sec:determinant-estimates}
+
+連鎖をひねると、無限素点の評価で使ったグラム行列式を
+有限素点ごとに別の行列式と比較できる。必要な捻りは、
+テータ持ち上げへの射影の分母と、比較に現れる Hecke \(L\) 値を
+同時に制御する。以下では、その二つの条件から各段の行列式の比を求め、
+連鎖全体に移す。
+
+\subsection{捻りの選択と射影の分母}
+
+\(r=\dim_E Y_0\)、\(t=5r\) とし、各段の比較に用いる空間を
+\(W_j,V_j\) と書く。エルミート空間としての階数はそれぞれ \(r,r+t\) である。
+\(W_j\) の主レベルの形式に \(e_0\) を作用させて得られる空間を \(F_j\) とする。
+レベル外の分裂素点の Hecke 固有系ごとに、\(W_j\) と \(Y_0\) で
+この射影後の重複度が一致する。特に \(\dim_{\mathbb C} F_j=h\) である。
+\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{重複度の一致}
+
+捻り \(\xi\) は、無限素点で重さ \(0\) の \(U(1)\) の保型指標で、
+その分岐素点の集合を \(Q_\xi\) とする。
+考える \(\xi\) はすべて \(1\le j\le m\) に対し、\(\xi^j\) が
+\(Q_\xi\) の各素点で分岐する。したがって、どの \(\xi^j\) でも
+レベルに現れる数 \(N_\xi=\prod_{w\in Q_\xi} \mathrm Nw\) は同じである。
+\(N_\xi\) が \(\ell\) と互いに素なとき、\(\xi\) を \(\ell\) で許容する。
+
+重さ \(-c(\tau)\) の指標 \(\nu\) と、\(1\le u\le t\) かつ
+\(u\le c(\tau)\le4b\) を満たす整数 \(u\) の組を考える。
+\(\nu\) の剰余体指標（tame part）が指定レベル素点の外で自明なとき、この組を臨界対と呼ぶ。
+指定レベル素点のすべてで剰余体指標が非自明なら、
+この対を分岐対と呼ぶ。以下で用いる比は
+\[
+ \mathcal L_{\nu,u}(\vartheta;\varepsilon)
+ =
+ \frac{|L(u,(\nu\vartheta^\varepsilon)^{-1})|}
+      {|L(u,\nu^{-1})|},
+ \qquad \varepsilon\in\{1,-1\}.
+\]
+ここで \(L\) は \(E\) 上の Hecke \(L\) 関数で、指標は
+\(z\mapsto z/\bar z\) を通じて \(U(1)\) から引き戻す。
+分子、分母ともに指定されたレベル素点とその共役の Euler 因子を除き、
+分子ではさらに \(Q_\vartheta\) とその共役の因子を除く。
+原典の主対とは、\(j\) に対し \(m<u\le r\) で、剰余体指標が
+第 \(j\) 段の指標に一致し、無限素点の負の重さが
+第 \(j\) 段の指標の負の重さ \(w_j(\tau)\) に対して
+\(w_j(\tau)+r-t\le c(\tau)\le w_j(\tau)\) を満たす臨界対である。
+主対に付随する階数 \(2u\) の空間を、階数
+\(12,4,4,2u-20\) の四つのブロックに分ける。
+\leansrc{New/Determinant/Twist/FitTwists}{臨界対と主対}
+
+\(u_{j,\vartheta}\) を \(F_j\) 上のテータ持ち上げ、\(P_{j,\vartheta}\) を
+その像 \(I_{j,\vartheta}\) への直交射影とする。
+レベル外の分裂素点 \(w\) で、第 \(j\) 段の持ち上げに対応する値に
+Hecke 多項式作用素を特殊化する。形式化でいう擬似持ち上げは、
+この作用素の核と \(e_0\) の像と \(I_{j,\vartheta}^{\perp}\) の交わりである。
+擬似持ち上げに直交するという条件は、すべてのこのような \(w\) に課す。
+\leansrc{New/OneLift/TestedForms}{擬似持ち上げの定義}
+
+\[
+ B_{\mathrm{den}}=\frac{E_3}{mk}
+\]
+と置く。原典の正則な捻りの存在定理は、各 \(\iota\) に対して
+\(\ell\) で許容される \(\xi_\iota\) を選び、次の条件を同時に満たす。
+以下 \(|v|_\iota=|\iota(v)|_\ell\) と書く。
+\begin{enumerate}
+\item すべての分岐対と \(1\le j\le m\) および \(\varepsilon=\pm1\) に対して、
+  \(\bigl(\mathcal L_{\nu,u}(\xi_\iota^j;\varepsilon)^{-1}\bigr)_\iota\)
+  の高さは \(x_1\) 以下である。
+\item 各 \(j\) について、素数 \(\ell\) で添字付けられた
+  \(\beta_\ell\ge 0\) があり、任意の有限な素数集合 \(T\) で
+  \(\sum_{\ell\in T}\beta_\ell\le B_{\mathrm{den}}\) である。
+  \(\vartheta=\xi_\iota^j\) とすると、ある \(I_{j,\vartheta}\) の自己準同型
+  \(\Lambda\) が存在し、
+  \[
+    |\det\Lambda|_\iota\ge\exp(-hr\beta_\ell).
+  \]
+  このとき \(\Lambda P_{j,\vartheta}\) は、\(\iota\) で整で、
+  擬似持ち上げに直交する形式を \(\iota\) で整な形式に移す。
+\item 同じ \(\beta_\ell\) で、各主対の階数 \(1\) からの持ち上げが生成する
+  直線への射影も制御される。具体的には、その直線への射影を \(P\) とし、
+  \(\ell\) 上のすべての場所で整で、階数 \(1\) の下降に対する
+  擬似持ち上げに直交する試験形式 \(\Xi,\Xi'\) をとると、
+  \[
+       |\langle P\Xi,P\Xi'\rangle|_\iota\le\exp(\beta_\ell).
+  \]
+\end{enumerate}
+
+この存在定理の入力は、\(W_m\) の \(e_0\) 成分に現れる有限個の
+Hecke 固有系に付随する階数 \(r\) のガロア表現と、各主対に
+付随する階数 \(1\) の表現である。付随表現のうち、捻り付き持ち上げの
+跡から指標の列を取り除いた主成分に捻り定理を適用する。
+この定理は一つの反円分指標の最初の \(m\) 個の冪について、可除係数の
+Selmer 群の長さと、分岐対の \(L\) 値比の付値を同時に抑える。
+\(C_{\mathrm{lev}}\) を原典のレベル群の位数の積、
+\(C_1\) を指定主レベルでの \(U(1)\) の類の個数とすると、
+分岐対の逆比に対する \(\log|\cdot|_\iota\) の上界は
+\[
+  \big((4f+3)r\,v_\ell(C_{\mathrm{lev}})+2^{-\ell}\big)\log\ell
+\]
+である。Ribet の方法による射影の分母の評価は、Selmer 群の長さと
+局所・レベルの補正を、原典の \(c_\ell=\texttt{clearingBound}\) に
+まとめる。階数 \(1\) の射影内積ではさらに \(v_\ell(C_1)\log\ell\)
+を見込み、共通の \(\beta_\ell=(c_\ell+v_\ell(C_1))\log\ell\) を使う。
+二つの素数和の上界が、それぞれ \(x_1\) と \(B_{\mathrm{den}}\) である。
+ここでは、捻り定理と Selmer 群の長さから射影分母への評価を
+次の原典の形で用いる。
+\leansrc{New/Congruences/Selmer/TwistingTheorem}{Selmer 群に対する捻り定理}、
+\leansrc{New/Congruences/FirstOrder/DenominatorBound}{射影分母の評価}、
+\leansrc{New/Congruences/FitTwistsExist}{正則な族の存在}
+
+\subsection{主対の Hecke 値とテータ微分}
+
+固定した主対 \(p=(\nu,u)\) に付随する階数 \(1\) から階数 \(2u\) への
+正規化した持ち上げを \(\phi_\vartheta\) と書く。
+その \(L\) 値比は、指標の持ち上げに対するノルム公式を二つの
+捻りで比較して
+\begin{equation}
+ \mathcal L_p(\vartheta;1)^{-1}
+   =N_\vartheta^{2u-1}\frac{\|\phi_1\|^2}{\|\phi_\vartheta\|^2}
+ \label{eq:main-pair-norm}
+\end{equation}
+となる。これに対し有限素点の評価を直接行うため、
+\(\phi_\vartheta\) を含む直線への射影を、二つの試験形式に適用する。
+
+先に \(\|\phi_1\|^2\) を定数族とみなした高さを評価する。
+同じ階数で微分次数が \(0\) の臨界対に付随する持ち上げを
+\(\phi^{(0)}_1\) とする。そのノルムに整数 \(n_L\) を掛けると
+すべての有限素点で整になる。
+\(\|\phi_1\|^2\) の高さの定義に用いる共通の因子を
+\(n_L\|\phi^{(0)}_1\|^2/\|\phi_1\|^2\) とすれば、
+有限素点からの損失を \(0\) にできる。無限素点では両ノルムの
+対数に共通な定数が消える。主対の微分次数は
+\(c(\tau)-u\ge\kappa(\tau)\) であり、微分次数 \(0\) の項との差は
+\(\sum_\tau s_\infty(\kappa(\tau))\) 以上になる。
+ノルム公式の誤差と \(\log n_L\) は \(B_{\mathrm{den}}\) 以内なので
+\begin{equation}
+ \operatorname{ht}\big((\|\phi_1\|^2)_\iota\big)
+  \le B_{\mathrm{den}}-\sum_{\tau} s_\infty(\kappa(\tau)).
+ \label{eq:untwisted-rankone-height}
+\end{equation}
+ここでノルムの評価はまず二次体 \(K\) を固定する共役について
+行われる。原典の共役の絶対値に関する補題により、
+すべての \(\mathbb C\) の自己同型について同じ評価が成立する。
+\leansrc{New/OneLift/HeckeValues/AlgebraicPartSize}{無捻りノルムの高さ}
+
+有限素点側で必要な微分の付値を
+\[
+ F(\ell)=\frac12\sum_{\tau\in\Phi}\sum_{e\ge 1}
+     (1-\chi_K(\ell^e))
+     \left(\frac{\kappa(\tau)}{\ell^e}-\kappa(-\ell^e\tau)\right)_+
+\]
+と書く。素数冪ごとに項をまとめると、任意の有限な素数集合 \(T\) に対して
+\begin{equation}
+ 2\sum_{\ell\in T}F(\ell)\log\ell
+   \le \sum_{\tau\in\Phi}s_{\mathrm{fin}}(\kappa(\tau),\tau).
+ \label{eq:local-prime-total-lower}
+\end{equation}
+\leansrc{New/UpperBound/Size/Estimates}{局所素数和の合計}
+
+原典の試験形式の構成では、主対による階数 \(2u\) の持ち上げを
+上の四つのブロックに展開する。階数 \(12\) のブロックで、
+付値の評価に達するテータ級数の係数を一つ選ぶ。この係数により、
+付値が \(F(\ell)\) と一定因子の付値の和以下となる項を得る。
+階数 \(4\) の第二ブロックには、分岐対 \(q_2\) の微分次数 \(0\) の
+持ち上げを使い、その \(L\) 値比を \(\rho_\vartheta=\mathcal L_{q_2}(\vartheta;1)\)
+とする。残る二つのブロックには \(U(1)\) の類群の指標を二つに
+分けて割り当てる。類の代表元を平行移動して自明な類の代表を単位元に取る。
+指標で重みを付けた正規化類和をすべての指標について足すと、
+指標の直交性により選んだ係数に戻る。非アルキメデス性により、
+少なくとも一つの類和の \(\iota\)-絶対値がこの係数の絶対値以上になる。
+さらに指標の分解を選び、残る二つのブロックの代数的 \(L\) 値の積の
+\(\iota\)-絶対値が、その全選択にわたる幾何平均以上になるようにする。各ブロックの積で試験形式を作り、
+持ち上げとの内積を類和に展開すると、以上の量が積として現れる。
+
+この局所構成の使用形は次の通りである。捻りと有限素点に依存しない
+\(c_0\ne0\) があって、すべての \(\sigma\) で
+\(|\sigma(c_0)|\le\exp(fmb/k+3x^{34})\le\exp(B_{\mathrm{den}})\) である。
+任意の \(\iota\) とその素数で許容される \(\vartheta\) に対し、
+ある試験形式 \(\Xi\) について
+\begin{equation}
+ |\langle\Xi,\phi_\vartheta\rangle|_\iota
+    \ge |c_0\rho_\vartheta|_\iota\,\ell^{-F(\ell)} .
+ \label{eq:test-pairing-lower}
+\end{equation}
+ここで \(c_0\) はテータ係数に掛ける一定因子、第二ブロックの
+無捻りの代数的 \(L\) 値、残る二ブロックの幾何平均の積である。
+試験形式が \(\ell\) 上のすべての場所で整であることと
+擬似持ち上げへの直交性も、同じ構成で得られる。
+\leansrc{New/Derivatives/Sharpness/BoundAttained}{テータ係数の付値}、
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{試験形式の構成}
+
+\(\vartheta=\xi_\iota^j\) とする。\(\iota\) と
+\(\iota\circ\mathrm{conj}\) でそれぞれ \eqref{eq:test-pairing-lower} の
+試験形式 \(\Xi,\Xi'\) を選ぶ。 \(\rho_\vartheta\) は実数なので、
+\(A_\iota=\langle\Xi,\phi_\vartheta\rangle\langle\phi_\vartheta,\Xi'\rangle\)
+と置けば
+\[
+ \left| c_0\bar c_0\,\frac{\rho_\vartheta^2}{A_\iota}\right|_\iota
+      \le \ell^{2 F(\ell)}.
+\]
+両内積は \eqref{eq:test-pairing-lower} により零でない。
+\(P\) を \(\mathbb C\phi_\vartheta\) への直交射影とすると
+\(\langle P\Xi,P\Xi'\rangle=A_\iota/\|\phi_\vartheta\|^2\) である。
+したがって \eqref{eq:main-pair-norm} の右辺は \(N_\vartheta^{2u-1}\) と
+次の四因子の積になる。
+\[
+ \|\phi_1\|^2,\qquad
+ \langle P\Xi,P\Xi'\rangle,\qquad
+ \rho_\vartheta^{-2},\qquad
+ \frac{\rho_\vartheta^2}{A_\iota}.
+\]
+順に \eqref{eq:untwisted-rankone-height}、
+射影内積の評価、分岐対の逆比の評価、
+および共通因子 \(c_0\bar c_0\) と \eqref{eq:local-prime-total-lower} により、
+高さの上界は
+\[
+ \begin{gathered}
+ B_{\mathrm{den}}-\sum_\tau s_\infty(\kappa(\tau)),\qquad
+ B_{\mathrm{den}},\qquad 2x_1,\\
+ 2B_{\mathrm{den}}+\sum_\tau s_{\mathrm{fin}}(\kappa(\tau),\tau)
+ \end{gathered}
+\]
+となる。さらに \(N_\vartheta^{2u-1}\) は \(\iota\) で単元である。
+\(x_1\le B_{\mathrm{den}}\) を使って足し合わせると
+\begin{equation}
+ \operatorname{ht}\bigl(
+   (\mathcal L_p(\xi_\iota^j;1)^{-1})_\iota\bigr)
+ \le 6 B_{\mathrm{den}}-A_0.
+ \label{eq:main-pair-height-lower}
+\end{equation}
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{主対の逆比の高さ}
+
+\subsection{一段の行列式の比較}
+
+\(Z_j(\vartheta)=\det(u_{j,\vartheta}^*u_{j,\vartheta})\) とする。
+比較作用素 \(U_{j,\vartheta}\) は、補助空間上の形式の組を
+\(V_j\) 上の形式へ貼り合わせる写像 \(G_{j,\vartheta}\) とその随伴を
+合成したものに、レベルの整数とフック数の二乗を掛けて得られる。
+三回のテータ積分の交換をこの写像に適用すると、
+\(F_j\) 上に \(\vartheta\) によらない正定値作用素 \(U_j^\circ\) があり、
+\begin{equation}
+ u_{j,\vartheta}^*U_{j,\vartheta}u_{j,\vartheta}
+      =\rho_j(\vartheta)U_j^\circ,\qquad
+ \rho_j(\vartheta)=
+ \frac{\mathcal H_j(\vartheta)}{\mathcal H_j(1)}
+ \label{eq:comparison-operator-lower}
+\end{equation}
+となる。\(\mathcal H_j\) は、交換に現れる三つの Hecke 値の積
+（原典の \(\texttt{heckeValueProd}\)）である。
+\(U_j^\circ\) は無捻りで得られる周期写像のグラム作用素の正の定数倍である。
+その周期写像は単射なので、\(\det U_j^\circ\) は零でない。
+
+\(\rho_j(\vartheta)\ne0\) である。この構成の局所的な性質は二つある。まず \(U_{j,\vartheta}\) は
+テータ持ち上げを擬似持ち上げに直交する形式に移す。次に、
+\(N_\vartheta\) と互いに素な素数では整性を保つ。
+整な試験ベクトルのタイトフレームで \(G_{j,\vartheta}G_{j,\vartheta}^*\)
+を階数一の作用素の和に展開し、各内積の分母をレベルの整数で払うことで
+後者を得る。同じフレームに対する Cauchy--Schwarz の評価から、
+無捻りの作用素は、各共役でノルムを
+\(\exp(3fmb(\log b)^2)\) 倍以下にする。
+\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{三回の交換}、
+\leansrc{New/OneLift/LiftVolumeHeight}{比較作用素の構成と評価}
+
+\(B_{j,\vartheta}\) を \(P_{j,\vartheta} U_{j,\vartheta}\) の
+\(I_{j,\vartheta}\) への制限とし、\(D_j(\vartheta)=\det B_{j,\vartheta}\)
+と置く。\(u_{j,\vartheta}\) はその像への同型であり、
+\(u_{j,\vartheta}^*\) は \(I_{j,\vartheta}^\perp\) 上で零である。
+したがって
+\[
+ u_{j,\vartheta}^* U_{j,\vartheta} u_{j,\vartheta}
+  =(u_{j,\vartheta}^*u_{j,\vartheta})
+    (u_{j,\vartheta}^{-1} B_{j,\vartheta}u_{j,\vartheta}).
+\]
+行列式を取り、\eqref{eq:comparison-operator-lower} を使うと
+\[
+ Z_j(\vartheta)D_j(\vartheta)
+      =\det(U_j^\circ)\rho_j(\vartheta)^h,\qquad
+ \frac{Z_j(1)}{Z_j(\vartheta)}
+   =\frac{D_j(\vartheta)}{D_j(1)}\,\rho_j(\vartheta)^{-h}.
+\]
+
+有限素点では、\(\vartheta=\xi_\iota^j\) に対し
+\(\Lambda B_{j,\vartheta}\) が \(I_{j,\vartheta}\) の整な形式を保つ。
+各固有ベクトルを、整で、さらに絶対値が \(1\) より大きい数で
+掛けると整性を失うように規格化すれば、固有値は
+\(\iota\)-絶対値が \(1\) 以下である。したがって
+\[
+ |D_j(\xi_\iota^j)|_\iota
+   \le|\det\Lambda|_\iota^{-1}
+   \le\exp(hr\beta_\ell).
+\]
+無限素点では、\(I_{j,1}\) に \(U_{j,1}\) を作用させた像は
+擬似持ち上げに直交するので、そこに射影を適用しても、各共役で
+ノルムは増えない。この射影の評価には、
+Hecke 作用素の特殊化の共役に対する随伴性を使う。
+\(C_{\mathrm{arch}}=fmb(\log b)^2\) として固有値を掛け合わせると
+\(|\sigma(D_j(1))|\le\exp(3h C_{\mathrm{arch}})\) を得る。
+\(D_j(1)\) を高さの共通の因子として使うと
+\[
+ \operatorname{ht}\bigl((D_j(\xi_\iota^j)/D_j(1))_\iota\bigr)
+     \le h(3C_{\mathrm{arch}}+r B_{\mathrm{den}}).
+\]
+\leansrc{New/OneLift/LiftVolumeHeight}{圧縮の行列式の有限素点・無限素点評価}
+
+三つの交換で現れる \(\rho_j(\vartheta)\) は \(N_\vartheta\) の整数冪を除くと、
+\(k/2\) 個の主対の比と \(5m\) 個の分岐対の比の積の二乗である。
+主対の点は \(7m/2<u\le 7m/2+k/2\) であり、
+残る点の個数は \(7m/2+m+m/2=5m\) である。主対と最初の \(7m/2\) 個では
+\(\varepsilon=1\)、平坦対のうち \(m\) 個で \(\varepsilon=1\)、\(m/2\) 個で \(\varepsilon=-1\) を使う。
+\eqref{eq:main-pair-height-lower} と分岐対の評価を足すと
+\[
+ \operatorname{ht}\bigl((\rho_j(\xi_\iota^j)^{-1})_\iota\bigr)
+  \le k(6B_{\mathrm{den}}-A_0)+10mx_1 .
+\]
+許容データの数値条件
+\(3C_{\mathrm{arch}}+(r+6k)B_{\mathrm{den}}+10mx_1
+        \le k B_{\mathrm{den}}\log b\)
+により、各段について
+\begin{equation}
+ \operatorname{ht}\bigl((Z_j(1)/Z_j(\xi_\iota^j))_\iota\bigr)
+   \le h\big(E_4/m-k A_0\big)
+ \label{eq:single-relative-height}
+\end{equation}
+が従う。
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Hecke 値の因数分解}、
+\leansrc{New/OneLift/LiftVolumeHeight}{一段の高さの評価}
+
+\subsection{連鎖の行列式}
+
+連鎖のノルムを計算するため、最初の空間に高さ \(t\) のブロックを
+付け足していく持ち上げを三角形に配置する。節点 \((i,n)\) は、
+共通の部分と第 \(i+1\) から第 \(i+n\) のブロックを持つ。
+右からブロックを加える写像に対し、左からブロックを除く
+転置持ち上げを比較する。両者を入れ替える二つの経路の比較が
+交換恒等式を使う箇所である。
+
+有限環上での対応は具体的には次のようになる。列と行の添字を
+二組に分けたとき、可逆行列 \(g\) の先頭の列と \(g^{-1}\) の
+末尾の行からなる二種類の行列に、重み \(\Psi\) と \(\Phi\) を置く。
+それぞれの台をそのような行列に限り、
+\(\Phi(\operatorname{invLastRows}g)=\chi(\det g)\Psi(\operatorname{firstCols}g)\) とする。
+二つの経路で、底本の指定した重さ・分岐・符号・階数を満たす核を \(K,K'\) とする。
+交換により
+\(\sum\Psi K'=(\kappa_0/c)\sum\Phi K\) を得る。
+\(|c|^2\) は剰余体の位数の冪と部分 \(L\) 値の絶対値の二乗の積で決まり、
+\(\kappa_0\) は捻りと独立である。
+この等式を点データと有限 Fourier 変換を施したデータに
+適用することで、三角形に必要な二つの交換則を得る。
+\leansrc{New/Determinant/Exchange/TheoremForPartners}{テータ積分の交換}、
+\leansrc{New/Determinant/Exchange/OneSquare}{一つの正方形での交換}、
+\leansrc{New/Determinant/Chain/ChainNorms}{三角形の交換則と単射性}
+
+\(c_Q(\xi)\) を
+\[
+ N_\xi^{rt}\prod_{w\in Q_\xi}\prod_{t<s\le t+r}(1-(\mathrm Nw)^{-s})
+\]
+と書く。\(R_j(\xi^j)\) を \(V\) 上の第 \(j\) 段の Rallis の公式の
+Hecke 作用素とする。単独の持ち上げに Rallis の公式を適用し、
+\(W_j\) と \(Y_0\) の Hecke 固有系の重複度をそろえると、
+捻りに依存しない \(A_j\ne0\) に対して
+\[
+ Z_j(\xi^j)=(A_jc_Q(\xi))^h\det R_j(\xi^j)
+\]
+を得る。連鎖については三角形の交換則でブロックを一つずつ移す。
+具体的には、行 \(i\) の第 \(n\) 段までの合成を \(X_{i,n}\) と書き、
+各矢印にその始域の有限レベルでの一般線型群の位数 \(w_n\) を掛ける。
+\(a_{i,n}\) を右へ進む矢印、\(d_{i,n}\) を次の行へ下る矢印とする。
+\(j_i\) は主レベルの空間を第 \(i\) 行の始点に等長に埋め込む写像である。
+\(x'\) を \(j_{i+1}x'=d_{i,0}a_{i,0}j_i x\) により定める。
+正方形ごとの交換則を合成し、随伴に関する交換則を使うと、次の漸化式を得る。
+\begin{multline*}
+  \langle X_{i,n+1}j_i x,X_{i,n+1}j_i y\rangle\\
+   = \lambda_{i,n}\,\frac{w_0w_1w_n}{w_{n+1}}\,
+     \langle X_{i+1,n}j_{i+1}x',X_{i+1,n}j_{i+1}y\rangle.
+\end{multline*}
+\(\lambda_{i,n}\) の絶対値は、捻りに依存しない係数と \(N_\xi\) の半整数冪を除き、
+\(\prod_{i+1<j\le i+n+1}J_{i+1,j}(\xi)\) である。
+右辺の \(x'\) との内積を、行 \(i\) の最初の矢印のグラム作用素による
+\(x\) との内積に戻す。その際に \(w_0\) が一つ消える。
+空の合成から帰納すると、行 \(i\) のグラム作用素は、
+各行の最初のグラム作用素の積と \(w_0w_1^n/w_n\) に比例し、
+係数に現れる対は \(i<r'<j\le m\) である。
+\leansrc{New/Determinant/Chain/TriangleNorms}{重み付き連鎖の帰納公式}
+
+行 \(0\) からの連鎖では、各行の最初のグラム作用素に Rallis の公式を適用する。
+最終レベルの指数をブロック上三角行列の数で書き直すと、
+\(w_0w_1^m/w_m\) が相殺される。この規格化の下で、
+原典のグラム作用素の公式は
+\[
+ \Theta_\xi^*\Theta_\xi
+       = c(\xi)c_Q(\xi)^m \prod_{j=1}^m R_j(\xi^j)
+\]
+であり、
+\[
+ |c(\xi)| = C\,N_\xi^{e/2}\prod_{1\le i<j\le m} J_{ij}(\xi),
+ \qquad C>0,\quad e\in\mathbb Z.
+\]
+ここで、第 \(j\) 段の無捻りの指標を \(\eta_j=\mu_j^0\) と書くと
+\[
+ J_{ij}(\xi)=
+   \prod_{u=1}^{t}\mathcal L_{\eta_j/\eta_i,u}(\xi^{j-i};1).
+\]
+各対 \(i<j\) はブロックを移す際に現れ、\(\eta_j/\eta_i\) の
+指定レベルでの剰余体指標は固定指標の \(j-i\) 乗である。
+\(1\le j-i\le m\) のため、この積に現れる対は分岐対である。
+
+連鎖の単射性には、三角形の対応する重み付き連鎖の単射性を使う。
+正方形の交換則から、長さ \(n+1\) の重み付き連鎖で
+\(j_i v\) が零に送られるなら、次の行の長さ \(n\) の重み付き連鎖で
+\(d_{i,0}a_{i,0}j_i v\) が零に送られる。
+後者は \(j_{i+1}\) の像にあるので、長さに関する帰納と
+\(d_{i,0}a_{i,0}\) の \(j_i\) の像上での単射性により \(v=0\) となる。
+規格化の違いによるレベル指数と Weyl 加群の次元は正なので、
+この単射性は \(\Theta_\xi\) にも移る。同様に単独の持ち上げも単射であり、
+すべてのグラム行列式は正である。行列式の等式の両辺で絶対値を取り、
+正のグラム行列式はそのままにすると、
+\(c_Q(\xi)\) と Hecke 作用素の行列式を消去できる。
+\begin{equation}
+ \frac{Z(1)}{Z(\xi)}
+ =
+ \left(N_\xi^{e/2}\prod_{1\le i<j\le m}J_{ij}(\xi)\right)^{-h}
+       \prod_{j=1}^m\frac{Z_j(1)}{Z_j(\xi^j)} .
+ \label{eq:chain-relative-factorization}
+\end{equation}
+\(N_\xi^{e/2}\) は \(\ell\nmid N_\xi\) のとき \(\iota\) で絶対値 \(1\) である。
+左の括弧の逆数の高さは、含まれる分岐対の個数から \(m^2t x_1\) 以下で、
+これは \(b\) 以下である。
+\eqref{eq:single-relative-height} を \(m\) 段について合計すれば
+\begin{equation}
+ \operatorname{ht}\bigl((Z(1)/Z(\xi_\iota))_\iota\bigr)
+       \le h(b+E_4-H_0).
+ \label{eq:chain-relative-height}
+\end{equation}
+\leansrc{New/Determinant/Chain/NormOfChain}{連鎖のグラム作用素と行列式の分解}
+
+\subsection{基底を補う形式}
+
+基底の補充には、射影 \(e_0\) を作用させる前の主レベルの空間を
+深いレベルの形式から生成する。原典では二つの格子状の図式を作り、
+その外縁に沿う最初の経路の周期を、
+\(m^2\) 個の正方形で一回ずつ経路を曲げて、最後の経路の周期に移す。
+各曲がりでは有限行列データの和に交換恒等式を適用する。
+対角に沿う曲がりでは階数 \(1\) の核との関係を取り出してから同じ比較を行う。
+この操作で生じる非零のスカラー \(c_{\mathrm{path}}(\xi)\) は、
+\begin{equation}
+ \left|\frac{c_{\mathrm{path}}(\xi)}{c_{\mathrm{path}}(1)}\right|
+   =N_\xi^{e'/2}\prod_{0\le i,j<m} T_{ij}(\xi),\qquad
+ T_{ij}(\xi)=
+    \prod_{u=1}^{t}\mathcal L_{\eta_{i+1}\eta_{j+1},u}(\xi^{j+1};1)
+ \label{eq:turn-ratio-lower}
+\end{equation}
+を満たす。剰余体指標の指数 \(i+j+2\) は \(2\) 以上 \(2m\) 以下であり、
+指定レベルで非自明である。したがって各 \(T_{ij}\) に現れる対も
+分岐対である。
+\leansrc{New/Determinant/AuxiliaryForms/Turns}{各曲がりの \(L\) 値比}、
+\leansrc{New/Determinant/AuxiliaryForms/DiagonalTurns}{全経路の比較}
+
+最後の経路の周期は、有限行列の組 \(S\) について、
+二つの半経路の持ち上げの内積を係数 \(\Psi(S)\) で足した和である。
+規格化を固定すると、\(\ell\nmid N_\xi\) のとき各辺の核の分母と
+類和の分母は、\(\xi\) に依存しない整数を掛けて払える。
+無捻りでは、核の Weyl ノルムの評価と有限和の項数から
+周期の各共役の上界が得られる。
+元の持ち上げの値を復元するには、双対のデルタ形式と対にする。
+双対のペアリング行列 \(D\) には、整数行列 \(C\) と正のフック数 \(H\) が
+あって \(CD=HI\) となる。すべての整数ベクトルとのペアリングが
+\(H\) の整倍なら、\(C\) の各行でテストし \(H\) を約して、元の値の
+各座標が整であることがわかる。無限素点でも、ペアリングの上界を
+双対ノルムで割ることで Weyl ノルムの上界に移せる。
+
+以上により、次の定量的な形で主レベルの空間が生成される。
+深いレベルの空間から主レベルへの全射 \(s\) と定数 \(c_{\mathrm{sc}}\ne 0\)
+があり、深いレベルの空間はすべての有限素点で整で、
+各共役の値の二乗 Weyl ノルムが \(\exp(x^{99}b^2)\) 以下の形式 \(\psi\)
+で張られる。その像 \(c_{\mathrm{sc}}s(\psi)\) の持ち上げは
+\(c_{\mathrm{path}}(\xi)/c_{\mathrm{path}}(1)\) を掛ければ許容素点で整である。
+無捻りでの像の値の二乗 Weyl ノルムは、
+深いレベルでの上界に \(\exp(2x^{201}b^2)\) を掛けたもの以下で、
+したがって \(\exp(x^{202}b^2)\) 以下である。
+これらの数値を伴う局所・無限素点での核の評価を
+\leansrc{New/Determinant/AuxiliaryForms/SpanningForms}{最後の経路の周期と補助形式の構成}
+から取る。
+
+この生成系をレベル群の位数倍の射影で \(V\) に送る。
+射影後も整性を保ち、無捻りの二乗ノルムに加わる対数は
+\(x^{99}\) 以下である。\(x^{99}+x^{202}b^2\le 2x_1^2b^2\) より、
+得られる補助形式 \(z\) は
+\[
+ \|\Theta_1 z\|_\sigma^2\le \exp(2x_1^2b^2)
+ \qquad(\sigma\in\operatorname{Aut}(\mathbb C))
+\]
+を満たす。また \(\gamma(\xi)=c_{\mathrm{path}}(\xi)/c_{\mathrm{path}}(1)\) と置けば、
+\(\gamma(\xi)\Theta_\xi z\) はすべての許容素点で整である。
+\eqref{eq:turn-ratio-lower} と分岐対の評価により
+\begin{equation}
+ \operatorname{ht}\bigl((|\gamma(\xi_\iota)|^{-2})_\iota\bigr)
+ \le 2m^2t x_1\le b .
+ \label{eq:auxiliary-factor-height}
+\end{equation}
+\leansrc{New/Determinant/Twist/LongForms}{補助形式を目標空間に射影した後の評価}
+
+\begin{proposition}\label{prop:determinant-inputs}
+すべての許容データについて、\(\Theta_\xi\) は各捻り \(\xi\) に対し
+単射である。また各 \(\iota\) に対しその素数で許容される捻り
+\(\xi_\iota\) と、捻りごとの定数 \(\gamma(\xi)\ne0\) が存在し、
+\(\gamma(1)=1\) かつ
+\[
+ \operatorname{ht}\bigl((Z(1)/Z(\xi_\iota))_\iota\bigr)
+       \le h(b+E_4-H_0),\qquad
+ \operatorname{ht}\bigl((|\gamma(\xi_\iota)|^{-2})_\iota\bigr)\le b.
+\]
+\(V\) は、すべての許容素点で \(\gamma(\xi)\Theta_\xi z\) が整で、
+すべての \(\sigma\) に対して
+\(\|\Theta_1 z\|_\sigma^2\le\exp(2x_1^2b^2)\) である補助形式 \(z\)
+で生成される。
+\end{proposition}
+\begin{proof}
+単射性は三角形の持ち上げの比較による。正則な族を選ぶと
+一段ごとの評価 \eqref{eq:single-relative-height} が得られ、
+連鎖の分解 \eqref{eq:chain-relative-factorization} に代入して
+\eqref{eq:chain-relative-height} を得る。補助形式は深いレベルからの
+全射と \(e_0\) による射影で生成され、その同じ \(\gamma(\xi)\) について
+\eqref{eq:auxiliary-factor-height} が成り立つ。
+\end{proof}

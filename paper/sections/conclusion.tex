@@ -1,0 +1,156 @@
+\section{比較不等式と主定理の証明}\label{sec:conclusion}
+
+\begin{proposition}[対数二乗余体積と指数の下界]\label{prop:lower-bound}
+\(y=(y_1,\ldots,y_n)\) は \(V\) の一次独立な族で
+\(n\ge(1-4/b^2)h\) とする。
+その対数二乗余体積が \(c\) 以下、対数指数が \(\delta\) 以下ならば
+\begin{equation}\label{eq:lower-bound}
+  h(H_0-3E_4)\le c+2\delta .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+命題 \ref{prop:determinant-inputs} の補助形式から
+\(n'=h-n\) 個を選び、\(y\) を基底に延長する。
+同じ命題の \(\xi_\iota,\gamma(\xi)\) を用いて、命題 \ref{prop:gram-product}
+に \(B_{\mathrm{Ar}}=2x_1^2b^2\)、\(B_{\mathrm{fin}}=b\)、
+\(B_Z=h(b+E_4-H_0)\) を代入する。すると
+\[
+ 0\le c+2\delta+n'(2x_1^2b^2+b)+h(b+E_4-H_0).
+\]
+補う個数は \(n'\le4h/b^2\) であり、
+許容データの \(4(2x_1^2+b^{-1})\le b\) を使うと
+\(n'(2x_1^2b^2+b)\le hb\) となる。
+\(b\le E_4\) を用いて \(hb\) の二つの寄与を吸収すれば
+\eqref{eq:lower-bound} を得る。
+\leansrc{New/Determinant/Twist/LongForms}{\texttt{integral\_forms\_long}}。
+\end{proof}
+
+\begin{theorem}[比較不等式]\label{thm:main-inequality}
+任意の許容データについて
+\begin{equation}\label{eq:main-ineq}
+ m\mathcal R\le fa(\log b)^5 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+定理 \ref{thm:spanning} の平行移動の集合 \(T\) を取る。
+定理 \ref{thm:upper-bound} (1) の短い整形式が \(S\) を張るので、
+それらの像 \(\mathfrak p_g\phi\), \(g\in T\) から、
+\(\sum_{g\in T}\mathfrak p_g S\) の基底 \(y_1,\ldots,y_n\) を選べる。
+すると \((1-4/b^2)h\le n\le h\)、かつ \(h>0\) である。
+各像に対する二乗ノルムの上界と Hadamard の不等式より、
+対数二乗余体積の上界として
+\[
+   c=n(H_0-m\mathcal R+E_4)
+\]
+が使える。また定理 \ref{thm:upper-bound} (2) より対数指数の上界として
+\[
+  \delta=2|T|(\dim S)E_3\le 10h\log(1+2b^2)E_3
+\]
+が使える。ここで左辺を使った指数評価を右辺へ大きくしてもよい。
+命題 \ref{prop:lower-bound} から
+\[
+ h(H_0-3E_4)
+  \le n(H_0-m\mathcal R+E_4)+20h\log(1+2b^2)E_3.
+\]
+\(H_0+E_4\ge0\) なので \(n(H_0+E_4)\le h(H_0+E_4)\) である。
+右辺にこの評価を入れると \(hH_0\) が消え、
+\[
+ n\,m\mathcal R
+   \le h\bigl(4E_4+20\log(1+2b^2)E_3\bigr)
+\]
+が残る。許容データでは \(4/b^2\le1/2\) であり \(n\ge h/2>0\) である。
+右辺の括弧の二倍は \(fa(\log b)^5\) 以下なので、\(n\) で割ればよい。
+\leansrc{New/Reduction/MainInequality}{\texttt{star\_inequality}}。
+\end{proof}
+
+\begin{corollary}[素数和の片側評価]\label{cor:prime-bound}
+\(q_0\) を \(18480\) の正の倍数、\(d\equiv q_0/2-1\pmod{q_0}\) を素数とする。
+任意の \(\varepsilon>0\) について、十分大きな実数 \(y\) に対し
+\begin{equation}\label{eq:prime-bound}
+ R_{q_0}(y)\le y^{-1/2+\varepsilon}
+\end{equation}
+が成り立つ。
+\end{corollary}
+
+\begin{proof}
+\eqref{eq:main-ineq} を \eqref{eq:total-remainder} に代入し、
+\(ma|\Phi_b|\) で割る。\(f=\varphi(q_0)|\Phi_a|\) および
+\(|\Phi_a|/|\Phi_b|\le\log b\) を使うと、
+\begin{equation}\label{eq:remainder-intermediate}
+ R_{q_0}(x)
+ \le\frac{\varphi(q_0)(\log b)^6}{m}
+       +|R_{q_0}(x_1)|+\log b\,|R_1(x_1)|.
+\end{equation}
+\(0<\eta<1/100\)、\(7\eta\le\varepsilon\) とし、
+命題 \ref{prop:admissible-data} を \(\eta\) で適用する。
+十分大きな整数 \(x\) では
+\(\log b\le2x^\eta\)、\(m\ge\sqrt{x}\)、\(\log x_1\ge x^{\eta/12}\) である。
+補題 \ref{lem:fixed-modulus-pnt} に \(B\ge24/\eta\) を取れば、両方の
+\(|R_{q_0}(x_1)|,|R_1(x_1)|\) は \(x^{-2}\) 以下となる。
+したがって \eqref{eq:remainder-intermediate} の右辺は
+\[
+ 64\varphi(q_0)x^{-1/2+6\eta}+x^{-2}+2x^{-2+\eta}
+ \le (64\varphi(q_0)+3)x^{-1/2+6\eta}
+\]
+である。
+\(x=\lfloor y\rfloor\) とすれば、補題 \ref{lem:fixed-modulus-pnt} の差の評価から
+\(R_{q_0}(y)-R_{q_0}(x)\le26/y\) である。
+\(\theta=-1/2+6\eta\) は \([-1,0]\) にあり、\(x\ge y/2\) なので
+\(x^\theta\le2y^\theta\) である。
+従って
+\[
+ R_{q_0}(y)\le (2(64\varphi(q_0)+3)+26)y^\theta .
+\]
+定数を十分大きな \(y^\eta\) に吸収し、\(7\eta\le\varepsilon\) を使えば
+\eqref{eq:prime-bound} を得る。
+\leansrc{New/Reduction/OneSidedBound}{\texttt{eventually\_\allowbreak primeRemainder\_\allowbreak le\_\allowbreak rpow}}。
+\end{proof}
+
+\begin{proof}[定理 \ref{thm:grh} の証明]
+\textup{(1)}
+\(\chi\) を任意の法 \(q\) の指標とし、\(\RePart\rho>1/2\) とする。
+\(\rho=1\) では主指標が除外され、非主指標については Dirichlet の
+非消滅定理 \(L(1,\chi)\ne0\) による。以下では \(\rho\ne1\) とする。
+\(q_0=18480q\)、\(d_0=q_0/2-1\) とおく。
+\(d_0\equiv7\pmod8\) であり、\(q_0=2(d_0+1)\) かつ \(d_0\) は奇数なので
+\((q_0,d_0)=1\) である。
+\(1/2<\beta<\RePart\rho\) を選び、系 \ref{cor:prime-bound} を
+\(\varepsilon=\beta-1/2\) で用いると、法 \(q_0\) の剰余類 \(d_0\) に属する
+すべての素数 \(d\) について命題 \ref{prop:one-sided-criterion} の仮定が成立する。
+\(\chi\) から誘導した法 \(q_0\) の指標を \(\chi_0\) とすれば
+\(L(\rho,\chi_0)\ne0\) である。
+誘導の公式
+\[
+ L(s,\chi_0)=L(s,\chi)
+  \prod_{\substack{p\mid q_0\\p\nmid q}}\bigl(1-\chi(p)p^{-s}\bigr)
+ \qquad(s\ne1)
+\]
+より \(L(\rho,\chi)\ne0\) を得る。
+
+\textup{(2)}
+\(0<\RePart s<1\) で \(L(s,\chi)=0\) とし、\(\chi\) を導く原始指標を \(\psi\) とする。
+誘導に伴う有限個の Euler 因子はこの帯で非零なので \(L(s,\psi)=0\) である。
+ガンマ因子はこの帯で正則かつ非零であるから、完備 \(L\) 関数も \(s\) で零となる。
+\(\psi\) の関数等式により \(\psi^{-1}\) の完備 \(L\) 関数は \(1-s\) で零となり、
+ガンマ因子を除いて \(L(1-s,\psi^{-1})=0\) を得る。
+\(\psi^{-1}\) は \(\chi^{-1}\) を導くので \(L(1-s,\chi^{-1})=0\) となる。
+\leansrc{Lib/Analytic/ZeroSymmetry}{非原始指標を含む零点の反射}。
+(1) を二つの零点にそれぞれ適用すると
+\(\RePart s\le1/2\) および \(1-\RePart s\le1/2\) が従う。
+
+\textup{(3)}
+\(\zeta(s)=0\) とし、自明零点を除く。\(s=0\) は
+\(\zeta(0)=-1/2\) により除かれ、\(s=1\) は極である。
+\(\pi^{-s/2}\Gamma(s/2)\) はこの \(s\) で有限かつ非零なので、
+完備ゼータ関数も \(s\) で零となる。
+完備ゼータ関数は \(s\mapsto1-s\) で不変であり、
+\(1-s\ne0,1\) でその値にガンマ因子の逆数を掛けると
+\(\zeta(1-s)=0\) を得る。
+法 \(1\) における (1) を二つの零点へ適用すると、
+\(\RePart s=1/2\) が従う。
+対応する宣言は \leansrc{New/Reduction/OneSidedBound}{\texttt{grh}}、
+\leansrc{New/Main}{\texttt{zeros\_on\_line}, \texttt{zeta\_zeros\_on\_line}}
+である。
+\end{proof}

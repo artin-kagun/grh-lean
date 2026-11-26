@@ -1,0 +1,196 @@
+\section{捻りつき格子と積公式}\label{sec:lattices}
+
+\subsection{有限素点の整性と無限素点の大きさ}
+
+\(\iota\) は、素数 \(\ell\) と体同型
+\(\mathbb C\simeq\overline{\mathbb Q_\ell}\) の組を表す。
+\(|z|_\iota=|\iota(z)|_\ell\) と書き、\(|\ell|_\ell=\ell^{-1}\) と正規化する。
+複素共役を先に施した同型を \(\bar\iota\) と書く。
+捻り \(\xi\) は無限素点で重さ \(0\) の \(U(1)\) の指標で、
+分岐集合 \(Q_\xi\) は \(MN\) の上の素点から離れ、その共役と交わらない。
+各 \(1\le j\le m\) で \(\xi^j\) は \(Q_\xi\) の各素点で分岐する。
+法のノルム \(N_\xi\) が \(\ell\) と互いに素な場合、
+捻り \(\xi\) は \(\ell\) で許容されるという。
+\leansrc{New/Reduction/Data/LevelAndTwists}{捻りと許容条件}。
+
+\begin{editorialnote}
+添字 \(\iota\) は素数だけでなく体同型も指定する。
+同じ \(\ell\) の上で \(\iota\) と \(\bar\iota\) を区別するのは、
+エルミート内積の一方の変数に複素共役が入るからである。
+\end{editorialnote}
+
+\(W_\xi\) を \(\Theta_\xi\) の値域側の形式の空間とし、
+その中の \(\iota\) で整な形式の加群を \(W^{\mathrm{int}}_{\xi,\iota}\) と書く。
+この整構造は形式の各値の \(\ell\)-進 Weyl ゲージが \(1\) 以下であることによる。
+\(\xi\) が \(\ell\) で許容されるなら、
+\[
+  \phi\in W^{\mathrm{int}}_{\xi,\bar\iota},\quad
+  \psi\in W^{\mathrm{int}}_{\xi,\iota}
+  \quad\Longrightarrow\quad
+  |\langle\phi,\psi\rangle|_\iota\le1 .
+\]
+実際、内積は類を代表する点での Weyl 内積の和である。
+このレベルでは類の安定化群が自明であり、
+その位数で割ることによる分母は生じない。
+各値の位置で局所行列を \(A\)、Weyl 表現を \(\rho_{\mathrm{W}}\)、整数 Gram 行列を \(G\) とする。
+第一の変数に複素共役を取り、二つの変数にそれぞれ \(\rho_{\mathrm{W}}(A^{\mathsf T})\)、
+\(\rho_{\mathrm{W}}(A^{-1})\) を作用させると、ゲージの仮定により両方の座標が整になる。
+\(\rho_{\mathrm{W}}(A^{\mathsf T})^{\mathsf T}G\rho_{\mathrm{W}}(A^{-1})=G\) なので、
+この整な座標で計算する内積はもとの内積の \(\iota\) での像に等しい。
+\leansrc{Lib/Adelic/AutomorphicForms/PAdicGauge}{\texttt{gramForm\_mem\_embValRing}}。
+自明な捻りでは類の代表における値を標準 Weyl 基底で読んだ座標により、
+内積は有理数成分の正定値行列で表せる。
+\leansrc{New/Reduction/IntegralTargetForms}{\texttt{Data.targetLattice}}。
+
+\begin{definition}
+\(y\in V\) が \(\iota\) で整であるとは、
+\(\ell\) で許容されるすべての \(\xi\) について
+\(\Theta_\xi y\in W^{\mathrm{int}}_{\xi,\iota}\) となることをいう。
+有限族 \(y=(y_1,\ldots,y_n)\) の対数指数が \(\delta\) 以下であるとは、
+次の条件を満たす非負の実数 \(\delta_\ell\) が存在することをいう。
+\begin{enumerate}
+\item 任意の有限素数集合 \(P\) に対し
+\(\sum_{\ell\in P}\delta_\ell\log\ell\le\delta\)。
+\item \(\ell\) の上の各 \(\iota\) について、\(\iota\) で整な成分を持つ
+\(n\times n\) 行列 \(U_\iota\) があり、
+\(yU_\iota\) の各成分は \(\iota\) で整、かつ
+\(|\det U_\iota|_\iota\ge\ell^{-\delta_\ell}\)。
+\end{enumerate}
+同じ \(U_\iota\) が、その素数で許容されるすべての捻りに対して使える。
+\end{definition}
+
+自明な捻りの座標に \(\sigma\in\operatorname{Aut}(\mathbb C)\) を成分ごとに施し、
+有理な内積行列で測った二乗ノルムを \(\|\Theta_1 y_i\|_\sigma^2\) と書く。
+この座標と内積で計算した \(y\) の持ち上げのグラム行列式が、
+すべての \(\sigma\) で \(e^c\) 以下なら、対数二乗余体積は \(c\) 以下という。
+とくに \(\|\Theta_1 y_i\|_\sigma^2\le e^B\) がすべての \(i,\sigma\) で成り立てば、
+Hadamard の不等式から \(c=nB\) が使える。
+これらは \leansrc{New/Reduction/Lattices/TwistedLattice}
+{\texttt{IndexLe}, \texttt{CovolumeLe}, \texttt{covolumeLe\_of\_normSqAt\_le}}
+の条件である。
+
+\subsection{高さの積公式}
+
+\begin{definition}
+族 \(u=(u_\iota)_\iota\) の高さが \(C\) 以下である
+（\(\operatorname{ht}(u)\le C\) と書く）とは、
+共通の乗数 \(H\in\mathbb C^\times\)、実数 \(\alpha\)、
+非負の実数 \(e_\ell\) があり、すべての \(\sigma,\iota\) および
+有限素数集合 \(P\) に対し
+\[
+ |\sigma H|\le e^\alpha,\qquad
+ |H u_\iota|_\iota\le\ell^{e_\ell},\qquad
+ \alpha+\sum_{\ell\in P} e_\ell\log\ell\le C
+\]
+となることをいう。
+\end{definition}
+
+二つの族を掛けるときは乗数を掛け、\(\alpha,e_\ell\) を足せばよいので、
+高さの上界を加えられる。定数族 \(1\) の高さの上界は非負である。
+このことを示すため、定数族 \(1\) の乗数 \(H\) を取る。
+\(\ell=2\) で \(|H|_\iota\) が全 \(\iota\) にわたり有界なので \(H\) は代数的である。
+実際、超越数なら同型を選んで任意の超越的な像に移せる。
+\(\overline{\mathbb Q_2}\) では任意の上界より大きい絶対値を持つ開集合に
+超越数がある。代数的数が可算で、その補集合が稠密だからである。
+同型の延長に使う条件は
+\leansrc{Lib/General/NumberTheory/PadicLimitsValuation}
+{\texttt{isAlgebraic\_of\_norm\_complexToCp\_le}}
+に示されている。
+
+\(Q=\operatorname{Nm}_{\mathbb Q(H)/\mathbb Q}H\)、\(n_H=[\mathbb Q(H):\mathbb Q]\)
+とおくと、\(Q\ne0\) であり、
+\(\log|Q|\le n_H\alpha\)、\(\log|Q|_\ell\le n_H e_\ell\log\ell\)
+である。各絶対値で \(Q\) を \(H\) の共役の積に展開した評価である。
+分子と分母を割る素数をすべて含む \(P\) を取り、
+\(\mathbb Q\) の積公式を使うと
+\[
+ 0=\log|Q|+\sum_{\ell\in P}\log|Q|_\ell
+   \le n_H\left(\alpha+\sum_{\ell\in P} e_\ell\log\ell\right)
+   \le n_H C .
+\]
+したがって \(C\ge0\)。特に、\(z\ne0\) の定数族の高さが \(C\) 以下で
+\(|\sigma z|\le e^{C'}\) が全 \(\sigma\) で成り立てば、\(C+C'\ge0\) である。
+実際、\(z^{-1}\) の定数族は乗数 \(H=z\) を取れば高さ \(C'\) 以下となり、
+二つの族の積が \(1\) になる。
+\leansrc{New/Reduction/Lattices/Heights}{\texttt{HeightLe.nonneg\_of\_one}, \texttt{HeightLe.neg\_le\_of\_norm\_map\_le}}。
+
+\subsection{基底に対するグラム行列式}
+
+\(\Theta_\xi\) は単射であるとし、
+\(Z(\xi)=\det(\Theta_\xi^*\Theta_\xi)\) とおく。
+各 \(\iota\) で許容される捻りを一つ選んで \(\xi_\iota\) とする。
+\(y=(y_1,\ldots,y_n)\) を一次独立とし、\(z=(z_1,\ldots,z_{n'})\) を補って
+\(V\) の基底とする。\(w=(y,z)\) と書き、
+\[
+ G_\xi(w)=\bigl(\langle\Theta_\xi w_i,\Theta_\xi w_j\rangle\bigr)_{ij},
+ \qquad \Delta_\xi(w)=\det G_\xi(w)
+\]
+とおく。
+
+\begin{proposition}\label{prop:gram-product}
+\(y\) の対数二乗余体積は \(c\) 以下、対数指数は \(\delta\) 以下とする。
+各捻りについて \(\gamma(\xi)\ne0\) があり、
+\(\gamma(\xi)\Theta_\xi z_j\) はすべての許容素点で整であるとする。
+また、すべての \(\sigma,j\) に対して \(\|\Theta_1 z_j\|_\sigma^2\le e^{B_{\mathrm{Ar}}}\)
+とする。族 \((|\gamma(\xi_\iota)|^{-2})_\iota\) と
+\((Z(1)/Z(\xi_\iota))_\iota\) の高さの上界をそれぞれ \(B_{\mathrm{fin}},B_Z\) とすれば、
+\begin{equation}\label{eq:gram-product}
+  c+2\delta+n'(B_{\mathrm{Ar}}+B_{\mathrm{fin}})+B_Z\ge0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\(\bar\iota\) は \(\iota\) と同じ \(\ell\) の上にある。
+\(y\) の指数を与える \(U_\iota,U_{\bar\iota}\) はともに、
+その \(\ell\) で許容される \(\xi=\xi_\iota\) に対して使える。
+\[
+  P_\iota=\operatorname{diag}(U_\iota,\gamma(\xi)I_{n'}),\qquad
+  P_{\bar\iota}=\operatorname{diag}(U_{\bar\iota},\gamma(\xi)I_{n'})
+\]
+とおく。
+\(\overline{P_{\bar\iota}}^{\,t}G_\xi(w)P_\iota\) の各成分は
+\(\bar\iota\) で整な形式と \(\iota\) で整な形式の内積なので、\(\iota\) で整である。
+行列式を取ると
+\begin{align*}
+ 1&\ge|\det P_{\bar\iota}|_{\bar\iota}
+             |\Delta_\xi(w)|_\iota\,|\det P_\iota|_\iota,\\
+ \bigl|\,|\gamma(\xi)|^{2n'}\Delta_\xi(w)\,\bigr|_\iota
+     &\le\ell^{2\delta_\ell}.
+\end{align*}
+第一式から第二式に移る際、
+\(\overline{\gamma(\xi)}\,\gamma(\xi)=|\gamma(\xi)|^2\) と
+二つの指数行列の行列式の下界を使った。
+従って族 \((|\gamma(\xi_\iota)|^{2n'}\Delta_{\xi_\iota}(w))_\iota\) の高さは
+乗数 \(H=1\) を取って \(2\delta\) 以下となる。
+
+基底 \(w\) は \(V\) を張るから、グラム行列式の変換則により
+\(\Delta_\xi(w)=Z(\xi)\det(\langle w_i,w_j\rangle)_{ij}\) である。
+各 \(\iota\) で
+\[
+ \Delta_1(w)
+ =\bigl(|\gamma(\xi_\iota)|^{2n'}\Delta_{\xi_\iota}(w)\bigr)
+     \bigl(|\gamma(\xi_\iota)|^{-2}\bigr)^{n'}
+     \frac{Z(1)}{Z(\xi_\iota)} .
+\]
+ゆえに \(\Delta_1(w)\) の定数族の高さは
+\(2\delta+n'B_{\mathrm{fin}}+B_Z\) 以下である。
+
+無限素点では、座標を \(\sigma\) で移した全基底のグラム行列式に
+Fischer の不等式を適用する。行列式は \(y\) と \(z\) の二つの対角ブロックの
+行列式の積以下である。補助形式 \(z\) のブロックに Hadamard の不等式を用いると、
+全基底のグラム行列式は \(e^{c+n'B_{\mathrm{Ar}}}\) 以下となる。
+\(\sigma\) が複素共役と可換とは限らないので、
+\(\sigma(\Delta_1(w))\) 自体の評価には外積を取る。
+\(\sigma^\dagger(z)=\overline{\sigma(\bar z)}\) とすると、内積行列は有理なので、
+\(\sigma(\Delta_1(w))\) は \(\sigma^\dagger\) と \(\sigma\) を用いた
+二つの外積ベクトルの内積である。
+それぞれの二乗ノルムが \(e^{c+n'B_{\mathrm{Ar}}}\) 以下であり、
+Cauchy--Schwarz の不等式から
+\(\left|\sigma(\Delta_1(w))\right|\le e^{c+n'B_{\mathrm{Ar}}}\) となる。
+
+\(\Theta_1\) は単射なので \(\Delta_1(w)\ne0\) である。
+その高さの上界と無限素点の上界を積公式で合わせれば
+\eqref{eq:gram-product} を得る。
+\leansrc{New/Reduction/Lattices/TwistedLattice}
+{\texttt{covolume\_add\_index\_nonneg}}。
+\end{proof}

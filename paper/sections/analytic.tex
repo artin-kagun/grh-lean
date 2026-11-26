@@ -1,0 +1,307 @@
+\section{素数冪和と零点}\label{sec:analytic}
+
+\subsection{剰余のラプラス変換}
+
+\(d\) を奇素数、\(q\) を \(d\) と互いに素な正整数とする。
+\(\chi_d(n)=(n/d)\) をルジャンドル記号、\(\Lambda\) を von Mangoldt 関数、
+\(\varphi\) を Euler のトーシェント関数とし、
+\[
+  \lambda_q(n)=\mathbf 1_{n\equiv1\bmod q}\Lambda(n)(1-\chi_d(n))
+\]
+とおく。当面は \(d\) を固定し、記号 \(\lambda_q,R_q,G_q\) 等の添字には \(d\) を書かない。
+\(\psi\) が主指標のとき \(L^\circ(s,\psi)=(s-1)L(s,\psi)\) とし、
+\(s=1\) では正則に延長した値を取る。\(\psi\) が非主指標のときは
+\(L^\circ(s,\psi)=L(s,\psi)\) とする。いずれも整関数である。
+\(\psi\chi_d\) は法 \(qd\) の指標とみなす。
+\(d\) が奇素数で \((d,q)=1\) なので、\(\psi\chi_d\) は非主指標である。
+\begin{align}
+  G_q(s)
+   &=\frac1{\varphi(q)}
+     \left[
+       \sum_{\psi\bmod q}
+       \left(
+        \frac{(L^\circ)'(s,\psi\chi_d)}{L^\circ(s,\psi\chi_d)}
+        -\frac{(L^\circ)'(s,\psi)}{L^\circ(s,\psi)}
+       \right)-1
+     \right], \label{eq:log-derivative}\\
+  R_q(y)
+   &= \sum_{n\le y}\lambda_q(n)\left(\frac1n-\frac1y\right)
+      -\frac{\log y}{\varphi(q)}-c_q,\qquad c_q=\RePart G_q(1).
+  \label{eq:prime-remainder}
+\end{align}
+対数微分は変数 \(s\) に関するものとする。主指標について極を除いた
+\(L^\circ\) は \(s=1\) で非零であり、非主指標についても \(L(1,\psi)\ne0\)
+であるから、\(G_q\) は \(1\) で正則である。
+
+指標の直交関係により、\(\lambda_q(n)\) は
+\(\Lambda(n)(\psi(n)-(\psi\chi_d)(n))\) の法 \(q\) の全指標にわたる平均である。
+\(\RePart s>1\) で Euler 積の対数微分を取り、主指標を整関数化したとき
+加わる \(1/(s-1)\) を取り出すと
+\begin{equation}\label{eq:lambda-dirichlet}
+  F_q(s):=\sum_{n\ge1}\frac{\lambda_q(n)}{n^s}
+        =\frac{s}{\varphi(q)(s-1)}+G_q(s).
+\end{equation}
+実軸上 \(s>1\) で右辺は実数なので、\(G_q(1)=c_q\) でもある。
+
+\begin{lemma}\label{lem:prime-transform}
+\(\RePart s>2\) において
+\begin{equation}\label{eq:prime-transform}
+  \mathcal T_q(s):=\int_0^\infty R_q(e^v)e^{(1-s)v}\,dv
+     =\frac{G_q(s)/s-G_q(1)}{s-1}.
+\end{equation}
+右辺による有理型接続は \(s=1\) で正則である。\(\RePart \rho>0\)、\(\rho\ne1\)
+での極は高々単純であり、その留数は
+\[
+  \res_{s=\rho}\mathcal T_q(s)=
+    \frac{\nu(\rho)-\nu_d(\rho)}{\varphi(q)\rho(1-\rho)}.
+\]
+ここで \(\nu,\nu_d\) はそれぞれ \(L^\circ(s,\psi)\)、\(L^\circ(s,\psi\chi_d)\)
+の \(\rho\) における零点の位数を法 \(q\) の全指標について加えたものである。
+\end{lemma}
+
+\begin{proof}
+\(A_r(y)=y^{-r}\sum_{n\le y}\lambda_q(n)n^{r-1}\) とおく。
+\(r=0,1\) について各項を \(v\ge\log n\) で積分すれば
+\[
+ \int_0^\infty A_r(e^v)e^{(1-s)v}\,dv=\frac{F_q(s)}{s+r-1}.
+\]
+\(\RePart s>2\) では項別積分が絶対収束する。したがって
+\[
+ \mathcal T_q(s)
+ = F_q(s)\left(\frac1{s-1}-\frac1s\right)
+    -\frac1{\varphi(q)(s-1)^2}-\frac{G_q(1)}{s-1}.
+\]
+\eqref{eq:lambda-dirichlet} を代入すると \eqref{eq:prime-transform} を得る。
+\(s=1\) では分子が消える。\(s=\rho\ne1\) では、整関数の対数微分の留数が
+零点の位数に等しいことを \eqref{eq:log-derivative} に適用する。
+対応する宣言は \leansrc{New/Reduction/Zeros/PrimeError}
+{\texttt{integral\_primeRemainder}, \texttt{isPolar\_primeRemainder}} である。
+\end{proof}
+
+\subsection{二次捻りの選択}
+
+\begin{lemma}\label{lem:select-quadratic}
+\(q\) は \(8\) の正の倍数とし、\(d_0\equiv7\pmod8\)、\((d_0,q)=1\) とする。
+任意の \(\beta>1/2\)、\(H\ge0\) に対して、
+剰余類 \(d\equiv d_0\pmod q\) に属する素数 \(d\) で、
+すべての法 \(q\) の指標 \(\psi\) について \(L^\circ(s,\psi\chi_d)\) が
+\(\RePart s\ge\beta,\ |\ImPart s|\le H\) で非零となるものが存在する。
+\end{lemma}
+
+\begin{proof}
+\(\beta\ge1\) なら \(\beta=3/4\) の場合を適用すればよい。
+\(1/2<\beta<1\) とし、\(\beta=1/2+9\eta\)、\(\eta>0\) と書く。
+底本は、指定した長方形に少なくとも一つの捻りの零点を持つ
+素数 \(d\le X\) の個数を \(O_{q,\eta,H}(X^{1-\eta/2})\) と評価する。
+以下ではその評価を導く。
+
+\(\mu\) は Möbius 関数とする。\(j\in\{0,1\}\) に対し
+\(w_j(u)=u^j e^{-\pi u^2}\) とおき、その Mellin 変換を
+\(\Gamma_j(s)=\int_0^\infty w_j(u)u^{s-1}\,du\) と書く。
+係数列 \(c=(c(n))_{n\ge1}\) に対し
+\[
+ \theta_c(u)=u^{1/2}\sum_{n\ge1}c(n)w_j(nu),\qquad
+ J(c,T)=\int_{1/T}^\infty
+        \bigl(|\theta_c(u)|+|\theta_{\mu c}(u)|\bigr)\,\frac{du}{u}.
+\]
+\(\chi\) を導手 \(Q\le T^2\)、パリティ \(j\) の非主原始指標とする。
+\(\Gamma_j(s)L(s,\chi)\) は \(\theta_\chi\) の \(s-1/2\) における Mellin 変換である。
+\(\RePart s>1\) で \(\Gamma_j(s)/L(s,\chi)\) を与える \(\theta_{\mu\chi}\) の積分を
+\(u>1/T\) に切ったものを \(M_T(s)\) とする。
+\(\RePart s=1/2\) では \(|M_T(s)|\le J(\chi,T)\)。
+テータ関数の関数等式は
+\(\int_0^\infty |\theta_\chi(u)|\,du/u\) を
+\(\int_{Q^{-1/2}}^\infty|\theta_\chi(u)|\,du/u\) の二倍にする。
+\(Q^{-1/2}\ge T^{-1}\) なので
+\(|\Gamma_j(s)L(s,\chi)|\le2J(\chi,T)\) を得る。
+
+\(J(\chi,T)\le T^{2\eta}\) と仮定し、
+\(\Psi(s)=\Gamma_j(s)L(s,\chi)M_T(s)-\Gamma_j(s)^2\) とおく。
+左境界 \(\RePart s=1/2\) では \(|\Psi(s)|\ll T^{4\eta}\) である。
+右境界 \(\RePart s=2\) では、絶対値が \(1\) 以下の係数列に対する
+Mellin 被積分関数の上界 \(3e^{-u}\) により
+\[
+ |\Gamma_j(s)L(s,\chi)|\le3,\qquad
+ \left|\frac{\Gamma_j(s)}{L(s,\chi)}-M_T(s)\right|\le 3/T.
+\]
+したがって \(|\Psi(s)|\le 9/T\) となる。三線定理に使う帯での
+正則性と有界性は、\(\Gamma_j L\) の Mellin 表示と \(M_T\) の打切り積分から従う。
+\(\RePart s\in[1/2+9\eta,1]\) では右境界に掛かる補間の重み
+\(t=(\RePart s-1/2)/(3/2)\) は \(6\eta\) 以上である。
+よって \(|\Psi(s)|\ll T^{4\eta(1-t)-t}\) であり、指数は \(-2\eta\) 以下である。
+Euler 積により \(\RePart s>1\) には零点がない。
+\(L(s,\chi)=0\) なら \(\Psi(s)=-\Gamma_j(s)^2\) である。
+\(\Gamma_j\) の絶対値は \(1/2\le\RePart s\le1,\ |\ImPart s|\le H\) で
+正の下界を持つから、十分大きな \(T\) について零点の存在は
+\(J(\chi,T)>T^{2\eta}\) を強制する。
+\leansrc{Lib/Analytic/QuadraticTwist}{\texttt{eventually\_rpow\_lt\_thetaTailIntegral}}。
+
+次に \(n^\circ\) を \(n\) の奇数部分とし、\(|\alpha_n|\le1\) に対して
+\(c_v(n)=\alpha_n(-v/n^\circ)\) とおく。ここでは括弧内は Jacobi 記号である。
+\(u\ge T^{-1}\) のとき \(\sum_{1\le v\le T^2}|\theta_{c_v}(u)|^2\) を展開すると、
+\(n,n'\) の組に付く指標和は
+\[
+  \sum_{1\le v\le T^2}\left(\frac{-v}{(nn')^\circ}\right)
+\]
+となる。奇数部分が平方数なら、その絶対値は \(T^2\) 以下である。
+\(|w_j(x)|\ll_A x^{-A}\) に \(A=1/2+\eta\) を使うと、
+その組の寄与は \(T^2u^{-2\eta}(nn')^{-1/2-\eta}\) の定数倍以下である。
+これらの組では \(k nn'\) が平方数となる \(k\in\{1,2\}\) があり、
+\(kn=ab^2,\ n'=ac^2\) と表せる。
+したがってこの組だけにわたる \(\sum(nn')^{-1/2-\eta}\) は、
+収束する三重和 \(\sum_{a,b,c\ge1}(abc)^{-1-2\eta}\) の定数倍以下である。
+
+奇数部分が平方数でなければ、Pólya--Vinogradov の不等式を
+Jacobi 指標に適用し、対数因子を吸収して指標和を
+\(O_\eta((nn')^{1/2+\eta/2})\) と評価する。
+今度は \(A=3/2+\eta\) を使うと \(u^{-2}\le T^2\) により
+各組の寄与は \(T^2u^{-2\eta}(nn')^{-1-\eta/2}\) の定数倍以下となる。
+この二重和も収束する。以上を合わせると
+\[
+ \sum_{v\le T^2}|\theta_{c_v}(u)|^2\ll_\eta T^2u^{-2\eta}.
+\]
+Cauchy--Schwarz の不等式の後に \(du/u\) で積分すると
+\(\sum_{v\le T^2}J(c_v,T)\ll_\eta T^{2+\eta}\) となる。
+\(\theta_{\mu c_v}\) の項には \(\alpha_n\mu(n)\) を使う。
+\leansrc{Lib/Analytic/QuadraticTwist}{\texttt{sum\_thetaTailIntegral\_le}}。
+
+\(d\equiv7\pmod8\) では二次相互法則と \((2/d)=1\) により
+\((n/d)=(-d/n^\circ)\) である。各 \(\psi\bmod q\) を導く原始指標を
+\(\psi^\ast\)、その導手を \(Q_0\mid q\) とすると、
+\(\psi^\ast\chi_d\) は導手 \(Q_0 d\) の非主原始指標であり、
+誘導で加わる有限個の Euler 因子は \(\RePart s>0\) で非零である。
+\(T^2=qX\) とし、\(\alpha_n=\psi^\ast(n)\) と置く。二つのパリティをそれぞれ数えると、
+零点を持つ素数の個数は \(O(T^{2+\eta}/T^{2\eta})=O(X^{1-\eta/2})\)
+である。法 \(q\) の指標は有限個なので、全指標を合わせても同じ指数の評価が成立する。
+
+もし剰余類内のすべての素数がこのような零点を持てば、
+この個数評価から \(\sum_{p\equiv d_0\bmod q}(\log p)/p\) が収束する。
+これは既約剰余類における同級数の発散に反する。
+詳しくは \leansrc{Lib/Analytic/QuadraticTwist}
+{\texttt{zero\_density\_quadTwist}, \texttt{exists\_entireL\_quadTwist\_ne\_zero}}。
+\end{proof}
+
+\subsection{片側評価が与える零点の排除}
+
+\begin{lemma}[Landau の補題の適用形]\label{lem:landau}
+可測な実関数 \(U(v)\) が \(v\ge0\) で \(|U(v)|\le C e^v\) を満たすとする。
+その変換 \(T(s)=\int_0^\infty U(v)e^{(1-s)v}\,dv\) は、
+\(\RePart s>0\) に高々単純極を持つ有理型接続を持つとする。
+ある \(\beta>0\) について、十分大きな \(v\) で
+\(U(v)\le e^{(\beta-1)v}\) が成り立ち、
+すべての実数 \(\sigma>\beta\) で \(T\) の留数の実部が非負ならば、
+\(T\) は \(\RePart s>\beta\) で正則である。
+\end{lemma}
+
+\begin{proof}
+\(K e^{\beta v}-U(v)e^v\ge0\) が \(v\ge0\) で成り立つように
+定数 \(K\) を取る。この非負の密度のラプラス変換を \(A(s)\) とすると、
+右方では \(A(s)=K/(s-\beta)-T(s)\) である。
+収束横座標を \(\sigma_c\) とし、\(\sigma_c>\beta\) と仮定する。
+\(A\) が \(\sigma_c\) で正則なら、
+\(\sigma_1>\sigma_c\) を十分近く取ったとき \(\sigma_1\) を中心とする
+Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
+その各項は、収束半平面での積分の微分により、密度に
+\(e^{-\sigma_1 v}((\sigma_1-\sigma_2)v)^j/j!\) を掛けた積分に等しい。
+各項が非負なので単調収束定理を使うと、
+級数の和は \(\sigma_2\) におけるラプラス積分に等しく、有限である。
+これは収束横座標の定義に反する。
+
+ゆえに \(A\) は \(\sigma_c\) で極を持つ。ところが同点での留数は
+\(T\) の留数の負であり、その実部は非正である。
+単純極なら留数の実部は
+\(\lim_{\sigma\downarrow\sigma_c}(\sigma-\sigma_c)A(\sigma)\)
+で正となる。実際、この極限は非負な実数であり、単純極なので零ではない。
+矛盾から \(\sigma_c\le\beta\) である。積分が正則な半平面
+\(\RePart s>\beta\) では \(K/(s-\beta)-A(s)\) も正則である。
+\leansrc{Lib/Analytic/Landau}{\texttt{IsPolar.landau}}。
+\end{proof}
+
+\begin{proposition}\label{prop:one-sided-criterion}
+\(q,d_0\) を補題 \ref{lem:select-quadratic} のとおりとし、\(\beta>1/2\) とする。
+各素数 \(d\equiv d_0\pmod q\) について、十分大きな実数 \(y\) で
+\(R_q(y)\le y^{\beta-1}\) が成り立つと仮定する。
+このとき、すべての \(\psi\bmod q\) について
+\(\RePart\rho>\beta,\ \rho\ne1\) ならば \(L(\rho,\psi)\ne0\) である。
+\end{proposition}
+
+\begin{proof}
+\(\rho\) を固定し、補題 \ref{lem:select-quadratic} を \(H=|\ImPart\rho|\) に
+適用して \(d\) を選ぶ。補題 \ref{lem:prime-transform} の留数は、
+\(\RePart s>\beta,\ |\ImPart s|\le H,\ s\ne1\) で
+\(\nu(s)/\bigl(\varphi(q)s(1-s)\bigr)\) である。
+とくに実軸の \(\beta<s<1\) では非負である。
+\(s\ge1\) では整関数化した \(L^\circ(s,\psi)\) は非零であり、留数も零である。
+\(U(v)=R_q(e^v)\) は \(O(e^v)\) であり、
+仮定により十分大きな \(v\) で \(U(v)\le e^{(\beta-1)v}\) が成り立つ。
+補題 \ref{lem:landau} から留数は \(\rho\) で零である。
+分母は零でなく、\(\nu(\rho)\) は非負の零点位数の和なので各項が零である。
+\(\rho\ne1\) では \(L^\circ\) の非零性は \(L\) の非零性を含意する。
+\leansrc{New/Reduction/Zeros/Criterion}{\texttt{LFunction\_ne\_zero\_of\_primeRemainder\_le}}。
+\end{proof}
+
+\subsection{固定法に対する素数定理}
+
+\begin{lemma}\label{lem:fixed-modulus-pnt}
+固定した奇素数 \(d\) と \((d,q)=1\) なる正整数 \(q\) について、
+任意の整数 \(B\ge0\) に対し十分大きな \(y\) で
+\[
+ |R_q(y)|\le(\log y)^{-B}.
+\]
+また \(z\ge y\ge1\) ならば \(|R_q(z)-R_q(y)|\le13(z-y)/y\) である。
+\end{lemma}
+
+\begin{proof}
+\(\mathcal E_q(t)=\sum_{n\le t}\lambda_q(n)-t/\varphi(q)\) とおく。
+\(\lambda_q\le2\Lambda\) と \(\sum_{n\le t}\Lambda(n)\le6t\) によって
+\(|\mathcal E_q(t)|\le13t\) である。部分和公式より
+\[
+ R_q(y)=\int_1^y\mathcal E_q(t)\frac{dt}{t^2}-c_q.
+\]
+これから差の上界が従う。さらに \(0\le u\le v\le u+1\) で
+\(|R_q(e^v)-R_q(e^u)|\le13(e^{v-u}-1)\le26(v-u)\) であり、
+区間を長さ \(1\) 以下に分割すれば \(U(v)=R_q(e^v)\) は
+\(v\ge0\) で Lipschitz 定数 \(26\) を持つ。
+
+固定法の零点のない領域については \cite[第11章]{mv} も参照されたい。
+ここでは底本の零点のない領域と対数微分の評価を
+\(\psi\) と \(\psi\chi_d\) の有限族に同時に適用する。
+\(F(s)=G_q(s)/s\) は、十分大きい \(\mathcal L\) について
+\(\RePart s\ge1-\mathcal L^{-26},\ |s|\le e^{\mathcal L}\)
+で正則で \(|F(s)|\le\mathcal L^{26}\) である。
+これは各対数微分の評価に現れる指数 \(25\) を一つ増やして、
+指標の個数と \(1/|s|\le2\) を吸収したものである。
+\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{対数微分の評価}、
+\leansrc{New/Reduction/Zeros/PrimeNumberTheorem}
+{\texttt{eventually\_norm\_logDerivMean\_div\_le}}。
+
+\(u\) を大きく取り、
+\(k=\lfloor u^{2B+4}\rfloor,\ H=(k+1)/u,\ \mathcal L=(2B+5)\log u\)、
+\(\eta=\mathcal L^{-26}\) とする。
+\(\mathcal T_q(s)=(F(s)-F(1))/(s-1)\) の \(1+H\) での正規化した
+Taylor 係数を
+\[
+ A=\frac{(-H)^k H}{k!}\mathcal T_q^{(k)}(1+H)
+\]
+と書く。積分を微分すると \(A\) は
+\(H^{k+1}v^k e^{-Hv}/k!\) を密度とする \(U(v)\) の平均であり、
+この密度の平均は \(u\)、分散は \(u^2/(k+1)\) である。
+任意の \(\delta>0\) について
+\(|v-u|\le\delta+(v-u)^2/\delta\) と Lipschitz 性を合わせ、
+\(\delta=u^{-B-1}\) とすれば \(|A-U(u)|\le52u^{-B-1}\) となる。
+
+中心 \(1+H\)、半径 \(H+\eta\) の円板は上の正則領域内にある。
+円周では \(|s-1|\ge\eta\) なので
+\(|\mathcal T_q(s)|\le 2\mathcal L^{26}/\eta\) である。
+Cauchy の評価に \(H/(H+\eta)\le e^{-\eta/(2H)}\) を使うと
+\[
+ |A|\le4\mathcal L^{26}H\eta^{-1}
+       \exp\!\left(-\frac{(k+1)\eta}{2H}\right)
+      =4\mathcal L^{52}H e^{-u\eta/2}.
+\]
+十分大きな \(u\) では \(\mathcal L^{52}\le u\)、\(4H\le u^{2B+5}\)、
+\(u^{3B+7}\le e^{\sqrt{u}/2}\) であり、したがって \(|A|\le u^{-B-1}\)。
+\(|U(u)|\le53u^{-B-1}\le u^{-B}\) とおき \(u=\log y\) とすればよい。
+\leansrc{Lib/Analytic/PrimeNumberTheorem/Tauberian}
+{\texttt{eventually\_\allowbreak abs\_\allowbreak le\_\allowbreak inv\_\allowbreak pow\_\allowbreak of\_\allowbreak transform}}。
+\end{proof}

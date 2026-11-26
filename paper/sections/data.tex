@@ -1,0 +1,258 @@
+\section{補助データと素数和の恒等式}\label{sec:data}
+
+\subsection{数体、重さ、レベル}
+
+\(q_0\) は \(18480\) の正の倍数、\(d\) は \(q_0/2-1\) に合同な
+法 \(q_0\) の素数とする。\(K=\mathbb Q(\sqrt{-d})\) とおく。
+このとき \(d\equiv7\pmod8\) である。前節の \(\chi_d\) は \(K\) の二次指標であり、以下 \(\chi_K=\chi_d\) とも書く。
+
+底本の許容データ \(D\) には、正整数 \(x,x_1,b\) と階数を定める整数 \(m,r\)
+が含まれる。\(a=xb\)、\(k=r+1-m\)、\(t=5r\) とする。
+\(m\) は \(2\) の正の冪、\(r\) は \(3\) の正の冪であり、次の関係を満たす。
+\begin{gather*}
+ (\log b)^{100}\le x,\qquad
+ x^{10^6}\le x_1,\qquad x_1^{10^6}\le b,\qquad
+ (\log x_1)^6\le\log b,\\
+ \sqrt{x}\le m\le 2\sqrt{x},\qquad x^5\le r\le 3x^5.
+\end{gather*}
+\(\log\log b\) は \(10^{12}\operatorname{constantBound}(q_0,d)\) 以上を要求する。
+この定数と許容データの全条件は
+\leansrc{New/Reduction/Data/AdmissibleData}{\texttt{Parameters.constantBound}, \texttt{Data}}
+で定義される。また \(2^s=m^{22}\) とすると \(s\le32\log x\) であり、
+\[
+  l_0=3^{\lfloor\log_3 s\rfloor+4},\qquad
+  q_1=3l_0\,2^s q_0,\qquad q_2=(q_0d)^{s+6},\qquad
+  E=K(\zeta_{q_1})
+\]
+とおく。\(b\) は \(q_1x_1\) の倍数である。
+\(E\) の無限素点の集合 \(\Phi\) は \((\mathbb Z/q_1\mathbb Z)^\times\)
+と同一視する。\(f=|\Phi|\) とし、法 \(q_0\) で \(1\) に合同な素点の集合を
+\(\Phi_a\) とする。法 \(q_0\) で \(-1\) に合同な素点から
+部分集合 \(\Phi_b\) を選び、
+\[
+  f=|\Phi_a|\varphi(q_0),\qquad
+  |\Phi_a|\le|\Phi_b|\log b,\qquad
+  \kappa(\tau)=
+  \begin{cases}
+    b=a/x,&\tau\in\Phi_b,\\
+    a/x_1,&\tau\notin\Phi_b
+  \end{cases}
+\]
+とする。
+
+\(\Phi_b\) は次の疎性条件を満たす。任意の素数 \(\ell\le kt\) と
+\(0<i<j<l_0\) に対し、\(\sigma,\tau,\rho\in\Phi_b\) が
+\(\tau/\sigma\equiv\pm\ell^i\) および
+\(\rho/\sigma\equiv\pm\ell^j\) を同時に満たすことはない。
+合同は \(q_1\) の \(\ell\) と互いに素な部分を法とし、二つの符号は独立である。
+無限素点の同一視と疎性条件は、それぞれ
+\leansrc{New/Reduction/Data/FieldsAndPlaces}{無限素点の構成}、
+\leansrc{New/Reduction/Data/AdmissibleData}{\texttt{Parameters.IsSparse}}
+による。
+
+レベルを定める素数 \(p_0,p_1,N\) は \(q_2^2\) を法として \(1\) に合同である。
+相異なる \(p_0,p_1\) は \([b^{10},b^{11}]\) に属し、\(M=p_0p_1\) とする。
+\(K\) の整数 \(\pi_M\) と \(E\) の整数 \(\pi_N\) が
+\(\pi_M\overline{\pi_M}=M\)、\(\pi_N\overline{\pi_N}=N\) を満たすように取る。
+\(\bar\kappa=\exp(f^{-1}\sum_{\tau\in\Phi}\log\kappa(\tau))\) を重さの幾何平均とし、
+\(\mathrm{rd}_E=|\operatorname{disc} E|^{1/[E:\mathbb Q]}\) を根判別式とする。
+\(N\) の範囲は
+\begin{equation}\label{eq:level-window}
+ \log N\in[\log N_-,\log N_-+\sqrt{\log b}],\qquad
+ \log N_-=
+ m\log\bar\kappa+(m-1)\log\frac{M\mathrm{rd}_E}{2\pi}
+ -\frac{15}{2}\log b.
+\end{equation}
+この位置でレベルを選ぶことで、後述の無限素点側の評価における
+\(m\) 回分の増加を \(a\log N\) の項で相殺できる。
+
+\subsection{許容データの選択}
+
+\begin{proposition}\label{prop:admissible-data}
+\(q_0,d\) を上のとおり固定し、\(0<\varepsilon<1/100\) とする。
+十分大きな任意の整数 \(x\) に対して上の許容データが存在する。
+\(x_1=\lfloor e^{x^{\varepsilon/6}}\rfloor\)、\(m\) は \(\sqrt{x}\) 以上の最小の
+\(2\) の冪、\(r\) は \(x^5\) 以上の最小の \(3\) の冪に取れる。
+\(b\) は \(e^{x^\varepsilon}\) より大きい最小の \(q_1x_1\) の倍数とでき、
+\[
+ x^{\varepsilon/6}-1\le\log x_1,\qquad
+ x^\varepsilon\le\log b\le x^\varepsilon+1
+\]
+を満たす。
+\end{proposition}
+
+\begin{proof}
+\(W=x^{\varepsilon/6}\) とおく。階数 \(m,r\) は主張どおりに選ぶ。
+\(x_1=\lfloor e^W\rfloor\) について \(W-1\le\log x_1\le W\) である。
+また \(q_1x_1\le e^{W^6}\) が十分大きな \(x\) で成り立つので、
+指定の倍数 \(b\) は \(e^{W^6}<b\le2e^{W^6}\) を満たす。
+これから \(\log b\le W^6+1\) を得る。
+\(s=O(\log x)\)、\(W\) は \(x\) の正の冪であることにより、
+許容データの対数スケールの条件が従う。
+
+疎集合は Behrend の構成で取る。底本の
+\leansrc{New/Reduction/Data/Existence}{\texttt{exists\_three\_term\_free}}
+では、座標を \(0,\ldots,H-1\) とする \(n\) 次元の箱の中で、二乗長の同じ
+点を少なくとも \(H^n/(nH^2)\) 個選ぶ。
+各点の座標を底 \(2l_0H\) の数字と読むことで指数の集合が得られる。
+このとき、正整数 \(a_1,a_2\) が \(a_1+a_2\le2l_0\) を満たせば、
+\[
+ (a_1+a_2)e_2\equiv a_1 e_1+a_2 e_3 \pmod {2^s}
+\]
+は \(e_1=e_2=e_3\) を含意する。
+実際、\((2l_0H)^n\le 2^s\) の下では両辺の整数代表は \(2^s\) 未満であり、
+桁ごとの等式に繰り上がりはない。中間の点が両端の点の真の重み付き平均になるので、
+同じ球面上にあるなら三点は一致する。
+
+\(g=1+3l_0q_0\) とし、素点を \(-g^e\) の形に取る。
+\(2^v\) を \(q_0\) を割る最大の \(2\) の冪とすれば、
+\(g\) は法 \(2^{s+v}\) で位数 \(2^s\) を持つ。よって選んだ指数に対応する素点は
+相異なり、すべて法 \(q_0\) で \(-1\) に合同である。
+\(\ell=2\) の場合は比が法 \(3l_0\) で \(1\) になるが、
+\(4\) の同じ法での位数は \(l_0\) なので禁じられた比は生じない。
+奇素数 \(\ell\) については二つの比をそれぞれ \(2j,2i\) 乗して
+法 \(2^{s+v}\) で比較すると
+\(2j e_2\equiv2(j-i)e_1+2i e_3\pmod{2^s}\) となる。
+指数の性質から \(e_1=e_2=e_3\) である。しかしこの場合
+\(\ell^{2i}\equiv1\pmod{2^{s+1}}\) となり、底本の位数評価
+\(2^s\le(\ell+1)2i\) に反する。実際、ここでは
+\(2l_0(kt+1)<2^s\) を満たす。
+整数 \(n\) を \(\varepsilon\) に応じて固定し、\(H\) は
+\(H^n\le 2^s/W<(2H)^n\) を満たす \(2\) の冪に選ぶ。
+底本の数値条件
+\[
+ W\le 2^s\le W^n,\qquad (2l_0)^n\le W,\qquad
+ 3l_0 n2^n\le W^3
+\]
+の下で \(H\le W\) であり、上の箱は収まる。選んだ素点の個数は
+\(3l_0 2^s/W^6\) 以上である。
+\(3l_0 2^s=|\Phi_a|\) および \(W^6\le\log b\) より必要な個数を確保できる。
+\leansrc{New/Reduction/Data/Existence}
+{\texttt{Parameters.exists\_isSparse}, \texttt{Parameters.exists\_isSparse\_of\_ranks}}。
+
+レベルの素数は、Siegel--Walfisz 型の評価から得る
+\(\log p\) の幅 \(W\) の窓に取る。
+\(q_0,d\) は固定され、\(s=O(\log x)\) であるから、\(q_2^2\le W^{n+7}\) となるように
+\(n\) を固定できる。\(W\le U\le W^{n+7}\) に対し
+\([U,U+W]\) に \(\log p\) が入る素数を法 \(q_2^2\) の剰余類 \(1\) に取る。
+使用する範囲は \([\log b,24m\log b]\) に含まれる。
+\(h_K\) を \(K\) の類数とすると、
+\([10\log b,11\log b]\) に \(h_K+1\) 個の互いに交わらない窓を並べられる。
+そこから取った各素数 \(p\) は \(K\) で分裂し、上の二つの素イデアルを
+\(I_p,J_p\) とすれば \([I_p][J_p]=1\) である。
+同じ類にある \(I_{p_0},I_{p_1}\) を取ると \(I_{p_0}J_{p_1}\) が主イデアルになり、
+生成元を \(\overline{\pi_M}\) と取る。
+\(N\) については始点を \(\log N_-\) に取る。
+\(W\le\sqrt{\log b}\) なのでこの窓は \eqref{eq:level-window} の範囲に収まる。
+\(N\equiv1\pmod4\) から \(N=u^2+v^2\) と書け、
+\(E\) には \(\sqrt{-1}\) が入るので \(\pi_N=u+v\sqrt{-1}\) とできる。
+窓の存在と各不等式の確認は
+\leansrc{New/Reduction/Data/Existence}{\texttt{eventually\_exists\_data}}
+およびその中で用いる
+\leansrc{New/Reduction/Data/Existence}{\texttt{exists\_isAdmissibleData}}
+に従う。
+\end{proof}
+
+\subsection{持ち上げの始域と目標空間}
+
+底本は \(E\) 上のエルミート空間 \(X_j,Y_j\) を用いる。
+\(\dim_E X_j=k+j(t+1)\)、\(\dim_E Y_j=r+jt\) であり、
+\(Y_m\subset X_m\) は余次元 \(1\) の定符号空間である。
+\(X_0\) 上の代数的保型形式のうち、無限素点での重さが
+\(\Phi_a\) では \((a,0,\ldots,0)\)、その他では \(0\) で、
+指定のレベルを持つ空間を \(S_0\) とする。
+\(M\) の上の選んだ素点で主合同レベルを課し、
+\(\pi_N\) では最後の行を \((0,\ldots,0,1)\) に合同とする。
+\(S\subseteq S_0\) は \(\pi_N\) を割る各素点 \(w\) について、
+\(w\) とその共役で支持される有限アデールの中心スカラー作用の平均が
+零になる形式の空間である。
+\leansrc{New/UpperBound/Objects/Columns}{始域とレベル}、
+\leansrc{New/UpperBound/Size/ShortColumns}{\texttt{ramifiedSourceForms}}。
+
+一方、\(Y_0\) 上の主合同レベルの形式には、\(p_0,p_1\) の上で
+\(\pi_M\) により選ぶ有限素点 \(w\) に対応した
+\(\bar G=\prod_w\mathrm{GL}_r(\mathbb F_w)\) が作用する。
+中心冪等元 \(e_0\) による射影の像を \(V\) とし、\(h=\dim_{\mathbb C}V\) と書く。
+\(e_0\) は次のラベルを持つ既約指標の射影を足したものである。
+各 \(w\) のラベルは次数 \(r\) のモニックな平方因子のない多項式で定数項は非零、
+その剰余体にある根は \(q_2\) 乗根を含まない。
+また \(p_0,p_1\) それぞれの上に、次数 \(r\) の拡大体の乗法群の生成元を根に持つ
+原始多項式のラベルが少なくとも一つある。
+\leansrc{New/UpperBound/Objects/LabelsAndIndexTypes}{有限群と中心冪等元}、
+\leansrc{New/UpperBound/Objects/Rows}{目標空間とその無限型}。
+
+捻り \(\xi\) ごとに \(Y_0\to\cdots\to Y_m\) の \(m\) 段の
+テータ持ち上げがあり、その合成を \(V\) に制限して \(\Theta_\xi\) を得る。
+第 \(j\) 段の指標は底本の固定指標 \(\mu_j^0\) に \(\xi^j\) を掛けたものである。
+自明な捻りを \(1\) と書く。\(X_0\) から \(Y_0\) へのポアンカレ写像に対し、
+第\ref{sec:upper-bound}節の正規化と射影を施した写像を
+\(\mathfrak p_g\colon S\to V\) と書く。
+\leansrc{New/UpperBound/Objects/RowChain}{持ち上げの連鎖}、
+\leansrc{New/Reduction/IntegralTargetForms}{\(\Theta_\xi\) と整構造}。
+
+\subsection{局所整除性に現れる素数和}
+
+整数の \(\Phi\) における像を、\(q_1\) に素ならその剰余類、
+そうでなければ単位元とする。この規約の下で \(-\nu\tau\) と書く。
+\(u_+=\max(u,0)\) とし、\(0\le y\le a\) で
+\begin{align*}
+ s_{\mathrm{fin}}(y,\tau)
+   &=\sum_{1\le\nu\le a}\lambda_1(\nu)
+      \left(\frac{y}{\nu}-\kappa(-\nu\tau)\right)_+,\\
+ s_{\infty}(j)&=\log(j!)+j\log(M/\Omega),\qquad
+ \Omega=
+    \exp\!\left(\gamma-\RePart\frac{L'}{L}(1,\chi_d)\right)
+        \frac{2\pi}{\mathrm{rd}_E},\\
+ s_{\mathrm{main}}&=a\bigl(\log(a/\bar\kappa)+c_1\bigr),\qquad
+ \mathcal R=\sum_{\tau\in\Phi_a}\bigl(s_{\mathrm{fin}}(a,\tau)-s_{\mathrm{main}}\bigr),\\
+ A_0&=\sum_{\tau\in\Phi}
+       \bigl(s_\infty(\kappa(\tau))-s_{\mathrm{fin}}(\kappa(\tau),\tau)\bigr),
+ \qquad H_0=mkA_0,\qquad E_j=fa(\log b)^j .
+\end{align*}
+\(\gamma\) は Euler 定数、\(c_1=G_1(1)\) は \eqref{eq:prime-remainder} の定数である。
+使う量の非負性 \(H_0\ge0\) は、
+各 \(\tau\) について
+\(s_\infty(\kappa(\tau))-s_{\mathrm{fin}}(\kappa(\tau),\tau)\ge\kappa(\tau)\log b\)
+であることから従う。後者は底本のスケールと
+\(s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\) を用いる。
+\leansrc{New/Reduction/PrimeSums}{\texttt{primeSum\_le}, \texttt{jetSize\_sub\_primeSum\_mem\_Icc}}。
+
+\begin{proposition}\label{prop:total-remainder}
+許容データについて
+\begin{equation}\label{eq:total-remainder}
+ \mathcal R =
+ a\left[
+ |\Phi_b|\bigl(R_{q_0}(x)-R_{q_0}(x_1)\bigr)
+ +|\Phi_a|R_1(x_1)
+ \right].
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\(-\nu\tau\in\Phi_b\) となる \(\tau\in\Phi_a\) の個数は、
+\(\nu\equiv1\pmod{q_0}\) ならば \(|\Phi_b|\)、それ以外では零である。
+実際、\(\nu\) が \(q_1\) に素なら乗法で素点の剰余類が移り、
+\(\Phi_b\) は法 \(q_0\) で \(-1\) の剰余類にある。
+\(\nu\) が \(q_1\) に素でない場合は \(-\nu\) の像は単位元である。
+また \(q_1\) と \(q_0\) は素因数を同じくするので、この場合に
+\(\nu\equiv1\pmod{q_0}\) となることはない。
+
+したがって \(\sum_{\tau\in\Phi_a}s_{\mathrm{fin}}(a,\tau)\) を計算するときは、
+まず \(|\Phi_a|\) 箇所すべてに重さ \(a/x_1\) を入れ、次いで
+\(\nu\equiv1\pmod{q_0}\) の各項の \(|\Phi_b|\) 箇所を \(a/x\) の重さで補正すればよい。
+\(\bigl(a/\nu-a/y\bigr)_+\) を \(\nu\le y\) の和に直せば、
+\[
+ \frac1a\sum_{\tau\in\Phi_a}s_{\mathrm{fin}}(a,\tau)
+  =
+ |\Phi_a|B_1(x_1)+|\Phi_b|\bigl(B_{q_0}(x)-B_{q_0}(x_1)\bigr),
+ \qquad B_q(y)=R_q(y)+\frac{\log y}{\varphi(q)}+c_q .
+\]
+ここで差に現れる \(c_{q_0}\) は消える。一方、重さの定義から
+\[
+ |\Phi_a|\bigl(\log(a/\bar\kappa)+c_1\bigr)
+ =|\Phi_a|(\log x_1+c_1)
+   +\frac{|\Phi_b|}{\varphi(q_0)}(\log x-\log x_1).
+\]
+これが上の和の主項なので、差を取れば \eqref{eq:total-remainder} を得る。
+\leansrc{New/Reduction/PrimeSums}{\texttt{totalRemainder\_eq}}。
+\end{proof}

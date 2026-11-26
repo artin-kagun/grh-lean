@@ -1,0 +1,88 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[top=23mm,bottom=23mm,left=25mm,right=25mm]{geometry}
+\usepackage{lmodern}
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[unicode,hidelinks]{hyperref}
+
+\newcommand{\upstream}{https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207}
+\newcommand{\leansrc}[2]{\href{\upstream/grh/src/#1.lean}{#2}}
+\definecolor{supplementblue}{HTML}{174A7A}
+\newenvironment{editorialnote}
+  {\begin{quote}\color{supplementblue}\small\textbf{補足}\quad\ignorespaces}
+  {\end{quote}}
+\newcommand{\RePart}{\operatorname{Re}}
+\newcommand{\ImPart}{\operatorname{Im}}
+\newcommand{\res}{\operatorname*{Res}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\renewcommand{\proofname}{証明}
+\renewcommand{\refname}{参考文献}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[1]
+\setlength{\emergencystretch}{1.5em}
+
+\hypersetup{
+  pdftitle={ディリクレ L 関数の一般化リーマン予想},
+  pdfsubject={Alpöge の Lean 形式証明に基づく日本語再構成稿}
+}
+\title{ディリクレ \(L\) 関数の一般化リーマン予想\\[0.45em]
+  \large テータ持ち上げを用いる形式証明の再構成}
+\author{}
+\date{\small 再構成稿 \quad 2026年11月26日}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Levent Alpöge と Claude による一般化リーマン予想の形式証明を、
+\emph{grh-lean} の可読版に沿って記述する。
+証明は、二次指標で重みづけた算術級数内の素数冪和の剰余に対する片側評価を与える。
+そのため、ユニタリ群の間のテータ持ち上げを反復し、持ち上げた形式の二乗余体積と、
+有限素点で整性を得るための指数を比較する。
+上界にはテータ微分の整除性とポアンカレ級数の二次モーメントを、
+下界には素点ごとに選んだ捻り、グラム行列式の比、および積公式を用いる。
+片側評価から半平面での非消滅を得る際には、二次捻りの零点密度評価により
+対数微分の差で留数が相殺される可能性を除き、Landau の補題を適用する。
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/analytic}
+\input{sections/data}
+\input{sections/lattices}
+\input{sections/upper-bound}
+\input{sections/spanning}
+\input{sections/determinant-estimates}
+\input{sections/conclusion}
+
+\begin{thebibliography}{9}
+\bibitem{alpoege}
+Levent Alpöge,
+\emph{一般化リーマン予想の形式証明についての公表文},
+2026年。
+\href{https://alpo.ge/remark.pdf}{PDF}。
+
+\bibitem{grh-source}
+Levent Alpöge with Claude, \emph{GRH for Dirichlet L-functions, in Lean 4},
+Luke Sernau らによる可読版。
+\href{\upstream/grh/README.md}{底本の README}、
+\href{\upstream/grh/GUIDE.md}{読解案内}、
+\href{\upstream/grh/REFERENCES.md}{底本の文献一覧}。
+コミット \texttt{72fead102f66}。
+
+\bibitem{mv}
+Hugh L. Montgomery and Robert C. Vaughan,
+\emph{Multiplicative Number Theory I. Classical Theory},
+Cambridge Studies in Advanced Mathematics 97,
+Cambridge University Press, 2007。
+\href{https://doi.org/10.1017/CBO9780511618314}{DOI}。
+\end{thebibliography}
+\end{document}

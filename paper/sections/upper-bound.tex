@@ -1,0 +1,573 @@
+\section{テータ持ち上げの上側評価}\label{sec:upper-bound}
+
+分岐条件を課した始域 \(S\) から、テータ持ち上げの像の長さと
+目標空間 \(V\) での指数を同時に制御できる形を取る。
+指数に対しては各有限素点で許容される捻りをすべて扱い、
+長さに対しては自明な捻りだけを考える。
+
+\begin{theorem}[上側評価]\label{thm:upper-bound}
+\begin{enumerate}
+\item すべての有限素点で整であり、すべての \(g\in\overline G\) と
+\(\sigma\in\operatorname{Aut}(\mathbb C)\) に対して
+\[
+  \|\Theta_1\mathfrak p_g\phi\|_\sigma^2
+  \le \exp\!\bigl(H_0-m\mathcal R+E_4\bigr)
+\]
+を満たす \(\phi\in S\) が \(S\) を張る。
+\item \(\mathcal T\subseteq\overline G\) を有限集合とする。
+各 \(y_i\) が、ある \(g_i\in\mathcal T\) とすべての有限素点で整な
+\(\phi_i\in S\) によって \(y_i=\mathfrak p_{g_i}\phi_i\) と書けるならば、
+族 \((y_i)_i\) の対数指数は \(2|\mathcal T|(\dim S)E_3\) 以下である。
+\end{enumerate}
+\end{theorem}
+
+\subsection{シーソー恒等式と射影}
+
+主レベルの \(Y_0\) 上の形式には、\(M\) の上で選んだ素点の剰余体上の
+一般線型群の積 \(\overline G\) が作用する。その群環の中心冪等元 \(e_0\)
+が \(V\) への射影を与える。以下、群作用を \(\rho\)、ポアンカレ級数による
+写像を \(\mathcal P\) と書く。主レベルからの下側の持ち上げ
+\(Y_0\to\cdots\to Y_m\) を \(L_\xi\) と書くと、\(\Theta_\xi\) はその
+\(V\) への制限である。
+
+\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{シーソー恒等式}では、
+\(Y_m\) 上の試験形式との内積に \(\mathcal P\phi\) のベッセル周期を展開する。
+下側の各段階の展開で、無限素点の積分と有限側の重み付き類和が分離する。
+最終段階では \(Y_m\subset X_m\) であり、\(U(X_m)\) 上の行列係数を
+\(U(Y_m)\) 上で積分した式は、\(Y_m\) への制限と試験形式の内積に等しい
+（測度による定数を含む）。有限側の重み付き和は、上側の
+\(X_0\to\cdots\to X_m\) の二段ずつ接合したシュワルツデータを与える。
+
+この展開が与える使用形を明記する。\(c_{\mathrm{ss}}\in\mathbb C^\times\)
+は \(\xi,\phi\) によらず、各 \(\xi\) に対して有限支持係数 \(\Psi_\xi\) があり、
+上側の合成持ち上げを \(B_{\xi,\Psi_\xi}\) とすれば
+\begin{equation}\label{eq:upper-seesaw}
+ L_\xi(c_{\mathrm{ss}}^{-1}\mathcal P\phi)=B_{\xi,\Psi_\xi}\phi
+ \qquad(\phi\in S).
+\end{equation}
+係数は許容された平行移動にのみ付く。具体的には、各平行移動は
+\(M\mathrm NQ(\xi)\) に素な場所で零であり、レベルの生成元で整化した
+平行移動は \(\mathrm NQ(\xi)\) に素な場所で整である。ここで
+\(\mathrm NQ(\xi)\) は捻りの法のノルムを表す。係数はこの法に素な
+すべての素点で整であり、接合したテンソルは各中間レベルの作用で不変である。
+自明な捻りに対しては
+\(\sum_t|\sigma(\Psi_1(t))|\le M^{3fmn_m^2}\) が成り立つ。
+\(n_j=\dim_E X_j\) とした。
+これらの支持、分母および不変性の条件は、同ファイルの
+\(\texttt{exists\_isAdmissibleCombination\_seesawDatum}\) と
+\(\texttt{isInvariant\_seesawDatum}\) による。
+合成持ち上げの評価で使う展開は、
+\leansrc{New/UpperBound/Divisibility/ChainDatumExpansion}{接合テンソルの展開}
+である。これにより、一様に整な係数を持つ、接合していない
+平行移動データの和で持ち上げを計算できる。平行移動の分母には \(N\) が
+許され、自明な捻りでの係数の絶対値和は \(\exp(x^{60})\) 以下である。
+
+射影を施した後の持ち上げは、\(L_\xi z\) の右平行移動の和で書ける。すなわち、
+\(z\) を主レベルの形式、\(u\) を \(U(Y_m)\) の有限アデール点とすると
+\begin{equation}\label{eq:upper-project}
+ L_\xi\bigl(|\overline G|e_0\rho(g)z\bigr)(u)
+ =
+ \sum_{v\in\overline G}|\overline G|e_0(v)\,
+            (L_\xi z)\bigl(u\,\widetilde{vg}_{\,\xi}\bigr).
+\end{equation}
+\(\widetilde{vg}_{\,\xi}\) は \(vg\) の第1ブロックへのレベル持ち上げである。
+式 \eqref{eq:upper-project} は \(L_\xi\) の群作用との両立性から従う。
+\(\overline G\) の既約指標による中心射影の表示から、
+\(|\overline G|e_0(v)\) は代数的整数であり
+\(|\sigma(e_0(v))|\le 1\) である。
+右平行移動は整性の判定に使う格子を保つので、非アルキメデス的三角不等式
+により、\(cL_\xi z\) が整なら \(cL_\xi(|\overline G|e_0\rho(g)z)\) も整である。
+一方、各値の二乗ノルムの上界が \(\exp(B)\) なら、平方根を取った上界は
+\(|\overline G|^2\exp(B/2)\) になる。自明な捻りでの類の個数は
+\(\exp(x^{30})\) 以下であり、二乗して類和を取った上界は
+\(\exp(B+x^{99})\) である。射影とレベルについて用いた仮定と数値評価は
+\leansrc{New/UpperBound/Size/ArchimedeanSize}{射影による整性とノルムの評価}
+に対応する。
+
+\subsection{テータ級数の微分と有限素点の寄与}
+
+\(K=\mathbb Q(\sqrt{-d})\) とし、有限素点では \(v_p(p)=1\) と正規化する。
+\(p\) が \(K\) で非分解なら
+\[
+  \pi_p=\begin{cases}p & (p\ne d),\\ \sqrt{-d}&(p=d),\end{cases}
+  \qquad
+  \rho_p=\begin{cases}(p^2-1)^{-1}&(p\ne d),\\
+                        (2p-2)^{-1}&(p=d).\end{cases}
+\]
+\(I_p^0\subseteq\mathbb Z_{\ge0}\) を、惰性素点では正の奇数の集合、
+\(p=d\) ではすべての非負整数の集合とし、\(I_p=I_p^0\setminus\{0\}\)
+とする。\(p\) が分解する場合には両集合を空とする。
+\(\tau_e=(-p^e)\tau\) は無限素点の添字集合上の作用である。
+ここでは、円分法において \(-p^e\) が単元を与えない場合に単位元で置き換える
+という底本の規約を含め、この記号を用いる。
+
+\paragraph{テータ級数の標準形}
+CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを \(y\) とする。
+\(p\) が非分解で、\(u_i\) が \(p\) の上で整であるベクトル、
+\(\mu_i\in\mathbb Z_{\ge0}\) が重複度で
+\(\sum_i\mu_i u_i u_i^\ast=1\) を満たすとする。
+\(\prod_i\theta(u_i^\ast z)^{\mu_i}\) と \(y(u_i^\ast z)\) の整係数級数の積
+\(F(z)\) に対し、\leansrc{New/Derivatives/FormalGroup/ThetaProducts}{テータ積の標準形}
+\(\texttt{exists\_hasNormalForm}\) を用いる。その結論は、
+\(v_p(\varpi)=\rho_p\)、整係数 \(W(z),\lambda_{e,\nu}\) を用いた
+\begin{equation}\label{eq:upper-normal}
+ F(\varpi z)=W(z)\exp\!\left(
+       \frac{\varpi^{p+1}}{p}
+       \sum_{e\in I_p^0}\sum_{\nu\ge0}\lambda_{e,\nu}\Gamma_e(z)^{p^\nu}
+                              \right),
+ \qquad
+ \Gamma_e(z)=\sum_{\tau,c}z_{\tau,c}^{p^e}z_{\tau_e,c}
+\end{equation}
+である。係数ごとの和は有限である。同宣言の証明では、一変数の
+\(\theta(\varpi z)\) を整な因子と指数因子に分ける。
+指数因子を \(u_i^\ast z\) に代入し、各 \(\tau\) での \(p^e\) 乗が
+\(\tau_e\) での複素共役と \(\pi_p\) を法として一致することと、
+\(\sum_i\mu_i u_i u_i^\ast=1\) を使うと
+\[
+ \sum_i\mu_i\sum_\tau
+    ((u_i^\ast z)_\tau)^{p^e}(u_i^\ast z)_\tau
+ \equiv \Gamma_e(z)\pmod{\pi_p}.
+\]
+指数部をこの合同式で置き換えた際の誤差の指数関数は整である。
+実際、\(v_p(\varpi^{p+1}\pi_p/p)=1/(p-1)\) であり、
+誤差の指数関数を展開した第 \(j\) 項の分母 \(j!\) は
+\(v_p(j!)\le j/(p-1)\) を満たす。
+
+\paragraph{小行列式の積に沿う微分}
+\(Q\) を多項式とし \(J_Q(F)=(Q(\partial)F)(0)\) と置く。
+\(Q\) が整係数の \(B\) 次斉次多項式、\(G\) の \(B\) 次の係数がすべて整で、
+変数の個数が \(w\) ならば
+\begin{equation}\label{eq:upper-legendre}
+  v_p(J_Q(G))\ge
+  \frac{B}{p-1}-w\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr).
+\end{equation}
+実際、\(|D|=B\) の各単項式に対する微分は係数に \(D!=\prod_c D_c!\)
+を掛ける。Legendre の公式で各 \(v_p(D_c!)\) を下から評価し、和の
+付値を各項の付値の最小値で抑えればよい。
+
+底本では、シュール行列の成分に沿う微分の評価を、整な方向の行列の
+小行列式の積に沿う微分に帰着する。
+\leansrc{New/Derivatives/Divisibility/Count}{微分の付値の計数}の
+\(\texttt{exists\_norm\_schurJet\_le\_norm\_jet\_minorProd}\) がこの帰着を与える。
+ある一段の持ち上げの各 \(\tau\) における図形について、高さがその段階の
+終域の階数 \(n_{j+1}\) 未満の列を数える。\(t_\tau,r_\tau,B_\tau\) を順に
+高さ 1 の列数、高さ 1 以外の列数、および後者の列に含まれる箱の数とする。
+全箱数は \(B=\sum_\tau(t_\tau+B_\tau)\) である。
+
+\leansrc{New/Derivatives/Divisibility/NullFrames}{微分方向の変更}
+の \(\texttt{exists\_newDirection\_dvd}\) により、
+\(e\le\lfloor\log_p\max(B,1)\rfloor\) の関係する対について、係数が整の線形代入 \(z=Lz'\) を
+選べる。代入後の \(\Gamma_e\) が \(\pi_p\) で割れ、列ごとの行列式の
+付値の加重和は \(v_p(\pi_p)\mathcal D_p\) 以下である。ここで
+\[
+ \mathcal D_p=
+ \sum_{\substack{e\in I_p^0\\ e\le\lfloor\log_p\max(B,1)\rfloor}}
+ \ \sum_{\tau\in\Phi}
+ \left\{\min\!\left(\frac{t_\tau}{p^e},t_{\tau_e}+r_{\tau_e}\right)
+        +\frac{r_\tau}{p^e}
+        +\min\!\left(\frac{B_\tau}{p^e},B_{\tau_e}\right)\right\}.
+\]
+行列式の評価は、各対と各高さに課す合同条件の割り振りから得られる。
+一つの合同条件に対し、付値が最小の行からの倍数を引いて他の行の値を
+消し、残る行に法を掛ける。複数の条件ではこの操作を順に行う。
+行列式の付値は各操作の付値の和になる。上の最小値は、対応する二つの側のうち
+箱または列の寄与が小さい側で条件を課す計数に現れる。
+
+\eqref{eq:upper-normal} にこの代入を行うと、次数 \(B\) までの
+係数が整になる。次数が \(B\) を越える \(\Gamma_e^{p^\nu}\) は
+\(B\) 次の係数に寄与せず、残る結合項の分母は先ほどの指数関数の
+計算で処理できる。変数の数は \(f n_{j+1}^{3}\) 以下である。
+連鎖律で元の微分に戻る際の付値の減少は
+\(\rho_p B+v_p(\pi_p)\mathcal D_p\) 以下なので、\eqref{eq:upper-legendre} は
+\begin{equation}\label{eq:upper-jet}
+ v_p(J_Q(F))\ge \gamma_p B-v_p(\pi_p)\mathcal D_p
+       -f n_{j+1}^3\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr),
+ \qquad
+ \gamma_p=\frac1{p-1}-\rho_p
+\end{equation}
+を与える。
+
+この計算には高さ 1 の列を特定の場所で印付けする版がある。
+印を付けた列と他の列の結合のうち合同条件から除いたものには、
+両側の少なくとも一方の方向に \(p\) の正の冪を掛ける。
+\(\mathcal D_p\) は印を付けた高さ 1 の列を除いて数え、
+その分の箱も含めた \(B\) に対して \eqref{eq:upper-jet} の
+\(\gamma_p B\) を取る。左辺には方向に掛けた \(p\) の冪指数を
+すべての箱について足したものを加える。これが同ファイルの
+\(\texttt{norm\_jet\_minorProd\_le\_of\_charges}\) の形である。
+\(e>0\) について
+\(\gamma_p=v_p(\pi_p)\sum_{e\in I_p}p^{-e}\) を使うと、
+\(\gamma_p B\) と控除項の差に
+\[
+ \left(\frac{t_\tau}{p^e}-t_{\tau_e}-r_{\tau_e}\right)_+
+ +\left(\frac{B_\tau}{p^e}-B_{\tau_e}\right)_+
+ -\frac{r_\tau}{p^e}
+\]
+が現れる。印を付けていれば、この式の \(t_\tau\) はその列を取り除いた
+後の列数であり、取り除いた箱の各々について \(\gamma_p\) を足す。
+\(p=d\) ではさらに \(e=0\) の控除がある。
+
+\paragraph{持ち上げ一段の利得}
+局所素数和と全段階の利得を
+\begin{align}
+ s_p(y,\tau)
+  &=v_p(\pi_p)\sum_{e\in I_p}
+       \left(\frac{y}{p^e}-\kappa((-p^e)\tau)\right)_+,
+       \label{eq:upper-sp}\\
+ G_p
+  &=m\left\{\sum_{\tau\in\Phi_a}s_p(a,\tau)
+           +k\sum_{\tau\in\Phi}s_p(\kappa(\tau),\tau)\right\}
+       \label{eq:upper-gain}
+\end{align}
+とする。分解する \(p\) には \(s_p=G_p=0\) とする。
+\(0\le y\le a\) ならば、\(p\ge x_1\) でもすべての正部が零になる。
+\(p\) が惰性のとき \(1-\chi_K(p^e)\) は奇数 \(e\) で \(2\)、
+偶数 \(e\) で零である。\(p=d\) ではこの係数が \(1\) で
+\(v_p(\pi_p)=1/2\) である。従って素数冪をまとめると
+\begin{equation}\label{eq:upper-gain-sum}
+  2\sum_p G_p\log p =
+    m\sum_{\tau\in\Phi_a}s_{\mathrm{fin}}(a,\tau)
+       +mk\sum_{\tau\in\Phi}s_{\mathrm{fin}}(\kappa(\tau),\tau).
+\end{equation}
+
+高さ 1 の列数は \(\Phi_a\) で \(a\)、その他で零である。
+残る列数は \(\kappa(\tau)+x^{60}\) 以下、その箱数は
+\(k\kappa(\tau)\) と \(k\kappa(\tau)+x^{60}\) の間にある。
+これを上の正部に代入する。一段での付値評価を \(D_{p,j}(A)\) と書く。
+ここで \(A\subseteq\Phi\) は高さ 1 の列を印付けする場所であり、
+\(D_{p,j}(A)\) は印を除いた図形の予測付値に除いた箱の
+\(\gamma_p\) を加え、微分の対数誤差を差し引いた量である。
+\(p<x_1\) が非分解のとき
+\begin{equation}\label{eq:upper-one-step}
+ D_{p,j}(A)\ \ge\ \frac{G_p}{m}
+  - C_p(A)
+  +v_p(\pi_p)|\Phi_a\cap A|\,\frac{a}{x_1}
+  -\frac{fa(\log b)^2}{mp},
+ \qquad
+ C_p(A)=\sum_{\substack{\tau\in\Phi,\ e\in I_p\\
+                 \tau,\,(-p^e)\tau\in\Phi_a\setminus A}}\frac{a}{p^e}.
+\end{equation}
+この比較では、対応先にも高さ 1 の列が残っていれば、その重なりに
+高々 \(a/p^e\) を差し引く。高さ 1 以外の列の誤差は上の \(x^{60}\)
+の範囲であり、\(p=d,e=0\) の控除は \(\tau,-\tau\) がともに
+\(\Phi_a\) に属することも、ともに \(\Phi_b\) に属することもないことから抑える。
+一場所の誤差は \(a/(mp)\) を単位として、
+正部の比較に高々 \(2\)、分岐素点の控除に高々 \(2\)、微分の対数誤差に
+高々 \(1\) である。これらを \(5\le(\log b)^2\) で吸収するのが
+\leansrc{New/UpperBound/Divisibility/JetExponent}{一段の付値の比較}
+の \(\texttt{le\_divisibilityBound}\) である。
+
+\subsection{有限素点での余長}
+
+\(\iota\) を \(p\) の上の付値を定める同型、\(\mathcal O_\iota\) を
+その付値環とする。\(M_\iota\) は \(S_0\) の \(\iota\)-整な形式の加群である。
+部分加群の余長が \(p^j\) を割るとは、\(M_\iota\) の任意の有限族が
+\(\mathcal O_\iota\) 上の正方行列によりその部分加群に移り、その行列式が
+\(p^j\) を割ることをいう。とくに行列式の付値は \(j\) 以下である。
+この意味での余長を使うので、加群全体の基底を選ぶ必要はない。
+
+\(\mathcal U\) を \(x_1\) 未満の非分解素数の集合とし、
+\[
+ \ell_p=\frac{fa(\log b)^2}{p}
+      \begin{cases} m & (p\equiv\pm1\bmod m),\\1 & (\text{その他}) \end{cases},
+ \qquad
+ \varepsilon_p=
+      \begin{cases}
+       2\ell_p &(p\in\mathcal U),\\
+       2mfb &(p=N),\\
+       0 &(\text{その他})
+      \end{cases}
+\]
+と置く。\(N\ge x_1\) である。各 \(p,\iota\) に対して、
+\(M_\iota\cap S\) に余長が \(p^{j_\iota}\) を割る部分加群 \(M'_\iota\) があり
+\begin{equation}\label{eq:upper-local}
+ j_\iota\le\varepsilon_p\dim S_0,\qquad
+ v_p(B_{\xi,\Psi}\phi)\ge G_p-\varepsilon_p
+  \quad(\phi\in M'_\iota,\ (p,\mathrm NQ(\xi))=1)
+\end{equation}
+となることを示す。形式に対する付値の下界 \(v\) は、対応する格子座標
+で測るすべての値の \(p\) 進ノルムが \(p^{-v}\) 以下であることをいう。
+\(\Psi\) は式 \eqref{eq:upper-seesaw} に課した条件を満たす任意のデータで
+あり、\(M'_\iota\) は \(\xi,\Psi\) に先立って選ばれる。
+
+\(p\notin\mathcal U\cup\{N\}\) では \(G_p=0\) である。\(d<x_1\) から
+\(p\ne d\) なので、標準格子に
+対する各段階の核と最終段階の制限は整性を保つ。
+\(p\in\mathcal U\) のとき、まず印なしで
+\eqref{eq:upper-one-step} を各段階に適用する。
+核の変換則により各段階の付値の下界は加算でき、
+合成持ち上げの係数は整なので、その有限和で下界を保つ。
+従って \(M_\iota\) 上の下界は \(G_p-\ell_p-mC_p(\varnothing)\) である。
+\(\tau,(-p^e)\tau\in\Phi_a\) を満たすすべての \(e\) が \(e\ge e_0\) なら、
+等比級数から \(C_p(\varnothing)\le 2fa/p^{e_0}\) である。
+\(p\equiv\pm1\bmod m\) の場合は \(e_0=1\) でよい。
+それ以外では、重なりがあれば \(p\) は惰性であり、
+\(e\) は \(o_0\) の奇数倍である。ここで \(o_0\) は
+\(-p\) の場所表示を \(q_0\) を法として読んだ元の位数である。
+\(o_0>\lceil\log_p m\rceil\) なら \(p^{e_0}\ge pm\) と取れる。
+いずれの場合も \(mC_p(\varnothing)\le\ell_p\) となり
+\(M'_\iota=M_\iota\cap S\) でよい。
+
+残る例外は、\(p\) が惰性、\(p\not\equiv\pm1\bmod m\) で
+\(o_0\) が奇数かつ \(o_0\le\lceil\log_p m\rceil\) の場合である。
+\leansrc{New/UpperBound/Divisibility/MarkedPrimes}{例外素数での印付け}
+の \(\texttt{exists\_isFullMark}\) により、\(\Phi_a\) が誘導する \(E\) の
+有限素点とそれらの共役の各対から片方を取り、集合 \(\Lambda\) を作る。
+\(\Lambda\) を誘導する無限素点の集合を \(A\) とすれば \(C_p(A)=0\) となる。
+
+\(r_p=\lceil\log_p m\rceil\)、\(\nu_p=r_pf(n_m+r_p)\) と置く。
+\(w\in\Lambda\) に対し \(a_w=a\,|\{\tau\in\Phi_a:\tau\text{ が }w
+\text{ を誘導する}\}|\) とする。
+\(Y\) は、各 \(w\in\Lambda\) で指数 \(r_p\) のヘッケ作用素を
+\(p^{a_w}\) 倍して得た作用素 \(T_w\) の積である。
+\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{例外素数での持ち上げ}
+の \(\texttt{gaugeLe\_scaledHeckeOperator\_pow}\) を用いると、
+\(Y^m\phi\) の持ち上げにおける付値の損失の上界は、段階 \(j\) ごとに
+\[
+  |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau-D_{p,j}(A)
+\]
+である。\(r_\tau\) はその段階の高さ 1 以外の低い列の数である。
+これは、各段に \(Y\) を行き渡らせる際の \(|\Lambda|\nu_p\) と、
+印を付けた方向の冪を負担する低い列の和を、
+\eqref{eq:upper-one-step} の一段の利得から引いた形である。
+\leansrc{New/UpperBound/Divisibility/MarkedPrimes}{印を付けた列での損失の評価}の
+数値評価により
+\[
+ |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau
+ \le \frac{\ell_p}{m}+|\Phi_a\cap A|\frac a{x_1}.
+\]
+例外素数では \(v_p(\pi_p)=1\) なので、余分の \(a/x_1\) が消え、
+各段階での損失は \((2\ell_p-G_p)/m\) 以下である。
+一方、\(j_p=\lceil 2mfa/p\rceil\) とすれば、
+\(p^{j_p}M_\iota\) の像の付値は \(G_p-\ell_p\) 以上である。
+これは印なしの評価と \(mC_p(\varnothing)\le 2mfa/p\le j_p\) から従う。
+従って \(Y^m M_\iota+p^{j_p}M_\iota\) 上で
+\(G_p-2\ell_p\) の下界を得る。
+
+この加群の余長には、\leansrc{New/UpperBound/Divisibility/MarkOperator}
+{正規化ヘッケ作用素の単因子評価}を適用する。
+この評価によれば、\(T_w\) は \(M_\iota\) を保ち、
+\(T_wM_\iota+p^{j_p}M_\iota\) の余長は、ある \(p^{c_w}\) を割る。ただし
+\[
+  c_w\le\left(\frac{12a_w}{mp}+\frac{j_p}{m^2f}\right)\dim S_0 .
+\]
+この評価に至る計算を記す。\(w,\overline w\) を誘導する \(\Phi_a\)
+の素点は \(-p^{o_0}\) の作用で一つの軌道をなす。
+その長さを \(2u_w\)、\(P_p=p^{o_0}\) とする。
+この軌道の付値環への埋め込みを、共役側の埋め込みに複素共役を合成して
+並べる。隣接する埋め込みが \(P_p\) 乗と合同になり、偶数番が \(w\) を
+誘導する。従って \(a_w=au_w\) である。
+\leansrc{New/UpperBound/ElementaryDivisors/ElementaryDivisorTheorem}
+{Frobenius サイクルの単因子定理}では、格子類を結ぶヘッケ作用を
+剰余類ごとの制限とペアリングによる行列積に分解し、
+各行列の像の余長を比較する。作用の座標表示および
+\[
+ \begin{gathered}
+  0<r_p\le k/2,\qquad a^4\le P_p^{2u_w},\qquad \theta_0=(m^2f)^{-1},\\
+  (2u_w k\log(P_p^{2u_w})/\theta_0)^5 P_p^{3r_p}\le a
+ \end{gathered}
+\]
+のもとで、使われる一成分あたりの上界は \(3C_{\mathrm{div}}+\theta_0 j_p\) である。
+ここで \(C_{\mathrm{div}}=2u_wa(P_p^{-2r_p}+r_p^2/(kP_p))\)。
+上の尺度条件とヘッケ作用の座標表示は
+\leansrc{New/UpperBound/Divisibility/MarkOperator}{単因子定理の適用}
+で確認される。\(m\le p^{r_p}\)、\(p\le P_p\) より
+\(P_p^{-2r_p}\le1/(mp)\) である。また \(mr_p^2\le k\) と
+\(p\le P_p\) から第2項も \(1/(mp)\) 以下である。
+そこで \(3C_{\mathrm{div}}\le12a_w/(mp)\) を得る。
+二つの作用素の積について余長指数が加算できることは、次の行列操作で
+分かる。有限族をそれぞれ \(T_1M_\iota+p^{j_p}M_\iota\) に移した後、
+各像の \(T_1\) による原像に \(T_2\) の余長行列を適用する。
+\(T_1\) は \(p^{j_p}M_\iota\) を保つので、合成行列は
+\(T_1T_2M_\iota+p^{j_p}M_\iota\) に移す。その行列式は二つの行列式の積
+である。この手順を繰り返すと、\(\sum_w a_w\le af\)、
+\(|\Lambda|\le f\) と \(j_p\le 2mfa/p+1\) から、
+\(Y^mM_\iota+p^{j_p}M_\iota\) の余長指数は
+\[
+  m\sum_{w\in\Lambda}
+      \left(\frac{12a_w}{mp}+\frac{j_p}{m^2f}\right)\dim S_0
+    \le \frac{14fa+p/m}{p}\dim S_0
+    \le \ell_p\dim S_0
+\]
+となる。\(S\) との共通部分を取っても、最初の有限族を \(S\) に取れば
+行列操作後も \(S\) に属するので、同じ余長上界が得られる。
+
+最後に \(p=N\) では、\(\mathrm{Up}^{m/2}\phi\) が変更後の標準格子で整に
+なる部分加群を取る。
+\leansrc{New/UpperBound/Divisibility/ColengthAtLevel}{レベル素数での余長評価}
+により、その余長指数は \(mfb\dim S_0\) 以下である。
+\leansrc{New/UpperBound/Divisibility/ValuationAtLevel}{レベル素数での付値評価}
+では、分岐条件を用いて接合した二段の持ち上げを
+\(\mathrm{Up}\) と直接の持ち上げの合成で表す。この部分加群上の
+合成持ち上げの付値は \(-2mfb\) 以上である。
+\(S\) との共通部分を取っても余長上界は保たれる。
+\(G_N=0\) なので、これで \eqref{eq:upper-local} のすべての場合を得た。
+
+局所誤差の合計は
+\begin{equation}\label{eq:upper-error-sum}
+  \sum_p \varepsilon_p\log p\le E_3.
+\end{equation}
+実際、\(p\in\mathcal U\) について \(\log p\le\log x_1\) とする。
+\(p\equiv\pm1\bmod m\) なら \(p=mc\pm1\), \(1\le c\le p\) と書き
+\(m/p\le2/c\) を使う。それ以外は \(c=p\) とする。
+\(p=N\) の項にも \(c=1\) が使え、
+\(2mfb\log N\le4fa(\log b)^2\log x_1\) である。
+各 \(c\) に対応するのは \(N,mc-1,c,mc+1\) の高々四項だから、総和は
+\(16fa(\log b)^2\log x_1(1+\log x_1)\) 以下である。
+最後の量が \(E_3\) 以下であることは
+\leansrc{New/UpperBound/Size/Estimates}{全素点での誤差予算}
+の \(\texttt{sum\_allowedLoss\_mul\_log\_le}\) で用いる尺度の不等式である。
+
+\subsection{無限素点でのノルムと正規化}
+
+上側の鎖の一段で、無限素点 \(\tau\) における階数 \(n_j\) までの
+各行長を \(l_{j,\tau,i}\) とし、
+\(U_j=\sum_{\tau}\sum_{i<n_j}s_\infty(l_{j,\tau,i})\) と置く。
+周期を \(\Omega\) とすると \(s_\infty(q)=\log(q!)+q\log(M/\Omega)\)
+である。鎖のノルムについて用いる
+\leansrc{New/UpperBound/Size/ArchimedeanSize}{一段のテータ核の評価}
+\(\texttt{sqrt\_weylNormSq\_jetMap\_le}\) は、
+任意の共役の平方根ノルムに対して、一段での倍率が
+\(\exp(x^{50}+U_j/2)\) 以下であることを与える。
+これは、各行の長さに対応する階乗を用いたシュール微分の
+無限素点評価である。周期による正規化を含む階乗の項は \(U_j/2\) に現れ、
+それ以外の定数、変数の個数および行長の補正が \(x^{50}\) に吸収される。
+
+行長の主部は、第一行の \(a\,1_{\Phi_a}(\tau)\) と、
+続く \(k-1\) 行の \(\kappa(\tau)\) である。
+各余分の箱は \(25\log b\) 以下を加える。実際、すべての行長は
+\(2a\) 以下であり、一箱を足した際の増分は
+\(\log(2a+1)+\log(M/\Omega)\le25\log b\) である。
+各段階での余分な箱の総数は
+\(f(b+\mathrm{offWeight}+n_m\,\mathrm{halfGap}^2)\) 以下である。
+ここで \(\mathrm{offWeight}\) と \(\mathrm{halfGap}\) は図形の隙間を
+定める許容データの量である。
+\(\texttt{sum\_rowSizeSum\_le}\) の尺度の評価を適用すると
+\begin{equation}\label{eq:upper-rows}
+ \sum_{0\le j<m}U_j
+ \le m\left\{|\Phi_a|s_\infty(a)+k\sum_\tau s_\infty(\kappa(\tau))\right\}
+         +\frac{E_3}{2}.
+\end{equation}
+
+自明な捻りでの接合テンソルの展開において、各段階の類の個数は
+\(\exp(x^{30})\) 以下であり、平行移動の係数の共役の絶対値和は
+\(\exp(x^{60})\) 以下である。\(\phi\) のすべての値の共役の二乗ノルムが
+\(\exp(B)\) 以下なら、\(m\) 個の核の積の評価を足し上げた二乗ノルムは
+最終段階の制限前に
+\[
+  \exp\!\left(B+\sum_j U_j
+             +2(mx^{30}+x^{60}+mx^{50})\right)
+\]
+以下である。\(Y_m\subset X_m\) への制限は、
+\leansrc{New/UpperBound/Divisibility/ChainValuation}{最終段の制限の評価}
+により評価する。制限写像の分岐行列は整数係数で、二乗ノルムを
+高々 \(\exp(x^{70})\) 倍する。さらに \(X_m,Y_m\) の重みの差を
+各 \(\tau\) で \(u_\tau\) とすると、制限写像には
+\(\prod_\tau \tau(\overline{\pi_N})^{-u_\tau}\) が掛かる。
+\(\pi_N\overline{\pi_N}=N\) より、この因子はどの共役でも二乗絶対値
+\(N^{-\sum_\tau u_\tau}\) を持つ。
+従って指数から少なくとも
+\((|\Phi_a|a-fm\,\mathrm{halfGap})\log N\) が差し引かれる。
+
+\(s_{\mathrm{main}}\) を \(s_{\mathrm{fin}}(a,\tau)\) の比較に用いる主項、
+\(\mathcal R=\sum_{\tau\in\Phi_a}(s_{\mathrm{fin}}(a,\tau)-s_{\mathrm{main}})\) とする。
+ここで使うレベル \(N\) の条件は、\(\overline{\log\kappa}
+=f^{-1}\sum_\tau\log\kappa(\tau)\), \(D_E=\operatorname{rd}(E)\) と書いて
+\[
+ \log N\ge m\!\left(\overline{\log\kappa}
+                 +\log \frac{M D_E}{2\pi}\right)
+          -\log\frac{M D_E}{2\pi}-\tfrac{15}2\log b.
+\]
+周期の公式
+\(\log(M/\Omega)=1+c_1+\log(M D_E/(2\pi))\) と、
+\(s_{\mathrm{main}}=a(\log a-\overline{\log\kappa}+c_1)\)、
+Stirling の上界
+\(\log(a!)\le a\log a-a+1+\frac12\log a\) を併せると、
+\[
+ s_\infty(a)-s_{\mathrm{main}}
+ \le a\!\left(\overline{\log\kappa}+\log \frac{M D_E}{2\pi}\right)
+        +1+\tfrac12\log a .
+\]
+従って \(m(s_\infty(a)-s_{\mathrm{main}})-a\log N\le32a\log b\)
+である。ここでは
+\(m(1+\frac12\log a)\le a\log b\) と
+\(\log(M D_E/(2\pi))\le23\log b\) を用いた。
+式 \eqref{eq:upper-gain-sum} を代入すれば
+\[
+ H_0-m\mathcal R+2\sum_p G_p\log p
+ =m|\Phi_a|s_{\mathrm{main}}+mk\sum_\tau s_\infty(\kappa(\tau)).
+\]
+この等式と \eqref{eq:upper-rows} を使い、
+\(32fa\log b+x^{70}+fm\,\mathrm{halfGap}\log N+
+  2(mx^{30}+x^{60}+mx^{50})\) を \(E_3/2\) に納めると、
+\(B_{1,\Psi}\phi\) のすべての値の共役の二乗ノルムは
+\begin{equation}\label{eq:upper-arch}
+  \exp\!\left(B+H_0-m\mathcal R+2\sum_p G_p\log p+E_3\right)
+\end{equation}
+以下となる。以上の一連の評価が同じファイルの
+\(\texttt{weylNormSq\_restrictedChain\_le}\) に対応する。
+
+\paragraph{両方の評価に用いる有理数}
+\(g_p=\lfloor G_p-\varepsilon_p\rfloor\) とし
+\[
+ C_B=\prod_{p\in\mathcal U\cup\{N\}}p^{-g_p},\qquad
+ \mathfrak p_g\phi
+   = C_B|\overline G|e_0\rho(g)c_{\mathrm{ss}}^{-1}\mathcal P\phi .
+\]
+\(C_B\) は正の有理数である。\eqref{eq:upper-local} により
+\(C_B B_{\xi,\Psi_\xi}\phi\) は \(M'_\iota\) 上で整であり、
+\eqref{eq:upper-seesaw} と \eqref{eq:upper-project} から
+\(\Theta_\xi\mathfrak p_g\phi\) も整になる。すべての許容捻りに
+同じ \(M'_\iota\) が使える。
+
+一方、丸めによる損失は \(\sum_{p\in\mathcal U\cup\{N\}}\log p\le b\)
+であり、\eqref{eq:upper-error-sum} によって
+\begin{equation}\label{eq:upper-cb}
+ \log C_B\le-\sum_p G_p\log p+E_3+b .
+\end{equation}
+従って \eqref{eq:upper-arch} と射影の損失 \(x^{99}\) に
+倍率 \(C_B^2\) を掛けると、指数にあった \(2\sum_pG_p\log p\) が消える。
+
+\begin{proof}[定理~\ref{thm:upper-bound}の証明]
+\leansrc{New/UpperBound/Size/ShortColumns}{ノルムが小さい整な形式による生成}
+の \(\texttt{span\_isShort\_eq\_top}\) から、
+\(S_0\) は全有限素点で整で、任意の共役の値の二乗ノルムが
+\(\exp(E_3)/4^f\) 以下の形式で張られる。
+この評価では各格子類の安定化群が自明なので、格子類ごとに
+その類に支持を持つ形式を取る。格子類を \(c\) として、
+\(c\) の格子と重みの行列式部分を表す格子に小さい基底を選ぶ。
+Weyl 加群で1 の冪根を代入した評価ベクトルは空間を張り、
+それらに選んだ基底の行列を作用させても生成性を保つ。
+局所では基底が格子内にあり、1 の冪根の絶対値は \(1\) なので、
+得られる形式はすべての有限素点で整である。
+無限素点での小さい基底の定数は \(C=6(q_1d)(fk)^2\) である。
+高さ \(k\) 未満の列の箱は全場所で \(fa\) 個以下であり、
+同補題の二乗ノルムの評価は \(C^{6(fk+fa)}\) を与える。
+許容データにより \(4^f C^{6(fk+fa)}\le \exp(E_3)\) である。
+
+\(N\) の上の指定素点 \(w\) でのスカラー作用の生成元を \(z_w\)
+とすると、\(\prod_w(1-z_w)\) の像が \(S\) である。
+スカラー平行移動は整性を保ち、一つの差 \(1-z_w\) は
+二乗ノルムの上界を高々 \(4\) 倍する。指定素点は \(f\) 個なので、
+これらの像は \(S\) を張り、\(B=E_3\) が使える。
+\eqref{eq:upper-arch} の指数、射影の \(x^{99}\)、および
+\eqref{eq:upper-cb} の二倍を合わせると
+\[
+ \|\Theta_1\mathfrak p_g\phi\|_\sigma^2
+ \le \exp\bigl(H_0-m\mathcal R+x^{99}+4E_3+2b\bigr).
+\]
+許容データの \(x^{99}+4E_3+2b\le E_4\) から (1) が従う。
+
+(2) について、まず \(g_i=g\) を固定する。各 \(\iota\) で
+\((\phi_i)_i\) に \eqref{eq:upper-local} の余長行列を施すと、
+その各成分が \(M'_\iota\) に入る。同じ行列が
+\((\mathfrak p_g\phi_i)_i\) をすべての許容捻りについて整な族に移す。
+この行列式の付値は \(\varepsilon_p\dim S_0\) 以下である。
+分岐条件で失う次元は
+\(\frac{f}{N-1}\dim S_0\) 以下であり、\(\frac{f}{N-1}\le 1/2\) であるから
+\(\dim S_0\le2\dim S\) となる。式 \eqref{eq:upper-error-sum} により
+固定した \(g\) に対する対数指数は \(2(\dim S)E_3\) 以下である。
+一般の族は \(g_i\) ごとの部分族に分け、それぞれの補正行列を
+対角ブロックに並べる。その行列式は各ブロックの行列式の積となり、
+対数指数を足すと \(2|\mathcal T|(\dim S)E_3\) を得る。
+\end{proof}

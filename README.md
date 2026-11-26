@@ -1,5 +1,11 @@
 # GRH for Dirichlet L-functions, in Lean 4
 
+## このフォークの日本語論文
+
+[再構成稿 PDF](paper/grh-ja.pdf) · [証明の概説](paper/OVERVIEW.md) · [原稿と組版手順](paper/README.md)
+
+## Upstream Lean development
+
 Research artifact. Not maintained and not accepting contributions.
 
 A Lean 4 proof of the Riemann Hypothesis and of the Generalized Riemann

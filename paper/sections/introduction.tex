@@ -1,0 +1,38 @@
+\section{主定理}
+
+\begin{theorem}[Alpöge の形式証明]\label{thm:grh}
+\(q\ge 1\) を整数とし、\(\chi\) を法 \(q\) のディリクレ指標とする。
+\begin{enumerate}
+\item \(\RePart s>1/2\) ならば \(L(s,\chi)\ne0\) である。ただし \(\chi\) が主指標で
+      \(s=1\) の場合を除く。
+\item \(0<\RePart s<1\) において \(L(s,\chi)=0\) ならば、\(\RePart s=1/2\) である。
+\item リーマンゼータ関数の零点は、自明零点 \(-2,-4,\ldots\) を除いて
+      \(\RePart s=1/2\) 上にある。
+\end{enumerate}
+\end{theorem}
+
+\noindent
+ここで \(L(s,\chi)=\sum_{n\ge1}\chi(n)n^{-s}\) は
+\(\RePart s>1\) からの有理型接続であり、\(\chi\) の原始性は仮定しない。
+法 \(1\) の指標の \(L\) 関数は \(\zeta(s)\) である。
+底本の五つの定理文のうち、ゼータ関数に関する二つは (3) を、
+ディリクレ \(L\) 関数に関する三つは (1)、(2) および (2) の原始指標の場合を述べる。
+\leansrc{Statements}{定理文}と
+\leansrc{Main}{主定理の宣言}を参照されたい。
+
+まず、素数冪和の片側上界から (1) を導く
+（第\ref{sec:analytic}節）。次に、補助的な数体の無限素点に重さを割り当てることで、
+この剰余をテータ微分の整除性を測る量として表す（第\ref{sec:data}節）。
+第\ref{sec:lattices}節では、同じグラム行列式に対して
+無限素点と有限素点の情報を合わせる方法を述べる。
+第\ref{sec:upper-bound}節から第\ref{sec:determinant-estimates}節までで
+比較に必要な上界、次元評価、捻りによる行列式比の評価をそれぞれ与え、
+第\ref{sec:conclusion}節で定理を導く。
+
+本稿は Alpöge の公表文 \cite{alpoege} に記された証明のうち、
+Sernau らが整理した Lean 開発 \cite{grh-source} の可読版に拠る。
+その開発に固有の補題を本文で引用するときは、用いる形を述べて対応する宣言を示す。
+とくに局所テータ核の構成や補助捻りを得るための合同の評価には、底本の定理を引用する。
+青字の「補足」は、本稿で読解のために付した注記である。
+証明の主要な着想と関連資料は、別冊の
+\href{https://github.com/artin-kagun/grh-lean/blob/main/paper/OVERVIEW.md}{証明の概説}にまとめた。
