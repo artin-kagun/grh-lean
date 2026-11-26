@@ -1,0 +1,196 @@
+\section{Twisted lattices and the product formula}\label{sec:lattices}
+
+\subsection{Integrality at finite places and size at infinity}
+
+Let \(\iota\) denote a prime \(\ell\) together with a field isomorphism
+\(\mathbb C\simeq\overline{\mathbb Q_\ell}\). Write
+\(|z|_\iota=|\iota(z)|_\ell\), with the normalization \(|\ell|_\ell=\ell^{-1}\),
+and let \(\bar\iota\) be the isomorphism obtained by precomposing with complex conjugation.
+A twist \(\xi\) is a character of \(U(1)\) of weight \(0\) at the infinite places.
+Its set of ramified places \(Q_\xi\) is disjoint from the places above \(MN\)
+and from its conjugate. For each \(1\le j\le m\), the power \(\xi^j\) is ramified
+at every place of \(Q_\xi\). We say that \(\xi\) is admissible at \(\ell\) if the
+norm \(N_\xi\) of its modulus is coprime to \(\ell\).
+\leansrc{New/Reduction/Data/LevelAndTwists}{Twists and admissibility}.
+
+\begin{editorialnote}
+The index \(\iota\) specifies both the prime and the field isomorphism.
+The distinction between \(\iota\) and \(\bar\iota\) above the same prime \(\ell\)
+accounts for the complex conjugation in one argument of the Hermitian inner product.
+\end{editorialnote}
+
+Let \(W_\xi\) be the space of forms into which \(\Theta_\xi\) maps, and let
+\(W^{\mathrm{int}}_{\xi,\iota}\) be its module of forms integral at \(\iota\).
+Integrality means that the \(\ell\)-adic Weyl gauge of every value of the form
+is at most \(1\). For \(\xi\) admissible at \(\ell\), we have
+\[
+  \phi\in W^{\mathrm{int}}_{\xi,\bar\iota},\quad
+  \psi\in W^{\mathrm{int}}_{\xi,\iota}
+  \quad\Longrightarrow\quad
+  |\langle\phi,\psi\rangle|_\iota\le1 .
+\]
+Indeed, the inner product is the sum of the Weyl pairings at class
+representatives. At this level the stabilizers of the representatives are
+trivial, so their orders contribute no denominators. At each point of
+evaluation, write \(A\) for the local matrix, \(\rho_{\mathrm W}\) for the
+Weyl representation, and \(G\) for the integral Gram matrix. After conjugating
+the first argument, apply \(\rho_{\mathrm W}(A^{\mathsf T})\) to it and
+\(\rho_{\mathrm W}(A^{-1})\) to the second argument. The gauge bounds imply that
+both resulting vectors have integral coordinates. Since
+\(\rho_{\mathrm W}(A^{\mathsf T})^{\mathsf T}G\rho_{\mathrm W}(A^{-1})=G\),
+the pairing computed in these integral coordinates equals the
+\(\iota\)-image of the original pairing. \leanref{gramForm_mem_embValRing}
+For the trivial twist, take as coordinates the values at class
+representatives in the standard Weyl basis. The inner product in these
+coordinates has a positive-definite matrix with rational entries.
+\leanref{Data.targetLattice}
+
+\begin{definition}
+A vector \(y\in V\) is integral at \(\iota\) if \(\Theta_\xi y\) lies in
+\(W^{\mathrm{int}}_{\xi,\iota}\) for every \(\xi\) admissible at \(\ell\).
+A finite family \(y=(y_1,\ldots,y_n)\) has logarithmic index at most \(\delta\)
+if there are nonnegative reals \(\delta_\ell\) with the following properties.
+\begin{enumerate}
+\item For every finite set \(P\) of primes,
+\(\sum_{\ell\in P}\delta_\ell\log\ell\le\delta\).
+\item For each \(\iota\) above \(\ell\), there is an \(n\times n\) matrix
+\(U_\iota\) with entries integral at \(\iota\) such that every component of
+\(yU_\iota\) is integral at \(\iota\) and
+\(|\det U_\iota|_\iota\ge\ell^{-\delta_\ell}\).
+\end{enumerate}
+The same \(U_\iota\) serves for every twist admissible at that prime.
+\end{definition}
+
+Apply \(\sigma\in\operatorname{Aut}(\mathbb C)\) to the coordinates of the
+untwisted lift, and write \(\|\Theta_1 y_i\|_\sigma^2\) for the squared norm
+computed using the rational inner product matrix. If the Gram determinant
+of the lifted family \(y\), computed with these coordinates and this inner
+product, is at most \(e^c\) for every \(\sigma\), we say that the logarithm of
+the squared covolume is at most \(c\). In particular, if
+\(\|\Theta_1 y_i\|_\sigma^2\le e^B\) for every \(i,\sigma\), then Hadamard's
+inequality gives the bound \(c=nB\). \leanref{IndexLe}
+
+\subsection{The product formula for heights}
+
+\begin{definition}
+A family \(u=(u_\iota)_\iota\) has height at most \(C\), written
+\(\operatorname{ht}(u)\le C\), if there are a common multiplier
+\(H\in\mathbb C^\times\), a real number \(\alpha\), and nonnegative reals
+\(e_\ell\) such that for every \(\sigma,\iota\) and every finite set \(P\)
+of primes,
+\[
+ |\sigma H|\le e^\alpha,\qquad
+ |H u_\iota|_\iota\le\ell^{e_\ell},\qquad
+ \alpha+\sum_{\ell\in P} e_\ell\log\ell\le C .
+\]
+\end{definition}
+
+When multiplying two families, we can multiply their common multipliers
+and add their \(\alpha\)'s and \(e_\ell\)'s. Thus height bounds add under
+multiplication. Every upper bound for the height of the constant family
+\(1\) is nonnegative. To see this, take a multiplier \(H\) for that family.
+Its absolute values \(|H|_\iota\) are bounded uniformly in \(\iota\) above
+\(\ell=2\), so \(H\) is algebraic. In fact, a transcendental \(H\) can be
+mapped by a suitable isomorphism to any transcendental element of
+\(\overline{\mathbb Q_2}\). The elements algebraic over \(\mathbb Q\)
+are countable, and their complement is dense, so there are transcendental
+elements of arbitrarily large absolute value. The extension of the
+isomorphism is the one used in the algebraicity criterion.
+\leanref{isAlgebraic_of_norm_complexToCp_le}
+
+Set \(Q=\operatorname{Nm}_{\mathbb Q(H)/\mathbb Q}H\) and
+\(n_H=[\mathbb Q(H):\mathbb Q]\). Then \(Q\ne0\). Writing \(Q\) as a product
+of conjugates of \(H\) gives \(\log|Q|\le n_H\alpha\) at the infinite place
+and \(\log|Q|_\ell\le n_H e_\ell\log\ell\) at the finite places. Take \(P\)
+to contain the primes dividing the numerator or denominator of \(Q\).
+The product formula over \(\mathbb Q\) gives
+\[
+ 0=\log|Q|+\sum_{\ell\in P}\log|Q|_\ell
+   \le n_H\left(\alpha+\sum_{\ell\in P} e_\ell\log\ell\right)
+   \le n_H C .
+\]
+Thus \(C\ge0\). In particular, if the constant family \(z\ne0\) has height
+at most \(C\) and \(|\sigma z|\le e^{C'}\) for every \(\sigma\), then
+\(C+C'\ge0\). Indeed, the constant family \(z^{-1}\) has height at most
+\(C'\) with multiplier \(H=z\), and the two families have product \(1\).
+\leanref{HeightLe.nonneg_of_one}
+
+\subsection{The Gram determinant of a basis}
+
+Assume that the maps \(\Theta_\xi\) are injective and put
+\(Z(\xi)=\det(\Theta_\xi^*\Theta_\xi)\). For each \(\iota\), choose a
+twist \(\xi_\iota\) admissible at its prime. Let \(y=(y_1,\ldots,y_n)\)
+be linearly independent, and complete it by \(z=(z_1,\ldots,z_{n'})\)
+to a basis of \(V\). Write \(w=(y,z)\) and set
+\[
+ G_\xi(w)=\bigl(\langle\Theta_\xi w_i,\Theta_\xi w_j\rangle\bigr)_{ij},
+ \qquad \Delta_\xi(w)=\det G_\xi(w).
+\]
+
+\begin{proposition}\label{prop:gram-product}
+Suppose that the logarithm of the squared covolume of \(y\) is at most
+\(c\) and that its logarithmic index is at most \(\delta\). For each twist,
+suppose there is a scalar \(\gamma(\xi)\ne0\) such that
+\(\gamma(\xi)\Theta_\xi z_j\) is integral at every place where the twist is
+admissible. Suppose also that \(\|\Theta_1 z_j\|_\sigma^2\le e^{B_{\mathrm{Ar}}}\)
+for all \(\sigma,j\). If the families \((|\gamma(\xi_\iota)|^{-2})_\iota\)
+and \((Z(1)/Z(\xi_\iota))_\iota\) have heights at most
+\(B_{\mathrm{fin}}\) and \(B_Z\), respectively, then
+\begin{equation}\label{eq:gram-product}
+  c+2\delta+n'(B_{\mathrm{Ar}}+B_{\mathrm{fin}})+B_Z\ge0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Since \(\bar\iota\) lies above the same \(\ell\) as \(\iota\), both index
+matrices \(U_\iota,U_{\bar\iota}\) for \(y\) can be used with
+\(\xi=\xi_\iota\). Put
+\[
+  P_\iota=\operatorname{diag}(U_\iota,\gamma(\xi)I_{n'}),\qquad
+  P_{\bar\iota}=\operatorname{diag}(U_{\bar\iota},\gamma(\xi)I_{n'}).
+\]
+Every entry of \(\overline{P_{\bar\iota}}^{\,t}G_\xi(w)P_\iota\) pairs a form
+integral at \(\bar\iota\) with one integral at \(\iota\), so the entry is
+integral at \(\iota\). Taking determinants gives
+\begin{align*}
+ 1&\ge|\det P_{\bar\iota}|_{\bar\iota}
+             |\Delta_\xi(w)|_\iota\,|\det P_\iota|_\iota,\\
+ \bigl|\,|\gamma(\xi)|^{2n'}\Delta_\xi(w)\,\bigr|_\iota
+     &\le\ell^{2\delta_\ell}.
+\end{align*}
+The second inequality uses
+\(\overline{\gamma(\xi)}\,\gamma(\xi)=|\gamma(\xi)|^2\) and the lower bounds
+on the determinants of the two index matrices. With \(H=1\), the last
+inequality gives height at most \(2\delta\) for the family
+\((|\gamma(\xi_\iota)|^{2n'}\Delta_{\xi_\iota}(w))_\iota\).
+
+Since \(w\) is a basis of \(V\), the Gram determinant obeys
+\(\Delta_\xi(w)=Z(\xi)\det(\langle w_i,w_j\rangle)_{ij}\).
+Therefore, for each \(\iota\),
+\[
+ \Delta_1(w)
+ =\bigl(|\gamma(\xi_\iota)|^{2n'}\Delta_{\xi_\iota}(w)\bigr)
+     \bigl(|\gamma(\xi_\iota)|^{-2}\bigr)^{n'}
+     \frac{Z(1)}{Z(\xi_\iota)} .
+\]
+It follows that the constant family \(\Delta_1(w)\) has height at most
+\(2\delta+n'B_{\mathrm{fin}}+B_Z\).
+
+For the Archimedean bound, apply Fischer's inequality to the Gram
+determinant of the full basis after applying \(\sigma\) to the coordinates.
+It is at most the product of the determinants of the diagonal blocks for
+\(y\) and \(z\). Hadamard's inequality on the auxiliary block for \(z\)
+then bounds the determinant of the whole basis by \(e^{c+n'B_{\mathrm{Ar}}}\).
+To bound the conjugate \(\sigma(\Delta_1(w))\) itself for an arbitrary
+field automorphism \(\sigma\), we use exterior products to account for
+complex conjugation. Put \(\sigma^\dagger(z)=\overline{\sigma(\bar z)}\).
+The inner product matrix is rational, so \(\sigma(\Delta_1(w))\) is the
+inner product of the two exterior products formed using \(\sigma^\dagger\)
+and \(\sigma\), respectively. Each has squared norm at most
+\(e^{c+n'B_{\mathrm{Ar}}}\). The Cauchy--Schwarz inequality gives
+\(\left|\sigma(\Delta_1(w))\right|\le e^{c+n'B_{\mathrm{Ar}}}\).
+
+Injectivity of \(\Theta_1\) gives \(\Delta_1(w)\ne0\). Combining its height
+and Archimedean bounds by the product formula proves \eqref{eq:gram-product}.
+\leanref{covolume_add_index_nonneg}
+\end{proof}

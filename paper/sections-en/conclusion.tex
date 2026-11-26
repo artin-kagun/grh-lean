@@ -1,0 +1,157 @@
+\section{The comparison inequality and the main theorem}\label{sec:conclusion}
+
+\begin{proposition}[Lower bound for squared covolume and index]\label{prop:lower-bound}
+Let \(y=(y_1,\ldots,y_n)\) be linearly independent in \(V\), with
+\(n\ge(1-4/b^2)h\). If \(c\) bounds the logarithm of its squared
+covolume and \(\delta\) bounds its logarithmic index, then
+\begin{equation}\label{eq:lower-bound}
+  h(H_0-3E_4)\le c+2\delta .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Extend \(y\) to a basis using \(n'=h-n\) auxiliary forms from
+Proposition~\ref{prop:determinant-inputs}. Use the twists \(\xi_\iota\)
+and the scalars \(\gamma(\xi)\) of that proposition in
+Proposition~\ref{prop:gram-product}, with \(B_{\mathrm{Ar}}=2x_1^2b^2\),
+\(B_{\mathrm{fin}}=b\), and \(B_Z=h(b+E_4-H_0)\). This gives
+\[
+ 0\le c+2\delta+n'(2x_1^2b^2+b)+h(b+E_4-H_0).
+\]
+Since \(n'\le4h/b^2\) and admissibility gives
+\(4(2x_1^2+b^{-1})\le b\), the contribution of the extra forms is
+\(n'(2x_1^2b^2+b)\le hb\).
+Using \(b\le E_4\) to absorb both contributions of \(hb\) yields
+\eqref{eq:lower-bound}.\leanref{integral_forms_long}
+\end{proof}
+
+\begin{theorem}[The comparison inequality]\label{thm:main-inequality}
+For all admissible data,
+\begin{equation}\label{eq:main-ineq}
+ m\mathcal R\le fa(\log b)^5 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Take the set \(T\) of translates from Theorem~\ref{thm:spanning}.
+Since the short integral forms in Theorem~\ref{thm:upper-bound}(1)
+span \(S\), we can choose a basis \(y_1,\ldots,y_n\) of
+\(\sum_{g\in T}\mathfrak p_g S\) consisting of images \(\mathfrak p_g\phi\)
+of these forms. Then \((1-4/b^2)h\le n\le h\) and \(h>0\).
+The bound on the squared norms of the images and Hadamard's inequality
+give the bound
+\[
+   c=n(H_0-m\mathcal R+E_4)
+\]
+for the logarithm of the squared covolume.
+Theorem~\ref{thm:upper-bound}(2) gives a logarithmic index bound
+\[
+  \delta=2|T|(\dim S)E_3\le 10h\log(1+2b^2)E_3.
+\]
+Proposition~\ref{prop:lower-bound} and this last bound give
+\[
+ h(H_0-3E_4)
+  \le n(H_0-m\mathcal R+E_4)+20h\log(1+2b^2)E_3.
+\]
+Since \(H_0+E_4\ge0\), we have \(n(H_0+E_4)\le h(H_0+E_4)\).
+With this substitution, the \(hH_0\) terms cancel, leaving
+\[
+ n\,m\mathcal R
+   \le h\bigl(4E_4+20\log(1+2b^2)E_3\bigr).
+\]
+Admissibility gives \(4/b^2\le1/2\), so that \(n\ge h/2>0\).
+Twice the quantity in parentheses is at most \(fa(\log b)^5\).
+Dividing by \(n\) gives \eqref{eq:main-ineq}.\leanref{star_inequality}
+\end{proof}
+
+\begin{corollary}[The one-sided prime-sum bound]\label{cor:prime-bound}
+Let \(q_0\) be a positive multiple of \(18480\), and let
+\(d\equiv q_0/2-1\pmod{q_0}\) be prime.
+For every \(\varepsilon>0\) and every sufficiently large real \(y\),
+\begin{equation}\label{eq:prime-bound}
+ R_{q_0}(y)\le y^{-1/2+\varepsilon}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Substitute \eqref{eq:total-remainder} into \eqref{eq:main-ineq} and
+divide by \(ma|\Phi_b|\).
+Since \(f=\varphi(q_0)|\Phi_a|\) and \(|\Phi_a|/|\Phi_b|\le\log b\),
+\begin{equation}\label{eq:remainder-intermediate}
+ R_{q_0}(x)
+ \le\frac{\varphi(q_0)(\log b)^6}{m}
+       +|R_{q_0}(x_1)|+\log b\,|R_1(x_1)|.
+\end{equation}
+Choose \(0<\eta<1/100\) with \(7\eta\le\varepsilon\) and apply
+Proposition~\ref{prop:admissible-data} with \(\eta\).
+For sufficiently large integers \(x\), we have
+\(\log b\le2x^\eta\), \(m\ge\sqrt{x}\), and
+\(\log x_1\ge x^{\eta/12}\).
+Taking \(B\ge24/\eta\) in Lemma~\ref{lem:fixed-modulus-pnt} bounds
+\(|R_{q_0}(x_1)|\) and \(|R_1(x_1)|\) by \(x^{-2}\).
+Thus the right side of \eqref{eq:remainder-intermediate} is at most
+\[
+ 64\varphi(q_0)x^{-1/2+6\eta}+x^{-2}+2x^{-2+\eta}
+ \le (64\varphi(q_0)+3)x^{-1/2+6\eta}.
+\]
+For \(x=\lfloor y\rfloor\), the difference estimate in
+Lemma~\ref{lem:fixed-modulus-pnt} gives \(R_{q_0}(y)-R_{q_0}(x)\le26/y\).
+Since \(\theta=-1/2+6\eta\) belongs to \([-1,0]\) and \(x\ge y/2\),
+we have \(x^\theta\le2y^\theta\). Consequently
+\[
+ R_{q_0}(y)\le (2(64\varphi(q_0)+3)+26)y^\theta .
+\]
+For large \(y\) we can absorb the constant into \(y^\eta\), giving
+\eqref{eq:prime-bound} by \(7\eta\le\varepsilon\).\leanref{eventually_primeRemainder_le_rpow}
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:grh}]
+\textup{(1)}
+Let \(\chi\) be any character modulo \(q\) and suppose
+\(\RePart\rho>1/2\). At \(\rho=1\) the principal character is excluded,
+and for nonprincipal characters Dirichlet's theorem gives
+\(L(1,\chi)\ne0\). Hence assume \(\rho\ne1\).
+Set \(q_0=18480q\) and \(d_0=q_0/2-1\).
+We have \(d_0\equiv7\pmod8\) and \((q_0,d_0)=1\), since
+\(q_0=2(d_0+1)\) and \(d_0\) is odd.
+Choose \(1/2<\beta<\RePart\rho\).
+Corollary~\ref{cor:prime-bound} with \(\varepsilon=\beta-1/2\)
+gives the hypothesis of Proposition~\ref{prop:one-sided-criterion}
+for every prime in the residue class \(d_0\) modulo \(q_0\).
+Let \(\chi_0\) be the character modulo \(q_0\) induced by \(\chi\).
+Then \(L(\rho,\chi_0)\ne0\). The induction formula
+\[
+ L(s,\chi_0)=L(s,\chi)
+  \prod_{\substack{p\mid q_0\\p\nmid q}}\bigl(1-\chi(p)p^{-s}\bigr)
+ \qquad(s\ne1)
+\]
+yields \(L(\rho,\chi)\ne0\).
+
+\textup{(2)}
+Suppose \(L(s,\chi)=0\) with \(0<\RePart s<1\).
+Let \(\psi\) be the primitive character inducing \(\chi\).
+The extra Euler factors in the induction formula are nonzero
+in this strip, so \(L(s,\psi)=0\).
+The gamma factor is holomorphic and nonzero here, giving a zero
+of the completed \(L\)-function.
+The functional equation for \(\psi\) gives a zero of the completed
+\(L\)-function of \(\psi^{-1}\) at \(1-s\).
+Removing the gamma factor gives \(L(1-s,\psi^{-1})=0\).
+Since \(\psi^{-1}\) induces \(\chi^{-1}\), it follows that
+\(L(1-s,\chi^{-1})=0\).
+See the \leansrc{Lib/Analytic/ZeroSymmetry}{reflection lemma for
+possibly imprimitive characters}.
+Applying (1) to the two zeros gives
+\(\RePart s\le1/2\) and \(1-\RePart s\le1/2\).
+
+\textup{(3)}
+Suppose \(\zeta(s)=0\), excluding the trivial zeros.
+The value \(\zeta(0)=-1/2\) excludes \(s=0\), and \(s=1\) is the pole.
+The factor \(\pi^{-s/2}\Gamma(s/2)\) is finite and nonzero at \(s\),
+so the completed zeta function vanishes there. The completed function
+is invariant under \(s\mapsto1-s\). Since \(1-s\ne0,1\), multiplying
+its value there by the reciprocal gamma factor gives
+\(\zeta(1-s)=0\).
+Apply (1) modulo \(1\) to both zeros to conclude that
+\(\RePart s=1/2\).\leanref{grh}
+\end{proof}

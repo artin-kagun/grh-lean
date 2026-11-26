@@ -73,9 +73,7 @@
 \]
 \eqref{eq:lambda-dirichlet} を代入すると \eqref{eq:prime-transform} を得る。
 \(s=1\) では分子が消える。\(s=\rho\ne1\) では、整関数の対数微分の留数が
-零点の位数に等しいことを \eqref{eq:log-derivative} に適用する。
-対応する宣言は \leansrc{New/Reduction/Zeros/PrimeError}
-{\texttt{integral\_primeRemainder}, \texttt{isPolar\_primeRemainder}} である。
+零点の位数に等しいことを \eqref{eq:log-derivative} に適用する。\leanref{integral_primeRemainder}
 \end{proof}
 
 \subsection{二次捻りの選択}
@@ -133,8 +131,7 @@ Euler 積により \(\RePart s>1\) には零点がない。
 \(L(s,\chi)=0\) なら \(\Psi(s)=-\Gamma_j(s)^2\) である。
 \(\Gamma_j\) の絶対値は \(1/2\le\RePart s\le1,\ |\ImPart s|\le H\) で
 正の下界を持つから、十分大きな \(T\) について零点の存在は
-\(J(\chi,T)>T^{2\eta}\) を強制する。
-\leansrc{Lib/Analytic/QuadraticTwist}{\texttt{eventually\_rpow\_lt\_thetaTailIntegral}}。
+\(J(\chi,T)>T^{2\eta}\) を強制する。\leanref{eventually_rpow_lt_thetaTailIntegral}
 
 次に \(n^\circ\) を \(n\) の奇数部分とし、\(|\alpha_n|\le1\) に対して
 \(c_v(n)=\alpha_n(-v/n^\circ)\) とおく。ここでは括弧内は Jacobi 記号である。
@@ -162,8 +159,7 @@ Jacobi 指標に適用し、対数因子を吸収して指標和を
 \]
 Cauchy--Schwarz の不等式の後に \(du/u\) で積分すると
 \(\sum_{v\le T^2}J(c_v,T)\ll_\eta T^{2+\eta}\) となる。
-\(\theta_{\mu c_v}\) の項には \(\alpha_n\mu(n)\) を使う。
-\leansrc{Lib/Analytic/QuadraticTwist}{\texttt{sum\_thetaTailIntegral\_le}}。
+\(\theta_{\mu c_v}\) の項には \(\alpha_n\mu(n)\) を使う。\leanref{sum_thetaTailIntegral_le}
 
 \(d\equiv7\pmod8\) では二次相互法則と \((2/d)=1\) により
 \((n/d)=(-d/n^\circ)\) である。各 \(\psi\bmod q\) を導く原始指標を
@@ -176,9 +172,7 @@ Cauchy--Schwarz の不等式の後に \(du/u\) で積分すると
 
 もし剰余類内のすべての素数がこのような零点を持てば、
 この個数評価から \(\sum_{p\equiv d_0\bmod q}(\log p)/p\) が収束する。
-これは既約剰余類における同級数の発散に反する。
-詳しくは \leansrc{Lib/Analytic/QuadraticTwist}
-{\texttt{zero\_density\_quadTwist}, \texttt{exists\_entireL\_quadTwist\_ne\_zero}}。
+これは既約剰余類における同級数の発散に反する。\leanref{zero_density_quadTwist}
 \end{proof}
 
 \subsection{片側評価が与える零点の排除}
@@ -213,8 +207,7 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 \(\lim_{\sigma\downarrow\sigma_c}(\sigma-\sigma_c)A(\sigma)\)
 で正となる。実際、この極限は非負な実数であり、単純極なので零ではない。
 矛盾から \(\sigma_c\le\beta\) である。積分が正則な半平面
-\(\RePart s>\beta\) では \(K/(s-\beta)-A(s)\) も正則である。
-\leansrc{Lib/Analytic/Landau}{\texttt{IsPolar.landau}}。
+\(\RePart s>\beta\) では \(K/(s-\beta)-A(s)\) も正則である。\leanref{IsPolar.landau}
 \end{proof}
 
 \begin{proposition}\label{prop:one-sided-criterion}
@@ -236,8 +229,7 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 仮定により十分大きな \(v\) で \(U(v)\le e^{(\beta-1)v}\) が成り立つ。
 補題 \ref{lem:landau} から留数は \(\rho\) で零である。
 分母は零でなく、\(\nu(\rho)\) は非負の零点位数の和なので各項が零である。
-\(\rho\ne1\) では \(L^\circ\) の非零性は \(L\) の非零性を含意する。
-\leansrc{New/Reduction/Zeros/Criterion}{\texttt{LFunction\_ne\_zero\_of\_primeRemainder\_le}}。
+\(\rho\ne1\) では \(L^\circ\) の非零性は \(L\) の非零性を含意する。\leanref{LFunction_ne_zero_of_primeRemainder_le}
 \end{proof}
 
 \subsection{固定法に対する素数定理}
@@ -270,10 +262,7 @@ Taylor 級数はある実数 \(\sigma_2<\sigma_c\) で収束する。
 \(\RePart s\ge1-\mathcal L^{-26},\ |s|\le e^{\mathcal L}\)
 で正則で \(|F(s)|\le\mathcal L^{26}\) である。
 これは各対数微分の評価に現れる指数 \(25\) を一つ増やして、
-指標の個数と \(1/|s|\le2\) を吸収したものである。
-\leansrc{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{対数微分の評価}、
-\leansrc{New/Reduction/Zeros/PrimeNumberTheorem}
-{\texttt{eventually\_norm\_logDerivMean\_div\_le}}。
+指標の個数と \(1/|s|\le2\) を吸収したものである。\leanref{eventually_norm_logDeriv_entireL_le}\leanref{eventually_norm_logDerivMean_div_le}
 
 \(u\) を大きく取り、
 \(k=\lfloor u^{2B+4}\rfloor,\ H=(k+1)/u,\ \mathcal L=(2B+5)\log u\)、
@@ -301,7 +290,5 @@ Cauchy の評価に \(H/(H+\eta)\le e^{-\eta/(2H)}\) を使うと
 \]
 十分大きな \(u\) では \(\mathcal L^{52}\le u\)、\(4H\le u^{2B+5}\)、
 \(u^{3B+7}\le e^{\sqrt{u}/2}\) であり、したがって \(|A|\le u^{-B-1}\)。
-\(|U(u)|\le53u^{-B-1}\le u^{-B}\) とおき \(u=\log y\) とすればよい。
-\leansrc{Lib/Analytic/PrimeNumberTheorem/Tauberian}
-{\texttt{eventually\_\allowbreak abs\_\allowbreak le\_\allowbreak inv\_\allowbreak pow\_\allowbreak of\_\allowbreak transform}}。
+\(|U(u)|\le53u^{-B-1}\le u^{-B}\) とおき \(u=\log y\) とすればよい。\leanref{eventually_abs_le_inv_pow_of_transform}
 \end{proof}

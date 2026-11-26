@@ -1,0 +1,399 @@
+\section{Spanning by the Poincar\'e map}\label{sec:spanning}
+
+\begin{theorem}[Spanning theorem B]\label{thm:spanning}
+The dimension \(h\) of the target space \(V\) is positive. There is a finite
+set \(T\subset\bar G\) such that
+\[
+  |T|\dim S\leq 5h\log(1+2b^2),\qquad
+  \dim\sum_{g\in T}\mathfrak p_g S\geq (1-4/b^2)h.
+\]
+\end{theorem}
+
+To control the span of the Poincar\'e series, we estimate inner products between
+translates by the finite level group. We first work with the full source space
+\(S_0\) and then impose the ramification condition.
+Let \(\mathcal H\) be the space of forms of principal congruence level on \(Y_0\),
+with the unitary action \(\rho\colon\bar G\to U(\mathcal H)\). The orthogonal
+projection \(e_0\) onto \(V=e_0\mathcal H\) commutes with this action.
+Put \(D_X=\dim S_0>0\). We equip \(S_0\) with the inner product coming from
+the double cosets and Bessel coordinates of the formalization. The norm
+\(\|\cdot\|_{\mathrm{HS}}\) is the Hilbert--Schmidt norm.
+
+\subsection{Unfolding and local bounds for the second moment}
+
+Let \(\deg_B\) be the product of the formal degrees of the Bessel systems at
+the infinite places, and let \(\mathrm{mass}_r\) be the mass of the genus of
+the standard Hermitian lattice of rank \(r\). The mass is the sum over
+isomorphism classes of lattices, weighted by the inverse orders of their
+automorphism groups. For the target space we have
+\begin{equation}\label{eq:span-dimension-mass}
+ h\leq |\bar G|\deg_B\,\mathrm{mass}_r.
+\end{equation}
+Equality of multiplicities identifies \(h\) with the dimension of the
+corresponding projected space on the definite space \(W_m\).
+\leanref{targetDim_eq_finrank_goodForms_spaceW}
+On \(W_m\) the classes at principal congruence level have trivial
+automorphism groups. Their number is therefore the mass \(\mathrm{mass}_r\)
+at maximal compact level times the level index \(|\bar G|\). By Weyl's dimension
+formula, the product of the dimensions of the algebraic representations
+attached to each class is \(\deg_B\). Hence the dimension before projection
+is the right-hand side of \eqref{eq:span-dimension-mass}.
+\leanref{finrank_principalForms_spaceW}
+
+Let \(J\) be the principal congruence level and \(\nu\) the covolume of the
+real unipotent lattice, which is independent of the class. In the coordinates
+of the formalization, scale the Poincar\'e map by \((\operatorname{vol}(J)\nu)^{-1/2}\)
+to obtain \(P\colon S_0\to\mathcal H\), and put
+\[
+ P_s=P^*\rho(s)P \qquad(s\in\bar G).
+\]
+Let \(c,c'\) be classes of the source space on \(U(X_0)\), let \(h_c,h_{c'}\)
+be the images of their representatives in \(U(Y_0)\), and write \(W\) for the
+Bessel function and \(\beta_c,\beta_{c'}\) for the class cutoffs. Unfolding the
+inner product of the Poincar\'e series gives the \((c,c')\) block of \(P_s\)
+as the entrywise complex conjugate of
+\begin{equation}\label{eq:span-unfolded}
+ \frac1\nu
+ \sum_{\substack{\gamma\in U(Y_0)(F)\\
+       h_c^{-1}\gamma h_{c'}\in K,\!
+       \operatorname{red}(h_c^{-1}\gamma h_{c'})=s}}
+ \int
+    \beta_c(y)\beta_{c'}(\gamma^{-1}y)\,
+    W(y)W(\gamma^{-1}y)^*\,dy .
+\end{equation}
+Here \(F\) is the maximal totally real subfield of \(E\), \(K\) is the lattice
+stabilizer in the finite adeles, and the integral is over the product at the
+infinite places. \leanref{hasAmplitudeBlocks_scaledPoincare}
+
+Let \(R_0\) be the rational Bessel subgroup, and let \(\bar R_0\subset\bar G\)
+be the reduction of its integral points. Restricting
+\eqref{eq:span-unfolded} to \(\gamma\in R_0\) gives the unitary representation
+\(r_\psi\) of \(\bar R_0\), extended by zero to \(\bar G\). Set
+\[
+  E_s=P_s-r_\psi(s),\qquad
+  D_{\mathrm{id}}=|\bar R_0|D_X,\qquad
+  D_{\mathrm{main}}=\frac{D_X^2}{\deg_B\,\mathrm{mass}_r}.
+\]
+Write \(\bar G=G_0\times G_1\), where \(G_i\) is the product over the chosen
+places above \(p_i\), viewed also as a subgroup of \(\bar G\).
+The calculation of the terms on \(R_0\) gives
+\begin{equation}\label{eq:span-equivariance}
+ P_t=P_1r_\psi(t),\qquad E_{ts}=r_\psi(t)E_s
+ \quad(t\in\bar R_0,\ s\in\bar G).
+\end{equation}
+Indeed, the action of \(r_\psi(t)\) on the source reindexes the terms of
+the unfolded expression. \leanref{besselTranslate_mul_left}
+
+To bound the second moment on larger sets, group the terms in
+\eqref{eq:span-unfolded} by their correspondences attached to the isotropic
+part \(I\) of the Bessel frame. The correspondence of a term \(\gamma\) is
+the subspace consisting of the pairs of images of \(y\) and \(\gamma^{-1}y\)
+in \(I^\perp/I\), for \(y\) orthogonal to both \(I\) and \(\gamma I\).
+For fixed classes, reduction \(s\in\Omega\), and correspondence, sum the
+amplitudes of the truncated Bessel function. Let \(\mathcal L(\Omega)\) be
+the sum of the squared norms of these sums divided by \(\nu^2\).
+The terms included are those for which
+\(\mathfrak d(\gamma)=\Delta\overline{\Delta}-N^2\Delta'\overline{\Delta'}\ne0\),
+where \(\Delta\) is the determinant of the frame pairing matrix and
+\(\Delta'\) is its preceding leading principal minor.
+This is the normalized sum over links.
+\leanref{linkSecondMoment}
+
+We use the primitive \(5040\)-th root of unity in \(E\) and the Weil splitting
+character chosen in the formalization. The Bessel system and level constructed
+from admissible data satisfy the size and level hypotheses of the following
+three estimates. \leanref{filling}
+
+\begin{enumerate}
+\item
+If \(\Omega\) is disjoint from the cosets of \(\bar R_0\) obtained by
+multiplying by nontrivial roots of unity, then
+\begin{equation}\label{eq:span-cutoff}
+ \Bigl(\sum_{s\in\Omega}\|E_s\|_{\mathrm{HS}}^2\Bigr)^{1/2}
+ \leq \mathcal L(\Omega)^{1/2}+b^{-15}D_{\mathrm{id}}^{1/2}.
+\end{equation}
+Outside the Bessel subgroup, character orthogonality eliminates the parts
+of the sums that are stable under left and right multiplication by the
+integral unipotent group and fail the character matching condition.
+In the expanded sum of squares of the remaining amplitudes, pairs in the
+same correspondence with both discriminants nonzero enter
+\(\mathcal L(\Omega)\). The other pairs contribute at most
+\(b^{-kf}D_{\mathrm{id}}\le b^{-40}D_{\mathrm{id}}\).
+Passing from the truncated to the full Bessel function adds at most
+\(b^{-20}D_{\mathrm{id}}^{1/2}\) to the square root of the sum of squares.
+These bounds give \eqref{eq:span-cutoff}.
+\leanref{sqrt_secondMoment_compl_besselS_le}\leanref{secondMoment_remainingTerms_le}
+\item
+Among the chosen places and their conjugates, take those at which the
+span of the reduced frame has a nonzero vector in common with its image
+under \(s\). Let \(\operatorname{Meet}(s)\) be the product of their norms.
+If a positive integer \(z\) is at most \(\operatorname{Meet}(s)\) for every
+\(s\in\Omega\), then
+\begin{equation}\label{eq:span-intersect}
+ \mathcal L(\Omega)\leq
+       \left(\frac{b^{2f}}z\right)^k D_{\mathrm{main}}.
+\end{equation}
+The estimate counts pairs of terms in the same correspondence using the
+lattice in the intersection. \leanref{linkSecondMoment_le_of_le_meetNorm}
+\item
+Let \(A\) be a set of chosen places above \(p_0\). For each \(w\in A\),
+specify a nonzero vector in the span of the frame at \(w\) or its conjugate.
+Write \(\Gamma_A\) for the subgroup fixing these vectors.
+Call a reduction \(s\) open if at some chosen place above \(p_0\) all
+proper leading principal minors of positive order of the frame pairing
+matrix are nonzero. Let \(\Omega_A\subset\Gamma_A\) be the open reductions.
+Then
+\begin{equation}\label{eq:span-open-input}
+ \mathcal L(\Omega_A)\leq (1+b^{-4})b^{-6k|A|}D_{\mathrm{main}}.
+\end{equation}
+Nonvanishing after reduction implies nonvanishing at the rational point,
+so the corresponding terms lie in the big cell for the Bessel double
+cosets. Siegel's estimate bounds the sum of squared amplitudes for the
+classes by a positive kernel of local densities. A sieve at the finite
+places and Poisson summation bound this kernel, with a factor \(b^{-6k}\)
+for each fixed-vector condition. \leanref{linkSecondMoment_isOpenElement_le}
+\end{enumerate}
+
+An element of \(\bar R_0G_i\) agrees with an element of \(\bar R_0\) above
+the other prime. The frames therefore meet at all \(f\) chosen places
+above that prime and at their conjugates, so \(z\) may be taken to be
+that prime to the power \(2f\). The set also avoids the cosets of
+\(\bar R_0\) obtained from nontrivial roots of unity. Using \(p_j^2\geq M/b\)
+for both primes and \(D_{\mathrm{main}}\le (M/b^6)^{kf}D_{\mathrm{id}}\), the
+right-hand side of \eqref{eq:span-intersect} is at most
+\(b^{-3kf}D_{\mathrm{id}}\). Under \(kf\geq 40\) and \(b\ge 1000\),
+\eqref{eq:span-cutoff} gives
+\begin{equation}\label{eq:span-bessel-near}
+ \sum_{s\in\bar R_0G_i}\|E_s\|_{\mathrm{HS}}^2
+ \leq b^{-12}D_{\mathrm{id}}.
+\end{equation}
+\leanref{secondMoment_compl_besselS_le}
+
+\subsection{Second moments before and after projection}
+
+For \(t\in\bar R_0\), \eqref{eq:span-equivariance} gives
+\(\|E_t\|_{\mathrm{HS}}=\|P^*P-1\|_{\mathrm{HS}}\).
+Restricting \eqref{eq:span-bessel-near} to \(\bar R_0\) thus yields
+\begin{equation}\label{eq:span-gram-isometry}
+ \|P^*P-1\|_{\mathrm{HS}}^2\leq b^{-12}D_X.
+\end{equation}
+For the orthogonal projection \(Q_U\) onto a subspace \(U\subset S_0\),
+\[
+ \|P Q_U\|_{\mathrm{HS}}^2
+ = \dim U+\operatorname{tr}\bigl(Q_U(P^*P-1)\bigr)
+ \geq \dim U-b^{-6}D_X.
+\]
+To estimate the loss from projecting to the target, factor
+\(e_0=e_{p_0}e_{p_1}\) and let \(a_i(t)\) be the coefficient of \(t\) in the
+complementary projection \(1-e_{p_i}\) in \(\mathbf C[G_i]\).
+Counting the types of the finite general linear groups specified by
+polynomials and using their degrees gives
+\[
+ \sum_{t\in G_i}|a_i(t)|^2=a_i(1)\leq \tfrac12 b^{-8}.
+\]
+The equality follows by comparing coefficients of the identity in the
+square of the self-adjoint idempotent. \leanref{bad_types_rare}
+
+Since \(1-e_{p_i}\) is an orthogonal projection,
+\[
+ \|(1-e_{p_i})P\|_{\mathrm{HS}}^2
+  =\operatorname{tr}\sum_{t\in G_i} a_i(t)\bigl(r_\psi(t)+E_t\bigr).
+\]
+The trace of the Bessel term is \(D_X\) times the reduced unipotent
+character. Since \(a_i\) is a class function, this character can be
+replaced by its conjugacy average \(\psi_U^\natural\). The bound
+\(\sum_{s\in\bar G}|\psi_U^\natural(s)|^2\le2\) and Cauchy--Schwarz
+show that the absolute value of this contribution is at most \(b^{-4}D_X\).
+\leanref{trace_besselTranslate_eq_mul_reducedChar}
+
+For the remaining term, extend \(s\mapsto E_s\) by zero outside \(\bar R_0G_i\)
+and apply \(f(s)\mapsto\sum_t a_i(t)f(st)\). As an orthogonal projection on
+\(\ell^2(\bar G)\), this operation does not increase the sum of squares.
+At \(s\in\bar R_0\) its value is \(r_\psi(s)\sum_t a_i(t)E_t\) by
+\eqref{eq:span-equivariance}. Hence \eqref{eq:span-bessel-near}, after division by
+\(|\bar R_0|\), gives \(\|\sum_t a_i(t)E_t\|_{\mathrm{HS}}^2\le b^{-12}D_X\).
+Its trace has absolute value at most \(b^{-6}D_X\le b^{-4}D_X\).
+Applying this at the two primes and using the orthogonal decomposition
+\(1-e_{p_0}e_{p_1}=(1-e_{p_0})+e_{p_0}(1-e_{p_1})\) gives
+\(\|(1-e_0)P\|_{\mathrm{HS}}^2\le4b^{-4}D_X\). Therefore
+\begin{equation}\label{eq:span-near-isometry}
+ \|e_0P Q_U\|_{\mathrm{HS}}^2\geq \dim U-5b^{-4}D_X
+       \qquad(U\subset S_0).
+\end{equation}
+\leanref{isNearIsometry_piTensorElem_comp}
+Taking \(U=S_0\) in \eqref{eq:span-near-isometry} gives \(h>0\).
+
+We next estimate the second moment over the full group. Put
+\(\beta(s)=\|P_s\|_{\mathrm{HS}}^2\) and \(X_t=\rho(t)PP^*\rho(t)^*\).
+Cyclicity of the trace gives
+\[
+ \langle X_t,X_u\rangle_{\mathrm{HS}}=\beta(t^{-1}u).
+\]
+Thus \(\beta\) is of positive type, and \(\beta(s)\leq\beta(1)\).
+By \eqref{eq:span-gram-isometry}, we also have
+\(\beta(1)\le(1+b^{-6})^2D_X\le2D_X\).
+
+Among the finitely many choices of \(A\) and of its specified vectors,
+choose one maximizing
+\[
+ b^{6k|A|}\sum_{s\in\Gamma_A}\beta(s).
+\]
+Put \(Q=\sum_{s\in\Gamma_A}\beta(s)\). First suppose \(A\) includes all the
+chosen places above \(p_0\), and put \(C=b^{-6kf}D_{\mathrm{main}}\).
+The union of the scalar cosets of \(\bar R_0\) obtained from integral adeles
+has at most \(M^f|\bar R_0|\) elements. Its contribution is at most
+\(2 M^fD_{\mathrm{id}}\le C/2\), by the parameter comparison
+\(8 M^f D_{\mathrm{id}}\le b^{-6kf}D_{\mathrm{main}}\).
+For the remaining elements we can take \(z=p_0^f\).
+Since \(p_0\ge b^{10}\), the right-hand side of \eqref{eq:span-intersect}
+is at most \(C/8\). The square of the error term in
+\eqref{eq:span-cutoff} is also at most \(C/8\), so the square of the sum
+of the two square roots is at most \(C/2\). It follows that \(Q\le C\).
+\leanref{secondMoment_fixer_univ_le}
+
+Now suppose there is a chosen \(w\notin A\). By maximality, the sum of
+\(\beta\) over the elements fixing any specified nonzero frame vector
+at \(w\) or its conjugate is at most \(b^{-6k}Q\).
+We use this to bound the mass of the singular minors at \(w\).
+Let \(\pi\) be the matrix representation of \(\Gamma_A\) over the residue
+field of order \(p_0\). Write the \(\ell\)-th leading principal minor as
+\(\det Z_s\), where \(Z_s=A_1^{\mathsf T}\pi(s)A_0\). The columns of
+\(A_0\) are the first \(\ell\) frame vectors, and the columns of \(A_1\)
+represent the corresponding linear forms. Orthogonality for a nontrivial
+additive character \(\psi\) gives
+\[
+ p_0 \sum_{\det Z_s=0}\beta(s)
+ \le \sum_{s\in\Gamma_A}\beta(s)\#\{y:y^{\mathsf T}Z_s=0\}
+ = \sum_{y\in\mathbf F_{p_0}^\ell}\frac{1}{p_0^\ell}
+    \sum_{v\in\mathbf F_{p_0}^\ell}\ \sum_{s\in\Gamma_A}
+        \psi(y^{\mathsf T}Z_s v)\beta(s).
+\]
+The total contribution from \(y=0\) or \(v=0\) is at most \(2Q\).
+For \(y,v\ne0\), use the orthonormal basis of point masses and the
+orthonormal basis of additive characters. Tensor the point mass at
+\(\pi(s)A_0v\) and, separately, the normalized character at
+\(\pi(s)^{-\mathsf T}A_1y\) with \(X_s\) and sum each over \(s\).
+The squared norm of each sum is \(|\Gamma_A|\) times the sum of \(\beta\)
+over the corresponding stabilizer. Expanding the inner product of the two
+sums gives the innermost character sum above times \(|\Gamma_A|p_0^{-r/2}\).
+Cauchy--Schwarz therefore bounds the real part of that character sum
+by \(p_0^{r/2}b^{-6k}Q\). Together with \(p_0^{\ell+r/2}\le b^{6k}\)
+this gives
+\[
+  \sum_{\det Z_s=0}\beta(s)
+  \le p_0^{-1}\bigl(2+p_0^{\ell+r/2}b^{-6k}\bigr)Q
+  \le 3b^{-10}Q .
+\]
+Allowing the conjugate place supplies the stabilizer condition for the
+linear forms under the contragredient of \(\pi\).
+\leanref{card_mul_sum_det_eq_zero_le}
+The frame has length at most \(b\). Summing over the minors bounds the
+contribution from the complement of the open reductions by \(b^{-4}Q\).
+\leanref{sum_not_isOpenElement_le}
+
+The open reductions avoid the scalar cosets, and \(r_\psi(s)=0\) there.
+Apply \eqref{eq:span-cutoff} and \eqref{eq:span-open-input} with
+\(D_{\mathrm{id}}\le b^{-6k|A|}D_{\mathrm{main}}\) and
+\(b^{-15}\le\tfrac12 b^{-4}\). The square root of the contribution of the
+open reductions is then at most
+\((1+b^{-4})(b^{-6k|A|}D_{\mathrm{main}})^{1/2}\).
+Combining the two contributions gives
+\[
+ Q \leq (1+4b^{-4})b^{-6k|A|}D_{\mathrm{main}}+b^{-4}Q,
+ \qquad
+ Q\leq (1+9b^{-4})b^{-6k|A|}D_{\mathrm{main}}.
+\]
+The second inequality follows from \((1-u)(1+9u)\ge1+4u\) at \(u=b^{-4}\).
+It holds also when \(A\) consists of all the chosen places above \(p_0\).
+Comparing the maximum to the value at \(A=\varnothing\) proves
+\begin{equation}\label{eq:span-second-moment}
+ \sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2
+    \leq (1+9b^{-4})D_{\mathrm{main}}.
+\end{equation}
+\leanref{sum_secondMoment_le}
+
+\subsection{From the second moment to a rank bound}
+
+Put \(\epsilon=(8b^2)^{-1}\). Combining \eqref{eq:span-dimension-mass}
+with \eqref{eq:span-second-moment} cancels the factor
+\(\deg_B\,\mathrm{mass}_r\). Since \(9b^{-4}\le\epsilon\), we obtain
+\begin{equation}\label{eq:span-moment-comparison}
+ \frac{h}{|\bar G|}\sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2
+    \leq (1+\epsilon)D_X^2.
+\end{equation}
+For every subspace \(U\subset S_0\), \eqref{eq:span-near-isometry}
+also gives \(\|e_0P Q_U\|_{\mathrm{HS}}^2\geq\dim U-\epsilon D_X\).
+
+Let \(F_1\subset V\) be a subspace and set \(\alpha=\dim F_1/h\).
+Write \(Q_{F_1}\) for the orthogonal projection in \(\mathcal H\) onto \(F_1\).
+The second moment gives
+\begin{align*}
+ \frac1{|\bar G|}\sum_{s\in\bar G}\|Q_{F_1}\rho(s)P\|_{\mathrm{HS}}^2
+ &\leq
+ \left(\dim F_1\cdot
+        \frac1{|\bar G|}\sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2\right)^{1/2}\\
+ &\leq \sqrt{\alpha(1+\epsilon)}D_X
+ \leq \frac{1+\alpha+\epsilon}{2}D_X.
+\end{align*}
+The first line applies Cauchy--Schwarz to the Hilbert--Schmidt inner
+product of \(Q_{F_1}\) with \(\sum_s X_s\). Indeed,
+\(\|\sum_s X_s\|_{\mathrm{HS}}^2=|\bar G|\sum_s\beta(s)\).
+Some \(s\) consequently attains a value no greater than this average.
+Set \(B_s=e_0\rho(s)P\colon S_0\to V\) and \(U=B_s^{-1}(F_1)\).
+On \(U\) the map \(B_s\) agrees with \(Q_{F_1}\rho(s)P\). Since \(\rho(s)\)
+is unitary and commutes with \(e_0\), we have
+\[
+ \dim U-\epsilon D_X
+ \ \leq\ \|e_0P Q_U\|_{\mathrm{HS}}^2
+ \ \leq\ \|Q_{F_1}\rho(s)P\|_{\mathrm{HS}}^2.
+\]
+Therefore \(\dim U\le(1+\alpha+3\epsilon)D_X/2\).
+\leanref{isSpread_of_second_moment}
+
+The map to the quotient \(V/F_1\) has rank \(D_X-\dim U\).
+While \(\operatorname{codim}F_1>16\epsilon h\), adjoining
+\(\operatorname{im}B_s\) accounts for at least a fraction \(2D_X/(5h)\)
+of the missing dimensions, since
+\[
+ \frac{1-\alpha-3\epsilon}{2}D_X
+ \ge \frac25(1-\alpha)D_X
+ \qquad (1-\alpha>16\epsilon).
+\]
+Write \(\lambda=2D_X/(5h)>0\). At \(F_1=0\) the gain is at most \(h\),
+so \(\lambda\le1\). Continue choosing translates while the missing fraction
+exceeds \(16\epsilon\). At each step the codimension decreases by a
+factor at most \(1-\lambda\le e^{-\lambda}\). Within
+\(\lceil\lambda^{-1}\log(1/(16\epsilon))\rceil\) steps it is at most
+\(16\epsilon h=2h/b^2\). The set \(T\) of chosen translates satisfies
+\[
+  |T|D_X\le\tfrac52\bigl(1+\log(1/(16\epsilon))\bigr)h
+               \le 5h\log(1+2b^2).
+\]
+\leanref{IsSpread.exists_few_le_finrank_iSup_range}
+
+\subsection{Restriction to the ramified source}
+
+Write \(N=\pi_N\overline{\pi_N}\), and for each \(w\mid\pi_N\) let \(z_w\)
+be the finite adelic scalar action chosen in the formalization.
+The space \(S\) consists of the elements killed by \(\sum_{j=0}^{N-2}z_w^j\)
+for every \(w\). Since \(z_w^{N-1}=1\), the rank of this averaging operator
+equals the dimension of the fixed space of \(z_w\).
+The level generated by adjoining \(z_w\) has index at least \(N-1\) over
+the original level. The class automorphism groups at both levels are
+trivial, so the fixed space has dimension at most \(D_X/(N-1)\).
+As there are \(f\) places \(w\mid\pi_N\), this gives
+\[
+ \operatorname{codim}_{S_0} S\le \frac{f}{N-1}D_X\le b^{-8}D_X.
+\]
+\leanref{finrank_ker_one_sub_scalingGenerator_le}
+
+Restricting each map to \(S\) loses at most the dimension of the image
+of a complement of \(S\). Since all the normalizing scalars are nonzero,
+\(\operatorname{im}(B_s|_S)=\mathfrak p_sS\). The total loss is at most
+\[
+   |T|\operatorname{codim}_{S_0}S
+   \le 5b^{-8}\log(1+2b^2)h\le 2h/b^2.
+\]
+Adding the earlier codimension bound \(2h/b^2\) gives a codimension
+at most \(4h/b^2\). This and \(\dim S\le D_X\) prove the two inequalities
+in Theorem~B. \leanref{enough_forms}

@@ -7,8 +7,8 @@
 \usepackage{xcolor}
 \usepackage[unicode,hidelinks]{hyperref}
 
-\newcommand{\upstream}{https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207}
-\newcommand{\leansrc}[2]{\href{\upstream/grh/src/#1.lean}{#2}}
+\newcommand{\paperlanguage}[2]{#1}
+\input{lean-links}
 \definecolor{supplementblue}{HTML}{174A7A}
 \newenvironment{editorialnote}
   {\begin{quote}\color{supplementblue}\small\textbf{補足}\quad\ignorespaces}
@@ -44,7 +44,7 @@
 
 \begin{abstract}
 Levent Alpöge と Claude による一般化リーマン予想の形式証明を、
-\emph{grh-lean} の可読版に沿って記述する。
+\emph{grh-lean} の \texttt{grh/}（readable edition、以下「可読版」）に沿って記述する。
 証明は、二次指標で重みづけた算術級数内の素数冪和の剰余に対する片側評価を与える。
 そのため、ユニタリ群の間のテータ持ち上げを反復し、持ち上げた形式の二乗余体積と、
 有限素点で整性を得るための指数を比較する。
@@ -55,6 +55,7 @@ Levent Alpöge と Claude による一般化リーマン予想の形式証明を
 \end{abstract}
 
 \input{sections/introduction}
+\input{sections/overview}
 \input{sections/analytic}
 \input{sections/data}
 \input{sections/lattices}
@@ -84,5 +85,8 @@ Hugh L. Montgomery and Robert C. Vaughan,
 Cambridge Studies in Advanced Mathematics 97,
 Cambridge University Press, 2007。
 \href{https://doi.org/10.1017/CBO9780511618314}{DOI}。
+\input{overview-sources}
 \end{thebibliography}
+
+\input{lean-correspondence}
 \end{document}

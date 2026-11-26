@@ -1,0 +1,306 @@
+\section{Prime-power sums and zeros}\label{sec:analytic}
+
+\subsection{The Laplace transform of the remainder}
+
+Let \(d\) be an odd prime and \(q\) a positive integer coprime to \(d\).
+Write \(\chi_d(n)=(n/d)\) for the Legendre symbol, \(\Lambda\) for the von Mangoldt function,
+and \(\varphi\) for Euler's totient function. Put
+\[
+  \lambda_q(n)=\mathbf 1_{n\equiv1\bmod q}\Lambda(n)(1-\chi_d(n)).
+\]
+For the moment, \(d\) is fixed and is suppressed from the notation \(\lambda_q,R_q,G_q\).
+If \(\psi\) is principal, let \(L^\circ(s,\psi)=(s-1)L(s,\psi)\), with the value at
+\(s=1\) given by holomorphic continuation. For nonprincipal \(\psi\), put
+\(L^\circ(s,\psi)=L(s,\psi)\). Both definitions give entire functions.
+We regard \(\psi\chi_d\) as a character modulo \(qd\). Since \(d\) is an odd prime
+and \((d,q)=1\), \(\psi\chi_d\) is nonprincipal. Set
+\begin{align}
+  G_q(s)
+   &=\frac1{\varphi(q)}
+     \left[
+       \sum_{\psi\bmod q}
+       \left(
+        \frac{(L^\circ)'(s,\psi\chi_d)}{L^\circ(s,\psi\chi_d)}
+        -\frac{(L^\circ)'(s,\psi)}{L^\circ(s,\psi)}
+       \right)-1
+     \right], \label{eq:log-derivative}\\
+  R_q(y)
+   &= \sum_{n\le y}\lambda_q(n)\left(\frac1n-\frac1y\right)
+      -\frac{\log y}{\varphi(q)}-c_q,\qquad c_q=\RePart G_q(1).
+  \label{eq:prime-remainder}
+\end{align}
+Logarithmic derivatives are taken with respect to \(s\). For a principal character,
+\(L^\circ\) is nonzero at \(s=1\) after removal of the pole. For a nonprincipal
+character, \(L(1,\psi)\ne0\). Thus \(G_q\) is holomorphic at \(1\).
+
+By character orthogonality, \(\lambda_q(n)\) is the average of
+\(\Lambda(n)(\psi(n)-(\psi\chi_d)(n))\) over all characters modulo \(q\).
+Logarithmic differentiation of the Euler products for \(\RePart s>1\), with the term
+\(1/(s-1)\) from removing the pole of the principal \(L\)-function accounted for, gives
+\begin{equation}\label{eq:lambda-dirichlet}
+  F_q(s):=\sum_{n\ge1}\frac{\lambda_q(n)}{n^s}
+        =\frac{s}{\varphi(q)(s-1)}+G_q(s).
+\end{equation}
+The right-hand side is real for real \(s>1\), so \(G_q(1)=c_q\).
+
+\begin{lemma}\label{lem:prime-transform}
+For \(\RePart s>2\) one has
+\begin{equation}\label{eq:prime-transform}
+  \mathcal T_q(s):=\int_0^\infty R_q(e^v)e^{(1-s)v}\,dv
+     =\frac{G_q(s)/s-G_q(1)}{s-1}.
+\end{equation}
+The meromorphic continuation given by the right-hand side is holomorphic at \(s=1\).
+At a point \(\rho\ne1\) with \(\RePart\rho>0\), it has at most a simple pole, with residue
+\[
+  \res_{s=\rho}\mathcal T_q(s)=
+    \frac{\nu(\rho)-\nu_d(\rho)}{\varphi(q)\rho(1-\rho)}.
+\]
+Here \(\nu\) and \(\nu_d\) are the sums over all characters modulo \(q\) of the
+orders of vanishing at \(\rho\) of \(L^\circ(s,\psi)\) and \(L^\circ(s,\psi\chi_d)\),
+respectively.
+\end{lemma}
+
+\begin{proof}
+Put \(A_r(y)=y^{-r}\sum_{n\le y}\lambda_q(n)n^{r-1}\).
+For \(r=0,1\), integrating the \(n\)-th summand over \(v\ge\log n\) gives
+\[
+ \int_0^\infty A_r(e^v)e^{(1-s)v}\,dv=\frac{F_q(s)}{s+r-1}.
+\]
+The termwise integration is absolutely convergent for \(\RePart s>2\). Consequently
+\[
+ \mathcal T_q(s)
+ = F_q(s)\left(\frac1{s-1}-\frac1s\right)
+    -\frac1{\varphi(q)(s-1)^2}-\frac{G_q(1)}{s-1}.
+\]
+Substitution of \eqref{eq:lambda-dirichlet} gives \eqref{eq:prime-transform}.
+The numerator vanishes at \(s=1\). At \(s=\rho\ne1\), apply to
+\eqref{eq:log-derivative} the fact that the residue of the logarithmic derivative
+of an entire function equals its order of vanishing. \leanref{integral_primeRemainder}
+\end{proof}
+
+\subsection{Selecting the quadratic twist}
+
+\begin{lemma}\label{lem:select-quadratic}
+Let \(q\) be a positive multiple of \(8\), with \(d_0\equiv7\pmod8\) and \((d_0,q)=1\).
+For every \(\beta>1/2\) and \(H\ge0\) there is a prime \(d\equiv d_0\pmod q\)
+for which \(L^\circ(s,\psi\chi_d)\) is nonzero throughout
+\(\RePart s\ge\beta,\ |\ImPart s|\le H\), for every character \(\psi\) modulo \(q\).
+\end{lemma}
+
+\begin{proof}
+For \(\beta\ge1\), the case \(\beta=3/4\) suffices.
+Assume \(1/2<\beta<1\) and write \(\beta=1/2+9\eta\), with \(\eta>0\).
+The formal proof gives the bound \(O_{q,\eta,H}(X^{1-\eta/2})\) for the number
+of primes \(d\le X\) for which at least one twisted function has a zero
+in the specified region, by the following argument.
+
+Let \(\mu\) be the Möbius function. For \(j\in\{0,1\}\) put
+\(w_j(u)=u^j e^{-\pi u^2}\) and write
+\(\Gamma_j(s)=\int_0^\infty w_j(u)u^{s-1}\,du\) for its Mellin transform.
+For a sequence of coefficients \(c=(c(n))_{n\ge1}\), set
+\[
+ \theta_c(u)=u^{1/2}\sum_{n\ge1}c(n)w_j(nu),\qquad
+ J(c,T)=\int_{1/T}^\infty
+        \bigl(|\theta_c(u)|+|\theta_{\mu c}(u)|\bigr)\,\frac{du}{u}.
+\]
+Let \(\chi\) be a nonprincipal primitive character of conductor \(Q\le T^2\)
+and parity \(j\). The Mellin transform of \(\theta_\chi\) at \(s-1/2\) equals
+\(\Gamma_j(s)L(s,\chi)\). For \(\RePart s>1\), the corresponding integral for
+\(\theta_{\mu\chi}\) gives \(\Gamma_j(s)/L(s,\chi)\). Let \(M_T(s)\) denote
+that integral restricted to \(u>1/T\). On \(\RePart s=1/2\) we have
+\(|M_T(s)|\le J(\chi,T)\).
+The functional equation for the theta function gives
+\(\int_0^\infty |\theta_\chi(u)|\,du/u\) as twice
+\(\int_{Q^{-1/2}}^\infty|\theta_\chi(u)|\,du/u\).
+Since \(Q^{-1/2}\ge T^{-1}\), it follows that
+\(|\Gamma_j(s)L(s,\chi)|\le2J(\chi,T)\) on this line.
+
+Suppose \(J(\chi,T)\le T^{2\eta}\) and put
+\(\Psi(s)=\Gamma_j(s)L(s,\chi)M_T(s)-\Gamma_j(s)^2\).
+On the left boundary \(\RePart s=1/2\) we have \(|\Psi(s)|\ll T^{4\eta}\).
+On the right boundary \(\RePart s=2\), the bound \(3e^{-u}\) for the
+Mellin integrand of a coefficient sequence bounded by \(1\) in modulus gives
+\[
+ |\Gamma_j(s)L(s,\chi)|\le3,\qquad
+ \left|\frac{\Gamma_j(s)}{L(s,\chi)}-M_T(s)\right|\le 3/T.
+\]
+Thus \(|\Psi(s)|\le9/T\) there. The Mellin representation of \(\Gamma_j L\) and
+the truncated integral defining \(M_T\) give the holomorphy and boundedness
+required by the three-lines theorem on the strip. For
+\(\RePart s\in[1/2+9\eta,1]\), the interpolation weight of the right boundary is
+\(t=(\RePart s-1/2)/(3/2)\ge6\eta\).
+Hence \(|\Psi(s)|\ll T^{4\eta(1-t)-t}\), and the exponent is at most \(-2\eta\).
+The Euler product rules out zeros in \(\RePart s>1\).
+If \(L(s,\chi)=0\), then \(\Psi(s)=-\Gamma_j(s)^2\).
+The modulus of \(\Gamma_j\) has a positive lower bound on
+\(1/2\le\RePart s\le1,\ |\ImPart s|\le H\). Therefore a zero in the required
+region forces \(J(\chi,T)>T^{2\eta}\) for all sufficiently large \(T\).
+\leanref{eventually_rpow_lt_thetaTailIntegral}
+
+Next let \(n^\circ\) be the odd part of \(n\), and for \(|\alpha_n|\le1\) put
+\(c_v(n)=\alpha_n(-v/n^\circ)\), using the Jacobi symbol.
+When \(u\ge T^{-1}\), expansion of \(\sum_{1\le v\le T^2}|\theta_{c_v}(u)|^2\)
+gives the character sum
+\[
+  \sum_{1\le v\le T^2}\left(\frac{-v}{(nn')^\circ}\right)
+\]
+for the pair \(n,n'\). If the odd part of \(nn'\) is a square, the absolute
+value of the sum is at most \(T^2\). With \(A=1/2+\eta\) in
+\(|w_j(x)|\ll_A x^{-A}\), the contribution of the pair is bounded by a constant
+times \(T^2u^{-2\eta}(nn')^{-1/2-\eta}\).
+For such a pair there is a \(k\in\{1,2\}\) for which \(knn'\) is a square, so
+we may write \(kn=ab^2,\ n'=ac^2\). The sum \(\sum(nn')^{-1/2-\eta}\) over these
+pairs is therefore bounded by a constant times the convergent triple sum
+\(\sum_{a,b,c\ge1}(abc)^{-1-2\eta}\).
+
+If the odd part is not a square, the Pólya--Vinogradov inequality for the Jacobi
+character gives \(O_\eta((nn')^{1/2+\eta/2})\) for the character sum, after
+absorbing the logarithmic factor. Taking \(A=3/2+\eta\) and using \(u^{-2}\le T^2\)
+bounds the contribution of a pair by a constant times
+\(T^2u^{-2\eta}(nn')^{-1-\eta/2}\). This double sum also converges. Combining the
+two bounds gives
+\[
+ \sum_{v\le T^2}|\theta_{c_v}(u)|^2\ll_\eta T^2u^{-2\eta}.
+\]
+Cauchy--Schwarz followed by integration against \(du/u\) yields
+\(\sum_{v\le T^2}J(c_v,T)\ll_\eta T^{2+\eta}\).
+For the term involving \(\theta_{\mu c_v}\), the coefficients are
+\(\alpha_n\mu(n)\). \leanref{sum_thetaTailIntegral_le}
+
+For \(d\equiv7\pmod8\), quadratic reciprocity and \((2/d)=1\) give
+\((n/d)=(-d/n^\circ)\). For each \(\psi\bmod q\), let \(\psi^\ast\) be the
+primitive character inducing \(\psi\), with conductor \(Q_0\mid q\).
+Then \(\psi^\ast\chi_d\) is primitive and nonprincipal, with conductor \(Q_0d\).
+The finitely many Euler factors introduced by induction are nonzero in
+\(\RePart s>0\). Set \(T^2=qX\) and \(\alpha_n=\psi^\ast(n)\).
+Counting each parity separately, the number of primes producing a zero
+in the region is \(O(T^{2+\eta}/T^{2\eta})=O(X^{1-\eta/2})\).
+There are finitely many characters modulo \(q\), so the bound has the same
+exponent after summing over them.
+
+Were every prime in the residue class to produce such a zero, this counting
+estimate would imply convergence of \(\sum_{p\equiv d_0\bmod q}(\log p)/p\).
+That series diverges in a reduced residue class. \leanref{zero_density_quadTwist}
+\end{proof}
+
+\subsection{Zero exclusion from a one-sided bound}
+
+\begin{lemma}[Landau's lemma in the required form]\label{lem:landau}
+Let \(U(v)\) be a measurable real function satisfying \(|U(v)|\le C e^v\)
+for \(v\ge0\). Suppose its transform \(T(s)=\int_0^\infty U(v)e^{(1-s)v}\,dv\)
+has a meromorphic continuation to \(\RePart s>0\) with at most simple poles.
+Suppose also that, for some \(\beta>0\), the inequality \(U(v)\le e^{(\beta-1)v}\)
+holds for all sufficiently large \(v\), and the real part of the residue of
+\(T\) at each real \(\sigma>\beta\) is nonnegative. Then \(T\) is holomorphic
+on \(\RePart s>\beta\).
+\end{lemma}
+
+\begin{proof}
+Choose \(K\) so that \(K e^{\beta v}-U(v)e^v\ge0\) for all \(v\ge0\).
+The Laplace transform \(A(s)\) of this nonnegative density satisfies
+\(A(s)=K/(s-\beta)-T(s)\) sufficiently far to the right.
+Let \(\sigma_c\) be its abscissa of convergence and suppose \(\sigma_c>\beta\).
+If \(A\) were holomorphic at \(\sigma_c\), then for \(\sigma_1>\sigma_c\)
+sufficiently close to \(\sigma_c\) the Taylor series about \(\sigma_1\) would
+converge at some real \(\sigma_2<\sigma_c\). Differentiation under the integral
+in the half-plane of convergence identifies its \(j\)-th term with the integral
+of the density against \(e^{-\sigma_1 v}((\sigma_1-\sigma_2)v)^j/j!\).
+All terms are nonnegative, so monotone convergence makes the sum equal to the
+Laplace integral at \(\sigma_2\), and that integral is finite. This contradicts
+the definition of the abscissa of convergence.
+
+Thus \(A\) has a pole at \(\sigma_c\). Its residue is the negative of the residue
+of \(T\) there, so its real part is nonpositive. At a simple pole, however, the
+residue is the limit
+\(\lim_{\sigma\downarrow\sigma_c}(\sigma-\sigma_c)A(\sigma)\).
+This is a nonnegative real number and is nonzero at a simple pole, hence is
+strictly positive. The contradiction gives \(\sigma_c\le\beta\).
+The integral, and therefore \(K/(s-\beta)-A(s)\), is holomorphic on
+\(\RePart s>\beta\). \leanref{IsPolar.landau}
+\end{proof}
+
+\begin{proposition}\label{prop:one-sided-criterion}
+Let \(q,d_0\) be as in Lemma \ref{lem:select-quadratic} and let \(\beta>1/2\).
+Suppose that for every prime \(d\equiv d_0\pmod q\) one has
+\(R_q(y)\le y^{\beta-1}\) for all sufficiently large real \(y\).
+Then \(L(\rho,\psi)\ne0\) for every \(\psi\bmod q\) and every \(\rho\ne1\)
+with \(\RePart\rho>\beta\).
+\end{proposition}
+
+\begin{proof}
+Fix \(\rho\) and choose \(d\) by Lemma \ref{lem:select-quadratic}, with
+\(H=|\ImPart\rho|\). The residue in Lemma \ref{lem:prime-transform} is then
+\(\nu(s)/\bigl(\varphi(q)s(1-s)\bigr)\) for
+\(\RePart s>\beta,\ |\ImPart s|\le H,\ s\ne1\).
+In particular, it is nonnegative on the real interval \(\beta<s<1\).
+For real \(s\ge1\), the entire functions \(L^\circ(s,\psi)\) are nonzero and the
+residue vanishes. The function \(U(v)=R_q(e^v)\) is \(O(e^v)\), and the
+hypothesis gives \(U(v)\le e^{(\beta-1)v}\) for all sufficiently large \(v\).
+By Lemma \ref{lem:landau} the residue at \(\rho\) is zero.
+The denominator is nonzero, and \(\nu(\rho)\) is a sum of nonnegative orders
+of vanishing, so every summand is zero. Since \(\rho\ne1\), nonvanishing of
+\(L^\circ\) implies nonvanishing of \(L\). \leanref{LFunction_ne_zero_of_primeRemainder_le}
+\end{proof}
+
+\subsection{The prime number theorem for a fixed modulus}
+
+\begin{lemma}\label{lem:fixed-modulus-pnt}
+Fix an odd prime \(d\) and a positive integer \(q\) with \((d,q)=1\).
+For every integer \(B\ge0\) and all sufficiently large \(y\), one has
+\[
+ |R_q(y)|\le(\log y)^{-B}.
+\]
+If \(z\ge y\ge1\), then \(|R_q(z)-R_q(y)|\le13(z-y)/y\).
+\end{lemma}
+
+\begin{proof}
+Put \(\mathcal E_q(t)=\sum_{n\le t}\lambda_q(n)-t/\varphi(q)\).
+The bounds \(\lambda_q\le2\Lambda\) and \(\sum_{n\le t}\Lambda(n)\le6t\)
+give \(|\mathcal E_q(t)|\le13t\). Partial summation gives
+\[
+ R_q(y)=\int_1^y\mathcal E_q(t)\frac{dt}{t^2}-c_q.
+\]
+The bound for differences follows. For \(0\le u\le v\le u+1\), it gives
+\(|R_q(e^v)-R_q(e^u)|\le13(e^{v-u}-1)\le26(v-u)\). Partitioning into intervals
+of length at most \(1\) shows that \(U(v)=R_q(e^v)\) is Lipschitz on \(v\ge0\)
+with constant \(26\).
+
+For zero-free regions with a fixed modulus, see also \cite[Chapter 11]{mv}.
+Apply the zero-free region and logarithmic derivative bounds from the
+formal proof simultaneously to the finite families \(\psi\) and \(\psi\chi_d\).
+For all sufficiently large \(\mathcal L\), the function \(F(s)=G_q(s)/s\) is
+holomorphic on \(\RePart s\ge1-\mathcal L^{-26},\ |s|\le e^{\mathcal L}\)
+and satisfies \(|F(s)|\le\mathcal L^{26}\) there. The logarithmic derivative
+bounds have exponent \(25\). Increasing that exponent by one absorbs the number
+of characters and \(1/|s|\le2\).
+\leanref{eventually_norm_logDeriv_entireL_le}\leanref{eventually_norm_logDerivMean_div_le}
+
+Take \(u\) large and put \(k=\lfloor u^{2B+4}\rfloor\), \(H=(k+1)/u\),
+\(\mathcal L=(2B+5)\log u\), and \(\eta=\mathcal L^{-26}\).
+Write
+\[
+ A=\frac{(-H)^k H}{k!}\mathcal T_q^{(k)}(1+H)
+\]
+for the normalized Taylor coefficient of
+\(\mathcal T_q(s)=(F(s)-F(1))/(s-1)\) at \(1+H\).
+Differentiation under the integral expresses \(A\) as the average of \(U(v)\)
+against the density \(H^{k+1}v^k e^{-Hv}/k!\), which has mean \(u\) and variance
+\(u^2/(k+1)\). For any \(\delta>0\),
+\(|v-u|\le\delta+(v-u)^2/\delta\). Combining this inequality with the Lipschitz
+bound and choosing \(\delta=u^{-B-1}\) gives \(|A-U(u)|\le52u^{-B-1}\).
+
+The disk of center \(1+H\) and radius \(H+\eta\) lies in the holomorphy region
+above. On its boundary \(|s-1|\ge\eta\), so
+\(|\mathcal T_q(s)|\le 2\mathcal L^{26}/\eta\). Cauchy's estimate and
+\(H/(H+\eta)\le e^{-\eta/(2H)}\) give
+\[
+ |A|\le4\mathcal L^{26}H\eta^{-1}
+       \exp\!\left(-\frac{(k+1)\eta}{2H}\right)
+      =4\mathcal L^{52}H e^{-u\eta/2}.
+\]
+For sufficiently large \(u\) we have \(\mathcal L^{52}\le u\),
+\(4H\le u^{2B+5}\), and \(u^{3B+7}\le e^{\sqrt{u}/2}\), so
+\(|A|\le u^{-B-1}\). Consequently \(|U(u)|\le53u^{-B-1}\le u^{-B}\).
+The substitution \(u=\log y\) finishes the proof.
+\leanref{eventually_abs_le_inv_pow_of_transform}
+\end{proof}

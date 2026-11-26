@@ -1,0 +1,284 @@
+\clearpage
+\section*{\paperlanguage{底本の Lean 宣言との対応}{Correspondence with the Lean source}}
+\addcontentsline{toc}{section}{\paperlanguage{底本の Lean 宣言との対応}{Correspondence with the Lean source}}
+\paperlanguage{本文の参照番号は、底本のコミットにある以下の宣言を指す。名前から該当する行を開ける。}{The numbered references in the text point to the following declarations in the pinned Lean source. Each identifier links to its declaration.}
+
+\subsection*{\paperlanguage{解析}{Analytic reduction}}
+\begin{description}
+\leanentry{integral_primeRemainder}
+  {剰余のラプラス変換と留数}
+  {Laplace transform and residues of the remainder}
+  {\leandecl{New/Reduction/Zeros/PrimeError}{293}{integral\_\allowbreak primeRemainder}\enspace \leandecl{New/Reduction/Zeros/PrimeError}{414}{isPolar\_\allowbreak primeRemainder}}
+\leanentry{eventually_rpow_lt_thetaTailIntegral}
+  {零点がある場合のテータ積分の下界}
+  {Lower bound on the theta integral in the presence of a zero}
+  {\leandecl{Lib/Analytic/QuadraticTwist}{275}{eventually\_\allowbreak rpow\_\allowbreak lt\_\allowbreak thetaTailIntegral}}
+\leanentry{sum_thetaTailIntegral_le}
+  {テータ積分の総和の上界}
+  {Upper bound on the sum of the theta integrals}
+  {\leandecl{Lib/Analytic/QuadraticTwist}{615}{sum\_\allowbreak thetaTailIntegral\_\allowbreak le}}
+\leanentry{zero_density_quadTwist}
+  {二次捻りの零点密度と補助素数の選択}
+  {Zero density for quadratic twists and the choice of auxiliary prime}
+  {\leandecl{Lib/Analytic/QuadraticTwist}{732}{zero\_\allowbreak density\_\allowbreak quadTwist}\enspace \leandecl{Lib/Analytic/QuadraticTwist}{796}{exists\_\allowbreak entireL\_\allowbreak quadTwist\_\allowbreak ne\_\allowbreak zero}}
+\leanentry{IsPolar.landau}
+  {片側評価と留数の符号による極の排除}
+  {Exclusion of poles by a one-sided bound and the signs of residues}
+  {\leandecl{Lib/Analytic/Landau}{217}{IsPolar.landau}}
+\leanentry{LFunction_ne_zero_of_primeRemainder_le}
+  {剰余の片側評価による零点判定}
+  {Zero-free criterion from a one-sided bound on the remainder}
+  {\leandecl{New/Reduction/Zeros/Criterion}{37}{LFunction\_\allowbreak ne\_\allowbreak zero\_\allowbreak of\_\allowbreak primeRemainder\_\allowbreak le}}
+\leanentry{eventually_norm_logDeriv_entireL_le}
+  {ディリクレ L 関数の古典的な零点のない領域}
+  {Classical zero-free region for Dirichlet L-functions}
+  {\leandecl{Lib/Analytic/PrimeNumberTheorem/ZeroFreeRegion}{196}{eventually\_\allowbreak norm\_\allowbreak logDeriv\_\allowbreak entireL\_\allowbreak le}}
+\leanentry{eventually_norm_logDerivMean_div_le}
+  {固定法における対数微分の評価}
+  {Fixed-modulus bounds for logarithmic derivatives}
+  {\leandecl{New/Reduction/Zeros/PrimeNumberTheorem}{178}{eventually\_\allowbreak norm\_\allowbreak logDerivMean\_\allowbreak div\_\allowbreak le}}
+\leanentry{eventually_abs_le_inv_pow_of_transform}
+  {打切り点を大きく取ったときの剰余}
+  {Remainder bound at the larger cutoff}
+  {\leandecl{Lib/Analytic/PrimeNumberTheorem/Tauberian}{319}{eventually\_\allowbreak abs\_\allowbreak le\_\allowbreak inv\_\allowbreak pow\_\allowbreak of\_\allowbreak transform}}
+\end{description}
+
+\subsection*{\paperlanguage{補助数体と素数冪和}{Auxiliary field and prime-power sums}}
+\begin{description}
+\leanentry{Parameters.constantBound}
+  {固定定数と許容データの定義}
+  {Fixed constant and definition of admissible data}
+  {\leandecl{New/Reduction/Data/AdmissibleData}{50}{Parameters.constantBound}\enspace \leandecl{New/Reduction/Data/AdmissibleData}{77}{Data}}
+\leanentry{Parameters.IsSparse}
+  {高い重さを持つ素点の疎性}
+  {Sparsity of the places of higher weight}
+  {\leandecl{New/Reduction/Data/AdmissibleData}{58}{Parameters.IsSparse}}
+\leanentry{exists_three_term_free}
+  {桁の構成による疎集合}
+  {Sparse sets from the digit construction}
+  {\leandecl{New/Reduction/Data/Existence}{80}{exists\_\allowbreak three\_\allowbreak term\_\allowbreak free}}
+\leanentry{Parameters.exists_isSparse}
+  {位数と大きさを制御した疎集合の存在}
+  {Existence of sparse sets with the required bounds}
+  {\leandecl{New/Reduction/Data/Existence}{244}{Parameters.exists\_\allowbreak isSparse}\enspace \leandecl{New/Reduction/Data/Existence}{488}{Parameters.exists\_\allowbreak isSparse\_\allowbreak of\_\allowbreak ranks}}
+\leanentry{eventually_exists_data}
+  {許容データとレベル素数の選択}
+  {Choice of admissible data and level primes}
+  {\leandecl{New/Reduction/Data/Existence}{898}{eventually\_\allowbreak exists\_\allowbreak data}\enspace \leandecl{New/Reduction/Data/Existence}{820}{Parameters.IsLargeScale.exists\_\allowbreak isAdmissibleData}}
+\leanentry{ramifiedSourceForms}
+  {分岐条件を課した始域}
+  {Source forms subject to the ramification condition}
+  {\leandecl{New/UpperBound/Size/ShortColumns}{741}{ramifiedSourceForms}}
+\leanentry{primeSum_le}
+  {重み付き素数和と共通主項の評価}
+  {Bounds for the weighted prime sum and the common main term}
+  {\leandecl{New/Reduction/PrimeSums}{206}{primeSum\_\allowbreak le}\enspace \leandecl{New/Reduction/PrimeSums}{253}{jetSize\_\allowbreak sub\_\allowbreak primeSum\_\allowbreak mem\_\allowbreak Icc}}
+\leanentry{totalRemainder_eq}
+  {二つの打切り点を使った総剰余の恒等式}
+  {Identity for the total remainder at the two cutoffs}
+  {\leandecl{New/Reduction/PrimeSums}{177}{totalRemainder\_\allowbreak eq}}
+\end{description}
+
+\subsection*{\paperlanguage{捻りつき格子と積公式}{Twisted lattices and the product formula}}
+\begin{description}
+\leanentry{gramForm_mem_embValRing}
+  {共役する有限素点での内積の整性}
+  {Integrality of the pairing at conjugate finite places}
+  {\leandecl{Lib/Adelic/AutomorphicForms/PAdicGauge}{706}{gramForm\_\allowbreak mem\_\allowbreak embValRing}}
+\leanentry{Data.targetLattice}
+  {目標空間の捻りつき格子}
+  {Twisted lattice of target forms}
+  {\leandecl{New/Reduction/IntegralTargetForms}{64}{Data.targetLattice}}
+\leanentry{IndexLe}
+  {対数指数と二乗余体積、および Hadamard の評価}
+  {Index, squared covolume, and Hadamard's bound}
+  {\leandecl{New/Reduction/Lattices/TwistedLattice}{159}{IndexLe}\enspace \leandecl{New/Reduction/Lattices/TwistedLattice}{275}{CovolumeLe}\enspace \leandecl{New/Reduction/Lattices/TwistedLattice}{317}{covolumeLe\_\allowbreak of\_\allowbreak normSqAt\_\allowbreak le}}
+\leanentry{isAlgebraic_of_norm_complexToCp_le}
+  {有限素点での一様有界性と代数性}
+  {Algebraicity from a uniform finite-place bound}
+  {\leandecl{Lib/General/NumberTheory/PadicLimitsValuation}{50}{isAlgebraic\_\allowbreak of\_\allowbreak norm\_\allowbreak complexToCp\_\allowbreak le}}
+\leanentry{HeightLe.nonneg_of_one}
+  {高さについての積公式}
+  {The product formula for heights}
+  {\leandecl{New/Reduction/Lattices/Heights}{191}{HeightLe.nonneg\_\allowbreak of\_\allowbreak one}\enspace \leandecl{New/Reduction/Lattices/Heights}{225}{HeightLe.neg\_\allowbreak le\_\allowbreak of\_\allowbreak norm\_\allowbreak map\_\allowbreak le}}
+\leanentry{covolume_add_index_nonneg}
+  {積公式による行列式と指数の比較}
+  {Comparison of determinant and index by the product formula}
+  {\leandecl{New/Reduction/Lattices/TwistedLattice}{477}{covolume\_\allowbreak add\_\allowbreak index\_\allowbreak nonneg}}
+\end{description}
+
+\subsection*{\paperlanguage{局所整除性と上界}{Local divisibility and the upper bound}}
+\begin{description}
+\leanentry{exists_isAdmissibleCombination_seesawDatum}
+  {合成持ち上げの係数と不変性}
+  {Coefficients and invariance in the composite lift}
+  {\leandecl{New/UpperBound/Seesaw/SeesawIdentity}{592}{exists\_\allowbreak isAdmissibleCombination\_\allowbreak seesawDatum}\enspace \leandecl{New/UpperBound/Seesaw/SeesawIdentity}{509}{isInvariant\_\allowbreak seesawDatum}}
+\leanentry{exists_hasNormalForm}
+  {テータ積を整な因子と指数因子に分ける標準形}
+  {Normal form for the product of theta series}
+  {\leandecl{New/Derivatives/FormalGroup/ThetaProducts}{443}{exists\_\allowbreak hasNormalForm}}
+\leanentry{exists_norm_schurJet_le_norm_jet_minorProd}
+  {シュール微分から小行列式に沿う微分への帰着}
+  {Reduction of Schur derivatives to derivatives along products of minors}
+  {\leandecl{New/Derivatives/Divisibility/Count}{800}{exists\_\allowbreak norm\_\allowbreak schurJet\_\allowbreak le\_\allowbreak norm\_\allowbreak jet\_\allowbreak minorProd}}
+\leanentry{exists_newDirection_dvd}
+  {整除性を高める微分方向の選択}
+  {Choice of differentiation directions for divisibility}
+  {\leandecl{New/Derivatives/Divisibility/NullFrames}{361}{exists\_\allowbreak newDirection\_\allowbreak dvd}}
+\leanentry{norm_jet_minorProd_le_of_charges}
+  {方向のスケーリングを含む付値評価}
+  {Valuation bound including the scaling of the directions}
+  {\leandecl{New/Derivatives/Divisibility/Count}{662}{norm\_\allowbreak jet\_\allowbreak minorProd\_\allowbreak le\_\allowbreak of\_\allowbreak charges}}
+\leanentry{le_divisibilityBound}
+  {一段の持ち上げにおける付値の利得}
+  {Valuation gain in one lift}
+  {\leandecl{New/UpperBound/Divisibility/JetExponent}{504}{le\_\allowbreak divisibilityBound}}
+\leanentry{exists_isFullMark}
+  {例外素数で共役素点の片方を選ぶ補題}
+  {Choice of one place from each conjugate pair at an exceptional prime}
+  {\leandecl{New/UpperBound/Divisibility/MarkedPrimes}{230}{exists\_\allowbreak isFullMark}}
+\leanentry{gaugeLe_scaledHeckeOperator_pow}
+  {スケーリングした Hecke 作用素の冪による付値評価}
+  {Valuation bound after powers of scaled Hecke operators}
+  {\leandecl{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{984}{gaugeLe\_\allowbreak scaledHeckeOperator\_\allowbreak pow}}
+\leanentry{sum_allowedLoss_mul_log_le}
+  {各素数の損失を足し合わせた上界}
+  {Bound for the total loss over the primes}
+  {\leandecl{New/UpperBound/Size/Estimates}{342}{sum\_\allowbreak allowedLoss\_\allowbreak mul\_\allowbreak log\_\allowbreak le}}
+\leanentry{sqrt_weylNormSq_jetMap_le}
+  {一段のテータ核の無限素点でのノルム評価}
+  {Archimedean norm bound for a single theta kernel}
+  {\leandecl{New/UpperBound/Size/ArchimedeanSize}{226}{sqrt\_\allowbreak weylNormSq\_\allowbreak jetMap\_\allowbreak le}}
+\leanentry{sum_rowSizeSum_le}
+  {行の長さから得る階乗の寄与の総和}
+  {Sum of the factorial contributions from the rows}
+  {\leandecl{New/UpperBound/Size/ArchimedeanSize}{290}{sum\_\allowbreak rowSizeSum\_\allowbreak le}}
+\leanentry{weylNormSq_restrictedChain_le}
+  {制限した連鎖のノルムの上界}
+  {Norm bound for the restricted chain}
+  {\leandecl{New/UpperBound/Size/ArchimedeanSize}{359}{weylNormSq\_\allowbreak restrictedChain\_\allowbreak le}}
+\leanentry{span_isShort_eq_top}
+  {短い整形式による始域の生成}
+  {Spanning the source by short integral forms}
+  {\leandecl{New/UpperBound/Size/ShortColumns}{981}{span\_\allowbreak isShort\_\allowbreak eq\_\allowbreak top}}
+\end{description}
+
+\subsection*{\paperlanguage{二次モーメントと生成}{Second moments and spanning}}
+\begin{description}
+\leanentry{targetDim_eq_finrank_goodForms_spaceW}
+  {定符号空間との多重度の一致}
+  {Equality of multiplicities with the definite space}
+  {\leandecl{New/Spanning/Multiplicities/EqualMultiplicities}{406}{targetDim\_\allowbreak eq\_\allowbreak finrank\_\allowbreak goodForms\_\allowbreak spaceW}}
+\leanentry{finrank_principalForms_spaceW}
+  {定符号空間の主合同レベルでの次元}
+  {Dimension at principal level on the definite space}
+  {\leandecl{New/Spanning/SecondMoment/SpanningTheorem}{69}{finrank\_\allowbreak principalForms\_\allowbreak spaceW}}
+\leanentry{hasAmplitudeBlocks_scaledPoincare}
+  {ポアンカレ級数の内積の行列表示}
+  {Block expansion of the Poincaré-series pairing}
+  {\leandecl{New/Spanning/SecondMoment/SpanningTheorem}{168}{hasAmplitudeBlocks\_\allowbreak scaledPoincare}}
+\leanentry{besselTranslate_mul_left}
+  {Bessel 部分群の作用と展開式の同変性}
+  {Bessel subgroup action and equivariance of the expansion}
+  {\leandecl{New/Spanning/Unfolding/Moments}{231}{besselTranslate\_\allowbreak mul\_\allowbreak left}\enspace \leandecl{New/Spanning/Unfolding/Moments}{382}{HasAmplitudeBlocks.adjoint\_\allowbreak comp\_\allowbreak rep\_\allowbreak mul\_\allowbreak left}}
+\leanentry{linkSecondMoment}
+  {同じフレームの対応に属する項の二次モーメント}
+  {Second moment for terms with the same frame correspondence}
+  {\leandecl{New/Spanning/RemainingTerms/Size}{80}{linkSecondMoment}}
+\leanentry{filling}
+  {Bessel 系とレベルに対する許容条件}
+  {Admissibility of the Bessel data and the level}
+  {\leandecl{New/Spanning/Unfolding/FillingAdmissible}{743}{instance D.filling.IsAdmissible}}
+\leanentry{sqrt_secondMoment_compl_besselS_le}
+  {Bessel 部分群外での二次モーメントの分解}
+  {Decomposition of the second moment away from the Bessel subgroup}
+  {\leandecl{New/Spanning/Unfolding/SquareExpansion}{559}{sqrt\_\allowbreak secondMoment\_\allowbreak compl\_\allowbreak besselS\_\allowbreak le}}
+\leanentry{secondMoment_remainingTerms_le}
+  {主項へ入らない項の二次モーメント}
+  {Bound for the terms outside the main contribution}
+  {\leandecl{New/Spanning/RemainingTerms/Sum}{682}{secondMoment\_\allowbreak remainingTerms\_\allowbreak le}}
+\leanentry{linkSecondMoment_le_of_le_meetNorm}
+  {共通部分の格子による二次モーメント評価}
+  {Second-moment bound from the lattice of the common intersection}
+  {\leandecl{New/Spanning/RemainingTerms/Sum}{759}{linkSecondMoment\_\allowbreak le\_\allowbreak of\_\allowbreak le\_\allowbreak meetNorm}}
+\leanentry{linkSecondMoment_isOpenElement_le}
+  {開な還元に対する局所密度の評価}
+  {Local density bound on the open reductions}
+  {\leandecl{New/Spanning/MainTerm/EnergyEstimate}{631}{linkSecondMoment\_\allowbreak isOpenElement\_\allowbreak le}}
+\leanentry{secondMoment_compl_besselS_le}
+  {Bessel 部分群の近傍での誤差}
+  {Error near the Bessel subgroup}
+  {\leandecl{New/Spanning/Unfolding/SquareExpansion}{644}{secondMoment\_\allowbreak compl\_\allowbreak besselS\_\allowbreak le}}
+\leanentry{bad_types_rare}
+  {射影で取り除かれる型の寄与}
+  {Bound for the types discarded by the projection}
+  {\leandecl{New/Spanning/SecondMoment/SpanningTheorem}{244}{bad\_\allowbreak types\_\allowbreak rare}}
+\leanentry{trace_besselTranslate_eq_mul_reducedChar}
+  {Bessel の跡と共役平均の評価}
+  {Bessel traces and a bound on their conjugacy average}
+  {\leandecl{New/Spanning/Unfolding/Moments}{751}{trace\_\allowbreak besselTranslate\_\allowbreak eq\_\allowbreak mul\_\allowbreak reducedChar}\enspace \leandecl{New/Spanning/Unfolding/Moments}{991}{sum\_\allowbreak norm\_\allowbreak reducedCharMean\_\allowbreak sq\_\allowbreak le}}
+\leanentry{isNearIsometry_piTensorElem_comp}
+  {射影ポアンカレ写像の近似等長性}
+  {Near-isometry of the projected Poincaré map}
+  {\leandecl{New/Spanning/Unfolding/Moments}{1230}{HasAmplitudeBlocks.isNearIsometry\_\allowbreak piTensorElem\_\allowbreak comp}}
+\leanentry{secondMoment_fixer_univ_le}
+  {すべての選択素点を固定した場合の二次モーメント}
+  {Second moment with fixing conditions at every selected place}
+  {\leandecl{New/Spanning/Unfolding/MomentBounds}{202}{secondMoment\_\allowbreak fixer\_\allowbreak univ\_\allowbreak le}}
+\leanentry{card_mul_sum_det_eq_zero_le}
+  {有限 Fourier 展開による退化小行列式の評価}
+  {Bound for singular minors by finite Fourier expansion}
+  {\leandecl{New/Spanning/SecondMoment/PositiveType}{153}{card\_\allowbreak mul\_\allowbreak sum\_\allowbreak det\_\allowbreak eq\_\allowbreak zero\_\allowbreak le}}
+\leanentry{sum_not_isOpenElement_le}
+  {開でない還元の寄与}
+  {Contribution from reductions outside the open set}
+  {\leandecl{New/Spanning/Unfolding/MomentBounds}{399}{sum\_\allowbreak not\_\allowbreak isOpenElement\_\allowbreak le}}
+\leanentry{sum_secondMoment_le}
+  {全群にわたる二次モーメントの評価}
+  {Second moment over the full group}
+  {\leandecl{New/Spanning/Unfolding/MomentBounds}{441}{sum\_\allowbreak secondMoment\_\allowbreak le}}
+\leanentry{isSpread_of_second_moment}
+  {二次モーメントから像の階数へ}
+  {Rank of images from the second moment}
+  {\leandecl{New/Spanning/SecondMoment/FewTranslates}{320}{isSpread\_\allowbreak of\_\allowbreak second\_\allowbreak moment}}
+\leanentry{IsSpread.exists_few_le_finrank_iSup_range}
+  {少数の平行移動で目標空間を生成}
+  {Spanning the target with few translates}
+  {\leandecl{New/Spanning/SecondMoment/FewTranslates}{479}{IsSpread.exists\_\allowbreak few\_\allowbreak le\_\allowbreak finrank\_\allowbreak iSup\_\allowbreak range}}
+\leanentry{finrank_ker_one_sub_scalingGenerator_le}
+  {中心作用の固定空間の次元}
+  {Dimension of the fixed space of the central action}
+  {\leandecl{New/UpperBound/Size/ShortColumns}{857}{finrank\_\allowbreak ker\_\allowbreak one\_\allowbreak sub\_\allowbreak scalingGenerator\_\allowbreak le}}
+\leanentry{enough_forms}
+  {分岐条件を課した始域からの生成}
+  {Spanning with ramification imposed on the source}
+  {\leandecl{New/Reduction/ShortAndEnough}{448}{enough\_\allowbreak forms}}
+\end{description}
+
+\subsection*{\paperlanguage{行列式の比と結論}{Determinant ratios and conclusion}}
+\begin{description}
+\leanentry{clearingBound}
+  {射影の分母に対する局所補正を含む上界}
+  {Bounds for denominators of projections with the local corrections}
+  {\leandecl{New/Congruences/FirstOrder/TraceRelations}{128}{clearingBound}}
+\leanentry{heckeValueProd}
+  {交換に現れる Hecke 値の積}
+  {Product of Hecke values in the exchange identities}
+  {\leandecl{New/OneLift/ComparisonOperator/ThreeExchanges}{181}{heckeValueProd}}
+\leanentry{integral_forms_long}
+  {二乗余体積と指数を合わせた下界}
+  {Lower bound combining squared covolume and index}
+  {\leandecl{New/Determinant/Twist/LongForms}{214}{integral\_\allowbreak forms\_\allowbreak long}}
+\leanentry{star_inequality}
+  {主項を相殺して得られる比較不等式}
+  {Comparison inequality after cancellation of the main term}
+  {\leandecl{New/Reduction/MainInequality}{87}{star\_\allowbreak inequality}}
+\leanentry{eventually_primeRemainder_le_rpow}
+  {素数和の剰余の片側上界}
+  {One-sided bound for the prime-sum remainder}
+  {\leandecl{New/Reduction/OneSidedBound}{200}{eventually\_\allowbreak primeRemainder\_\allowbreak le\_\allowbreak rpow}}
+\leanentry{grh}
+  {右半平面の非消滅と臨界線上の零点}
+  {Nonvanishing in the right half-plane and zeros on the critical line}
+  {\leandecl{New/Reduction/OneSidedBound}{239}{grh}\enspace \leandecl{New/Main}{28}{zeros\_\allowbreak on\_\allowbreak line}\enspace \leandecl{New/Main}{47}{zeta\_\allowbreak zeros\_\allowbreak on\_\allowbreak line}}
+\end{description}

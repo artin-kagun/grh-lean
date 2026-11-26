@@ -97,8 +97,8 @@ Selmer 群の長さと、分岐対の \(L\) 値比の付値を同時に抑える
   \big((4f+3)r\,v_\ell(C_{\mathrm{lev}})+2^{-\ell}\big)\log\ell
 \]
 である。Ribet の方法による射影の分母の評価は、Selmer 群の長さと
-局所・レベルの補正を、原典の \(c_\ell=\texttt{clearingBound}\) に
-まとめる。階数 \(1\) の射影内積ではさらに \(v_\ell(C_1)\log\ell\)
+局所・レベルの補正を、分母の上界 \(c_\ell\) にまとめる。\leanref{clearingBound}
+階数 \(1\) の射影内積ではさらに \(v_\ell(C_1)\log\ell\)
 を見込み、共通の \(\beta_\ell=(c_\ell+v_\ell(C_1))\log\ell\) を使う。
 二つの素数和の上界が、それぞれ \(x_1\) と \(B_{\mathrm{den}}\) である。
 ここでは、捻り定理と Selmer 群の長さから射影分母への評価を
@@ -244,8 +244,7 @@ Selmer 群の長さと、分岐対の \(L\) 値比の付値を同時に抑える
  \frac{\mathcal H_j(\vartheta)}{\mathcal H_j(1)}
  \label{eq:comparison-operator-lower}
 \end{equation}
-となる。\(\mathcal H_j\) は、交換に現れる三つの Hecke 値の積
-（原典の \(\texttt{heckeValueProd}\)）である。
+となる。\(\mathcal H_j\) は、交換に現れる三つの Hecke 値の積である。\leanref{heckeValueProd}
 \(U_j^\circ\) は無捻りで得られる周期写像のグラム作用素の正の定数倍である。
 その周期写像は単射なので、\(\det U_j^\circ\) は零でない。
 
@@ -333,11 +332,10 @@ Hecke 作用素の特殊化の共役に対する随伴性を使う。
 転置持ち上げを比較する。両者を入れ替える二つの経路の比較が
 交換恒等式を使う箇所である。
 
-有限環上での対応は具体的には次のようになる。列と行の添字を
-二組に分けたとき、可逆行列 \(g\) の先頭の列と \(g^{-1}\) の
-末尾の行からなる二種類の行列に、重み \(\Psi\) と \(\Phi\) を置く。
-それぞれの台をそのような行列に限り、
-\(\Phi(\operatorname{invLastRows}g)=\chi(\det g)\Psi(\operatorname{firstCols}g)\) とする。
+有限環上での対応は具体的には次のようになる。列と行の添字を二組に分け、
+可逆行列 \(g\) の先頭の列からなる行列を \(C(g)\)、\(g^{-1}\) の末尾の行からなる
+行列を \(R(g)\) と書く。重み \(\Psi\) と \(\Phi\) の台をそれぞれこの形の行列に限り、
+\(\Phi(R(g))=\chi(\det g)\Psi(C(g))\) とする。
 二つの経路で、底本の指定した重さ・分岐・符号・階数を満たす核を \(K,K'\) とする。
 交換により
 \(\sum\Psi K'=(\kappa_0/c)\sum\Phi K\) を得る。

@@ -1,0 +1,94 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[top=23mm,bottom=23mm,left=25mm,right=25mm]{geometry}
+\usepackage{lmodern}
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[unicode,hidelinks]{hyperref}
+
+\newcommand{\paperlanguage}[2]{#2}
+\input{lean-links}
+\definecolor{supplementblue}{HTML}{174A7A}
+\newenvironment{editorialnote}
+  {\begin{quote}\color{supplementblue}\small\textbf{Note}\quad\ignorespaces}
+  {\end{quote}}
+\newcommand{\RePart}{\operatorname{Re}}
+\newcommand{\ImPart}{\operatorname{Im}}
+\newcommand{\res}{\operatorname*{Res}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[1]
+\setlength{\emergencystretch}{1.5em}
+
+\hypersetup{
+  pdftitle={The generalized Riemann hypothesis for Dirichlet L-functions},
+  pdfsubject={An exposition of the Lean proof of Alpöge and Claude}
+}
+\title{The generalized Riemann hypothesis for Dirichlet \(L\)-functions\\[0.45em]
+  \large An exposition of the formal proof via theta lifts}
+\author{}
+\date{\small Expository draft \quad 26 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give an account of the formal proof by Levent Alpöge and Claude
+of the generalized Riemann hypothesis for Dirichlet \(L\)-functions,
+following the readable edition of \emph{grh-lean}. The proof obtains a
+one-sided bound for the remainder in a sum over prime powers in an
+arithmetic progression with a quadratic character weight. Iterated
+theta lifts between unitary groups furnish a comparison between the
+squared covolume of the lifted forms and the index required for
+integrality. Divisibility of theta derivatives and a second moment for
+Poincaré series give the upper bound. Twists chosen separately at the
+finite places, ratios of Gram determinants, and the product formula
+give the lower bound. To pass from the one-sided estimate to
+nonvanishing in a half-plane, a zero-density estimate for quadratic
+twists prevents cancellation of residues in the difference of
+logarithmic derivatives, and Landau's lemma then excludes the poles.
+\end{abstract}
+
+\input{sections-en/introduction}
+\input{sections-en/overview}
+\input{sections-en/analytic}
+\input{sections-en/data}
+\input{sections-en/lattices}
+\input{sections-en/upper-bound}
+\input{sections-en/spanning}
+\input{sections-en/determinant-estimates}
+\input{sections-en/conclusion}
+
+\begin{thebibliography}{9}
+\bibitem{alpoege}
+Levent Alpöge, \emph{Announcement of a formal proof of the generalized
+Riemann hypothesis}, 2026.
+\href{https://alpo.ge/remark.pdf}{PDF}.
+
+\bibitem{grh-source}
+Levent Alpöge with Claude, \emph{GRH for Dirichlet L-functions, in Lean 4},
+readable edition by Luke Sernau and collaborators.
+\href{\upstream/grh/README.md}{README},
+\href{\upstream/grh/GUIDE.md}{reading guide}, and
+\href{\upstream/grh/REFERENCES.md}{references}.
+Commit \texttt{72fead102f66}.
+
+\bibitem{mv}
+Hugh L. Montgomery and Robert C. Vaughan,
+\emph{Multiplicative Number Theory I. Classical Theory},
+Cambridge Studies in Advanced Mathematics 97,
+Cambridge University Press, 2007.
+\href{https://doi.org/10.1017/CBO9780511618314}{DOI}.
+
+\input{overview-sources}
+\end{thebibliography}
+
+\input{lean-correspondence}
+\end{document}

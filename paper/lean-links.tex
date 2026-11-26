@@ -1,0 +1,12 @@
+\newcommand{\upstream}{https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207}
+\newcommand{\leansrc}[2]{\href{\upstream/grh/src/#1.lean}{#2}}
+\newcommand{\leandecl}[3]{\href{\upstream/grh/src/#1.lean\#L#2}{\texttt{#3}}}
+
+\newcounter{leanentry}
+\renewcommand{\theleanentry}{L\arabic{leanentry}}
+\newcommand{\leanref}[1]{\unskip\nobreak\hspace{0.2em}%
+  \textsuperscript{\normalfont\hyperref[lean:#1]{[\ref*{lean:#1}]}}}
+\newcommand{\leanentry}[4]{%
+  \item[]\refstepcounter{leanentry}\label{lean:#1}%
+  \textbf{[\theleanentry]}\enspace\paperlanguage{#2}{#3}\par\nobreak
+  {\small #4\par}}

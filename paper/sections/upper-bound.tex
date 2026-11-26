@@ -53,9 +53,7 @@
 自明な捻りに対しては
 \(\sum_t|\sigma(\Psi_1(t))|\le M^{3fmn_m^2}\) が成り立つ。
 \(n_j=\dim_E X_j\) とした。
-これらの支持、分母および不変性の条件は、同ファイルの
-\(\texttt{exists\_isAdmissibleCombination\_seesawDatum}\) と
-\(\texttt{isInvariant\_seesawDatum}\) による。
+この三条件を同時に満たす係数が、シーソー展開から得られる。\leanref{exists_isAdmissibleCombination_seesawDatum}
 合成持ち上げの評価で使う展開は、
 \leansrc{New/UpperBound/Divisibility/ChainDatumExpansion}{接合テンソルの展開}
 である。これにより、一様に整な係数を持つ、接合していない
@@ -107,9 +105,9 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \(\mu_i\in\mathbb Z_{\ge0}\) が重複度で
 \(\sum_i\mu_i u_i u_i^\ast=1\) を満たすとする。
 \(\prod_i\theta(u_i^\ast z)^{\mu_i}\) と \(y(u_i^\ast z)\) の整係数級数の積
-\(F(z)\) に対し、\leansrc{New/Derivatives/FormalGroup/ThetaProducts}{テータ積の標準形}
-\(\texttt{exists\_hasNormalForm}\) を用いる。その結論は、
-\(v_p(\varpi)=\rho_p\)、整係数 \(W(z),\lambda_{e,\nu}\) を用いた
+\(F(z)\) を、変数を \(\varpi\) 倍した後に整な因子と指数因子に分ける。
+底本のテータ積の標準形により、\(v_p(\varpi)=\rho_p\) と
+整係数の級数 \(W(z)\)、係数 \(\lambda_{e,\nu}\) を使って次のように書ける。\leanref{exists_hasNormalForm}
 \begin{equation}\label{eq:upper-normal}
  F(\varpi z)=W(z)\exp\!\left(
        \frac{\varpi^{p+1}}{p}
@@ -118,7 +116,7 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
  \qquad
  \Gamma_e(z)=\sum_{\tau,c}z_{\tau,c}^{p^e}z_{\tau_e,c}
 \end{equation}
-である。係数ごとの和は有限である。同宣言の証明では、一変数の
+係数ごとの和は有限である。まず一変数の
 \(\theta(\varpi z)\) を整な因子と指数因子に分ける。
 指数因子を \(u_i^\ast z\) に代入し、各 \(\tau\) での \(p^e\) 乗が
 \(\tau_e\) での複素共役と \(\pi_p\) を法として一致することと、
@@ -146,18 +144,14 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 付値を各項の付値の最小値で抑えればよい。
 
 底本では、シュール行列の成分に沿う微分の評価を、整な方向の行列の
-小行列式の積に沿う微分に帰着する。
-\leansrc{New/Derivatives/Divisibility/Count}{微分の付値の計数}の
-\(\texttt{exists\_norm\_schurJet\_le\_norm\_jet\_minorProd}\) がこの帰着を与える。
+小行列式の積に沿う微分に帰着する。\leanref{exists_norm_schurJet_le_norm_jet_minorProd}
 ある一段の持ち上げの各 \(\tau\) における図形について、高さがその段階の
 終域の階数 \(n_{j+1}\) 未満の列を数える。\(t_\tau,r_\tau,B_\tau\) を順に
 高さ 1 の列数、高さ 1 以外の列数、および後者の列に含まれる箱の数とする。
 全箱数は \(B=\sum_\tau(t_\tau+B_\tau)\) である。
 
-\leansrc{New/Derivatives/Divisibility/NullFrames}{微分方向の変更}
-の \(\texttt{exists\_newDirection\_dvd}\) により、
-\(e\le\lfloor\log_p\max(B,1)\rfloor\) の関係する対について、係数が整の線形代入 \(z=Lz'\) を
-選べる。代入後の \(\Gamma_e\) が \(\pi_p\) で割れ、列ごとの行列式の
+\(e\le\lfloor\log_p\max(B,1)\rfloor\) の関係する対に整除条件を課す。
+底本の微分方向の選択の補題により、係数が整の線形代入 \(z=Lz'\) を選べる。\leanref{exists_newDirection_dvd}代入後の \(\Gamma_e\) が \(\pi_p\) で割れ、列ごとの行列式の
 付値の加重和は \(v_p(\pi_p)\mathcal D_p\) 以下である。ここで
 \[
  \mathcal D_p=
@@ -193,8 +187,7 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \(\mathcal D_p\) は印を付けた高さ 1 の列を除いて数え、
 その分の箱も含めた \(B\) に対して \eqref{eq:upper-jet} の
 \(\gamma_p B\) を取る。左辺には方向に掛けた \(p\) の冪指数を
-すべての箱について足したものを加える。これが同ファイルの
-\(\texttt{norm\_jet\_minorProd\_le\_of\_charges}\) の形である。
+すべての箱について足したものを加える。\leanref{norm_jet_minorProd_le_of_charges}
 \(e>0\) について
 \(\gamma_p=v_p(\pi_p)\sum_{e\in I_p}p^{-e}\) を使うと、
 \(\gamma_p B\) と控除項の差に
@@ -253,9 +246,7 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \(\Phi_a\) に属することも、ともに \(\Phi_b\) に属することもないことから抑える。
 一場所の誤差は \(a/(mp)\) を単位として、
 正部の比較に高々 \(2\)、分岐素点の控除に高々 \(2\)、微分の対数誤差に
-高々 \(1\) である。これらを \(5\le(\log b)^2\) で吸収するのが
-\leansrc{New/UpperBound/Divisibility/JetExponent}{一段の付値の比較}
-の \(\texttt{le\_divisibilityBound}\) である。
+高々 \(1\) である。これらは \(5\le(\log b)^2\) で吸収できる。\leanref{le_divisibilityBound}
 
 \subsection{有限素点での余長}
 
@@ -310,9 +301,8 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 
 残る例外は、\(p\) が惰性、\(p\not\equiv\pm1\bmod m\) で
 \(o_0\) が奇数かつ \(o_0\le\lceil\log_p m\rceil\) の場合である。
-\leansrc{New/UpperBound/Divisibility/MarkedPrimes}{例外素数での印付け}
-の \(\texttt{exists\_isFullMark}\) により、\(\Phi_a\) が誘導する \(E\) の
-有限素点とそれらの共役の各対から片方を取り、集合 \(\Lambda\) を作る。
+例外素数での印付けの補題により、\(\Phi_a\) が誘導する \(E\) の
+有限素点とそれらの共役の各対から片方を取り、集合 \(\Lambda\) を作る。\leanref{exists_isFullMark}
 \(\Lambda\) を誘導する無限素点の集合を \(A\) とすれば \(C_p(A)=0\) となる。
 
 \(r_p=\lceil\log_p m\rceil\)、\(\nu_p=r_pf(n_m+r_p)\) と置く。
@@ -320,9 +310,8 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \text{ を誘導する}\}|\) とする。
 \(Y\) は、各 \(w\in\Lambda\) で指数 \(r_p\) のヘッケ作用素を
 \(p^{a_w}\) 倍して得た作用素 \(T_w\) の積である。
-\leansrc{New/UpperBound/Divisibility/ValuationAtNonSplitPrimes}{例外素数での持ち上げ}
-の \(\texttt{gaugeLe\_scaledHeckeOperator\_pow}\) を用いると、
-\(Y^m\phi\) の持ち上げにおける付値の損失の上界は、段階 \(j\) ごとに
+スケーリングした Hecke 作用素の付値評価を \(Y^m\phi\) に適用する。\leanref{gaugeLe_scaledHeckeOperator_pow}
+持ち上げの付値の損失は、段階 \(j\) ごとに次の量で抑えられる。
 \[
   |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau-D_{p,j}(A)
 \]
@@ -414,9 +403,7 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \(2mfb\log N\le4fa(\log b)^2\log x_1\) である。
 各 \(c\) に対応するのは \(N,mc-1,c,mc+1\) の高々四項だから、総和は
 \(16fa(\log b)^2\log x_1(1+\log x_1)\) 以下である。
-最後の量が \(E_3\) 以下であることは
-\leansrc{New/UpperBound/Size/Estimates}{全素点での誤差予算}
-の \(\texttt{sum\_allowedLoss\_mul\_log\_le}\) で用いる尺度の不等式である。
+許容データのスケールの不等式により、この量は \(E_3\) 以下である。\leanref{sum_allowedLoss_mul_log_le}
 
 \subsection{無限素点でのノルムと正規化}
 
@@ -424,11 +411,8 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 各行長を \(l_{j,\tau,i}\) とし、
 \(U_j=\sum_{\tau}\sum_{i<n_j}s_\infty(l_{j,\tau,i})\) と置く。
 周期を \(\Omega\) とすると \(s_\infty(q)=\log(q!)+q\log(M/\Omega)\)
-である。鎖のノルムについて用いる
-\leansrc{New/UpperBound/Size/ArchimedeanSize}{一段のテータ核の評価}
-\(\texttt{sqrt\_weylNormSq\_jetMap\_le}\) は、
-任意の共役の平方根ノルムに対して、一段での倍率が
-\(\exp(x^{50}+U_j/2)\) 以下であることを与える。
+である。テータ核の無限素点での評価により、任意の共役について
+一段の持ち上げでノルムを増やす倍率は \(\exp(x^{50}+U_j/2)\) 以下である。\leanref{sqrt_weylNormSq_jetMap_le}
 これは、各行の長さに対応する階乗を用いたシュール微分の
 無限素点評価である。周期による正規化を含む階乗の項は \(U_j/2\) に現れ、
 それ以外の定数、変数の個数および行長の補正が \(x^{50}\) に吸収される。
@@ -439,10 +423,9 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \(2a\) 以下であり、一箱を足した際の増分は
 \(\log(2a+1)+\log(M/\Omega)\le25\log b\) である。
 各段階での余分な箱の総数は
-\(f(b+\mathrm{offWeight}+n_m\,\mathrm{halfGap}^2)\) 以下である。
-ここで \(\mathrm{offWeight}\) と \(\mathrm{halfGap}\) は図形の隙間を
-定める許容データの量である。
-\(\texttt{sum\_rowSizeSum\_le}\) の尺度の評価を適用すると
+\(f(b+a/x_1+n_m r^{16})\) 以下である。
+ここでは \(\Phi_b\) 以外の重さ \(a/x_1\) と、持ち上げの重さの間隔の半分
+\(r^8\) が現れる。行の長さの評価を全段について足すと、\leanref{sum_rowSizeSum_le}
 \begin{equation}\label{eq:upper-rows}
  \sum_{0\le j<m}U_j
  \le m\left\{|\Phi_a|s_\infty(a)+k\sum_\tau s_\infty(\kappa(\tau))\right\}
@@ -467,7 +450,7 @@ CM 楕円曲線のテータ級数を \(\theta\)、その局所パラメータを
 \(\pi_N\overline{\pi_N}=N\) より、この因子はどの共役でも二乗絶対値
 \(N^{-\sum_\tau u_\tau}\) を持つ。
 従って指数から少なくとも
-\((|\Phi_a|a-fm\,\mathrm{halfGap})\log N\) が差し引かれる。
+\((|\Phi_a|a-fm\,r^8)\log N\) が差し引かれる。
 
 \(s_{\mathrm{main}}\) を \(s_{\mathrm{fin}}(a,\tau)\) の比較に用いる主項、
 \(\mathcal R=\sum_{\tau\in\Phi_a}(s_{\mathrm{fin}}(a,\tau)-s_{\mathrm{main}})\) とする。
@@ -498,14 +481,13 @@ Stirling の上界
  =m|\Phi_a|s_{\mathrm{main}}+mk\sum_\tau s_\infty(\kappa(\tau)).
 \]
 この等式と \eqref{eq:upper-rows} を使い、
-\(32fa\log b+x^{70}+fm\,\mathrm{halfGap}\log N+
+\(32fa\log b+x^{70}+fm\,r^8\log N+
   2(mx^{30}+x^{60}+mx^{50})\) を \(E_3/2\) に納めると、
 \(B_{1,\Psi}\phi\) のすべての値の共役の二乗ノルムは
 \begin{equation}\label{eq:upper-arch}
   \exp\!\left(B+H_0-m\mathcal R+2\sum_p G_p\log p+E_3\right)
 \end{equation}
-以下となる。以上の一連の評価が同じファイルの
-\(\texttt{weylNormSq\_restrictedChain\_le}\) に対応する。
+以下となる。\leanref{weylNormSq_restrictedChain_le}
 
 \paragraph{両方の評価に用いる有理数}
 \(g_p=\lfloor G_p-\varepsilon_p\rfloor\) とし
@@ -529,10 +511,8 @@ Stirling の上界
 倍率 \(C_B^2\) を掛けると、指数にあった \(2\sum_pG_p\log p\) が消える。
 
 \begin{proof}[定理~\ref{thm:upper-bound}の証明]
-\leansrc{New/UpperBound/Size/ShortColumns}{ノルムが小さい整な形式による生成}
-の \(\texttt{span\_isShort\_eq\_top}\) から、
 \(S_0\) は全有限素点で整で、任意の共役の値の二乗ノルムが
-\(\exp(E_3)/4^f\) 以下の形式で張られる。
+\(\exp(E_3)/4^f\) 以下の形式で張られる。\leanref{span_isShort_eq_top}
 この評価では各格子類の安定化群が自明なので、格子類ごとに
 その類に支持を持つ形式を取る。格子類を \(c\) として、
 \(c\) の格子と重みの行列式部分を表す格子に小さい基底を選ぶ。

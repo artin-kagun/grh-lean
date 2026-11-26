@@ -1,20 +1,31 @@
 # ディリクレ L 関数の一般化リーマン予想
 
-[日本語論文 PDF](grh-ja.pdf) · [証明の概説](OVERVIEW.md) · [LaTeX 原稿](grh-ja.tex)
+**日本語** · [English](README.en.md)
 
-Levent Alpöge と Claude による形式証明を、Luke Sernau らが整理した可読版を底本として日本語で再構成した稿です。素数冪和から零点を排除する解析、補助データの作り方、テータ持ち上げの上下の評価、ポアンカレ写像で必要な次元を確保する議論を、定理・補題・証明の形で記述しました。
+[日本語PDF](grh-ja.pdf) · [概説](OVERVIEW.md) · [LaTeX 原稿](grh-ja.tex)
 
-局所テータ核、二次モーメントの局所密度、合同による射影の分母など、一部の技術的評価は使用する仮定と結論を本文に示して底本の宣言を引用しています。読解のために付した注記には青字で「補足」と表示しています。
+Levent Alpöge と Claude による形式証明を、Luke Sernau らが整理した
+`grh/`（底本の README でいう readable edition）に沿って記述した論文です。
+PDF は主定理、証明の概説、詳細な証明、底本との対応表の順に読めます。
+同じ構成の [英語PDF](grh-en.pdf) も収録しています。
 
-底本は [lsernau/grh-lean の可読版](https://github.com/lsernau/grh-lean/tree/72fead102f663d5c7a407964a13dc0cf9d977207/grh)（`72fead102f663d5c7a407964a13dc0cf9d977207`）です。Lean と独立チェッカーによる検証結果は [底本の README](https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/README.md#checks) と、同じコミットを検証した [Andrew Sutherland の記録](https://math.mit.edu/~drew/shortgrh/) を参照してください。原典の帰属とライセンスは [NOTICE](../grh/NOTICE) および [LICENSE](../LICENSE) に従います。
+局所テータ核、二次モーメントの局所密度、合同による射影の分母などは、
+必要な仮定と結論を本文に示して底本の結果を引用しています。
+本文の L で始まる参照番号から、巻末の対応表と Lean の該当行を開けます。
+読解のための注記は青字で「補足」と表示しています。
+
+底本は [lsernau/grh-lean のコミット 72fead102f66](https://github.com/lsernau/grh-lean/tree/72fead102f663d5c7a407964a13dc0cf9d977207/grh) です。
+Lean カーネルと独立チェッカーによる検証は [底本の README](https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/README.md#checks) と、
+同じコミットを調べた [Andrew Sutherland の記録](https://math.mit.edu/~drew/shortgrh/) に掲載されています。
+原典の帰属とライセンスは [NOTICE](../grh/NOTICE) および [LICENSE](../LICENSE) を参照してください。
 
 ## 組版
 
-LuaLaTeX、LuaTeX-ja、Harano Aji フォント、latexmk を備えた環境で、`paper/` から実行します。
+LuaLaTeX と latexmk を使います。日本語版には LuaTeX-ja と Harano Aji フォントが必要です。
+`paper/` から次を実行すると、両方の PDF が `.tmp/build/` にできます。
 
 ~~~sh
-mkdir -p .tmp/build
-latexmk -lualatex -outdir=.tmp/build -halt-on-error -interaction=nonstopmode grh-ja.tex
+output="$PWD/.tmp/build"
+mkdir -p "$output"
+TMPDIR="$output" latexmk -lualatex -outdir="$output" -halt-on-error -interaction=nonstopmode grh-ja.tex grh-en.tex
 ~~~
-
-生成先は `.tmp/build/grh-ja.pdf` です。

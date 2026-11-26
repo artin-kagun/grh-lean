@@ -1,31 +1,39 @@
 # GRH for Dirichlet L-functions, in Lean 4
 
-## このフォークの日本語論文
+## 日本語
 
-[再構成稿 PDF](paper/grh-ja.pdf) · [証明の概説](paper/OVERVIEW.md) · [原稿と組版手順](paper/README.md)
+ディリクレ L 関数の一般化リーマン予想の形式証明を、`grh/`（元のREADMEでいう readable edition）に沿って日本語で記述しました。
+
+[論文PDF](paper/grh-ja.pdf) · [証明の概説](paper/OVERVIEW.md) · [原稿と組版手順](paper/README.md)
+
+## English
+
+An exposition of the formal proof of Dirichlet GRH, following the readable edition in `grh/`.
+
+[Paper PDF](paper/grh-en.pdf) · [Proof overview](paper/OVERVIEW.en.md) · [Sources and build instructions](paper/README.en.md)
 
 ## Upstream Lean development
 
-Research artifact. Not maintained and not accepting contributions.
+The Lean 4 development proves the Riemann hypothesis and the generalized
+Riemann hypothesis for Dirichlet L-functions. It builds on Mathlib and uses
+the axioms `propext`, `Classical.choice`, and `Quot.sound`.
 
-A Lean 4 proof of the Riemann Hypothesis and of the Generalized Riemann
-Hypothesis for Dirichlet L-functions, built on Mathlib and using only the
-axioms `propext`, `Classical.choice` and `Quot.sound`.
+[Luke Sernau and collaborators' repository](https://github.com/lsernau/grh-lean)
+contains a shorter version of the proof announced by
+[Levent Alpöge with Claude](https://alpo.ge/remark.pdf).
 
-The proof is based on Levent Alpöge's, with Claude (https://alpo.ge/remark.pdf).
-This repository is a shorter version, produced in collaboration with my
-colleagues at Anthropic, and Claude.
+### Two editions
 
-## Two editions
+- [`grh/`](grh/GUIDE.md) is the readable edition, about 300,000 lines.
+- [`grh-compact/`](grh-compact/README.md) proves the same five theorems in about 76,000 lines.
 
-- `grh/`: readable edition, about 300,000 lines. Start at `grh/GUIDE.md`.
-- `grh-compact/`: the same five theorems, about 76,000 lines.
+Each folder is its own Lake project. The machine checks are documented in
+the [readable edition's README](grh/README.md#checks) and the
+[compact edition's README](grh-compact/README.md#checks).
 
-Each folder is its own Lake project with its own README.
+### Build the Lean development
 
-## Build
-
-Needs Lean v4.35.0 and Mathlib at commit 56a00585. In either folder:
+Use Lean v4.35.0 and Mathlib at commit 56a00585. In either folder:
 
     lake exe cache get
     lake build
@@ -34,12 +42,7 @@ Needs Lean v4.35.0 and Mathlib at commit 56a00585. In either folder:
 A build takes one to two hours on 12 cores with 24 GB of memory (about
 85 minutes more if the Mathlib cache is missing).
 
-## Status
+### License
 
-The proof has passed machine checks only, listed in each folder's README.
-No mathematician has read it through, and no paper comes with it.
-
-## License
-
-Apache 2.0, Copyright 2026 Anthropic, PBC. See `LICENSE`, and `NOTICE` and
-`ATTRIBUTION.md` in each folder.
+Apache 2.0, Copyright 2026 Anthropic, PBC. See [LICENSE](LICENSE) and
+the `NOTICE` and `ATTRIBUTION.md` files in each Lean folder.

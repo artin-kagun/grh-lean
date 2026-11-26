@@ -1,0 +1,611 @@
+\section{Upper bounds for the theta lifts}\label{sec:upper-bound}
+
+The ramified source subspace \(S\) provides forms whose lifts have
+controlled length and whose images in \(V\) have controlled index.
+The index estimate applies to all twists allowed at each finite place.
+The length estimate concerns the trivial twist.
+
+\begin{theorem}[Upper bounds]\label{thm:upper-bound}
+\begin{enumerate}
+\item The forms \(\phi\in S\) that are integral at every finite place and satisfy
+\[
+  \|\Theta_1\mathfrak p_g\phi\|_\sigma^2
+  \le \exp\!\bigl(H_0-m\mathcal R+E_4\bigr)
+\]
+for all \(g\in\overline G\) and \(\sigma\in\operatorname{Aut}(\mathbb C)\)
+span \(S\).
+\item Let \(\mathcal T\subseteq\overline G\) be finite.
+Suppose that every member \(y_i\) of a family can be written as
+\(y_i=\mathfrak p_{g_i}\phi_i\), with \(g_i\in\mathcal T\) and
+\(\phi_i\in S\) integral at every finite place.
+Then the logarithmic index of \((y_i)_i\) is at most \(2|\mathcal T|(\dim S)E_3\).
+\end{enumerate}
+\end{theorem}
+
+\subsection{The seesaw identity and the projection}
+
+The principal-level forms on \(Y_0\) carry an action of \(\overline G\),
+the product of the general linear groups over the residue fields at the
+selected places above \(M\). The central idempotent \(e_0\) of its group
+algebra projects onto \(V\). Write \(\rho\) for the group action and
+\(\mathcal P\) for the Poincar\'e series map. The lower chain of lifts
+from principal level, along \(Y_0\to\cdots\to Y_m\), is denoted by \(L_\xi\).
+Its restriction to \(V\) is \(\Theta_\xi\).
+
+To obtain the seesaw identity, unfold the Bessel period defining \(\mathcal P\phi\) inside the
+pairing with a test form on \(Y_m\). At each step of the lower chain,
+the unfolding separates the integral at the infinite places from a
+weighted sum over classes at the finite places. In the last step
+\(Y_m\subset X_m\), and integrating a matrix coefficient on \(U(X_m)\)
+over \(U(Y_m)\) gives the pairing of the restriction to \(Y_m\) with the
+test form, up to a measure normalization. The weighted sum at the
+finite places gives Schwartz data for the upper chain
+\(X_0\to\cdots\to X_m\), glued in pairs of successive steps.
+\leansrc{New/UpperBound/Seesaw/SeesawIdentity}{Seesaw identity}.
+
+More precisely, there is a \(c_{\mathrm{ss}}\in\mathbb C^\times\)
+independent of \(\xi,\phi\). For each \(\xi\) there is a finitely supported
+coefficient function \(\Psi_\xi\) such that, for the composite lift
+\(B_{\xi,\Psi_\xi}\) along the upper chain,
+\begin{equation}\label{eq:upper-seesaw}
+ L_\xi(c_{\mathrm{ss}}^{-1}\mathcal P\phi)=B_{\xi,\Psi_\xi}\phi
+ \qquad(\phi\in S).
+\end{equation}
+The coefficients are supported on admissible translations.
+Each translation vanishes at places prime to \(M\mathrm NQ(\xi)\), and
+multiplication by the level generator makes it integral away from
+\(\mathrm NQ(\xi)\), the norm of the twist modulus. The coefficients
+are integral at all places prime to that modulus, and the glued tensor
+is invariant under the action of each intermediate level.
+For the trivial twist,
+\(\sum_t|\sigma(\Psi_1(t))|\le M^{3fmn_m^2}\), where \(n_j=\dim_E X_j\).
+The construction of the seesaw data gives these support, denominator,
+and invariance properties. \leanref{exists_isAdmissibleCombination_seesawDatum}
+To estimate the composite lift, expand the glued tensor as a sum of
+unglued translated data with coefficients satisfying the same
+integrality condition. The translations can have denominators at \(N\),
+and for the trivial twist the sum of the absolute values of the
+coefficients is at most \(\exp(x^{60})\).
+\leansrc{New/UpperBound/Divisibility/ChainDatumExpansion}{Expansion of the glued tensor}.
+
+After projection, the lift is a sum of right translates of \(L_\xi z\).
+For a principal-level form \(z\) and a finite adelic point \(u\) of \(U(Y_m)\),
+\begin{equation}\label{eq:upper-project}
+ L_\xi\bigl(|\overline G|e_0\rho(g)z\bigr)(u)
+ =
+ \sum_{v\in\overline G}|\overline G|e_0(v)\,
+            (L_\xi z)\bigl(u\,\widetilde{vg}_{\,\xi}\bigr).
+\end{equation}
+Here \(\widetilde{vg}_{\,\xi}\) is the lift of \(vg\) to the first block at
+the corresponding level. Equation \eqref{eq:upper-project} follows from
+the equivariance of \(L_\xi\) for the group action.
+The expression of the central projector in irreducible characters of
+\(\overline G\) shows that \(|\overline G|e_0(v)\) is an algebraic integer
+and \(|\sigma(e_0(v))|\le 1\).
+Right translation preserves the lattices used to test integrality.
+The ultrametric triangle inequality therefore shows that whenever
+\(cL_\xi z\) is integral, so is \(cL_\xi(|\overline G|e_0\rho(g)z)\).
+If the squared norm of each value is at most \(\exp(B)\), the projected
+form has pointwise norm at most \(|\overline G|^2\exp(B/2)\).
+For the trivial twist the number of classes is at most \(\exp(x^{30})\).
+Squaring the pointwise estimate and summing over classes gives an upper
+bound of \(\exp(B+x^{99})\).
+\leansrc{New/UpperBound/Size/ArchimedeanSize}{Integrality and norm estimates for the projection}.
+
+\subsection{Theta derivatives and contributions from the finite places}
+
+Put \(K=\mathbb Q(\sqrt{-d})\) and normalize the valuation at \(p\)
+by \(v_p(p)=1\). If \(p\) is nonsplit in \(K\), set
+\[
+  \pi_p=\begin{cases}p & (p\ne d),\\ \sqrt{-d}&(p=d),\end{cases}
+  \qquad
+  \rho_p=\begin{cases}(p^2-1)^{-1}&(p\ne d),\\
+                        (2p-2)^{-1}&(p=d).\end{cases}
+\]
+Let \(I_p^0\subseteq\mathbb Z_{\ge0}\) be the positive odd integers if \(p\)
+is inert and all nonnegative integers if \(p=d\).
+Set \(I_p=I_p^0\setminus\{0\}\). At a split prime both sets are empty.
+Write \(\tau_e=(-p^e)\tau\) for the action on the labels of the infinite places.
+As in the formalization, the multiplier is the identity when \(-p^e\)
+does not represent a unit modulo the cyclotomic modulus.
+
+\paragraph{Normal form for the theta series}
+Let \(\theta\) be the theta series of the CM elliptic curve and \(y\)
+its local parameter. Suppose \(p\) is nonsplit, the vectors \(u_i\) are
+integral above \(p\), and the multiplicities \(\mu_i\in\mathbb Z_{\ge0}\)
+satisfy \(\sum_i\mu_i u_i u_i^\ast=1\).
+Let \(F(z)\) be the product of \(\prod_i\theta(u_i^\ast z)^{\mu_i}\)
+and an integral power series in the \(y(u_i^\ast z)\).
+Then there are a \(\varpi\) with \(v_p(\varpi)=\rho_p\), an integral
+power series \(W(z)\), and integral coefficients \(\lambda_{e,\nu}\)
+such that
+\begin{equation}\label{eq:upper-normal}
+ F(\varpi z)=W(z)\exp\!\left(
+       \frac{\varpi^{p+1}}{p}
+       \sum_{e\in I_p^0}\sum_{\nu\ge0}\lambda_{e,\nu}\Gamma_e(z)^{p^\nu}
+                              \right),
+ \qquad
+ \Gamma_e(z)=\sum_{\tau,c}z_{\tau,c}^{p^e}z_{\tau_e,c}.
+\end{equation}
+Only finitely many terms contribute to any coefficient.
+The proof of this normal form first writes the one-variable series
+\(\theta(\varpi z)\) as an integral factor times an exponential factor.
+Substitute \(u_i^\ast z\) into the exponential factor. For coefficients
+integral above \(p\), taking the \(p^e\)-th power at \(\tau\) agrees
+modulo \(\pi_p\) with complex conjugation at \(\tau_e\). Together with \(\sum_i\mu_i u_i u_i^\ast=1\)
+this yields
+\[
+ \sum_i\mu_i\sum_\tau
+    ((u_i^\ast z)_\tau)^{p^e}(u_i^\ast z)_\tau
+ \equiv \Gamma_e(z)\pmod{\pi_p}.
+\]
+The exponential of the error incurred in this substitution is integral.
+Indeed, \(v_p(\varpi^{p+1}\pi_p/p)=1/(p-1)\), and the denominator \(j!\)
+of the \(j\)-th term in the exponential satisfies \(v_p(j!)\le j/(p-1)\).
+\leanref{exists_hasNormalForm}
+
+\paragraph{Differentiation along products of minors}
+For a polynomial \(Q\), write \(J_Q(F)=(Q(\partial)F)(0)\).
+Suppose \(Q\) is homogeneous of degree \(B\) with integral coefficients and
+that all coefficients of \(G\) of degree \(B\) are integral.
+If there are \(w\) variables, then
+\begin{equation}\label{eq:upper-legendre}
+  v_p(J_Q(G))\ge
+  \frac{B}{p-1}-w\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr).
+\end{equation}
+Indeed, differentiation along a monomial with \(|D|=B\) multiplies the
+corresponding coefficient by \(D!=\prod_c D_c!\).
+Apply Legendre's formula to bound each \(v_p(D_c!)\) from below and take
+the minimum of the resulting lower bounds for the terms of the sum.
+
+The formal proof reduces estimates for derivatives along entries of the
+Schur matrix to derivatives along products of minors of a matrix of
+integral directions. \leanref{exists_norm_schurJet_le_norm_jet_minorProd}
+At each place \(\tau\) and each step \(j\), consider the columns of the
+Young diagram of height less than \(n_{j+1}\), the rank of the target of
+that step. Let \(t_\tau\) count columns of height \(1\), let \(r_\tau\)
+count the other columns, and let \(B_\tau\) count the boxes in those
+other columns. The total number of boxes is
+\(B=\sum_\tau(t_\tau+B_\tau)\).
+
+For the relevant pairs with \(e\le\lfloor\log_p\max(B,1)\rfloor\),
+one can choose a linear substitution \(z=Lz'\) with integral coefficients.
+After substitution \(\Gamma_e\) is divisible by \(\pi_p\), and the
+weighted sum of the valuations of the determinants associated with the
+columns is at most \(v_p(\pi_p)\mathcal D_p\), where
+\[
+ \mathcal D_p=
+ \sum_{\substack{e\in I_p^0\\ e\le\lfloor\log_p\max(B,1)\rfloor}}
+ \ \sum_{\tau\in\Phi}
+ \left\{\min\!\left(\frac{t_\tau}{p^e},t_{\tau_e}+r_{\tau_e}\right)
+        +\frac{r_\tau}{p^e}
+        +\min\!\left(\frac{B_\tau}{p^e},B_{\tau_e}\right)\right\}.
+\]
+The determinant estimate comes from allocating congruence conditions
+to the column heights on either side of each pair.
+For a single congruence, subtract multiples of the row of least
+valuation to kill the values on the other rows, then multiply the
+remaining row by the modulus. Apply this operation successively for
+several conditions. The valuation of the determinant is the sum of
+the valuations of these operations. The minima above occur when
+imposing conditions on the side with the smaller box or column contribution.
+\leanref{exists_newDirection_dvd}
+
+After this substitution in \eqref{eq:upper-normal}, the coefficients up
+to degree \(B\) are integral. The terms \(\Gamma_e^{p^\nu}\) of degree
+greater than \(B\) do not contribute, and the preceding exponential
+estimate handles the denominators in the remaining coupling terms.
+There are at most \(f n_{j+1}^{3}\) variables.
+The chain rule loses at most \(\rho_p B+v_p(\pi_p)\mathcal D_p\) in the
+valuation when returning to the original derivative.
+Thus \eqref{eq:upper-legendre} gives
+\begin{equation}\label{eq:upper-jet}
+ v_p(J_Q(F))\ge \gamma_p B-v_p(\pi_p)\mathcal D_p
+       -f n_{j+1}^3\bigl(1+\lfloor\log_p\max(B,1)\rfloor\bigr),
+ \qquad
+ \gamma_p=\frac1{p-1}-\rho_p .
+\end{equation}
+
+One may also mark the columns of height \(1\) at selected places.
+For each coupling of a marked column with another column that is
+exempted from the congruence conditions, multiply at least one of the
+two directions by a positive power of \(p\).
+In the resulting estimate, count \(\mathcal D_p\) with the marked
+columns omitted and keep their boxes in the total \(B\) used in
+\(\gamma_p B\). On the left of \eqref{eq:upper-jet}, add the exponents
+of the powers of \(p\) applied to the directions, summed over the boxes.
+\leanref{norm_jet_minorProd_le_of_charges}
+Using \(\gamma_p=v_p(\pi_p)\sum_{e\in I_p}p^{-e}\), the difference
+between \(\gamma_p B\) and the deductions gives, for \(e>0\), the term
+\[
+ \left(\frac{t_\tau}{p^e}-t_{\tau_e}-r_{\tau_e}\right)_+
+ +\left(\frac{B_\tau}{p^e}-B_{\tau_e}\right)_+
+ -\frac{r_\tau}{p^e}.
+\]
+With marking, \(t_\tau\) in this expression is the column count
+after removing the marked columns, and one adds \(\gamma_p\) for each
+box removed. At \(p=d\) there is a further deduction for \(e=0\).
+
+\paragraph{Gain in one step}
+Define the local prime sum and the gain over the full chain by
+\begin{align}
+ s_p(y,\tau)
+  &=v_p(\pi_p)\sum_{e\in I_p}
+       \left(\frac{y}{p^e}-\kappa((-p^e)\tau)\right)_+,
+       \label{eq:upper-sp}\\
+ G_p
+  &=m\left\{\sum_{\tau\in\Phi_a}s_p(a,\tau)
+           +k\sum_{\tau\in\Phi}s_p(\kappa(\tau),\tau)\right\}.
+       \label{eq:upper-gain}
+\end{align}
+Set \(s_p=G_p=0\) at split primes.
+For \(0\le y\le a\), all the positive parts also vanish if \(p\ge x_1\).
+If \(p\) is inert, \(1-\chi_K(p^e)\) is \(2\) for odd \(e\) and \(0\)
+for even \(e\). If \(p=d\), this coefficient is \(1\) and
+\(v_p(\pi_p)=1/2\). Grouping the terms by prime powers gives
+\begin{equation}\label{eq:upper-gain-sum}
+  2\sum_p G_p\log p =
+    m\sum_{\tau\in\Phi_a}s_{\mathrm{fin}}(a,\tau)
+       +mk\sum_{\tau\in\Phi}s_{\mathrm{fin}}(\kappa(\tau),\tau).
+\end{equation}
+
+There are \(a\) columns of height \(1\) at places in \(\Phi_a\) and none
+elsewhere. The number of remaining columns is at most
+\(\kappa(\tau)+x^{60}\), and the number of their boxes is between
+\(k\kappa(\tau)\) and \(k\kappa(\tau)+x^{60}\).
+Insert these bounds into the positive parts above.
+Write \(D_{p,j}(A)\) for the valuation bound for one step, where \(A\subseteq\Phi\)
+is the set of places at which the height-\(1\) columns are marked.
+It is the predicted valuation of the diagram with those columns removed,
+plus \(\gamma_p\) for each box removed, less the derivative error
+\(f n_{j+1}^3(1+\log_p\max(B,1))\). When \(p<x_1\) is nonsplit,
+\begin{equation}\label{eq:upper-one-step}
+ D_{p,j}(A)\ \ge\ \frac{G_p}{m}
+  - C_p(A)
+  +v_p(\pi_p)|\Phi_a\cap A|\,\frac{a}{x_1}
+  -\frac{fa(\log b)^2}{mp},
+ \qquad
+ C_p(A)=\sum_{\substack{\tau\in\Phi,\ e\in I_p\\
+                 \tau,\,(-p^e)\tau\in\Phi_a\setminus A}}\frac{a}{p^e}.
+\end{equation}
+When a column of height \(1\) remains at the partner place, the overlap
+costs at most \(a/p^e\).
+The error in the other columns is controlled by \(x^{60}\) as above.
+The deduction for \(p=d,e=0\) is bounded using that \(\tau,-\tau\)
+cannot both lie in \(\Phi_a\) and cannot both lie in \(\Phi_b\).
+In units of \(a/(mp)\), the error per place is at most \(2\) from
+comparing the positive parts, \(2\) from the ramified-prime deduction,
+and \(1\) from the logarithmic error in differentiation.
+The condition \(5\le(\log b)^2\) absorbs these errors.
+\leanref{le_divisibilityBound}
+
+\subsection{Colength at the finite places}
+
+Let \(\iota\) be the isomorphism defining a valuation above \(p\), and let
+\(\mathcal O_\iota\) be its valuation ring. Write \(M_\iota\) for the
+module of \(\iota\)-integral forms in \(S_0\).
+We say that a submodule has colength dividing \(p^j\) if for every finite
+family in \(M_\iota\) a square matrix over \(\mathcal O_\iota\) sends that
+family into the submodule and has determinant dividing \(p^j\).
+In particular, the valuation of the determinant is at most \(j\).
+This definition works directly with finite families in the module.
+
+Let \(\mathcal U\) be the set of nonsplit primes below \(x_1\), and put
+\[
+ \ell_p=\frac{fa(\log b)^2}{p}
+      \begin{cases} m & (p\equiv\pm1\bmod m),\\1 & (\text{otherwise}) \end{cases},
+ \qquad
+ \varepsilon_p=
+      \begin{cases}
+       2\ell_p &(p\in\mathcal U),\\
+       2mfb &(p=N),\\
+       0 &(\text{otherwise}).
+      \end{cases}
+\]
+Here \(N\ge x_1\). For each \(p,\iota\), we will show that there is a
+submodule \(M'_\iota\subseteq M_\iota\cap S\) of colength dividing
+\(p^{j_\iota}\) in \(M_\iota\cap S\), with
+\begin{equation}\label{eq:upper-local}
+ j_\iota\le\varepsilon_p\dim S_0,\qquad
+ v_p(B_{\xi,\Psi}\phi)\ge G_p-\varepsilon_p
+  \quad(\phi\in M'_\iota,\ (p,\mathrm NQ(\xi))=1).
+\end{equation}
+For a form, a lower valuation bound \(v\) means that all its values have
+\(p\)-adic norm at most \(p^{-v}\) in the corresponding lattice coordinates.
+Here \(\Psi\) is any datum satisfying the conditions imposed in
+\eqref{eq:upper-seesaw}. The choice of \(M'_\iota\) is independent of
+\(\xi,\Psi\).
+
+For \(p\notin\mathcal U\cup\{N\}\), one has \(G_p=0\).
+Since \(d<x_1\), we also have \(p\ne d\), so the kernel at each step
+relative to the standard lattice and the final restriction both preserve
+integrality.
+For \(p\in\mathcal U\), first apply \eqref{eq:upper-one-step} at every
+step with no marks. The transformation laws of the kernels allow the
+lower valuation bounds to be added along the chain. The coefficients
+of the composite lift are integral, so its finite sum preserves the
+resulting bound. This gives \(G_p-\ell_p-mC_p(\varnothing)\) on \(M_\iota\).
+If every \(e\in I_p\) with \(\tau,(-p^e)\tau\in\Phi_a\) satisfies \(e\ge e_0\),
+the geometric series gives \(C_p(\varnothing)\le 2fa/p^{e_0}\).
+When \(p\equiv\pm1\bmod m\), take \(e_0=1\).
+In the other case, a collision can occur only for inert \(p\), and then
+\(e\) is an odd multiple of \(o_0\), the order of the place label of
+\(-p\) modulo \(q_0\). If \(o_0>\lceil\log_p m\rceil\), one can take
+\(p^{e_0}\ge pm\). In these cases \(mC_p(\varnothing)\le\ell_p\)
+and \(M'_\iota=M_\iota\cap S\) suffices.
+
+The remaining exceptional case is when \(p\) is inert,
+\(p\not\equiv\pm1\bmod m\), and \(o_0\) is odd with
+\(o_0\le\lceil\log_p m\rceil\).
+Among the finite places of \(E\) induced by \(\Phi_a\) and their conjugates,
+one can select one place from each conjugate pair to obtain a full
+marking \(\Lambda\). If \(A\) is the set of infinite places inducing
+places in \(\Lambda\), then \(C_p(A)=0\).
+\leanref{exists_isFullMark}
+
+Put \(r_p=\lceil\log_p m\rceil\) and \(\nu_p=r_pf(n_m+r_p)\).
+For \(w\in\Lambda\), let \(a_w\) be \(a\) times the number of members of
+\(\Phi_a\) inducing \(w\).
+Let \(Y\) be the product over \(w\in\Lambda\) of the operators \(T_w\)
+obtained by multiplying the Hecke operator of index \(r_p\) at \(w\)
+by \(p^{a_w}\).
+When the chain is applied to \(Y^m\phi\), the loss of valuation at
+step \(j\) is bounded above by
+\[
+  |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau-D_{p,j}(A),
+\]
+where \(r_\tau\) is the number of the low columns other than those of
+height \(1\) at that step.
+The first two terms account for transferring one factor \(Y\)
+to the step and for the powers of \(p\) assigned to the marked
+directions in the low columns. The subtracted term is the gain from
+\eqref{eq:upper-one-step}. \leanref{gaugeLe_scaledHeckeOperator_pow}
+The cost at the marked places satisfies
+\[
+ |\Lambda|\nu_p+r_p\sum_{\tau\in A}r_\tau
+ \le \frac{\ell_p}{m}+|\Phi_a\cap A|\frac a{x_1}.
+\]
+\leansrc{New/UpperBound/Divisibility/MarkedPrimes}{Cost at marked places}.
+At an exceptional prime \(v_p(\pi_p)=1\), so the terms involving
+\(a/x_1\) cancel, and the loss per step is at most
+\((2\ell_p-G_p)/m\).
+Set \(j_p=\lceil 2mfa/p\rceil\).
+On \(p^{j_p}M_\iota\), the valuation of the image is at least
+\(G_p-\ell_p\), by the unmarked estimate and
+\(mC_p(\varnothing)\le 2mfa/p\le j_p\).
+Thus the bound \(G_p-2\ell_p\) holds on
+\(Y^m M_\iota+p^{j_p}M_\iota\).
+
+The normalized Hecke operator \(T_w\) preserves \(M_\iota\), and the
+colength of \(T_wM_\iota+p^{j_p}M_\iota\) divides \(p^{c_w}\) for some
+\[
+  c_w\le\left(\frac{12a_w}{mp}+\frac{j_p}{m^2f}\right)\dim S_0 .
+\]
+\leansrc{New/UpperBound/Divisibility/MarkOperator}{Elementary divisors of the normalized Hecke operator}.
+To see the numerical bound, the places of \(\Phi_a\) inducing
+\(w\) or \(\overline w\) form one orbit under \(-p^{o_0}\).
+Let its length be \(2u_w\) and put \(P_p=p^{o_0}\).
+Order the embeddings of the orbit into the valuation ring, composing with
+complex conjugation on the conjugate side. Successive embeddings are
+related by the \(P_p\)-power map modulo \(p\). The even embeddings induce
+\(w\), so \(a_w=au_w\).
+The elementary-divisor theorem for a Frobenius cycle factors the Hecke operator on the lattice classes into a restriction
+to residue classes and a pairing of matrices, and compares the
+colengths of the images of these matrices.
+For the coordinate model and numerical conditions
+\[
+ \begin{gathered}
+  0<r_p\le k/2,\qquad a^4\le P_p^{2u_w},\qquad \theta_0=(m^2f)^{-1},\\
+  (2u_w k\log(P_p^{2u_w})/\theta_0)^5 P_p^{3r_p}\le a
+ \end{gathered}
+\]
+the bound per coordinate is \(3C_{\mathrm{div}}+\theta_0j_p\), where
+\(C_{\mathrm{div}}=2u_wa(P_p^{-2r_p}+r_p^2/(kP_p))\).
+\leansrc{New/UpperBound/ElementaryDivisors/ElementaryDivisorTheorem}{Elementary divisors for a Frobenius cycle}.
+For the present Hecke operator, the hypotheses follow from its coordinate
+model and the scale conditions.
+\leansrc{New/UpperBound/Divisibility/MarkOperator}{Application of the elementary-divisor theorem}.
+From \(m\le p^{r_p}\) and \(p\le P_p\) one gets
+\(P_p^{-2r_p}\le1/(mp)\). From \(mr_p^2\le k\) and \(p\le P_p\) the
+second term is at most \(1/(mp)\) as well.
+Hence \(3C_{\mathrm{div}}\le12a_w/(mp)\).
+
+Colength exponents add under composition of the operators.
+First send a finite family into \(T_1M_\iota+p^{j_p}M_\iota\), then apply
+a correcting matrix for \(T_2\) to the preimages under \(T_1\) of the
+\(T_1M_\iota\) components. Since \(T_1\) preserves \(p^{j_p}M_\iota\),
+the composite matrix sends the family into
+\(T_1T_2M_\iota+p^{j_p}M_\iota\). Its determinant is the product of the
+two determinants. Repeating this argument and using
+\(\sum_w a_w\le af\), \(|\Lambda|\le f\), and \(j_p\le2mfa/p+1\), the
+colength exponent of \(Y^mM_\iota+p^{j_p}M_\iota\) is bounded above by
+\[
+  m\sum_{w\in\Lambda}
+      \left(\frac{12a_w}{mp}+\frac{j_p}{m^2f}\right)\dim S_0
+    \le \frac{14fa+p/m}{p}\dim S_0
+    \le \ell_p\dim S_0 .
+\]
+Intersecting with \(S\) preserves this bound because the original family
+can be taken in \(S\) and its linear combinations then remain in \(S\).
+
+Finally, for \(p=N\), take the submodule on which
+\(\mathrm{Up}^{m/2}\phi\) is integral in the modified standard lattice.
+Its colength exponent is at most \(mfb\dim S_0\).
+\leansrc{New/UpperBound/Divisibility/ColengthAtLevel}{Colength at the level prime}.
+The ramification condition expresses each glued pair of lifts as a
+composite of \(\mathrm{Up}\) and direct lifts. On this submodule the
+resulting valuation is at least \(-2mfb\).
+\leansrc{New/UpperBound/Divisibility/ValuationAtLevel}{Valuation at the level prime}.
+Intersecting with \(S\) preserves the colength bound.
+Since \(G_N=0\), this proves \eqref{eq:upper-local} in all cases.
+
+The local errors satisfy
+\begin{equation}\label{eq:upper-error-sum}
+  \sum_p \varepsilon_p\log p\le E_3.
+\end{equation}
+For \(p\in\mathcal U\), use \(\log p\le\log x_1\).
+When \(p\equiv\pm1\bmod m\), write \(p=mc\pm1\) with \(1\le c\le p\)
+and use \(m/p\le2/c\). Otherwise take \(c=p\).
+For the term \(p=N\), use \(c=1\) and
+\(2mfb\log N\le4fa(\log b)^2\log x_1\).
+At most four terms correspond to a given \(c\), from
+\(N,mc-1,c,mc+1\). Thus the sum is at most
+\(16fa(\log b)^2\log x_1(1+\log x_1)\), which is bounded by \(E_3\)
+by the scale conditions. \leanref{sum_allowedLoss_mul_log_le}
+
+\subsection{Archimedean norms and normalization}
+
+For step \(j\) of the upper chain, let \(l_{j,\tau,i}\), \(i<n_j\),
+be the row lengths used at \(\tau\) and put
+\(U_j=\sum_\tau\sum_{i<n_j}s_\infty(l_{j,\tau,i})\).
+Recall that \(s_\infty(q)=\log(q!)+q\log(M/\Omega)\), where \(\Omega\)
+is the period. The one-step theta kernel multiplies the norm by at
+most \(\exp(x^{50}+U_j/2)\) at every conjugate.
+In this archimedean estimate for the Schur derivatives, the factorials
+for the row lengths and the period normalization give the term \(U_j/2\).
+The factor \(\exp(x^{50})\) absorbs the remaining constants, the number
+of variables, and the row-length correction. \leanref{sqrt_weylNormSq_jetMap_le}
+
+The principal contributions to the row lengths are \(a\,1_{\Phi_a}(\tau)\)
+in the first row and \(\kappa(\tau)\) in each of the next \(k-1\) rows.
+Each additional box contributes at most \(25\log b\). Indeed, all the
+row lengths are at most \(2a\) and adding a box increases the bound by at
+most \(\log(2a+1)+\log(M/\Omega)\le25\log b\).
+At each step the total number of additional boxes is at most
+\(f(b+a/x_1+n_m r^{16})\).
+The scale conditions give
+\begin{equation}\label{eq:upper-rows}
+ \sum_{0\le j<m}U_j
+ \le m\left\{|\Phi_a|s_\infty(a)+k\sum_\tau s_\infty(\kappa(\tau))\right\}
+         +\frac{E_3}{2}.
+\end{equation}
+\leanref{sum_rowSizeSum_le}
+
+In the expansion of the glued tensor for the trivial twist, each step
+has at most \(\exp(x^{30})\) classes, and the sum of the absolute values
+of the conjugated translation coefficients is at most \(\exp(x^{60})\).
+If all values of \(\phi\) have squared norm at most \(\exp(B)\) after
+conjugation, summing the bounds for products of the \(m\) kernels
+bounds the squared norms before the final restriction by
+\[
+  \exp\!\left(B+\sum_j U_j
+             +2(mx^{30}+x^{60}+mx^{50})\right).
+\]
+The restriction at the last step uses a branching matrix with
+integer entries, which multiplies the
+squared norm by at most \(\exp(x^{70})\).
+Write \(u_\tau\) for the difference of the sums of the weights of
+\(X_m,Y_m\) at \(\tau\). The restriction to \(Y_m\subset X_m\)
+also multiplies by \(\prod_\tau\tau(\overline{\pi_N})^{-u_\tau}\).
+Since \(\pi_N\overline{\pi_N}=N\), this factor has squared absolute value
+\(N^{-\sum_\tau u_\tau}\) at every conjugate. The exponent therefore
+decreases by at least \((|\Phi_a|a-fmr^8)\log N\).
+\leansrc{New/UpperBound/Divisibility/ChainValuation}{The final restriction}.
+
+The remainder is
+\(\mathcal R=\sum_{\tau\in\Phi_a}(s_{\mathrm{fin}}(a,\tau)-s_{\mathrm{main}})\),
+where \(s_{\mathrm{main}}\) is the main term for \(s_{\mathrm{fin}}(a,\tau)\).
+Writing \(\overline{\log\kappa}=f^{-1}\sum_\tau\log\kappa(\tau)\) and
+\(D_E=\operatorname{rd}(E)\), the condition on the level is
+\[
+ \log N\ge m\!\left(\overline{\log\kappa}
+                 +\log \frac{M D_E}{2\pi}\right)
+          -\log\frac{M D_E}{2\pi}-\tfrac{15}2\log b.
+\]
+The period formula
+\(\log(M/\Omega)=1+c_1+\log(M D_E/(2\pi))\),
+the identity \(s_{\mathrm{main}}=a(\log a-\overline{\log\kappa}+c_1)\),
+and Stirling's upper bound
+\(\log(a!)\le a\log a-a+1+\frac12\log a\) give
+\[
+ s_\infty(a)-s_{\mathrm{main}}
+ \le a\!\left(\overline{\log\kappa}+\log \frac{M D_E}{2\pi}\right)
+        +1+\tfrac12\log a .
+\]
+Consequently \(m(s_\infty(a)-s_{\mathrm{main}})-a\log N\le32a\log b\).
+This uses \(m(1+\frac12\log a)\le a\log b\) and
+\(\log(M D_E/(2\pi))\le23\log b\).
+Substituting \eqref{eq:upper-gain-sum} gives
+\[
+ H_0-m\mathcal R+2\sum_p G_p\log p
+ =m|\Phi_a|s_{\mathrm{main}}+mk\sum_\tau s_\infty(\kappa(\tau)).
+\]
+Use this identity and \eqref{eq:upper-rows} and absorb
+\(32fa\log b+x^{70}+fmr^8\log N+
+  2(mx^{30}+x^{60}+mx^{50})\) into \(E_3/2\).
+All conjugated values of \(B_{1,\Psi}\phi\) then have squared norms at most
+\begin{equation}\label{eq:upper-arch}
+  \exp\!\left(B+H_0-m\mathcal R+2\sum_p G_p\log p+E_3\right).
+\end{equation}
+\leanref{weylNormSq_restrictedChain_le}
+
+\paragraph{A common rational normalization}
+Put \(g_p=\lfloor G_p-\varepsilon_p\rfloor\) and set
+\[
+ C_B=\prod_{p\in\mathcal U\cup\{N\}}p^{-g_p},\qquad
+ \mathfrak p_g\phi
+   = C_B|\overline G|e_0\rho(g)c_{\mathrm{ss}}^{-1}\mathcal P\phi .
+\]
+The factor \(C_B\) is a positive rational number.
+By \eqref{eq:upper-local}, \(C_B B_{\xi,\Psi_\xi}\phi\) is integral on
+\(M'_\iota\), and \eqref{eq:upper-seesaw} and \eqref{eq:upper-project}
+show that \(\Theta_\xi\mathfrak p_g\phi\) is integral as well.
+The same \(M'_\iota\) works for every allowed twist.
+
+The rounding costs at most \(\sum_{p\in\mathcal U\cup\{N\}}\log p\le b\).
+Using \eqref{eq:upper-error-sum} we get
+\begin{equation}\label{eq:upper-cb}
+ \log C_B\le-\sum_p G_p\log p+E_3+b .
+\end{equation}
+Multiplying the bound \eqref{eq:upper-arch}, with the projection loss of
+\(x^{99}\) in the exponent, by \(C_B^2\) cancels \(2\sum_pG_p\log p\)
+in the exponent.
+
+\begin{proof}[Proof of Theorem~\ref{thm:upper-bound}]
+The space \(S_0\) is spanned by forms integral at all finite places
+whose values, after any conjugation, have squared norm at most
+\(\exp(E_3)/4^f\). To obtain these forms, use that the stabilizer of
+each lattice class is trivial and take forms supported on one class
+at a time. For a class \(c\), choose short bases for its lattice and
+for the lattices entering the determinant part of the weight.
+The evaluation vectors of the Weyl module at roots of unity span the
+module, and applying the chosen basis matrices preserves their span.
+The bases are locally integral and the roots of unity have absolute
+value \(1\), so the resulting forms are integral at all finite places.
+The archimedean constant for the short bases is \(C=6(q_1d)(fk)^2\).
+At all places together, columns of height less than \(k\) contain at
+most \(fa\) boxes. The squared-norm bound is then \(C^{6(fk+fa)}\).
+Admissibility gives \(4^f C^{6(fk+fa)}\le\exp(E_3)\).
+\leanref{span_isShort_eq_top}
+
+Let \(z_w\) be the generator of the scalar action at a specified place
+\(w\) above \(N\). The image of \(\prod_w(1-z_w)\) is \(S\).
+Scalar translation preserves integrality, and each difference
+\(1-z_w\) increases the squared-norm bound by a factor of at most \(4\).
+There are \(f\) specified places, so the images of the preceding forms
+span \(S\) and satisfy the bound with \(B=E_3\).
+Combine the exponent in \eqref{eq:upper-arch} with the projection
+loss \(x^{99}\) and twice the bound on \(\log C_B\) in
+\eqref{eq:upper-cb} to obtain
+\[
+ \|\Theta_1\mathfrak p_g\phi\|_\sigma^2
+ \le \exp\bigl(H_0-m\mathcal R+x^{99}+4E_3+2b\bigr).
+\]
+The admissibility inequality \(x^{99}+4E_3+2b\le E_4\) proves (1).
+
+For (2), first fix \(g_i=g\).
+For each \(\iota\), apply the correcting matrix from
+\eqref{eq:upper-local} to \((\phi_i)_i\) to obtain a family in \(M'_\iota\).
+The same matrix sends \((\mathfrak p_g\phi_i)_i\) to a family integral
+for every allowed twist. The valuation of its determinant is at most
+\(\varepsilon_p\dim S_0\).
+Imposing ramification loses at most \(\frac{f}{N-1}\dim S_0\)
+dimensions, and \(\frac{f}{N-1}\le1/2\), so \(\dim S_0\le2\dim S\).
+By \eqref{eq:upper-error-sum}, the logarithmic index for a fixed \(g\)
+is at most \(2(\dim S)E_3\).
+For a general family, group its members according to \(g_i\) and take
+the block diagonal matrix with the corresponding correcting matrices
+as blocks. Its determinant is the product of the determinants of the
+blocks. Adding their logarithmic index bounds gives
+\(2|\mathcal T|(\dim S)E_3\).
+\end{proof}

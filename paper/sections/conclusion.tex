@@ -22,8 +22,7 @@
 許容データの \(4(2x_1^2+b^{-1})\le b\) を使うと
 \(n'(2x_1^2b^2+b)\le hb\) となる。
 \(b\le E_4\) を用いて \(hb\) の二つの寄与を吸収すれば
-\eqref{eq:lower-bound} を得る。
-\leansrc{New/Determinant/Twist/LongForms}{\texttt{integral\_forms\_long}}。
+\eqref{eq:lower-bound} を得る。\leanref{integral_forms_long}
 \end{proof}
 
 \begin{theorem}[比較不等式]\label{thm:main-inequality}
@@ -61,8 +60,7 @@
    \le h\bigl(4E_4+20\log(1+2b^2)E_3\bigr)
 \]
 が残る。許容データでは \(4/b^2\le1/2\) であり \(n\ge h/2>0\) である。
-右辺の括弧の二倍は \(fa(\log b)^5\) 以下なので、\(n\) で割ればよい。
-\leansrc{New/Reduction/MainInequality}{\texttt{star\_inequality}}。
+右辺の括弧の二倍は \(fa(\log b)^5\) 以下なので、\(n\) で割ればよい。\leanref{star_inequality}
 \end{proof}
 
 \begin{corollary}[素数和の片側評価]\label{cor:prime-bound}
@@ -104,8 +102,7 @@
  R_{q_0}(y)\le (2(64\varphi(q_0)+3)+26)y^\theta .
 \]
 定数を十分大きな \(y^\eta\) に吸収し、\(7\eta\le\varepsilon\) を使えば
-\eqref{eq:prime-bound} を得る。
-\leansrc{New/Reduction/OneSidedBound}{\texttt{eventually\_\allowbreak primeRemainder\_\allowbreak le\_\allowbreak rpow}}。
+\eqref{eq:prime-bound} を得る。\leanref{eventually_primeRemainder_le_rpow}
 \end{proof}
 
 \begin{proof}[定理 \ref{thm:grh} の証明]
@@ -149,8 +146,5 @@
 \(1-s\ne0,1\) でその値にガンマ因子の逆数を掛けると
 \(\zeta(1-s)=0\) を得る。
 法 \(1\) における (1) を二つの零点へ適用すると、
-\(\RePart s=1/2\) が従う。
-対応する宣言は \leansrc{New/Reduction/OneSidedBound}{\texttt{grh}}、
-\leansrc{New/Main}{\texttt{zeros\_on\_line}, \texttt{zeta\_zeros\_on\_line}}
-である。
+\(\RePart s=1/2\) が従う。\leanref{grh}
 \end{proof}

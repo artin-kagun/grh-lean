@@ -1,0 +1,567 @@
+\section{Determinant estimates by twisting}
+\label{sec:determinant-estimates}
+
+The Archimedean estimates concern the Gram determinant for the trivial
+twist. Twisting the chain allows us to compare this determinant with
+another Gram determinant at each finite place. The choice of twist
+controls both the denominators of projections onto spaces of theta lifts
+and the Hecke \(L\)-values that enter the comparison. These two bounds
+give a determinant ratio at each stage and then a ratio for the full chain.
+
+\subsection{Choosing twists and clearing projection denominators}
+
+Set \(r=\dim_E Y_0\) and \(t=5r\), and write \(W_j,V_j\) for the
+Hermitian spaces of ranks \(r,r+t\), respectively, used in the comparison
+at stage \(j\). Let \(F_j\) be the image of \(e_0\) on the forms of
+principal level on \(W_j\). After projection, the multiplicity of each
+Hecke eigensystem at split places away from the level is the same on
+\(W_j\) and \(Y_0\). In particular, \(\dim_{\mathbb C} F_j=h\).
+\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{Equality of multiplicities}.
+
+A twist \(\xi\) is an automorphic character of \(U(1)\) of weight \(0\) at
+the infinite places. Write \(Q_\xi\) for its set of ramified places.
+For every twist under consideration, \(\xi^j\) is ramified at every
+place of \(Q_\xi\) for \(1\le j\le m\). The modulus norm appearing
+at the level is therefore \(N_\xi=\prod_{w\in Q_\xi}\mathrm Nw\) for
+every \(\xi^j\). The twist \(\xi\) is admissible at \(\ell\) if \(N_\xi\)
+is coprime to \(\ell\).
+
+Consider a character \(\nu\) of weight \(-c(\tau)\) and an integer \(u\)
+with \(1\le u\le t\) and \(u\le c(\tau)\le4b\). They form a critical
+pair if the tame part of \(\nu\) is trivial away from the chosen level
+places. A critical pair is called ramified if its tame part is nontrivial
+at every chosen level place. We use the ratio
+\[
+ \mathcal L_{\nu,u}(\vartheta;\varepsilon)
+ =
+ \frac{|L(u,(\nu\vartheta^\varepsilon)^{-1})|}
+      {|L(u,\nu^{-1})|},
+ \qquad \varepsilon\in\{1,-1\}.
+\]
+Here \(L\) is a Hecke \(L\)-function over \(E\) with character pulled back
+from \(U(1)\) along \(z\mapsto z/\bar z\). Both numerator and denominator
+omit Euler factors at the chosen level places and their conjugates.
+The numerator also omits the factors at \(Q_\vartheta\) and its conjugate.
+A main pair for \(j\) is a critical pair with \(m<u\le r\), with tame
+part equal to that of the character at stage \(j\), and with
+\(w_j(\tau)+r-t\le c(\tau)\le w_j(\tau)\) at the infinite places, where
+\(-w_j(\tau)\) is the weight of that stage's character. For a main pair,
+we decompose the associated space of rank \(2u\) into four blocks of
+ranks \(12,4,4,2u-20\).
+\leansrc{New/Determinant/Twist/FitTwists}{Critical pairs and main pairs}.
+
+Write \(u_{j,\vartheta}\) for the theta lift on \(F_j\) and
+\(P_{j,\vartheta}\) for the orthogonal projection onto its image
+\(I_{j,\vartheta}\). At a split place \(w\) away from the level, specialize
+the Hecke polynomial operator at the value associated with the lift at
+stage \(j\). The false lifts at \(w\) form the intersection of the kernel
+of this operator, the image of \(e_0\), and \(I_{j,\vartheta}^{\perp}\).
+Orthogonality to false lifts means orthogonality at every such \(w\).
+\leansrc{New/OneLift/TestedForms}{Definition of false lifts}.
+
+Put
+\[
+ B_{\mathrm{den}}=\frac{E_3}{mk}.
+\]
+The existence theorem for regular twists supplies, for each \(\iota\),
+a twist \(\xi_\iota\) admissible at \(\ell\), with the three properties
+below. As before, we write \(|v|_\iota=|\iota(v)|_\ell\).
+\begin{enumerate}
+\item For every ramified pair, every \(1\le j\le m\), and every
+  \(\varepsilon=\pm1\), the family
+  \(\bigl(\mathcal L_{\nu,u}(\xi_\iota^j;\varepsilon)^{-1}\bigr)_\iota\)
+  has height at most \(x_1\).
+\item For each \(j\), there are nonnegative reals \(\beta_\ell\) indexed
+  by primes, with \(\sum_{\ell\in T}\beta_\ell\le B_{\mathrm{den}}\) for
+  every finite set \(T\) of primes. For \(\vartheta=\xi_\iota^j\), there
+  is an endomorphism \(\Lambda\) of \(I_{j,\vartheta}\) such that
+  \[
+    |\det\Lambda|_\iota\ge\exp(-hr\beta_\ell).
+  \]
+  The operator \(\Lambda P_{j,\vartheta}\) takes forms that are integral
+  at \(\iota\) and orthogonal to the false lifts to forms integral
+  at \(\iota\).
+\item The same \(\beta_\ell\) controls projection onto the line generated
+  by the lift from rank \(1\) associated with a main pair. Write \(P\)
+  for the orthogonal projection onto that line. If \(\Xi,\Xi'\) are
+  test forms integral at all places above \(\ell\) and orthogonal to
+  the false lifts for the rank-one descent, then
+  \[
+       |\langle P\Xi,P\Xi'\rangle|_\iota\le\exp(\beta_\ell).
+  \]
+\end{enumerate}
+
+The existence theorem uses the Galois representations of rank \(r\)
+attached to the finitely many Hecke eigensystems in the \(e_0\)-part of
+the forms on \(W_m\), together with the rank-one representation attached
+to each main pair. The twisting theorem is applied to the main summands
+whose traces are obtained from those of the twisted lifts by removing a
+string of characters. For the first \(m\) powers of one anticyclotomic
+character it bounds both the lengths of the Selmer groups with divisible
+coefficients and the valuations of the \(L\)-value ratios for ramified pairs.
+Let \(C_{\mathrm{lev}}\) be the product of level group orders used in the
+formal proof, and \(C_1\) the number of classes of \(U(1)\) at the chosen
+principal level. For the inverse ratio of a ramified pair the bound for
+\(\log|\cdot|_\iota\) is
+\[
+  \big((4f+3)r\,v_\ell(C_{\mathrm{lev}})+2^{-\ell}\big)\log\ell.
+\]
+The denominator estimate obtained by Ribet's method combines the Selmer
+group length with local and level corrections in the exponent \(c_\ell\).
+\leanref{clearingBound}
+The inner product of rank-one projections also requires an allowance of
+\(v_\ell(C_1)\log\ell\), so both estimates use
+\(\beta_\ell=(c_\ell+v_\ell(C_1))\log\ell\).
+The two sums over primes are bounded by \(x_1\) and \(B_{\mathrm{den}}\),
+respectively. We use the twisting theorem and the passage from Selmer
+group lengths to projection denominators in this form.
+\leansrc{New/Congruences/Selmer/TwistingTheorem}{Twisting theorem for Selmer groups},
+\leansrc{New/Congruences/FirstOrder/DenominatorBound}{Projection denominator bound},
+\leansrc{New/Congruences/FitTwistsExist}{Existence of regular families}.
+
+\subsection{Hecke values and theta derivatives for main pairs}
+
+Fix a main pair \(p=(\nu,u)\) and write \(\phi_\vartheta\) for the normalized
+lift from rank \(1\) to rank \(2u\) associated with it. Comparing the norm
+formula for the character lift at the two twists gives
+\begin{equation}
+ \mathcal L_p(\vartheta;1)^{-1}
+   =N_\vartheta^{2u-1}\frac{\|\phi_1\|^2}{\|\phi_\vartheta\|^2}.
+ \label{eq:main-pair-norm}
+\end{equation}
+To estimate the ratio at finite places, we project two test forms onto the
+line spanned by \(\phi_\vartheta\).
+
+First, consider the height of \(\|\phi_1\|^2\) as a constant family.
+Let \(\phi^{(0)}_1\) be the lift corresponding to a critical pair of the
+same rank and derivative order \(0\). Its squared norm becomes integral
+at every finite place after multiplication by an integer \(n_L\).
+Choose \(n_L\|\phi^{(0)}_1\|^2/\|\phi_1\|^2\) as the common multiplier
+in the height bound for \(\|\phi_1\|^2\). This makes the finite-place
+contribution zero. At infinity, the two logarithmic squared norms have
+a common term that cancels. The derivative order for the main pair is
+\(c(\tau)-u\ge\kappa(\tau)\), so the contribution from the derivative
+orders differs from that for order \(0\) by at least
+\(\sum_\tau s_\infty(\kappa(\tau))\). The error in the norm formula
+together with \(\log n_L\) is bounded by \(B_{\mathrm{den}}\), giving
+\begin{equation}
+ \operatorname{ht}\big((\|\phi_1\|^2)_\iota\big)
+  \le B_{\mathrm{den}}-\sum_{\tau} s_\infty(\kappa(\tau)).
+ \label{eq:untwisted-rankone-height}
+\end{equation}
+The norm estimate is first proved for conjugations fixing the quadratic
+field \(K\). The lemma on absolute values under conjugation extends it
+to every field automorphism of \(\mathbb C\).
+\leansrc{New/OneLift/HeckeValues/AlgebraicPartSize}{Height of the untwisted norm}.
+
+Write the required finite-place valuation bound for the theta derivative as
+\[
+ F(\ell)=\frac12\sum_{\tau\in\Phi}\sum_{e\ge 1}
+     (1-\chi_K(\ell^e))
+     \left(\frac{\kappa(\tau)}{\ell^e}-\kappa(-\ell^e\tau)\right)_+,
+\]
+where \(\chi_K=\chi_d\) is the quadratic character of \(K\).
+Grouping the terms by prime powers gives, for every finite set \(T\)
+of primes,
+\begin{equation}
+ 2\sum_{\ell\in T}F(\ell)\log\ell
+   \le \sum_{\tau\in\Phi}s_{\mathrm{fin}}(\kappa(\tau),\tau).
+ \label{eq:local-prime-total-lower}
+\end{equation}
+\leansrc{New/UpperBound/Size/Estimates}{Sum of local prime contributions}.
+
+The construction of the test form expands the lift of rank \(2u\)
+according to the four blocks above. In the block of rank \(12\), choose a
+theta-series coefficient that attains the valuation bound. This supplies
+a term of valuation at most \(F(\ell)\) plus the valuation of a fixed
+factor. In the second block, of rank \(4\), use the derivative-order-zero
+lift of a ramified pair \(q_2\), with ratio
+\(\rho_\vartheta=\mathcal L_{q_2}(\vartheta;1)\). The remaining two blocks
+are assigned the two factors of a character of the class group of
+\(U(1)\). Translate the class representatives so that the trivial class
+is represented by the identity. Summing the normalized, character-weighted
+class sums over all characters recovers the chosen coefficient by character
+orthogonality. The ultrametric inequality then gives at least one class
+sum whose \(\iota\)-absolute value is at least that of the coefficient.
+Choose a factorization of the corresponding character so that the product
+of the algebraic \(L\)-values from the last two blocks has
+\(\iota\)-absolute value at least their geometric mean over all possible
+factorizations. The product over the blocks defines the test form.
+Expanding its pairing with the lift as a class sum yields these factors.
+
+The resulting local estimate uses a scalar
+\(c_0\ne0\), independent of the twist and the finite place, with
+\(|\sigma(c_0)|\le\exp(fmb/k+3x^{34})\le\exp(B_{\mathrm{den}})\) for every
+\(\sigma\). For each \(\iota\) and each \(\vartheta\) admissible at its
+prime, there is a test form \(\Xi\) such that
+\begin{equation}
+ |\langle\Xi,\phi_\vartheta\rangle|_\iota
+    \ge |c_0\rho_\vartheta|_\iota\,\ell^{-F(\ell)}.
+ \label{eq:test-pairing-lower}
+\end{equation}
+Here \(c_0\) is the product of the fixed factor multiplying the theta
+coefficient, the untwisted algebraic \(L\)-value from the second block,
+and the geometric mean from the remaining two blocks. The same construction
+makes the test form integral at all places above \(\ell\) and orthogonal
+to the false lifts.
+\leansrc{New/Derivatives/Sharpness/BoundAttained}{Theta coefficient valuations},
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Construction of the test form}.
+
+Take \(\vartheta=\xi_\iota^j\). Choose test forms \(\Xi,\Xi'\)
+as in \eqref{eq:test-pairing-lower} at \(\iota\) and
+\(\iota\circ\mathrm{conj}\), respectively. Since \(\rho_\vartheta\)
+is real, the product
+\(A_\iota=\langle\Xi,\phi_\vartheta\rangle\langle\phi_\vartheta,\Xi'\rangle\)
+satisfies
+\[
+ \left|c_0\bar c_0\,\frac{\rho_\vartheta^2}{A_\iota}\right|_\iota
+      \le \ell^{2F(\ell)}.
+\]
+Both pairings are nonzero by \eqref{eq:test-pairing-lower}.
+The orthogonal projection \(P\) onto \(\mathbb C\phi_\vartheta\) gives
+\(\langle P\Xi,P\Xi'\rangle=A_\iota/\|\phi_\vartheta\|^2\).
+Thus the right-hand side of \eqref{eq:main-pair-norm} is \(N_\vartheta^{2u-1}\)
+times the product of four factors
+\[
+ \|\phi_1\|^2,\qquad
+ \langle P\Xi,P\Xi'\rangle,\qquad
+ \rho_\vartheta^{-2},\qquad
+ \frac{\rho_\vartheta^2}{A_\iota}.
+\]
+The height bound for each factor follows, in order, from
+\eqref{eq:untwisted-rankone-height}, the estimate for the projected
+pairing, the inverse-ratio bound for ramified pairs, and
+\eqref{eq:local-prime-total-lower} with common multiplier \(c_0\bar c_0\).
+The four bounds are
+\[
+ \begin{gathered}
+ B_{\mathrm{den}}-\sum_\tau s_\infty(\kappa(\tau)),\qquad
+ B_{\mathrm{den}},\qquad 2x_1,\\
+ 2B_{\mathrm{den}}+\sum_\tau s_{\mathrm{fin}}(\kappa(\tau),\tau).
+ \end{gathered}
+\]
+Moreover, \(N_\vartheta^{2u-1}\) is a unit at \(\iota\).
+Adding the bounds and using \(x_1\le B_{\mathrm{den}}\) gives
+\begin{equation}
+ \operatorname{ht}\bigl(
+   (\mathcal L_p(\xi_\iota^j;1)^{-1})_\iota\bigr)
+ \le 6B_{\mathrm{den}}-A_0.
+ \label{eq:main-pair-height-lower}
+\end{equation}
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Height of the inverse ratio for a main pair}.
+
+\subsection{Comparing determinants at a single stage}
+
+Set \(Z_j(\vartheta)=\det(u_{j,\vartheta}^*u_{j,\vartheta})\). The
+comparison operator \(U_{j,\vartheta}\) is a scalar multiple of
+\(G_{j,\vartheta}G_{j,\vartheta}^*\), where \(G_{j,\vartheta}\) glues
+tuples of forms on an auxiliary space into forms on \(V_j\). The scalar
+is an integer from the level times the square of a hook number.
+Three exchanges of theta integrals give a positive-definite operator
+\(U_j^\circ\) on \(F_j\), independent of \(\vartheta\), such that
+\begin{equation}
+ u_{j,\vartheta}^*U_{j,\vartheta}u_{j,\vartheta}
+      =\rho_j(\vartheta)U_j^\circ,\qquad
+ \rho_j(\vartheta)=
+ \frac{\mathcal H_j(\vartheta)}{\mathcal H_j(1)}.
+ \label{eq:comparison-operator-lower}
+\end{equation}
+Here \(\mathcal H_j\) is the product of the three Hecke values that enter
+the exchanges. \leanref{heckeValueProd}
+The operator \(U_j^\circ\) is a positive scalar multiple of the Gram
+operator of the untwisted period map. This map is injective, so
+\(\det U_j^\circ\ne0\).
+
+The ratio \(\rho_j(\vartheta)\) is nonzero. The operator \(U_{j,\vartheta}\)
+carries theta lifts into forms orthogonal to the false lifts and preserves
+integrality at primes coprime to \(N_\vartheta\). For the second property,
+a tight frame of integral test vectors expresses
+\(G_{j,\vartheta}G_{j,\vartheta}^*\) as a sum of rank-one operators.
+The level integer clears the denominators of their pairings.
+The Cauchy--Schwarz estimate for the same frame shows that the untwisted
+operator increases the norm by at most \(\exp(3fmb(\log b)^2)\) at every
+conjugate.
+\leansrc{New/OneLift/ComparisonOperator/ThreeExchanges}{The three exchanges},
+\leansrc{New/OneLift/LiftVolumeHeight}{The comparison operator and its bounds}.
+
+Let \(B_{j,\vartheta}\) be the restriction of
+\(P_{j,\vartheta}U_{j,\vartheta}\) to \(I_{j,\vartheta}\) and put
+\(D_j(\vartheta)=\det B_{j,\vartheta}\). The lift \(u_{j,\vartheta}\)
+is an isomorphism onto its image, and \(u_{j,\vartheta}^*\) vanishes
+on \(I_{j,\vartheta}^\perp\). Hence
+\[
+ u_{j,\vartheta}^* U_{j,\vartheta} u_{j,\vartheta}
+  =(u_{j,\vartheta}^*u_{j,\vartheta})
+    (u_{j,\vartheta}^{-1} B_{j,\vartheta}u_{j,\vartheta}).
+\]
+Taking determinants and using \eqref{eq:comparison-operator-lower} gives
+\[
+ Z_j(\vartheta)D_j(\vartheta)
+      =\det(U_j^\circ)\rho_j(\vartheta)^h,\qquad
+ \frac{Z_j(1)}{Z_j(\vartheta)}
+   =\frac{D_j(\vartheta)}{D_j(1)}\,\rho_j(\vartheta)^{-h}.
+\]
+
+At finite places, for \(\vartheta=\xi_\iota^j\) the operator
+\(\Lambda B_{j,\vartheta}\) preserves the integral forms in
+\(I_{j,\vartheta}\). Normalize each eigenvector so that it is integral
+and rescaling it by a scalar with \(\iota\)-absolute value greater than
+\(1\) takes it outside the integral module. The corresponding eigenvalue
+has \(\iota\)-absolute value at most \(1\). Consequently,
+\[
+ |D_j(\xi_\iota^j)|_\iota
+   \le|\det\Lambda|_\iota^{-1}
+   \le\exp(hr\beta_\ell).
+\]
+At infinity, \(U_{j,1}(I_{j,1})\) is orthogonal to the false lifts.
+Projecting forms in this image back onto \(I_{j,1}\) cannot increase
+their norm at any conjugate. The projection estimate uses the adjoint
+relation for the specializations of the Hecke operators under conjugation.
+Put \(C_{\mathrm{arch}}=fmb(\log b)^2\). Multiplying the bounds for the
+eigenvalues gives \(|\sigma(D_j(1))|\le\exp(3h C_{\mathrm{arch}})\).
+Using \(D_j(1)\) as common multiplier gives
+\[
+ \operatorname{ht}\bigl((D_j(\xi_\iota^j)/D_j(1))_\iota\bigr)
+     \le h(3C_{\mathrm{arch}}+rB_{\mathrm{den}}).
+\]
+\leansrc{New/OneLift/LiftVolumeHeight}{Finite and Archimedean bounds for the compressed determinant}.
+
+Up to an integer power of \(N_\vartheta\), the ratio \(\rho_j(\vartheta)\)
+in the three exchanges is the square of the product of the ratios for
+\(k/2\) main pairs and \(5m\) ramified pairs. The main pairs occur at points
+\(7m/2<u\le 7m/2+k/2\). The remaining points number \(7m/2+m+m/2=5m\).
+The sign is \(\varepsilon=1\) for the main pairs and for the first \(7m/2\)
+ramified pairs. Among the flat pairs it is \(\varepsilon=1\) for \(m\) of
+them and \(\varepsilon=-1\) for \(m/2\) of them.
+Adding the bounds in \eqref{eq:main-pair-height-lower} and those for the
+ramified pairs, with the factor of two from the square, gives
+\[
+ \operatorname{ht}\bigl((\rho_j(\xi_\iota^j)^{-1})_\iota\bigr)
+  \le k(6B_{\mathrm{den}}-A_0)+10mx_1.
+\]
+The admissible data satisfy
+\(3C_{\mathrm{arch}}+(r+6k)B_{\mathrm{den}}+10mx_1
+        \le kB_{\mathrm{den}}\log b\), so for every stage
+\begin{equation}
+ \operatorname{ht}\bigl((Z_j(1)/Z_j(\xi_\iota^j))_\iota\bigr)
+   \le h\big(E_4/m-kA_0\big).
+ \label{eq:single-relative-height}
+\end{equation}
+\leansrc{New/OneLift/HeckeValues/TwistedValueHeights}{Factorization of Hecke values},
+\leansrc{New/OneLift/LiftVolumeHeight}{Height bound for a single stage}.
+
+\subsection{The determinant of the chain}
+
+To compute the norm of the chain, arrange in a triangle the lifts that
+adjoin blocks of height \(t\) to the initial space. The vertex \((i,n)\)
+consists of the common part and blocks \(i+1,\ldots,i+n\). The arrows
+that add a block on the right are paired with transposed lifts that
+remove a block on the left. Comparing the two paths obtained by switching
+the order of these operations uses the exchange identity.
+
+The matching over a finite ring works as follows. Split the row and column
+indices into two groups. For an invertible matrix \(g\), write \(C(g)\)
+for its first columns and \(R(g)\) for the last rows of \(g^{-1}\), with
+the sizes specified by the split. The weights \(\Psi,\Phi\) are supported
+on matrices of these respective forms and satisfy
+\(\Phi(R(g))=\chi(\det g)\Psi(C(g))\).
+Let \(K,K'\) be the kernels along the two paths, subject to the formal
+proof's weight, ramification, signature, and rank conditions.
+The exchange gives \(\sum\Psi K'=(\kappa_0/c)\sum\Phi K\).
+The value \(|c|^2\) is determined by the product of powers of residue-field
+cardinalities and squared absolute values of partial \(L\)-values.
+The scalar \(\kappa_0\) is independent of the twist.
+Applying the identity to point data and to their finite Fourier transforms
+gives the two exchange laws needed for the triangle.
+\leansrc{New/Determinant/Exchange/TheoremForPartners}{Exchange of theta integrals},
+\leansrc{New/Determinant/Exchange/OneSquare}{Exchange across one square},
+\leansrc{New/Determinant/Chain/ChainNorms}{Exchange laws and injectivity for the triangle}.
+
+Write \(c_Q(\xi)\) for
+\[
+ N_\xi^{rt}\prod_{w\in Q_\xi}\prod_{t<s\le t+r}(1-(\mathrm Nw)^{-s}).
+\]
+Let \(R_j(\xi^j)\) be the Hecke operator on \(V\) from Rallis's formula
+at stage \(j\). Applying Rallis's formula to a single lift and matching
+the multiplicities of the Hecke eigensystems of \(W_j\) and \(Y_0\)
+gives, for a constant \(A_j\ne0\) independent of the twist,
+\[
+ Z_j(\xi^j)=(A_jc_Q(\xi))^h\det R_j(\xi^j).
+\]
+For the chain, the exchange laws move the blocks one at a time.
+Write \(X_{i,n}\) for the composition of the first \(n\) arrows in row
+\(i\), weighting the arrow from stage \(s\) to \(s+1\) by the order
+\(w_s\) of the general linear group at its source's finite level.
+Let \(a_{i,n}\) be the arrow to the right and \(d_{i,n}\) the downward
+arrow to the next row. The map \(j_i\) embeds the space of principal-level
+forms isometrically at the beginning of row \(i\). Define \(x'\) by
+\(j_{i+1}x'=d_{i,0}a_{i,0}j_i x\).
+Composing the exchange laws for individual squares and using the
+exchange law for adjoints gives
+\begin{multline*}
+  \langle X_{i,n+1}j_i x,X_{i,n+1}j_i y\rangle\\
+   = \lambda_{i,n}\,\frac{w_0w_1w_n}{w_{n+1}}\,
+     \langle X_{i+1,n}j_{i+1}x',X_{i+1,n}j_{i+1}y\rangle.
+\end{multline*}
+Up to a factor independent of the twist and a half-integral power of
+\(N_\xi\), the absolute value of \(\lambda_{i,n}\) is
+\(\prod_{i+1<j\le i+n+1}J_{i+1,j}(\xi)\).
+On the right, the pairing with \(x'\) becomes a pairing with \(x\)
+by applying the Gram operator of the first arrow in row \(i\),
+canceling one \(w_0\). Starting the induction with the empty
+composition, the Gram operator for row \(i\) is a scalar multiple of the
+product of the Gram operators of the first arrows in the successive rows.
+The scalar includes \(w_0w_1^n/w_n\) and the contributions from pairs
+\(i<r'<j\le m\).
+\leansrc{New/Determinant/Chain/TriangleNorms}{Recurrence for the weighted chain}.
+
+For the chain starting in row \(0\), apply Rallis's formula to the
+Gram operator of the first arrow in each row. Expressing the final level
+index by a count of block upper triangular matrices cancels
+\(w_0w_1^m/w_m\). With this normalization the Gram operator is
+\[
+ \Theta_\xi^*\Theta_\xi
+       = c(\xi)c_Q(\xi)^m \prod_{j=1}^m R_j(\xi^j),
+\]
+where
+\[
+ |c(\xi)| = C\,N_\xi^{e/2}\prod_{1\le i<j\le m} J_{ij}(\xi),
+ \qquad C>0,\quad e\in\mathbb Z.
+\]
+Write \(\eta_j=\mu_j^0\) for the untwisted character at stage \(j\).
+Then
+\[
+ J_{ij}(\xi)=
+   \prod_{u=1}^{t}\mathcal L_{\eta_j/\eta_i,u}(\xi^{j-i};1).
+\]
+Every pair \(i<j\) arises in moving the blocks. The tame part of
+\(\eta_j/\eta_i\) at the chosen level is the \((j-i)\)-th power of a
+fixed character. Since \(1\le j-i\le m\), the pairs in this product are
+ramified.
+
+Injectivity of the chain follows from that of the weighted chain in the
+triangle. The exchange laws imply that when the weighted chain of length
+\(n+1\) kills \(j_i v\), the chain of length \(n\) in the next row kills
+\(d_{i,0}a_{i,0}j_i v\). This vector lies in the image of \(j_{i+1}\).
+Induction on the length and injectivity of \(d_{i,0}a_{i,0}\) on the
+image of \(j_i\) give \(v=0\). The positive level index and the positive
+dimension of the Weyl module that enter the change of normalization
+transfer this injectivity to \(\Theta_\xi\). Each individual lift is
+also injective, so all the Gram determinants are positive. Taking
+absolute values on both sides of the determinant identities retains
+these positive Gram determinants and cancels \(c_Q(\xi)\) and the
+determinants of the Hecke operators. Thus
+\begin{equation}
+ \frac{Z(1)}{Z(\xi)}
+ =
+ \left(N_\xi^{e/2}\prod_{1\le i<j\le m}J_{ij}(\xi)\right)^{-h}
+       \prod_{j=1}^m\frac{Z_j(1)}{Z_j(\xi^j)}.
+ \label{eq:chain-relative-factorization}
+\end{equation}
+If \(\ell\nmid N_\xi\), then \(N_\xi^{e/2}\) has \(\iota\)-absolute value
+\(1\). Counting the ramified pairs gives height at most \(m^2t x_1\) for
+the inverse of the parenthesized factor evaluated at \(\xi_\iota\), and
+\(m^2t x_1\le b\). Adding \eqref{eq:single-relative-height} over the
+\(m\) stages now gives
+\begin{equation}
+ \operatorname{ht}\bigl((Z(1)/Z(\xi_\iota))_\iota\bigr)
+       \le h(b+E_4-H_0).
+ \label{eq:chain-relative-height}
+\end{equation}
+\leansrc{New/Determinant/Chain/NormOfChain}{The chain's Gram operator and determinant factorization}.
+
+\subsection{Forms for completing a basis}
+
+To complete a basis, we span the space of principal-level forms before
+applying \(e_0\) using forms of deep level. The formal proof uses two
+grids. It transfers the period of the initial path along their boundary
+to the period of the final path, making one turn in each of the \(m^2\)
+squares. At each turn it applies the exchange identity to a sum over
+finite matrix data. At a turn on the diagonal it first identifies the
+relation to a rank-one kernel and then applies the same comparison.
+The resulting nonzero scalar \(c_{\mathrm{path}}(\xi)\) satisfies
+\begin{equation}
+ \left|\frac{c_{\mathrm{path}}(\xi)}{c_{\mathrm{path}}(1)}\right|
+   =N_\xi^{e'/2}\prod_{0\le i,j<m} T_{ij}(\xi),\qquad
+ T_{ij}(\xi)=
+    \prod_{u=1}^{t}\mathcal L_{\eta_{i+1}\eta_{j+1},u}(\xi^{j+1};1).
+ \label{eq:turn-ratio-lower}
+\end{equation}
+The exponent of the tame character is \(i+j+2\), between \(2\) and \(2m\),
+so the tame part is nontrivial at every chosen level place. Thus the
+pairs in each \(T_{ij}\) are ramified.
+\leansrc{New/Determinant/AuxiliaryForms/Turns}{The \(L\)-value ratio for a turn},
+\leansrc{New/Determinant/AuxiliaryForms/DiagonalTurns}{Comparison of the full paths}.
+
+The final path period sums the inner product of the lifts along the two
+half-paths over tuples \(S\) of finite matrices, with coefficient \(\Psi(S)\).
+With the normalization fixed, an integer independent of \(\xi\) clears the
+denominators of the kernels along the edges and of the class sums when
+\(\ell\nmid N_\xi\). For the trivial twist, the Weyl norm bounds for the
+kernels and the number of summands give a bound for every conjugate of
+the period. To recover the values of the original lift, pair it with dual
+delta forms. For the matrix \(D\) of the dual pairing there are an integral
+matrix \(C\) and a positive hook number \(H\) with \(CD=HI\).
+If the pairing against each integral vector lies in \(H\) times the
+valuation ring, testing against the rows of \(C\) and canceling \(H\) shows
+that each coordinate of the original value is integral. At infinity, dividing
+the bound for the pairing by the norm of the dual vector gives the Weyl
+norm bound.
+
+This gives a quantitative spanning result for the principal-level space.
+There is a surjection \(s\) from the deep-level space to the principal-level
+space and a constant \(c_{\mathrm{sc}}\ne0\). The deep-level space is
+spanned by forms \(\psi\) integral at every finite place and with all
+conjugates of their values of squared Weyl norm at most \(\exp(x^{99}b^2)\).
+For each \(\psi\), scaling the lift of \(c_{\mathrm{sc}}s(\psi)\) by
+\(c_{\mathrm{path}}(\xi)/c_{\mathrm{path}}(1)\) makes it integral at
+admissible places. For the trivial twist, the squared Weyl norms of the
+lift's values are bounded by the deep-level bound times
+\(\exp(2x^{201}b^2)\), hence by \(\exp(x^{202}b^2)\).
+These are the local and Archimedean kernel estimates used in the
+construction.
+\leansrc{New/Determinant/AuxiliaryForms/SpanningForms}{The final path period and construction of auxiliary forms}.
+
+Send this spanning family to \(V\) by the projection multiplied by
+the order of the level group. The scaled projection preserves
+integrality and adds at most \(x^{99}\) to the logarithm of the
+squared norm for the trivial twist. Since
+\(x^{99}+x^{202}b^2\le2x_1^2b^2\), the resulting auxiliary forms \(z\)
+satisfy
+\[
+ \|\Theta_1 z\|_\sigma^2\le \exp(2x_1^2b^2)
+ \qquad(\sigma\in\operatorname{Aut}(\mathbb C)).
+\]
+Set \(\gamma(\xi)=c_{\mathrm{path}}(\xi)/c_{\mathrm{path}}(1)\).
+Then \(\gamma(\xi)\Theta_\xi z\) is integral at every admissible place.
+Equation \eqref{eq:turn-ratio-lower} and the bounds for ramified pairs give
+\begin{equation}
+ \operatorname{ht}\bigl((|\gamma(\xi_\iota)|^{-2})_\iota\bigr)
+ \le 2m^2t x_1\le b.
+ \label{eq:auxiliary-factor-height}
+\end{equation}
+\leansrc{New/Determinant/Twist/LongForms}{Bounds for auxiliary forms after projection to the target}.
+
+\begin{proposition}\label{prop:determinant-inputs}
+For all admissible data, \(\Theta_\xi\) is injective for each twist \(\xi\).
+There exist a twist \(\xi_\iota\) admissible at the prime of each \(\iota\)
+and constants \(\gamma(\xi)\ne0\), with \(\gamma(1)=1\), such that
+\[
+ \operatorname{ht}\bigl((Z(1)/Z(\xi_\iota))_\iota\bigr)
+       \le h(b+E_4-H_0),\qquad
+ \operatorname{ht}\bigl((|\gamma(\xi_\iota)|^{-2})_\iota\bigr)\le b.
+\]
+The space \(V\) is spanned by auxiliary forms \(z\) for which
+\(\gamma(\xi)\Theta_\xi z\) is integral at every admissible place and
+\(\|\Theta_1 z\|_\sigma^2\le\exp(2x_1^2b^2)\) for every \(\sigma\).
+\end{proposition}
+
+\begin{proof}
+The comparison of lifts in the triangle gives injectivity.
+For a regular family, \eqref{eq:single-relative-height} holds at
+each stage. Substituting those bounds into
+\eqref{eq:chain-relative-factorization} gives
+\eqref{eq:chain-relative-height}. The surjection from deep level and
+the projection by \(e_0\) give the spanning family of auxiliary forms,
+with \eqref{eq:auxiliary-factor-height} for the same scalars \(\gamma(\xi)\).
+\end{proof}

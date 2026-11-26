@@ -15,10 +15,8 @@
  (\log x_1)^6\le\log b,\\
  \sqrt{x}\le m\le 2\sqrt{x},\qquad x^5\le r\le 3x^5.
 \end{gather*}
-\(\log\log b\) は \(10^{12}\operatorname{constantBound}(q_0,d)\) 以上を要求する。
-この定数と許容データの全条件は
-\leansrc{New/Reduction/Data/AdmissibleData}{\texttt{Parameters.constantBound}, \texttt{Data}}
-で定義される。また \(2^s=m^{22}\) とすると \(s\le32\log x\) であり、
+\(\log\log b\) は \(10^{12}C_{q_0,d}\) 以上を要求する。
+ここで \(C_{q_0,d}\) は底本が \(q_0,d\) だけから定める定数である。\leanref{Parameters.constantBound}また \(2^s=m^{22}\) とすると \(s\le32\log x\) であり、
 \[
   l_0=3^{\lfloor\log_3 s\rfloor+4},\qquad
   q_1=3l_0\,2^s q_0,\qquad q_2=(q_0d)^{s+6},\qquad
@@ -45,10 +43,7 @@
 \(\tau/\sigma\equiv\pm\ell^i\) および
 \(\rho/\sigma\equiv\pm\ell^j\) を同時に満たすことはない。
 合同は \(q_1\) の \(\ell\) と互いに素な部分を法とし、二つの符号は独立である。
-無限素点の同一視と疎性条件は、それぞれ
-\leansrc{New/Reduction/Data/FieldsAndPlaces}{無限素点の構成}、
-\leansrc{New/Reduction/Data/AdmissibleData}{\texttt{Parameters.IsSparse}}
-による。
+この条件が、底本で \(\Phi_b\) に課す疎性である。\leanref{Parameters.IsSparse}
 
 レベルを定める素数 \(p_0,p_1,N\) は \(q_2^2\) を法として \(1\) に合同である。
 相異なる \(p_0,p_1\) は \([b^{10},b^{11}]\) に属し、\(M=p_0p_1\) とする。
@@ -90,9 +85,8 @@
 \(s=O(\log x)\)、\(W\) は \(x\) の正の冪であることにより、
 許容データの対数スケールの条件が従う。
 
-疎集合は Behrend の構成で取る。底本の
-\leansrc{New/Reduction/Data/Existence}{\texttt{exists\_three\_term\_free}}
-では、座標を \(0,\ldots,H-1\) とする \(n\) 次元の箱の中で、二乗長の同じ
+疎集合には Behrend の構成を使う。\leanref{exists_three_term_free}
+座標を \(0,\ldots,H-1\) とする \(n\) 次元の箱の中で、二乗長の同じ
 点を少なくとも \(H^n/(nH^2)\) 個選ぶ。
 各点の座標を底 \(2l_0H\) の数字と読むことで指数の集合が得られる。
 このとき、正整数 \(a_1,a_2\) が \(a_1+a_2\le2l_0\) を満たせば、
@@ -126,9 +120,7 @@
 \]
 の下で \(H\le W\) であり、上の箱は収まる。選んだ素点の個数は
 \(3l_0 2^s/W^6\) 以上である。
-\(3l_0 2^s=|\Phi_a|\) および \(W^6\le\log b\) より必要な個数を確保できる。
-\leansrc{New/Reduction/Data/Existence}
-{\texttt{Parameters.exists\_isSparse}, \texttt{Parameters.exists\_isSparse\_of\_ranks}}。
+\(3l_0 2^s=|\Phi_a|\) および \(W^6\le\log b\) より必要な個数を確保できる。\leanref{Parameters.exists_isSparse}
 
 レベルの素数は、Siegel--Walfisz 型の評価から得る
 \(\log p\) の幅 \(W\) の窓に取る。
@@ -146,11 +138,7 @@
 \(W\le\sqrt{\log b}\) なのでこの窓は \eqref{eq:level-window} の範囲に収まる。
 \(N\equiv1\pmod4\) から \(N=u^2+v^2\) と書け、
 \(E\) には \(\sqrt{-1}\) が入るので \(\pi_N=u+v\sqrt{-1}\) とできる。
-窓の存在と各不等式の確認は
-\leansrc{New/Reduction/Data/Existence}{\texttt{eventually\_exists\_data}}
-およびその中で用いる
-\leansrc{New/Reduction/Data/Existence}{\texttt{exists\_isAdmissibleData}}
-に従う。
+窓の存在とスケールの不等式の確認は、底本の許容データの構成を用いる。\leanref{eventually_exists_data}
 \end{proof}
 
 \subsection{持ち上げの始域と目標空間}
@@ -165,9 +153,7 @@
 \(\pi_N\) では最後の行を \((0,\ldots,0,1)\) に合同とする。
 \(S\subseteq S_0\) は \(\pi_N\) を割る各素点 \(w\) について、
 \(w\) とその共役で支持される有限アデールの中心スカラー作用の平均が
-零になる形式の空間である。
-\leansrc{New/UpperBound/Objects/Columns}{始域とレベル}、
-\leansrc{New/UpperBound/Size/ShortColumns}{\texttt{ramifiedSourceForms}}。
+零になる形式の空間である。\leanref{ramifiedSourceForms}
 
 一方、\(Y_0\) 上の主合同レベルの形式には、\(p_0,p_1\) の上で
 \(\pi_M\) により選ぶ有限素点 \(w\) に対応した
@@ -214,8 +200,7 @@
 各 \(\tau\) について
 \(s_\infty(\kappa(\tau))-s_{\mathrm{fin}}(\kappa(\tau),\tau)\ge\kappa(\tau)\log b\)
 であることから従う。後者は底本のスケールと
-\(s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\) を用いる。
-\leansrc{New/Reduction/PrimeSums}{\texttt{primeSum\_le}, \texttt{jetSize\_sub\_primeSum\_mem\_Icc}}。
+\(s_{\mathrm{fin}}(y,\tau)\le4y\log x_1\) を用いる。\leanref{primeSum_le}
 
 \begin{proposition}\label{prop:total-remainder}
 許容データについて
@@ -253,6 +238,5 @@
  =|\Phi_a|(\log x_1+c_1)
    +\frac{|\Phi_b|}{\varphi(q_0)}(\log x-\log x_1).
 \]
-これが上の和の主項なので、差を取れば \eqref{eq:total-remainder} を得る。
-\leansrc{New/Reduction/PrimeSums}{\texttt{totalRemainder\_eq}}。
+これが上の和の主項なので、差を取れば \eqref{eq:total-remainder} を得る。\leanref{totalRemainder_eq}
 \end{proof}

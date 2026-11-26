@@ -1,6 +1,8 @@
 # ディリクレ $L$ 関数の一般化リーマン予想をどう証明するか
 
-**テータ持ち上げを約 $\sqrt{x}$ 回重ねると、素数冪和の剰余が $m$ 倍されて現れる。その項を残して、同じグラム行列式の上下の評価で主項を消す。** 以下では、この二つの仕組みを [日本語の論文本文](grh-ja.pdf) に対応させる。底本は Luke Sernau らの [Lean 可読版](https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/GUIDE.md)。
+[日本語PDF](grh-ja.pdf) · [English](OVERVIEW.en.md)
+
+長さ $x$ の素数冪和を評価するために、テータ持ち上げを約 $\sqrt{x}$ 回重ねる。素数和の剰余は、持ち上げた形式のグラム行列式の評価に段数 $m$ を掛けた形で現れる。同じ行列式の上界と下界を比較すると共通の主項が消え、剰余の上界が残る。この概説は PDF にも収録している。[底本の Lean 可読版](https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/GUIDE.md)
 
 ## 1　テータ持ち上げをなぜ繰り返すのか
 

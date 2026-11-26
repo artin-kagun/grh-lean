@@ -1,4 +1,4 @@
-\section{ポアンカレ 写像による生成}\label{sec:spanning}
+\section{ポアンカレ写像による生成}\label{sec:spanning}
 
 \begin{theorem}[生成定理 B]\label{thm:spanning}
 目標空間 \(V\) の次元 \(h\) は正である。さらに、有限集合 \(T\subset\bar G\) で
@@ -9,7 +9,7 @@
 を満たすものがある。
 \end{theorem}
 
-ポアンカレ 級数が張る空間を調べるには、有限レベル群による平行移動の間の内積を評価する。
+ポアンカレ級数が張る空間を調べるには、有限レベル群による平行移動の間の内積を評価する。
 以下では、まず全始域 \(S_0\) を使い、最後に分岐条件を課す。
 \(Y_0\) 上の主合同レベルの形式全体を \(\mathcal H\) とし、\(\bar G\) のユニタリ作用を
 \(\rho\colon\bar G\to U(\mathcal H)\) とする。\(V=e_0\mathcal H\) への直交射影
@@ -31,13 +31,10 @@ Bessel 座標で \(S_0\) に入る内積を用いる。以下、作用素のノ�
 自己同型群が自明なので、類の個数は最大コンパクトレベルでの質量
 \(\mathrm{mass}_r\) にレベルの指数 \(|\bar G|\) を掛けたものになる。
 各類に付随する代数表現の次元の積は、Weyl の次元公式により \(\deg_B\) に等しい。
-したがって、射影前の空間の次元は \eqref{eq:span-dimension-mass} の右辺である。
-ここで用いる多重度一致と定符号での次元公式は、それぞれ
-\leansrc{New/Spanning/Multiplicities/EqualMultiplicities}{\texttt{targetDim\_\allowbreak eq\_\allowbreak finrank\_\allowbreak goodForms\_\allowbreak spaceW}} と
-\leansrc{New/Spanning/SecondMoment/SpanningTheorem}{\texttt{finrank\_\allowbreak principalForms\_\allowbreak spaceW}} による。
+したがって、射影前の空間の次元は \eqref{eq:span-dimension-mass} の右辺である。\leanref{targetDim_eq_finrank_goodForms_spaceW}\leanref{finrank_principalForms_spaceW}
 
 \(J\) を主合同レベル、\(\nu\) を類によらない実ユニポテント格子の余体積とする。
-ポアンカレ 写像を底本の座標で \((\operatorname{vol}(J)\nu)^{-1/2}\) 倍したものを
+ポアンカレ写像を底本の座標で \((\operatorname{vol}(J)\nu)^{-1/2}\) 倍したものを
 \(P\colon S_0\to\mathcal H\) と書き、
 \[
  P_s=P^*\rho(s)P \qquad(s\in\bar G)
@@ -55,9 +52,7 @@ Bessel 座標で \(S_0\) に入る内積を用いる。以下、作用素のノ�
     W(y)W(\gamma^{-1}y)^*\,dy .
 \end{equation}
 ここで \(F\) は \(E\) の最大総実部分体、\(K\) は有限アデールでの格子安定化群であり、
-積分は無限素点の積にわたる。これは ポアンカレ 級数の内積を展開した
-\leansrc{New/Spanning/SecondMoment/SpanningTheorem}{\texttt{hasAmplitudeBlocks\_\allowbreak scaledPoincare}}
-である。
+積分は無限素点の積にわたる。この式はポアンカレ級数の内積を展開して得られる。\leanref{hasAmplitudeBlocks_scaledPoincare}
 
 有理点の Bessel 部分群を \(R_0\)、その整点の還元像を \(\bar R_0\subset\bar G\) とする。
 \eqref{eq:span-unfolded} を \(\gamma\in R_0\) に限ると、\(\bar R_0\) 上の
@@ -73,9 +68,7 @@ Bessel 座標で \(S_0\) に入る内積を用いる。以下、作用素のノ�
  P_t=P_1r_\psi(t),\qquad E_{ts}=r_\psi(t)E_s
  \quad(t\in\bar R_0,\ s\in\bar G)
 \end{equation}
-を得る。これは \(r_\psi(t)\) が始域で作用し、展開式の項を移し替えることによる。
-\leansrc{New/Spanning/Unfolding/Moments}{\texttt{besselTranslate\_\allowbreak mul\_\allowbreak left} と
-\texttt{HasAmplitudeBlocks} の同変性}を参照。
+を得る。これは \(r_\psi(t)\) が始域で作用し、展開式の項を移し替えることによる。\leanref{besselTranslate_mul_left}
 
 広い範囲の二次モーメントを評価する際には、\eqref{eq:span-unfolded} の項を、
 Bessel フレームの等方部分 \(I\) に付随する対応ごとにまとめる。
@@ -85,16 +78,13 @@ Bessel フレームの等方部分 \(I\) に付随する対応ごとにまとめ
 切断した Bessel 関数の振幅を合計し、その二乗ノルムを足した値を \(\nu^2\) で割った
 ものとする。この和には、フレーム積の行列式 \(\Delta\) とその一つ手前の首座小行列式
 \(\Delta'\) に対し
-\(\operatorname{termDisc}(\gamma)
+\(\mathfrak d(\gamma)
    =\Delta\overline{\Delta}-N^2\Delta'\overline{\Delta'}\ne0\)
-の項を入れる。これは底本の
-\leansrc{New/Spanning/RemainingTerms/Size}{\texttt{linkSecondMoment}} の正規化である。
+の項を入れる。\leanref{linkSecondMoment}
 
 以下では \(E\) に原始 \(5040\) 乗根と底本が選ぶ Weil 表現の分裂指標があることを用いる。
 許容データから作る Bessel 系とレベルに対し、底本は三つの評価を与える。
-この Bessel 系が評価の大きさとレベルに関する仮定を満たすことは
-\leansrc{New/Spanning/Unfolding/FillingAdmissible}{\texttt{filling} の \texttt{IsAdmissible} インスタンス}
-で確認される。
+底本が構成する Bessel 系は、以下の評価に必要な大きさとレベルの仮定を満たす。\leanref{filling}
 
 \begin{enumerate}
 \item
@@ -109,10 +99,7 @@ Bessel 部分群の外の項を整理する際、整ユニポテント群の左�
 \(b^{-kf}D_{\mathrm{id}}\le b^{-40}D_{\mathrm{id}}\) 以下である。
 切断前の Bessel 関数への復帰は二乗和の平方根で
 \(b^{-20}D_{\mathrm{id}}^{1/2}\) を加える。
-双方を合わせると \eqref{eq:span-cutoff} になる。
-\leansrc{New/Spanning/Unfolding/SquareExpansion}{\texttt{sqrt\_\allowbreak secondMoment\_\allowbreak compl\_\allowbreak besselS\_\allowbreak le}}
-と \leansrc{New/Spanning/RemainingTerms/Sum}{\texttt{secondMoment\_\allowbreak remainingTerms\_\allowbreak le}}
-を用いる。
+双方を合わせると \eqref{eq:span-cutoff} になる。\leanref{sqrt_secondMoment_compl_besselS_le}\leanref{secondMoment_remainingTerms_le}
 \item
 選んだ素点とその共役のうち、還元したフレームの張る空間が自己の \(s\) による像と
 非零の共通ベクトルをもつところのノルムの積を \(\operatorname{Meet}(s)\) とする。
@@ -121,10 +108,7 @@ Bessel 部分群の外の項を整理する際、整ユニポテント群の左�
  \mathcal L(\Omega)\leq
        \left(\frac{b^{2f}}z\right)^k D_{\mathrm{main}} .
 \end{equation}
-同じ対応をもつ項の組に対する、共通部分の格子を用いた計数である。
-用いる宣言は
-\leansrc{New/Spanning/RemainingTerms/Sum}{共通部分のノルムによる二次モーメント評価}
-に依拠する。
+同じ対応をもつ項の組に対する、共通部分の格子を用いた計数である。\leanref{linkSecondMoment_le_of_le_meetNorm}
 \item
 \(p_0\) の上の選んだ素点の集合 \(A\) で、各 \(w\in A\) について
 フレームの張る空間の非零ベクトルを \(w\) またはその共役で指定し、
@@ -138,8 +122,7 @@ Bessel 部分群の外の項を整理する際、整ユニポテント群の左�
 この場合、還元で小行列式が非零なので有理点でも非零となり、該当する項は
 Bessel 二重剰余類の大細胞に属する。底本では、Siegel の評価で類ごとの振幅の
 二乗和を局所密度の正の核で上から抑え、各素点の篩と Poisson 和公式でその核を評価する。
-固定条件一つにつき \(b^{-6k}\) を得る計算を含め、
-\leansrc{New/Spanning/MainTerm/EnergyEstimate}{\texttt{linkSecondMoment\_\allowbreak isOpenElement\_\allowbreak le}} を用いる。
+固定条件一つごとに因子 \(b^{-6k}\) が現れる。\leanref{linkSecondMoment_isOpenElement_le}
 \end{enumerate}
 
 \(\bar R_0G_i\) の元は、もう一方の素数の上で \(\bar R_0\) の元に一致する。
@@ -154,9 +137,7 @@ Bessel 二重剰余類の大細胞に属する。底本では、Siegel の評価
  \sum_{s\in\bar R_0G_i}\|E_s\|_{\mathrm{HS}}^2
  \leq b^{-12}D_{\mathrm{id}}
 \end{equation}
-を与える。この導出と冪根による剰余類の除外は
-\leansrc{New/Spanning/Unfolding/SquareExpansion}{\texttt{secondMoment\_\allowbreak compl\_\allowbreak besselS\_\allowbreak le}}
-で行われる。
+を与える。\leanref{secondMoment_compl_besselS_le}
 
 \subsection{射影の前後の二次モーメント}
 
@@ -179,8 +160,7 @@ Bessel 二重剰余類の大細胞に属する。底本では、Siegel の評価
  \sum_{t\in G_i}|a_i(t)|^2=a_i(1)\leq \tfrac12 b^{-8}
 \]
 を得る。等号は群環の自己共役な冪等元を二乗し、単位元の係数を比較して従う。
-不等号には
-\leansrc{New/Spanning/SecondMoment/SpanningTheorem}{\texttt{bad\_\allowbreak types\_\allowbreak rare}} を用いる。
+不等号は、射影で取り除く型の個数と次数の評価による。\leanref{bad_types_rare}
 
 \((1-e_{p_i})\) は直交射影だから
 \[
@@ -190,10 +170,7 @@ Bessel 二重剰余類の大細胞に属する。底本では、Siegel の評価
 Bessel 項のトレースは \(D_X\) 倍の還元ユニポテント指標の値である。
 \(a_i\) が類関数なのでこの指標を共役平均 \(\psi_U^\natural\) で置き換えられる。
 \(\sum_{s\in\bar G}|\psi_U^\natural(s)|^2\le2\) という底本の評価と
-Cauchy--Schwarz の不等式から、その寄与の絶対値は \(b^{-4}D_X\) 以下となる。
-用いた指標の跡公式と平均の評価は
-\leansrc{New/Spanning/Unfolding/Moments}{\texttt{trace\_\allowbreak besselTranslate\_\allowbreak eq\_\allowbreak mul\_\allowbreak reducedChar} と
-\texttt{sum\_\allowbreak norm\_\allowbreak reducedCharMean\_\allowbreak sq\_\allowbreak le}} である。
+Cauchy--Schwarz の不等式から、その寄与の絶対値は \(b^{-4}D_X\) 以下となる。\leanref{trace_besselTranslate_eq_mul_reducedChar}
 
 残る項には、関数 \(s\mapsto E_s\) を \(\bar R_0G_i\) の外で零として、
 \(f(s)\mapsto\sum_t a_i(t)f(st)\) を作用させる。この作用は
@@ -210,8 +187,9 @@ Cauchy--Schwarz の不等式から、その寄与の絶対値は \(b^{-4}D_X\) �
  \|e_0P Q_U\|_{\mathrm{HS}}^2\geq \dim U-5b^{-4}D_X
        \qquad(U\subset S_0).
 \end{equation}
-以上は \leansrc{New/Spanning/Unfolding/Moments}{\texttt{isNearIsometry\_\allowbreak piTensorElem\_\allowbreak comp}}
-の議論である。\eqref{eq:span-near-isometry} で \(U=S_0\) とすれば \(h>0\) を得る。
+\noindent
+この不等式が、射影後の写像の近似等長性を表す。\leanref{isNearIsometry_piTensorElem_comp}
+\eqref{eq:span-near-isometry} で \(U=S_0\) とすれば \(h>0\) を得る。
 
 次に、全群上の二次モーメントを求める。\(\beta(s)=\|P_s\|_{\mathrm{HS}}^2\) とし、
 \(X_t=\rho(t)PP^*\rho(t)^*\) と置く。跡の巡回性により
@@ -235,8 +213,7 @@ Cauchy--Schwarz の不等式から、その寄与の絶対値は \(b^{-4}D_X\) �
 により \(C/2\) 以下である。残りの元では \(z=p_0^f\) を取れ、
 \eqref{eq:span-intersect} の右辺は、\(p_0\ge b^{10}\) により \(C/8\) 以下になる。
 \eqref{eq:span-cutoff} の誤差項の二乗も \(C/8\) 以下なので、
-平方根の和の二乗は \(C/2\) 以下である。よって \(Q\le C\) を得る。
-\leansrc{New/Spanning/Unfolding/MomentBounds}{\texttt{secondMoment\_\allowbreak fixer\_\allowbreak univ\_\allowbreak le}} を参照。
+平方根の和の二乗は \(C/2\) 以下である。よって \(Q\le C\) を得る。\leanref{secondMoment_fixer_univ_le}
 
 次に \(w\notin A\) を一つ取れるとする。最大性により、\(w\) またはその共役で
 指定した任意の非零フレームベクトルを固定する元に限ると、\(\beta\) の和は
@@ -270,9 +247,7 @@ Cauchy--Schwarz の不等式から、その寄与の絶対値は \(b^{-4}D_X\) �
 \]
 ここで共役素点を許したのは、\(\pi\) の反傾表現で線形形式を固定する条件も得るためである。
 フレームの長さは \(b\) 以下なので、小行列式の和を取って
-開な還元の補集合の寄与は \(b^{-4}Q\) 以下となる。
-\leansrc{New/Spanning/SecondMoment/PositiveType}{\texttt{card\_\allowbreak mul\_\allowbreak sum\_\allowbreak det\_\allowbreak eq\_\allowbreak zero\_\allowbreak le}} と
-\leansrc{New/Spanning/Unfolding/MomentBounds}{\texttt{sum\_\allowbreak not\_\allowbreak isOpenElement\_\allowbreak le}} を参照。
+開な還元の補集合の寄与は \(b^{-4}Q\) 以下となる。\leanref{card_mul_sum_det_eq_zero_le}\leanref{sum_not_isOpenElement_le}
 
 開な還元にはスカラー倍の剰余類が含まれず、\(r_\psi(s)=0\) である。
 \eqref{eq:span-cutoff} と \eqref{eq:span-open-input} を適用し、
@@ -292,8 +267,7 @@ Cauchy--Schwarz の不等式から、その寄与の絶対値は \(b^{-4}D_X\) �
  \sum_{s\in\bar G}\|P_s\|_{\mathrm{HS}}^2
     \leq (1+9b^{-4})D_{\mathrm{main}}
 \end{equation}
-となる。これが \leansrc{New/Spanning/Unfolding/MomentBounds}{\texttt{sum\_\allowbreak secondMoment\_\allowbreak le}}
-の最大化の議論である。
+となる。\leanref{sum_secondMoment_le}
 
 \subsection{二次モーメントから階数へ}
 
@@ -330,9 +304,7 @@ Cauchy--Schwarz の不等式である。実際、
  \ \leq\ \|e_0P Q_U\|_{\mathrm{HS}}^2
  \ \leq\ \|Q_{F_1}\rho(s)P\|_{\mathrm{HS}}^2 .
 \]
-従って \(\dim U\le(1+\alpha+3\epsilon)D_X/2\) となる。
-\leansrc{New/Spanning/SecondMoment/FewTranslates}{\texttt{isSpread\_\allowbreak of\_\allowbreak second\_\allowbreak moment}}
-に対応する。
+従って \(\dim U\le(1+\alpha+3\epsilon)D_X/2\) となる。\leanref{isSpread_of_second_moment}
 
 商 \(V/F_1\) への写像の階数は \(D_X-\dim U\) である。
 したがって \(\operatorname{codim}F_1>16\epsilon h\) の間は
@@ -353,9 +325,7 @@ Cauchy--Schwarz の不等式である。実際、
   |T|D_X\le\tfrac52\bigl(1+\log(1/(16\epsilon))\bigr)h
                \le 5h\log(1+2b^2)
 \]
-を満たす。これが
-\leansrc{New/Spanning/SecondMoment/FewTranslates}{\texttt{IsSpread.exists\_\allowbreak few\_\allowbreak le\_\allowbreak finrank\_\allowbreak iSup\_\allowbreak range}}
-の選び方である。
+を満たす。\leanref{IsSpread.exists_few_le_finrank_iSup_range}
 
 \subsection{分岐条件を課した始域}
 
@@ -369,9 +339,7 @@ Cauchy--Schwarz の不等式である。実際、
 \[
  \operatorname{codim}_{S_0} S\le \frac{f}{N-1}D_X\le b^{-8}D_X.
 \]
-このレベルの指数の計算は
-\leansrc{New/UpperBound/Size/ShortColumns}{\texttt{finrank\_\allowbreak ker\_\allowbreak one\_\allowbreak sub\_\allowbreak scalingGenerator\_\allowbreak le}}
-に従う。
+ここで使ったのは、中心作用の固定空間の次元をレベルの指数で評価する補題である。\leanref{finrank_ker_one_sub_scalingGenerator_le}
 
 各写像を \(S\) に制限すると、\(S\) の補空間の像一つ分ずつ次元を失う。
 正規化のスカラーはいずれも非零なので
@@ -381,6 +349,4 @@ Cauchy--Schwarz の不等式である。実際、
    \le 5b^{-8}\log(1+2b^2)h\le 2h/b^2.
 \]
 先に得た \(2h/b^2\) と合わせた余次元が \(4h/b^2\) 以下であること、
-および \(\dim S\le D_X\) が生成定理 B の二つの不等式を与える。
-底本での結論は
-\leansrc{New/Reduction/ShortAndEnough}{\texttt{enough\_\allowbreak forms}} である。
+および \(\dim S\le D_X\) が生成定理 B の二つの不等式を与える。\leanref{enough_forms}

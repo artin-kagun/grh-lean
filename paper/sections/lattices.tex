@@ -36,11 +36,9 @@
 第一の変数に複素共役を取り、二つの変数にそれぞれ \(\rho_{\mathrm{W}}(A^{\mathsf T})\)、
 \(\rho_{\mathrm{W}}(A^{-1})\) を作用させると、ゲージの仮定により両方の座標が整になる。
 \(\rho_{\mathrm{W}}(A^{\mathsf T})^{\mathsf T}G\rho_{\mathrm{W}}(A^{-1})=G\) なので、
-この整な座標で計算する内積はもとの内積の \(\iota\) での像に等しい。
-\leansrc{Lib/Adelic/AutomorphicForms/PAdicGauge}{\texttt{gramForm\_mem\_embValRing}}。
+この整な座標で計算する内積はもとの内積の \(\iota\) での像に等しい。\leanref{gramForm_mem_embValRing}
 自明な捻りでは類の代表における値を標準 Weyl 基底で読んだ座標により、
-内積は有理数成分の正定値行列で表せる。
-\leansrc{New/Reduction/IntegralTargetForms}{\texttt{Data.targetLattice}}。
+内積は有理数成分の正定値行列で表せる。\leanref{Data.targetLattice}
 
 \begin{definition}
 \(y\in V\) が \(\iota\) で整であるとは、
@@ -64,10 +62,7 @@
 この座標と内積で計算した \(y\) の持ち上げのグラム行列式が、
 すべての \(\sigma\) で \(e^c\) 以下なら、対数二乗余体積は \(c\) 以下という。
 とくに \(\|\Theta_1 y_i\|_\sigma^2\le e^B\) がすべての \(i,\sigma\) で成り立てば、
-Hadamard の不等式から \(c=nB\) が使える。
-これらは \leansrc{New/Reduction/Lattices/TwistedLattice}
-{\texttt{IndexLe}, \texttt{CovolumeLe}, \texttt{covolumeLe\_of\_normSqAt\_le}}
-の条件である。
+Hadamard の不等式から \(c=nB\) が使える。\leanref{IndexLe}
 
 \subsection{高さの積公式}
 
@@ -91,11 +86,7 @@ Hadamard の不等式から \(c=nB\) が使える。
 \(\ell=2\) で \(|H|_\iota\) が全 \(\iota\) にわたり有界なので \(H\) は代数的である。
 実際、超越数なら同型を選んで任意の超越的な像に移せる。
 \(\overline{\mathbb Q_2}\) では任意の上界より大きい絶対値を持つ開集合に
-超越数がある。代数的数が可算で、その補集合が稠密だからである。
-同型の延長に使う条件は
-\leansrc{Lib/General/NumberTheory/PadicLimitsValuation}
-{\texttt{isAlgebraic\_of\_norm\_complexToCp\_le}}
-に示されている。
+超越数がある。代数的数が可算で、その補集合が稠密だからである。\leanref{isAlgebraic_of_norm_complexToCp_le}
 
 \(Q=\operatorname{Nm}_{\mathbb Q(H)/\mathbb Q}H\)、\(n_H=[\mathbb Q(H):\mathbb Q]\)
 とおくと、\(Q\ne0\) であり、
@@ -111,8 +102,7 @@ Hadamard の不等式から \(c=nB\) が使える。
 したがって \(C\ge0\)。特に、\(z\ne0\) の定数族の高さが \(C\) 以下で
 \(|\sigma z|\le e^{C'}\) が全 \(\sigma\) で成り立てば、\(C+C'\ge0\) である。
 実際、\(z^{-1}\) の定数族は乗数 \(H=z\) を取れば高さ \(C'\) 以下となり、
-二つの族の積が \(1\) になる。
-\leansrc{New/Reduction/Lattices/Heights}{\texttt{HeightLe.nonneg\_of\_one}, \texttt{HeightLe.neg\_le\_of\_norm\_map\_le}}。
+二つの族の積が \(1\) になる。\leanref{HeightLe.nonneg_of_one}
 
 \subsection{基底に対するグラム行列式}
 
@@ -190,7 +180,5 @@ Cauchy--Schwarz の不等式から
 
 \(\Theta_1\) は単射なので \(\Delta_1(w)\ne0\) である。
 その高さの上界と無限素点の上界を積公式で合わせれば
-\eqref{eq:gram-product} を得る。
-\leansrc{New/Reduction/Lattices/TwistedLattice}
-{\texttt{covolume\_add\_index\_nonneg}}。
+\eqref{eq:gram-product} を得る。\leanref{covolume_add_index_nonneg}
 \end{proof}

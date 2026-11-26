@@ -1,0 +1,100 @@
+\section*{Overview of the proof}
+\addcontentsline{toc}{section}{Overview of the proof}
+\label{sec:overview}
+
+To estimate a prime-power sum of length \(x\), the proof composes
+\(m\asymp\sqrt{x}\) theta lifts. The prime-sum remainder then appears with
+a factor of \(m\) in a bound for a Gram determinant. Upper and lower bounds
+for the same determinant cancel the common main term and leave a one-sided
+bound for the remainder.
+
+\subsection*{Why iterate the lift?}
+
+In Stepanov's method for curves over finite fields, an auxiliary function
+vanishes to high order at many points, and the sum of the orders of
+vanishing is compared with its degree. In his announcement, Alpöge
+describes iterated theta lifts over number fields as performing the role
+of this multiplicity. In his account of the original proof, Zhang
+also emphasizes that the leading finite-place valuation gains grow with
+the number \(m\) of stages. \cite[pp.~1, 4]{alpoege} \cite[Section~4]{zhang}
+
+In the readable edition, one estimates divisibility at finite places
+after differentiating a theta kernel. For example, if \(p\) is inert
+in \(K=\mathbb Q(\sqrt{-d})\), then \(1-\chi_K(p^j)\) is \(2\) for odd
+\(j\) and \(0\) for even \(j\). The contribution of \(p^j\) to the local
+valuation includes the cutoff weight. Summing the local gains with weight
+\(2\log p\) produces the required weighted prime-power sums. A seesaw
+identity connects the chain whose divisibility can be calculated to the
+chain whose Gram determinant is estimated.
+See Section~\ref{sec:upper-bound}.
+
+\subsection*{The main term cancels in the determinant comparison}
+
+Let \(c\) bound the logarithm of the squared covolume of \(n\) lifted
+forms, and let \(\delta\) bound the logarithmic index required to achieve
+integrality at the finite places. The index occurs as \(2\delta\)
+because one change-of-coordinates matrix enters for each variable of
+the Hermitian pairing. Let \(h\) be the target dimension, \(H_0\) the
+common main term, and \(\mathcal R\) the total prime-sum remainder.
+Write \(f\) for the number of infinite places and \(b\) for the weight
+at the selected places, and set \(a=xb\) and \(E_j=fa(\log b)^j\).
+The bounds take the form
+\[
+ h(H_0-3E_4)
+ \le c+2\delta
+ \le n(H_0-m\mathcal R+E_4)
+     +20h\log(1+2b^2)E_3 .
+\]
+
+For the upper bound, divisibility enters the normalization of the
+Poincaré map, after which one estimates the squared norms at infinity.
+A second moment for translates of the map yields
+\(n\ge(1-4/b^2)h\) linearly independent images of short forms.
+For the lower bound, one selects a twist at each finite place and
+compares the untwisted Gram determinant with one whose integrality
+is controlled at that place. The height of the determinant ratio uses
+Hecke \(L\)-values and bounds for denominators of projections to the
+spaces of lifts. The product formula then gives the same \(H_0\).
+See Sections~\ref{sec:lattices}--\ref{sec:determinant-estimates}.
+
+Using \(n\le h\) and \(H_0\ge0\) cancels \(H_0\), and \(n\ge h/2\)
+gives \(m\mathcal R\le fa(\log b)^5\). An identity using two weights
+at the infinite places extracts the remainder \(R_{q_0}(x)\) in
+the residue class \(1\) modulo \(q_0\). The fixed-modulus prime number
+theorem controls the terms at the larger cutoff \(x_1\). The leading
+term of the remaining bound is \(\varphi(q_0)(\log b)^6/m\).
+Since \(m\ge\sqrt{x}\) and \(\log b\) can be chosen below an
+appropriately small positive power of \(x\), this gives the one-sided
+bound \(R_{q_0}(x)\le x^{-1/2+\varepsilon}\).
+See Sections~\ref{sec:data} and \ref{sec:conclusion}.
+
+\begin{editorialnote}
+The working guide to the zeta case published by Rubinstein explains
+the square-root scale in the original, longer proof. After
+normalization by the coefficient of the prime sum, errors on scales
+\(x/m\) and \(m\) balance when \(m\asymp\sqrt{x}\). The comparison and
+the bound above are those of the readable edition.
+\cite[Section~I.8]{rubinstein}
+\end{editorialnote}
+
+\subsection*{Why a one-sided bound excludes zeros}
+
+The remainder \(R_{q_0}(x)\) comes from summing over
+\(n\equiv1\pmod{q_0}\) with weight
+\(\Lambda(n)\bigl(1-(n/d)\bigr)(1/n-1/x)\) and subtracting
+\(\log x/\varphi(q_0)+c_{q_0}\). Zeros of the original
+\(L\)-functions and zeros of their quadratic twists enter the
+transform of this remainder with opposite residue signs.
+The choice of \(d\), made with the height of the candidate zero
+in mind, excludes twisted zeros in the relevant region. The
+remaining residues on the real axis are nonnegative. The
+one-sided bound supplies a nonnegative density for Landau's lemma,
+which rules out the pole associated to the candidate zero.
+The functional equation carries the result to the other side
+of the critical line. See Section~\ref{sec:analytic}.
+
+For local divisibility and the slope comparison in the original proof,
+see the accounts by Slijepčević and Zhang. The analytic reduction described
+by Slijepčević uses bounds on intervals \([Y,Y^{3/2}]\) with arbitrarily
+large \(Y\), as in the original proof.
+\cite[Section~1.3]{slijepcevic} \cite[Sections~1 and~4]{zhang}

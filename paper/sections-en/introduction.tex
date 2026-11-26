@@ -1,0 +1,43 @@
+\section{The main theorem}
+
+\begin{theorem}[Alpöge's formal proof]\label{thm:grh}
+Let \(q\ge1\) be an integer and let \(\chi\) be a Dirichlet character
+modulo \(q\).
+\begin{enumerate}
+\item If \(\RePart s>1/2\), then \(L(s,\chi)\ne0\), with the exception
+      of \(s=1\) when \(\chi\) is principal.
+\item If \(0<\RePart s<1\) and \(L(s,\chi)=0\), then \(\RePart s=1/2\).
+\item All zeros of the Riemann zeta function other than the trivial
+      zeros \(-2,-4,\ldots\) lie on \(\RePart s=1/2\).
+\end{enumerate}
+\end{theorem}
+
+\noindent
+Here \(L(s,\chi)\) is the meromorphic continuation of
+\(\sum_{n\ge1}\chi(n)n^{-s}\) from \(\RePart s>1\).
+The character \(\chi\) may be imprimitive.
+The \(L\)-function of the character modulo \(1\) is \(\zeta(s)\).
+Of the five formal statements, two express (3).
+The other three express (1), (2), and the specialization of (2)
+to primitive characters.
+See the \leansrc{Statements}{formal statements} and the
+\leansrc{Main}{main declarations}.
+
+We first deduce (1) from a one-sided bound for a weighted prime-power sum
+(Section~\ref{sec:analytic}). We then place weights at the infinite places
+of an auxiliary number field to express the remainder in terms of
+divisibility of theta derivatives (Section~\ref{sec:data}).
+Section~\ref{sec:lattices} combines the infinite and finite places for
+a single Gram determinant. Sections~\ref{sec:upper-bound}--\ref{sec:determinant-estimates}
+establish the comparison's upper bound, dimension estimate, and bound
+for the determinant ratios under twisting. Section~\ref{sec:conclusion}
+deduces the theorem.
+
+The proof follows Alpöge's announcement \cite{alpoege} and the
+\texttt{grh/} project, which the source repository calls its readable
+edition \cite{grh-source}. References beginning with L point to the
+corresponding declarations in the appendix. We state the form of the
+technical estimates used for local theta kernels and congruences and
+cite them from the Lean development. Blue notes are editorial
+explanations. The overview that follows describes the main ideas and
+points to related accounts.
